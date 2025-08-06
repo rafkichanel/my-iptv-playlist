@@ -2,39 +2,38 @@ name: Update IPTV Playlist
 
 on:
   schedule:
-    - cron: "0 */6 * * *"  # Update setiap 6 jam (00:00, 06:00, 12:00, 18:00 UTC)
-  workflow_dispatch:        # Memungkinkan trigger manual
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
 
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Checkout kode
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0  # Penting untuk history commit
+          fetch-depth: 0
 
-      # Step 2: Download playlist
       - name: Download Playlist
         run: |
-          # Gunakan curl dengan redirect dan timeout
-          curl -L --max-time 30 -o playlist.m3u "https://bit.ly/BrFiDO7"
-          
-          # Buat file log update
+          curl -L --max-time 30 -o playlist.m3u "https://rebrand.ly/2b660d"
           echo "Last Update: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" > LAST_UPDATE.txt
-          echo "Source: https://bit.ly/BrFiDO7" >> LAST_UPDATE.txt
-          echo "Repository: https://github.com/$GITHUB_REPOSITORY" >> LAST_UPDATE.txt
+          echo "Source: https://rebrand.ly/2b660d" >> LAST_UPDATE.txt
           
-          # Cek apakah file playlist valid
+          # Validasi file
           if [ ! -s playlist.m3u ]; then
             echo "#EXTM3U" > playlist.m3u
-            echo "#ERROR: Failed to download playlist" >> playlist.m3u
+            echo "# ERROR: Gagal download playlist" >> playlist.m3u
           fi
 
-      # Step 3: Commit perubahan
       - name: Commit Changes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add playlist.m3u LAST_UPDAT      - name: Commit Changes
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
