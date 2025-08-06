@@ -1,5 +1,62 @@
-- name: Commit Changes
-  env:
-    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  run: |
-    git
+name: Update IPTV Playlist
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"  # Update setiap 6 jam (00:00, 06:00, 12:00, 18:00 UTC)
+  workflow_dispatch:        # Memungkinkan trigger manual
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout kode
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0  # Penting untuk history commit
+
+      # Step 2: Download playlist
+      - name: Download Playlist
+        run: |
+          # Gunakan curl dengan redirect dan timeout
+          curl -L --max-time 30 -o playlist.m3u "https://bit.ly/BrFiDO7"
+          
+          # Buat file log update
+          echo "Last Update: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" > LAST_UPDATE.txt
+          echo "Source: https://bit.ly/BrFiDO7" >> LAST_UPDATE.txt
+          echo "Repository: https://github.com/$GITHUB_REPOSITORY" >> LAST_UPDATE.txt
+          
+          # Cek apakah file playlist valid
+          if [ ! -s playlist.m3u ]; then
+            echo "#EXTM3U" > playlist.m3u
+            echo "#ERROR: Failed to download playlist" >> playlist.m3u
+          fi
+
+      # Step 3: Commit perubahan
+      - name: Commit Changes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Konfigurasi git
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          
+          # Tambahkan file yang diubah
+          git add playlist.m3u LAST_UPDATE.txt
+          
+          # Commit hanya jika ada perubahan
+          git diff-index --quiet HEAD || git commit -m "Auto-update playlist [skip ci]"
+          
+          # Push perubahan
+          git push "https://$GH_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+
+      # Step 4: Notifikasi status (opsional)
+      - name: Status Notification
+        if: always()
+        run: |
+          if [ "${{ job.status }}" == "success" ]; then
+            echo "✅ Update berhasil!"
+          else
+            echo "❌ Update gagal! Cek log untuk detail"
+          fi
