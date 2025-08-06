@@ -1,0 +1,27 @@
+name: Update IPTV Playlist
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download Playlist
+        run: |
+          wget -O playlist.m3u "https://bit.ly/BrFiDO7"
+          echo "Last Update: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" > LAST_UPDATE.txt
+          echo "Source: https://bit.ly/BrFiDO7" >> LAST_UPDATE.txt
+
+      - name: Commit Changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add playlist.m3u LAST_UPDATE.txt
+          git commit -m "Auto-update playlist"
+          git push
