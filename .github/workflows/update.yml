@@ -2,8 +2,8 @@ name: Update IPTV Playlist
 
 on:
   schedule:
-    - cron: "0 */6 * * *"
-  workflow_dispatch:
+    - cron: "0 */6 * * *"  # Setiap 6 jam
+  workflow_dispatch:        # Memungkinkan trigger manual
 
 jobs:
   update:
@@ -17,14 +17,17 @@ jobs:
 
       - name: Download Playlist
         run: |
+          # Unduh playlist menggunakan curl, dengan timeout 30 detik
           curl -L --max-time 30 -o playlist.m3u "https://rebrand.ly/2b660d"
+          
+          # Buat file log update
           echo "Last Update: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" > LAST_UPDATE.txt
           echo "Source: https://rebrand.ly/2b660d" >> LAST_UPDATE.txt
           
-          # Validasi file
+          # Jika file playlist kosong, buat playlist dengan pesan error
           if [ ! -s playlist.m3u ]; then
             echo "#EXTM3U" > playlist.m3u
-            echo "# ERROR: Gagal download playlist" >> playlist.m3u
+            echo "# ERROR: Failed to download playlist" >> playlist.m3u
           fi
 
       - name: Commit Changes
@@ -33,29 +36,12 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add playlist.m3u LAST_UPDAT      - name: Commit Changes
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Konfigurasi git
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          
-          # Tambahkan file yang diubah
           git add playlist.m3u LAST_UPDATE.txt
           
           # Commit hanya jika ada perubahan
-          git diff-index --quiet HEAD || git commit -m "Auto-update playlist [skip ci]"
-          
-          # Push perubahan
-          git push "https://$GH_TOKEN@github.com/$GITHUB_REPOSITORY.git"
-
-      # Step 4: Notifikasi status (opsional)
-      - name: Status Notification
-        if: always()
-        run: |
-          if [ "${{ job.status }}" == "success" ]; then
-            echo "✅ Update berhasil!"
+          if git diff-index --quiet HEAD; then
+            echo "No changes to commit."
           else
-            echo "❌ Update gagal! Cek log untuk detail"
+            git commit -m "Auto-update playlist [skip ci]"
+            git push "https://$GH_TOKEN@github.com/$GITHUB_REPOSITORY.git"
           fi
