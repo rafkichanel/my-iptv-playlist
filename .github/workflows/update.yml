@@ -3,7 +3,7 @@ name: Update IPTV Playlist
 on:
   schedule:
     - cron: "0 */6 * * *"  # Setiap 6 jam
-  workflow_dispatch:        # Memungkinkan trigger manual
+  workflow_dispatch:        # Bisa dijalankan manual juga
 
 jobs:
   update:
@@ -15,19 +15,19 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - name: Download Playlist
+      - name: Download and Save as playlist.txt
         run: |
-          # Unduh playlist menggunakan curl, dengan timeout 30 detik
-          curl -L --max-time 30 -o playlist.m3u "https://iptv-org.github.io/iptv/index.m3u"
+          # Unduh playlist dan simpan sebagai playlist.txt
+          curl -L --max-time 30 -o playlist.txt "https://iptv-org.github.io/iptv/index.m3u"
           
-          # Buat file log update
+          # Buat file log
           echo "Last Update: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" > LAST_UPDATE.txt
           echo "Source: https://iptv-org.github.io/iptv/index.m3u" >> LAST_UPDATE.txt
           
-          # Jika file playlist kosong, buat playlist dengan pesan error
-          if [ ! -s playlist.m3u ]; then
-            echo "#EXTM3U" > playlist.m3u
-            echo "# ERROR: Failed to download playlist" >> playlist.m3u
+          # Jika playlist.txt kosong, isi dengan pesan error
+          if [ ! -s playlist.txt ]; then
+            echo "#EXTM3U" > playlist.txt
+            echo "# ERROR: Failed to download playlist" >> playlist.txt
           fi
 
       - name: Commit Changes
@@ -36,7 +36,7 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add playlist.m3u LAST_UPDATE.txt
+          git add playlist.txt LAST_UPDATE.txt
           
           # Commit hanya jika ada perubahan
           if git diff-index --quiet HEAD; then
