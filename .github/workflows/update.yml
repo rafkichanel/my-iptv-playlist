@@ -1,18 +1,19 @@
-name: Update Playlist
+name: Update Playlist RfK01.m3u
 
 on:
   schedule:
-    - cron: "0 */6 * * *" # update tiap 6 jam
+    - cron: "0 */6 * * *"  # tiap 6 jam
   workflow_dispatch:
 
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
+      - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Setup Python
+      - name: Setup Python 3
         uses: actions/setup-python@v4
         with:
           python-version: "3.x"
@@ -20,13 +21,14 @@ jobs:
       - name: Install requests
         run: pip install requests
 
-      - name: Jalankan update playlist
+      - name: Run playlist update script
         run: python scripts/update_playlist.py
 
-      - name: Commit hasilnya
+      - name: Commit and Push changes
         run: |
+          git config --local user.name "github-actions"
           git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          git add .
-          git commit -m "Auto update playlist" || echo "Tidak ada perubahan"
+          git add RfK01.m3u
+          git commit -m "Auto update RfK01.m3u playlist"
           git push
+        continue-on-error: true  # supaya workflow sukses walaupun gak ada perubahan
