@@ -1,47 +1,32 @@
-name: Update IPTV Playlist
+name: Update Playlist
 
 on:
   schedule:
-    - cron: "0 */6 * * *"  # Setiap 6 jam
-  workflow_dispatch:        # Bisa dijalankan manual juga
+    - cron: "0 */6 * * *" # update tiap 6 jam
+  workflow_dispatch:
 
 jobs:
-  update:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
+          python-version: "3.x"
 
-      - name: Download and Save as playlist.txt
-        run: |
-          # Unduh playlist dan simpan sebagai playlist.txt
-          curl -L --max-time 30 -o playlist.txt "https://iptv-org.github.io/iptv/index.m3u"
-          
-          # Buat file log
-          echo "Last Update: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" > LAST_UPDATE.txt
-          echo "Source: https://iptv-org.github.io/iptv/index.m3u" >> LAST_UPDATE.txt
-          
-          # Jika playlist.txt kosong, isi dengan pesan error
-          if [ ! -s playlist.txt ]; then
-            echo "#EXTM3U" > playlist.txt
-            echo "# ERROR: Failed to download playlist" >> playlist.txt
-          fi
+      - name: Install requests
+        run: pip install requests
 
-      - name: Commit Changes
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Jalankan update playlist
+        run: python scripts/update_playlist.py
+
+      - name: Commit hasilnya
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add playlist.txt LAST_UPDATE.txt
-          
-          # Commit hanya jika ada perubahan
-          if git diff-index --quiet HEAD; then
-            echo "No changes to commit."
-          else
-            git commit -m "Auto-update playlist [skip ci]"
-            git push "https://$GH_TOKEN@github.com/$GITHUB_REPOSITORY.git"
-          fi
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "Auto update playlist" || echo "Tidak ada perubahan"
+          git push
