@@ -18,7 +18,7 @@ jobs:
       - name: Download Playlist
         run: |
           # Unduh playlist menggunakan curl, dengan timeout 30 detik
-          curl -L --max-time 30 -o playlist.m3u "https://rebrand.ly/2b660d"
+          curl -L --max-time 30 -o playlist.m3u "https://iptv-org.github.io/iptv/index.m3u"
           
           # Buat file log update
           echo "Last Update: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" > LAST_UPDATE.txt
