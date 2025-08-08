@@ -1,48 +1,52 @@
 import requests
-import base64
 import re
+import base64
 
 SOURCE1 = "https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/refs/heads/tyo878787/RfK01.m3u"
 SOURCE2 = "https://iptv-org.github.io/iptv/index.m3u"
-OUTPUT_FILE = "RfK01.m3u"
+OUTPUT = "RfK01.m3u"
 
-HTTP_URL_RE = re.compile(r'^(https?://\S+)$')
+DECODER_BASE = "https://your-worker-domain.workers.dev"  # Ganti ini dengan URL Cloudflare Worker-mu
 
-def encode_url(url):
-    b = base64.urlsafe_b64encode(url.encode()).decode().rstrip("=")
-    return b
+# Regex untuk URL http/https
+URL_RE = re.compile(r"^(https?://\S+)$")
 
-def process_playlist(content, decoder_base):
-    lines = content.splitlines()
-    out_lines = []
+def encode_url(url: str) -> str:
+    # Encode URL jadi base64 tanpa padding dan URL-safe
+    b64 = base64.urlsafe_b64encode(url.encode()).decode().rstrip("=")
+    return b64
+
+def process_playlist(text: str) -> str:
+    lines = text.splitlines()
+    output = []
     for line in lines:
-        m = HTTP_URL_RE.match(line.strip())
+        m = URL_RE.match(line.strip())
         if m:
-            encoded = encode_url(m.group(1))
-            out_lines.append(f"{decoder_base}/{encoded}")
+            url = m.group(1)
+            encoded = encode_url(url)
+            output.append(f"{DECODER_BASE}/{encoded}")
         else:
-            out_lines.append(line)
-    return "\n".join(out_lines)
+            output.append(line)
+    return "\n".join(output)
 
 def main():
-    DECODER_BASE = "https://your-cloudflare-worker.workers.dev"  # Ganti dengan URL decoder kamu
-
-    # Ambil source playlist
+    # Ambil playlist sumber
     p1 = requests.get(SOURCE1).text
     p2 = requests.get(SOURCE2).text
 
     combined = p1 + "\n" + p2
 
-    encoded_playlist = process_playlist(combined, DECODER_BASE)
+    processed = process_playlist(combined)
 
-    # Pastikan header
-    if not encoded_playlist.lstrip().startswith("#EXTM3U"):
-        encoded_playlist = "#EXTM3U\n" + encoded_playlist
+    # Pastikan ada header #EXTM3U
+    if not processed.lstrip().startswith("#EXTM3U"):
+        processed = "#EXTM3U\n" + processed
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        f.write(encoded_playlist)
+    # Simpan ke file output
+    with open(OUTPUT, "w", encoding="utf-8") as f:
+        f.write(processed)
 
-    print(f"Berhasil update {OUTPUT_FILE}")
+    print(f"✅ Playlist berhasil dibuat di {OUTPUT}")
 
 if __name__ == "__main__":
     main()
