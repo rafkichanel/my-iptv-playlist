@@ -22,7 +22,7 @@ jobs:
           
           # Buat file log update
           echo "Last Update: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" > LAST_UPDATE.txt
-          echo "Source: https://privatebin.net/?743289ef7dd5d999#8EmJpx4uVkxGgRSBatQuKt2Vay2eYyNyGfEJJe4URBxR" >> LAST_UPDATE.txt
+          echo "Source: https://iptv-org.github.io/iptv/index.m3u" >> LAST_UPDATE.txt
           
           # Jika file playlist kosong, buat playlist dengan pesan error
           if [ ! -s playlist.m3u ]; then
