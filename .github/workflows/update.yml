@@ -1,35 +1,32 @@
-name: Update Playlist Sederhana
+name: Update Playlist
 
 on:
   schedule:
-    - cron: "0 */6 * * *"
-  workflow_dispatch:
-
-permissions:
-  contents: write
+    - cron: '0 */6 * * *'   # Jalan tiap 6 jam
+  workflow_dispatch:        # Bisa dijalankan manual
 
 jobs:
-  update:
+  update-playlist:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-        
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
-          
-      - name: Install requests
-        run: pip install requests
-        
-      - name: Run script
-        run: python update_playlist.py
-        
-      - name: Commit and push
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add RfK01.m3u
-          git diff --cached --quiet || git commit -m "Update playlist: $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git push
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Download playlist sumber 1
+      run: curl -o RfK01_source1.m3u https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/refs/heads/tyo878787/RfK01.m3u
+
+    - name: Download playlist sumber 2
+      run: curl -o RfK01_source2.m3u https://iptv-org.github.io/iptv/index.m3u
+
+    - name: Gabungkan playlist
+      run: |
+        cat RfK01_source1.m3u RfK01_source2.m3u > RfK01.m3u
+
+    - name: Commit dan push jika ada perubahan
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add RfK01.m3u
+        git diff --cached --quiet || git commit -m "Update playlist otomatis"
+        git push origin tyo878787
