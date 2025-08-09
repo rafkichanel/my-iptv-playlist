@@ -1,42 +1,18 @@
-name: Update Bree IPTV Playlist
-
-on:
-  schedule:
-    - cron: "0 */6 * * *"  # Run every 6 hours
-  workflow_dispatch:
-
-permissions:
-  contents: write
-
-jobs:
-  update:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
-          
-      - name: Install dependencies
-        run: pip install requests
-        
-      - name: Update playlist
-        run: python update_playlist.py
-        
-      - name: Commit and push changes
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add RfK01.m3u
-          
-          # Only commit if changes exist
-          if git diff --cached --quiet; then
-            echo "🟢 No changes to playlist"
-          else
-            git commit -m "Auto update: $(date -u +'%Y-%m-%d %H:%M UTC')"
-            git push
-            echo "🚀 Playlist updated successfully"
-          fi
+- name: Update playlist
+  run: python update_playlist.py
+  
+- name: Debug Info
+  run: |
+    echo "===== DEBUG INFO ====="
+    ls -lh
+    head -n 20 RfK01.m3u || true
+    echo "======================"
+    
+- name: Upload Playlist Artifact
+  uses: actions/upload-artifact@v3
+  if: always()
+  with:
+    name: playlist-debug
+    path: |
+      RfK01.m3u
+      update_playlist.log  # Jika script Anda membuat log file
