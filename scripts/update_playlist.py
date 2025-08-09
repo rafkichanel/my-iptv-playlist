@@ -1,96 +1,83 @@
 import requests
 import sys
-import os
-import re
 from datetime import datetime, timedelta
 
 # Konfigurasi
 SOURCE_PRIVATE = "https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/refs/heads/tyo878787/RfK01.m3u"
 SOURCE_PUBLIC = "https://iptv-org.github.io/iptv/index.m3u"
 OUTPUT_FILE = "RfK01.m3u"
-REFRESH_HOURS = 6  # Interval update dalam jam
-SHORT_URL = "https://rebrand.ly/RFK02"  # Menggunakan shortlink Bree Anda
-
-# Regex untuk mendeteksi baris EXTINF dan URL
-EXTINF_PATTERN = re.compile(r'^#EXTINF:')
-URL_PATTERN = re.compile(r'^https?://')
+REFRESH_HOURS = 6
+SHORT_URL = "https://rebrand.ly/RFK02"
 
 def fetch_playlist(url):
     try:
-        print(f"📡 Fetching playlist: {url}")
+        print(f"🔗 Fetching playlist: {url}")
         response = requests.get(url, timeout=15)
         response.raise_for_status()
         return response.text
     except Exception as e:
-        print(f"❌ Error fetching {url}: {str(e)}")
+        print(f"❌ Error: {str(e)}")
         return ""
 
-def clean_playlist(content):
-    """Membersihkan playlist dan memastikan setiap channel memiliki URL"""
+def ensure_valid_m3u(content):
+    """Pastikan konten adalah playlist M3U yang valid"""
     lines = content.splitlines()
-    cleaned_lines = []
-    i = 0
-    total_lines = len(lines)
+    output_lines = []
     
-    while i < total_lines:
+    # Cari header #EXTM3U, jika tidak ada tambahkan
+    if not lines or lines[0].strip() != "#EXTM3U":
+        output_lines.append("#EXTM3U")
+    
+    i = 0
+    while i < len(lines):
         line = lines[i].strip()
         if not line:
             i += 1
             continue
             
-        if EXTINF_PATTERN.match(line):
-            # Ini baris EXTINF, ambil sampai baris URL berikutnya
-            channel_lines = [line]
-            i += 1
-            # Cari baris URL berikutnya
-            while i < total_lines:
-                next_line = lines[i].strip()
-                if not next_line:
-                    i += 1
-                    continue
-                if URL_PATTERN.match(next_line):
-                    channel_lines.append(next_line)
-                    cleaned_lines.extend(channel_lines)
-                    i += 1
-                    break
-                elif EXTINF_PATTERN.match(next_line):
-                    # Baris EXTINF berikutnya tanpa URL? skip channel ini
-                    print(f"⚠️ Channel tanpa URL: {line}")
-                    break
-                else:
-                    # Line tambahan (seperti tvg-logo, group-title) tambahkan
-                    channel_lines.append(next_line)
-                    i += 1
+        # Jika baris adalah URL dan sebelumnya bukan #EXTINF, tambahkan #EXTINF default
+        if line.startswith("http"):
+            # Buat EXTINF default
+            channel_name = f"Channel {len(output_lines)//2 + 1}"
+            output_lines.append(f'#EXTINF:-1,{channel_name}')
+            output_lines.append(line)
+        elif line.startswith("#EXTINF"):
+            # Jika ada EXTINF, ambil sampai ketemu URL
+            output_lines.append(line)
+            # Cari URL berikutnya
+            j = i + 1
+            while j < len(lines) and not lines[j].strip().startswith("http"):
+                j += 1
+            if j < len(lines):
+                output_lines.append(lines[j].strip())
+                i = j  # Lompat ke baris URL
         else:
-            # Baris lain (seperti header) tambahkan langsung
-            cleaned_lines.append(line)
-            i += 1
+            # Baris lain (komentar, dll) tetap disimpan
+            output_lines.append(line)
             
-    return "\n".join(cleaned_lines)
+        i += 1
+        
+    return "\n".join(output_lines)
 
 def main():
-    print("\n" + "="*50)
-    print("🚀 Starting Bree IPTV Playlist Update")
-    print("="*50)
+    print("🚀 Starting playlist update...")
     
     # Ambil playlist
-    private_playlist = fetch_playlist(SOURCE_PRIVATE)
-    public_playlist = fetch_playlist(SOURCE_PUBLIC)
+    private_content = fetch_playlist(SOURCE_PRIVATE)
+    public_content = fetch_playlist(SOURCE_PUBLIC)
     
-    # Bersihkan dan gabungkan
-    combined = ""
-    if private_playlist:
-        cleaned_private = clean_playlist(private_playlist)
-        combined += cleaned_private + "\n\n"
-    if public_playlist:
-        cleaned_public = clean_playlist(public_playlist)
-        combined += cleaned_public + "\n\n"
+    # Pastikan format valid
+    private_playlist = ensure_valid_m3u(private_content) if private_content else ""
+    public_playlist = ensure_valid_m3u(public_content) if public_content else ""
+    
+    # Gabungkan: private dulu, lalu public
+    combined = private_playlist + "\n" + public_playlist if private_playlist and public_playlist else private_playlist or public_playlist
     
     if not combined:
-        print("\n❌ Critical Error: All sources failed!")
+        print("❌ Error: No valid playlist content!")
         sys.exit(1)
     
-    # Header untuk auto-update
+    # Header untuk auto-update Ott Navigator
     now_utc = datetime.utcnow()
     next_update = now_utc + timedelta(hours=REFRESH_HOURS)
     
@@ -99,32 +86,21 @@ def main():
 ## Created: {now_utc.strftime("%Y-%m-%d %H:%M:%S UTC")}
 ## Next Update: {next_update.strftime("%Y-%m-%d %H:%M:%S UTC")}
 ## User Access: {SHORT_URL}
-## Private Source: {SOURCE_PRIVATE}
-## Public Source: {SOURCE_PUBLIC}
-#REFRESH-INTERVAL:{REFRESH_HOURS * 3600}
+#REFRESH-INTERVAL:{REFRESH_HOURS * 3600:.1f}
 #REFRESH-URI:{SHORT_URL}
 #REFRESH-DATE:{next_update.strftime("%Y-%m-%dT%H:%M:%SZ")}
-#GENERATED-BY:https://github.com/tyo878787/my-iptv-playlist\n\n"""
+#GENERATED-BY:https://github.com/tyo878787/my-iptv-playlist
+
+"""
     
-    # Gabungkan header dengan konten
     full_playlist = header + combined.strip()
     
     # Simpan ke file
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(full_playlist)
     
-    # Verifikasi dasar
-    channel_count = full_playlist.count('#EXTINF')
-    print("\n" + "="*50)
-    print(f"✅ Success! Playlist saved to {OUTPUT_FILE}")
-    print(f"🔗 User Access URL: {SHORT_URL}")
-    print(f"⏱ Next auto-refresh: {next_update.strftime('%Y-%m-%d %H:%M UTC')}")
-    print(f"📺 Total channels: {channel_count}")
-    print("="*50)
-    
-    # Verifikasi file
-    file_size = os.path.getsize(OUTPUT_FILE)
-    print(f"📁 File size: {file_size/1024:.2f} KB")
+    print(f"✅ Playlist saved to {OUTPUT_FILE}")
+    print(f"📺 Total channels: {full_playlist.count('#EXTINF')}")
 
 if __name__ == "__main__":
     main()
