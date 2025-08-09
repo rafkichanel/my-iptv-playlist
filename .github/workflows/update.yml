@@ -1,4 +1,4 @@
-name: Bree IPTV Auto-Update
+name: Update Bree IPTV Playlist
 
 on:
   schedule:
@@ -9,36 +9,44 @@ permissions:
   contents: write
 
 jobs:
-  update:
+  update_playlist:
+    name: Update Playlist
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # Required for proper git diff
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.10"
+          cache: 'pip'  # Cache dependencies for faster runs
 
       - name: Install dependencies
         run: pip install requests
 
-      - name: Run Bree update script
+      - name: Run Playlist Update
         run: python update_playlist.py
 
       - name: Commit and Push Changes
         run: |
+          # Set up git config
           git config user.name "bree-iptv-bot"
-          git config user.email "bree@example.com"
+          git config user.email "bree-bot@users.noreply.github.com"
+          
+          # Add only playlist file
           git add RfK01.m3u
           
-          # Hanya commit jika ada perubahan
+          # Check for changes
           if [ -z "$(git status --porcelain RfK01.m3u)" ]; then
-            echo "🟢 No changes in playlist"
+            echo "🟢 No changes to playlist"
           else
-            git commit -m "Bree Auto-Update: $(date -u +'%Y-%m-%d %H:%M UTC')"
+            # Commit changes
+            git commit -m "Auto Update: $(date -u +'%Y-%m-%d %H:%M UTC')"
+            
+            # Push changes
             git push
-            echo "🚀 Playlist updated and pushed"
+            echo "🚀 Playlist updated and pushed to repository"
           fi
