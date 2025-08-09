@@ -2,8 +2,8 @@ name: Update Bree IPTV Playlist
 
 on:
   schedule:
-    - cron: "0 */6 * * *"  # Run every 6 hours
-  workflow_dispatch:
+    - cron: "0 */6 * * *"  # Run every 6 hours at minute 0
+  workflow_dispatch:       # Manual trigger option
 
 permissions:
   contents: write
@@ -11,66 +11,89 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 10    # Batasi waktu maksimal eksekusi
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
+        with:
+          fetch-depth: 0   # Diperlukan untuk git diff
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.10"
-          
+          cache: 'pip'     # Cache dependencies untuk eksekusi lebih cepat
+
       - name: Install dependencies
         run: pip install requests
-        
-      - name: Update playlist
-        run: python update_playlist.py
-        
-      - name: Validate Playlist
+
+      - name: Run playlist update
+        id: update
         run: |
-          # Cek header
-          if ! head -1 RfK01.m3u | grep -q "#EXTM3U"; then
+          # Jalankan script utama
+          python update_playlist.py
+          
+          # Catat statistik penting
+          channel_count=$(grep -c "#EXTINF" RfK01.m3u)
+          file_size=$(stat -c%s RfK01.m3u)
+          echo "channel_count=$channel_count" >> $GITHUB_OUTPUT
+          echo "file_size=$file_size" >> $GITHUB_OUTPUT
+
+      - name: Basic validation
+        run: |
+          # Validasi penting
+          if ! grep -q "#EXTM3U" RfK01.m3u; then
             echo "❌ ERROR: Missing #EXTM3U header"
             exit 1
           fi
           
-          # Hitung jumlah channel
-          extinf_count=$(grep -c "#EXTINF" RfK01.m3u)
-          url_count=$(grep -c -E "^(http|rtmp|rtsp)://" RfK01.m3u)
-          
-          echo "EXTINF count: $extinf_count"
-          echo "URL count: $url_count"
-          
-          # Validasi minimal
-          if [ "$extinf_count" -eq 0 ]; then
-            echo "❌ ERROR: No channels found (#EXTINF)"
+          if [ ${{ steps.update.outputs.channel_count }} -lt 10 ]; then
+            echo "❌ ERROR: Too few channels (${{ steps.update.outputs.channel_count }})"
             exit 1
           fi
           
-          if [ "$url_count" -eq 0 ]; then
-            echo "❌ ERROR: No stream URLs found"
+          if [ ${{ steps.update.outputs.file_size }} -lt 1000 ]; then
+            echo "❌ ERROR: Playlist too small (${{ steps.update.outputs.file_size }} bytes)"
             exit 1
           fi
-          
-          if [ "$extinf_count" -ne "$url_count" ]; then
-            echo "⚠️ WARNING: EXTINF count ($extinf_count) != URL count ($url_count)"
-          fi
-          
-          # Tampilkan 2 channel pertama
-          echo "First 2 channels:"
-          grep -A1 "#EXTINF" RfK01.m3u | head -4
-          
+
       - name: Commit and push changes
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
+          git config user.name "bree-iptv-bot"
+          git config user.email "bree-bot@users.noreply.github.com"
           git add RfK01.m3u
           
           # Hanya commit jika ada perubahan
           if git diff --cached --quiet; then
             echo "🟢 No changes to playlist"
           else
-            git commit -m "Auto update: $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git commit -m "Auto update: $(date -u +'%Y-%m-%d %H:%M UTC') - ${{ steps.update.outputs.channel_count }} channels"
             git push
-            echo "🚀 Playlist updated successfully"
+            echo "🚀 Playlist updated successfully with ${{ steps.update.outputs.channel_count }} channels"
           fi
+
+      - name: Upload playlist sample
+        uses: actions/upload-artifact@v3
+        with:
+          name: playlist-sample
+          path: |
+            RfK01.m3u
+          retention-days: 1
+
+      - name: Notification on failure
+        if: ${{ failure() }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const runId = context.runId;
+            const runURL = `https://github.com/${owner}/${repo}/actions/runs/${runId}`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner,
+              repo,
+              body: `❌ Playlist update failed! Please check the workflow: ${runURL}`
+            });
+            
+            console.log(`Notification sent for failed workflow: ${runURL}`);
