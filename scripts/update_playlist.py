@@ -8,14 +8,14 @@ SOURCE_PUBLIC = "https://iptv-org.github.io/iptv/index.m3u"
 OUTPUT_FILE = "RfK01.m3u"
 REFRESH_HOURS = 6
 SHORT_URL = "https://rebrand.ly/RFK02"
+MAX_CHANNELS = 500  # Batasi jumlah channel dari sumber publik
 
 def fetch_playlist(url):
     try:
         print(f"🔍 Fetching playlist: {url}")
-        response = requests.get(url, timeout=15)
+        response = requests.get(url, timeout=20)
         response.raise_for_status()
         
-        # Validasi dasar konten
         if not response.text.strip():
             print(f"⚠️ Warning: Empty content from {url}")
             return ""
@@ -28,41 +28,66 @@ def fetch_playlist(url):
         print(f"❌ Unexpected error with {url}: {str(e)}")
         return ""
 
-def convert_to_valid_m3u(content, source_name):
-    """Konversi playlist ke format valid"""
+def process_public_playlist(content):
+    """Proses playlist publik yang besar"""
     if not content:
         return ""
-        
-    lines = content.splitlines()
-    valid_lines = []
     
-    # Tambahkan header jika tidak ada
-    if not any(line.strip().startswith("#EXTM3U") for line in lines):
-        valid_lines.append("#EXTM3U")
+    lines = content.splitlines()
+    processed = []
+    channel_count = 0
+    
+    # Header playlist
+    if lines and lines[0].strip() == "#EXTM3U":
+        processed.append(lines[0])
+        lines = lines[1:]
     
     i = 0
-    channel_count = 0
-    while i < len(lines):
+    while i < len(lines) and channel_count < MAX_CHANNELS:
         line = lines[i].strip()
         if not line:
             i += 1
             continue
             
-        # Handle komentar dan metadata
-        if line.startswith("#"):
-            valid_lines.append(line)
-        
-        # Jika line adalah URL streaming
-        elif line.startswith(("http://", "https://", "rtmp://", "rtsp://")):
-            channel_count += 1
-            channel_name = f"Channel {channel_count} ({source_name})"
-            valid_lines.append(f'#EXTINF:-1,{channel_name}')
-            valid_lines.append(line)
-        
-        # Skip line yang tidak perlu
+        # Jika ini metadata channel
+        if line.startswith("#EXTINF"):
+            # Ambil 1 channel lengkap (metadata + URL)
+            if i + 1 < len(lines) and lines[i+1].strip().startswith("http"):
+                processed.append(line)
+                processed.append(lines[i+1].strip())
+                channel_count += 1
+                i += 1  # Skip URL
         i += 1
-        
-    return "\n".join(valid_lines)
+    
+    print(f"📺 Added {channel_count} public channels")
+    return "\n".join(processed)
+
+def process_private_playlist(content):
+    """Proses playlist pribadi"""
+    if not content:
+        return ""
+    
+    lines = content.splitlines()
+    processed = []
+    
+    # Header playlist
+    if lines and lines[0].strip() == "#EXTM3U":
+        processed.append(lines[0])
+        lines = lines[1:]
+    
+    for i, line in enumerate(lines):
+        line = line.strip()
+        if not line:
+            continue
+            
+        # Jika ini metadata channel
+        if line.startswith("#EXTINF"):
+            if i + 1 < len(lines) and lines[i+1].strip().startswith("http"):
+                processed.append(line)
+                processed.append(lines[i+1].strip())
+    
+    print(f"📺 Added {len(processed)//2} private channels")
+    return "\n".join(processed)
 
 def main():
     print("\n" + "="*60)
@@ -74,18 +99,17 @@ def main():
     private_content = fetch_playlist(SOURCE_PRIVATE)
     public_content = fetch_playlist(SOURCE_PUBLIC)
     
-    # Konversi ke format valid
-    print("\n🛠 Converting playlists to valid format...")
-    private_playlist = convert_to_valid_m3u(private_content, "Private") if private_content else ""
-    public_playlist = convert_to_valid_m3u(public_content, "Public") if public_content else ""
+    # Proses playlist
+    print("\n🛠 Processing playlists...")
+    private_playlist = process_private_playlist(private_content)
+    public_playlist = process_public_playlist(public_content)
     
     # Gabungkan playlist
-    print("\n🧩 Combining playlists...")
     combined = ""
     if private_playlist:
-        combined += private_playlist.strip() + "\n\n"
+        combined += private_playlist + "\n\n"
     if public_playlist:
-        combined += public_playlist.strip() + "\n\n"
+        combined += public_playlist + "\n\n"
     
     if not combined:
         print("\n❌ CRITICAL ERROR: No valid playlist content!")
@@ -100,8 +124,8 @@ def main():
 ## Created: {now_utc.strftime("%Y-%m-%d %H:%M:%S UTC")}
 ## Next Update: {next_update.strftime("%Y-%m-%d %H:%M:%S UTC")}
 ## Sources:
-## - Private: {SOURCE_PRIVATE}
-## - Public: {SOURCE_PUBLIC}
+## - Private: {SOURCE_PRIVATE} (all channels)
+## - Public: {SOURCE_PUBLIC} (first {MAX_CHANNELS} channels)
 ## User Access: {SHORT_URL}
 #REFRESH-INTERVAL:{REFRESH_HOURS * 3600:.1f}
 #REFRESH-URI:{SHORT_URL}
@@ -116,31 +140,22 @@ def main():
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(full_playlist)
     
-    # Hitung statistik
+    # Statistik
     extinf_count = full_playlist.count("#EXTINF")
-    http_count = full_playlist.count("http")
     
     print("\n" + "="*60)
     print("✅ UPDATE SUCCESSFUL")
     print("="*60)
     print(f"📁 Output file: {OUTPUT_FILE}")
-    print(f"📺 Channel count: {extinf_count}")
-    print(f"🔗 Stream URLs: {http_count}")
+    print(f"📺 Total channels: {extinf_count}")
     print(f"🕒 Next update: {next_update.strftime('%Y-%m-%d %H:%M UTC')}")
     
     # Tampilkan sample
-    sample_lines = []
-    lines = full_playlist.splitlines()
-    for i, line in enumerate(lines):
-        if line.startswith("#EXTINF"):
-            sample_lines.append(line)
-            if i+1 < len(lines) and lines[i+1].startswith("http"):
-                sample_lines.append(lines[i+1])
-            if len(sample_lines) >= 4:
-                break
-    
     print("\n🔍 Sample channels:")
-    print("\n".join(sample_lines))
+    lines = full_playlist.splitlines()
+    for i in range(min(50, len(lines))):
+        print(lines[i])
+    print("... [truncated] ...")
     print("="*60)
 
 if __name__ == "__main__":
