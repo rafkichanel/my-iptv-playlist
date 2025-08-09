@@ -1,18 +1,76 @@
-- name: Update playlist
-  run: python update_playlist.py
-  
-- name: Debug Info
-  run: |
-    echo "===== DEBUG INFO ====="
-    ls -lh
-    head -n 20 RfK01.m3u || true
-    echo "======================"
-    
-- name: Upload Playlist Artifact
-  uses: actions/upload-artifact@v3
-  if: always()
-  with:
-    name: playlist-debug
-    path: |
-      RfK01.m3u
-      update_playlist.log  # Jika script Anda membuat log file
+name: Update Bree IPTV Playlist
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"  # Run every 6 hours
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          
+      - name: Install dependencies
+        run: pip install requests
+        
+      - name: Update playlist
+        run: python update_playlist.py
+        
+      - name: Validate Playlist
+        run: |
+          # Cek header
+          if ! head -1 RfK01.m3u | grep -q "#EXTM3U"; then
+            echo "❌ ERROR: Missing #EXTM3U header"
+            exit 1
+          fi
+          
+          # Hitung jumlah channel
+          extinf_count=$(grep -c "#EXTINF" RfK01.m3u)
+          url_count=$(grep -c -E "^(http|rtmp|rtsp)://" RfK01.m3u)
+          
+          echo "EXTINF count: $extinf_count"
+          echo "URL count: $url_count"
+          
+          # Validasi minimal
+          if [ "$extinf_count" -eq 0 ]; then
+            echo "❌ ERROR: No channels found (#EXTINF)"
+            exit 1
+          fi
+          
+          if [ "$url_count" -eq 0 ]; then
+            echo "❌ ERROR: No stream URLs found"
+            exit 1
+          fi
+          
+          if [ "$extinf_count" -ne "$url_count" ]; then
+            echo "⚠️ WARNING: EXTINF count ($extinf_count) != URL count ($url_count)"
+          fi
+          
+          # Tampilkan 2 channel pertama
+          echo "First 2 channels:"
+          grep -A1 "#EXTINF" RfK01.m3u | head -4
+          
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add RfK01.m3u
+          
+          # Hanya commit jika ada perubahan
+          if git diff --cached --quiet; then
+            echo "🟢 No changes to playlist"
+          else
+            git commit -m "Auto update: $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+            echo "🚀 Playlist updated successfully"
+          fi
