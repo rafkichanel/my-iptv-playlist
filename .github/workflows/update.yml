@@ -2,51 +2,41 @@ name: Update Bree IPTV Playlist
 
 on:
   schedule:
-    - cron: "0 */6 * * *"  # Run every 6 hours at minute 0
-  workflow_dispatch:  # Manual trigger option
+    - cron: "0 */6 * * *"  # Run every 6 hours
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  update_playlist:
-    name: Update Playlist
+  update:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Required for proper git diff
-
-      - name: Setup Python
+        
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.10"
-          cache: 'pip'  # Cache dependencies for faster runs
-
+          
       - name: Install dependencies
         run: pip install requests
-
-      - name: Run Playlist Update
+        
+      - name: Update playlist
         run: python update_playlist.py
-
-      - name: Commit and Push Changes
+        
+      - name: Commit and push changes
         run: |
-          # Set up git config
-          git config user.name "bree-iptv-bot"
-          git config user.email "bree-bot@users.noreply.github.com"
-          
-          # Add only playlist file
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
           git add RfK01.m3u
           
-          # Check for changes
-          if [ -z "$(git status --porcelain RfK01.m3u)" ]; then
+          # Only commit if changes exist
+          if git diff --cached --quiet; then
             echo "🟢 No changes to playlist"
           else
-            # Commit changes
-            git commit -m "Auto Update: $(date -u +'%Y-%m-%d %H:%M UTC')"
-            
-            # Push changes
+            git commit -m "Auto update: $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push
-            echo "🚀 Playlist updated and pushed to repository"
+            echo "🚀 Playlist updated successfully"
           fi
