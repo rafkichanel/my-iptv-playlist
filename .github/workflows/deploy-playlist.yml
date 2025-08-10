@@ -20,31 +20,43 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      # Buat folder docs jika belum ada
       - name: Create folders
         run: mkdir -p tmp docs
 
-      # Download playlist secara paralel
+      # Download playlist secara paralel dengan penanganan error
       - name: Download Playlists
         run: |
+          set -e  # Exit immediately if any command fails
           curl -s -f "https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/tyo878787/playlist1.m3u" -o /tmp/1.m3u &
           curl -s -f "https://cdn.jsdelivr.net/gh/iptv-org/iptv/index.m3u" -o /tmp/2.m3u &
           wait
+          # Cek apakah file berhasil didownload
+          [ -s /tmp/1.m3u ] || { echo "Error: playlist1 kosong"; exit 1; }
+          [ -s /tmp/2.m3u ] || { echo "Error: playlist2 kosong"; exit 1; }
 
       # Proses penggabungan
       - name: Combine Playlists
         run: |
           echo "#EXTM3U" > docs/Finalplay.m3u
+          # Hapus baris pertama dari setiap file dan tambahkan
           sed '1d' /tmp/1.m3u >> docs/Finalplay.m3u
           sed '1d' /tmp/2.m3u >> docs/Finalplay.m3u
           echo "✅ Playlist merged. Total lines: $(wc -l docs/Finalplay.m3u)"
 
-      # Kompresi playlist (opsional)
+      # Kompresi playlist (opsional, jika diperlukan)
       - name: Compress Playlist
         run: gzip -k -9 docs/Finalplay.m3u  # Hasil: Finalplay.m3u.gz
 
       # Salin file index.html ke folder docs
       - name: Copy Index HTML
-        run: cp index.html docs/   # Pastikan file index.html ada di root repo
+        run: |
+          # Pastikan file index.html ada
+          if [ ! -f "index.html" ]; then
+            echo "Error: index.html tidak ditemukan di root repo"
+            exit 1
+          fi
+          cp index.html docs/
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
@@ -58,7 +70,8 @@ jobs:
         uses: actions/deploy-pages@v2
         id: deployment
 
-      - name: Show Deployment URL
+      - name: Show Deployment Info
         run: |
           echo "✅ Deployed in ${{ steps.deployment.outputs.time }} seconds"
-          echo "Access at: https://${{ github.repository_owner }}.github.io/${{ github.repository }}"
+          echo "Playlist URL: https://${{ github.repository_owner }}.github.io/${{ github.repository }}/Finalplay.m3u"
+          echo "Web URL: https://${{ github.repository_owner }}.github.io/${{ github.repository }}"
