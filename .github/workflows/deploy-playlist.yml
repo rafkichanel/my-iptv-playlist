@@ -14,64 +14,124 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    timeout-minutes: 5
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Buat folder docs jika belum ada
-      - name: Create folders
-        run: mkdir -p tmp docs
-
-      # Download playlist secara paralel dengan penanganan error
-      - name: Download Playlists
+      - name: Setup directories
         run: |
-          set -e  # Exit immediately if any command fails
-          curl -s -f "https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/tyo878787/playlist1.m3u" -o /tmp/1.m3u &
-          curl -s -f "https://cdn.jsdelivr.net/gh/iptv-org/iptv/index.m3u" -o /tmp/2.m3u &
-          wait
-          # Cek apakah file berhasil didownload
-          [ -s /tmp/1.m3u ] || { echo "Error: playlist1 kosong"; exit 1; }
-          [ -s /tmp/2.m3u ] || { echo "Error: playlist2 kosong"; exit 1; }
+          mkdir -p tmp docs
+          echo "📁 Struktur folder awal:"
+          ls -la
 
-      # Proses penggabungan
-      - name: Combine Playlists
+      # Download playlist1
+      - name: Download Playlist 1
+        run: |
+          set -e
+          curl -f -L "https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/tyo878787/playlist1.m3u" -o tmp/1.m3u
+          echo "✅ Playlist 1 berhasil didownload"
+
+      # Download playlist2 dengan multiple sources
+      - name: Download Playlist 2
+        run: |
+          set -e
+          PLAYLIST2_URLS=(
+            "https://iptv-org.github.io/iptv/index.m3u"
+            "https://raw.githubusercontent.com/iptv-org/iptv/master/index.m3u"
+            "https://cdn.jsdelivr.net/gh/iptv-org/iptv/index.m3u"
+            "https://gitlab.com/iptv-org/iptv/-/raw/master/index.m3u"
+          )
+          
+          for i in "${!PLAYLIST2_URLS[@]}"; do
+            url="${PLAYLIST2_URLS[$i]}"
+            echo "Mencoba sumber $((i+1)): $url"
+            if curl -f -L "$url" -o tmp/2.m3u; then
+              if [ -s tmp/2.m3u ]; then
+                echo "✅ Berhasil download playlist 2 dari sumber $((i+1))"
+                exit 0
+              else
+                echo "⚠️ File kosong, coba sumber lain..."
+                rm -f tmp/2.m3u
+              fi
+            else
+              echo "⚠️ Gagal, coba sumber lain..."
+            fi
+          done
+          
+          echo "❌ Gagal download playlist 2 dari semua sumber"
+          exit 1
+
+      - name: Validate playlists
+        run: |
+          echo "🔍 Validasi playlist:"
+          if [ ! -s tmp/1.m3u ]; then
+            echo "❌ Playlist 1 kosong atau tidak valid"
+            exit 1
+          fi
+          if [ ! -s tmp/2.m3u ]; then
+            echo "❌ Playlist 2 kosong atau tidak valid"
+            exit 1
+          fi
+          echo "✅ Kedua playlist valid"
+          echo "Ukuran playlist 1: $(ls -lh tmp/1.m3u | awk '{print $5}')"
+          echo "Ukuran playlist 2: $(ls -lh tmp/2.m3u | awk '{print $5}')"
+
+      - name: Combine playlists
         run: |
           echo "#EXTM3U" > docs/Finalplay.m3u
-          # Hapus baris pertama dari setiap file dan tambahkan
-          sed '1d' /tmp/1.m3u >> docs/Finalplay.m3u
-          sed '1d' /tmp/2.m3u >> docs/Finalplay.m3u
-          echo "✅ Playlist merged. Total lines: $(wc -l docs/Finalplay.m3u)"
+          # Hapus baris pertama dan hapus duplikat
+          grep -v '^#EXTM3U' tmp/1.m3u | sort -u >> docs/Finalplay.m3u
+          grep -v '^#EXTM3U' tmp/2.m3u | sort -u >> docs/Finalplay.m3u
+          
+          echo "🔢 Jumlah entri:"
+          echo "Playlist 1: $(grep -c '^#EXTINF' tmp/1.m3u)"
+          echo "Playlist 2: $(grep -c '^#EXTINF' tmp/2.m3u)"
+          echo "Gabungan: $(grep -c '^#EXTINF' docs/Finalplay.m3u)"
+          echo "💾 Ukuran file gabungan: $(ls -lh docs/Finalplay.m3u | awk '{print $5}')"
 
-      # Kompresi playlist (opsional, jika diperlukan)
-      - name: Compress Playlist
-        run: gzip -k -9 docs/Finalplay.m3u  # Hasil: Finalplay.m3u.gz
-
-      # Salin file index.html ke folder docs
-      - name: Copy Index HTML
+      - name: Compress playlist
         run: |
-          # Pastikan file index.html ada
+          gzip -k -9 docs/Finalplay.m3u
+          echo "📦 Ukuran setelah kompresi: $(ls -lh docs/Finalplay.m3u.gz | awk '{print $5}')"
+
+      - name: Copy index.html
+        run: |
           if [ ! -f "index.html" ]; then
-            echo "Error: index.html tidak ditemukan di root repo"
+            echo "❌ File index.html tidak ditemukan!"
             exit 1
           fi
           cp index.html docs/
+          echo "✅ index.html berhasil disalin"
 
-      - name: Setup Pages
+      - name: Verify docs content
+        run: |
+          echo "📂 Isi folder docs:"
+          ls -lh docs/
+          echo ""
+          echo "ℹ️ Info file:"
+          file docs/Finalplay.m3u
+          file docs/Finalplay.m3u.gz
+          file docs/index.html
+
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v3
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           path: docs/
+          retention-days: 1
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
         id: deployment
+        timeout-minutes: 3
 
-      - name: Show Deployment Info
+      - name: Show deployment info
         run: |
-          echo "✅ Deployed in ${{ steps.deployment.outputs.time }} seconds"
-          echo "Playlist URL: https://${{ github.repository_owner }}.github.io/${{ github.repository }}/Finalplay.m3u"
-          echo "Web URL: https://${{ github.repository_owner }}.github.io/${{ github.repository }}"
+          echo "🚀 Deployment berhasil!"
+          echo "Waktu: ${{ steps.deployment.outputs.time }}"
+          echo "URL Playlist: https://${{ github.repository_owner }}.github.io/${{ github.repository }}/Finalplay.m3u"
+          echo "URL Website: https://${{ github.repository_owner }}.github.io/${{ github.repository }}"
