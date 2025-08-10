@@ -40,6 +40,9 @@ jobs:
           grep -v '^#EXTM3U' tmp/1.m3u >> docs/Finalplay.m3u
           grep -v '^#EXTM3U' tmp/2.m3u >> docs/Finalplay.m3u
 
+      - name: List docs folder contents
+        run: ls -la docs
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
