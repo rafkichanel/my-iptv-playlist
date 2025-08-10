@@ -1,1 +1,17 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Auto Refresh Playlist Redirect</title>
+  <script>
+    const baseUrl = "https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/refs/heads/tyo878787/Finalplay.m3u";
+    const timestamp = Date.now();
+    const url = `${baseUrl}?cb=${timestamp}`;
+    window.location.href = url;
+  </script>
+</head>
+<body>
+  <p>Redirecting to updated playlist...</p>
+</body>
+</html>
