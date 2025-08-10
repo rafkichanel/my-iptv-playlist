@@ -23,7 +23,7 @@ jobs:
       - name: Setup directories
         run: |
           mkdir -p tmp docs
-          echo "📁 Struktur folder awal:"
+          echo "📁 Folder structure:"
           ls -la
 
       # Download playlist1
@@ -31,9 +31,10 @@ jobs:
         run: |
           set -e
           curl -f -L "https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/tyo878787/playlist1.m3u" -o tmp/1.m3u
-          echo "✅ Playlist 1 berhasil didownload"
+          echo "✅ Playlist 1 downloaded successfully"
+          echo "📏 Size: $(ls -lh tmp/1.m3u | awk '{print $5}')"
 
-      # Download playlist2 dengan multiple sources
+      # Download playlist2 dengan multi-source
       - name: Download Playlist 2
         run: |
           set -e
@@ -44,73 +45,76 @@ jobs:
             "https://gitlab.com/iptv-org/iptv/-/raw/master/index.m3u"
           )
           
+          downloaded=false
+          
           for i in "${!PLAYLIST2_URLS[@]}"; do
             url="${PLAYLIST2_URLS[$i]}"
-            echo "Mencoba sumber $((i+1)): $url"
+            echo "  └─ Trying source $((i+1)): ${url}"
+            
             if curl -f -L "$url" -o tmp/2.m3u; then
-              if [ -s tmp/2.m3u ]; then
-                echo "✅ Berhasil download playlist 2 dari sumber $((i+1))"
-                exit 0
+              if [ -s "tmp/2.m3u" ]; then
+                echo "✅ Downloaded playlist 2 from source $((i+1))"
+                downloaded=true
+                break
               else
-                echo "⚠️ File kosong, coba sumber lain..."
-                rm -f tmp/2.m3u
+                echo "⚠️ Empty file, trying next source..."
+                rm -f "tmp/2.m3u"
               fi
             else
-              echo "⚠️ Gagal, coba sumber lain..."
+              echo "⚠️ Failed, trying next source..."
             fi
           done
           
-          echo "❌ Gagal download playlist 2 dari semua sumber"
-          exit 1
+          if [ "$downloaded" = false ]; then
+            echo "❌ Failed to download playlist 2 from all sources"
+            exit 1
+          fi
+          
+          echo "📏 Size: $(ls -lh tmp/2.m3u | awk '{print $5}')"
 
       - name: Validate playlists
         run: |
-          echo "🔍 Validasi playlist:"
+          echo "🔍 Validating playlists:"
           if [ ! -s tmp/1.m3u ]; then
-            echo "❌ Playlist 1 kosong atau tidak valid"
+            echo "❌ Playlist 1 is empty or invalid"
             exit 1
           fi
           if [ ! -s tmp/2.m3u ]; then
-            echo "❌ Playlist 2 kosong atau tidak valid"
+            echo "❌ Playlist 2 is empty or invalid"
             exit 1
           fi
-          echo "✅ Kedua playlist valid"
-          echo "Ukuran playlist 1: $(ls -lh tmp/1.m3u | awk '{print $5}')"
-          echo "Ukuran playlist 2: $(ls -lh tmp/2.m3u | awk '{print $5}')"
+          echo "✅ Both playlists are valid"
 
       - name: Combine playlists
         run: |
           echo "#EXTM3U" > docs/Finalplay.m3u
-          # Hapus baris pertama dan hapus duplikat
-          grep -v '^#EXTM3U' tmp/1.m3u | sort -u >> docs/Finalplay.m3u
-          grep -v '^#EXTM3U' tmp/2.m3u | sort -u >> docs/Finalplay.m3u
+          sed '1d' tmp/1.m3u >> docs/Finalplay.m3u
+          sed '1d' tmp/2.m3u >> docs/Finalplay.m3u
           
-          echo "🔢 Jumlah entri:"
-          echo "Playlist 1: $(grep -c '^#EXTINF' tmp/1.m3u)"
-          echo "Playlist 2: $(grep -c '^#EXTINF' tmp/2.m3u)"
-          echo "Gabungan: $(grep -c '^#EXTINF' docs/Finalplay.m3u)"
-          echo "💾 Ukuran file gabungan: $(ls -lh docs/Finalplay.m3u | awk '{print $5}')"
+          echo "📊 Playlist stats:"
+          echo "   Total channels: $(grep -c '^#EXTINF' docs/Finalplay.m3u)"
+          echo "   File size: $(ls -lh docs/Finalplay.m3u | awk '{print $5}')"
 
       - name: Compress playlist
         run: |
           gzip -k -9 docs/Finalplay.m3u
-          echo "📦 Ukuran setelah kompresi: $(ls -lh docs/Finalplay.m3u.gz | awk '{print $5}')"
+          echo "📦 Compressed size: $(ls -lh docs/Finalplay.m3u.gz | awk '{print $5}')"
 
       - name: Copy index.html
         run: |
           if [ ! -f "index.html" ]; then
-            echo "❌ File index.html tidak ditemukan!"
+            echo "❌ index.html not found!"
             exit 1
           fi
           cp index.html docs/
-          echo "✅ index.html berhasil disalin"
+          echo "✅ index.html copied successfully"
 
       - name: Verify docs content
         run: |
-          echo "📂 Isi folder docs:"
+          echo "📂 Docs folder content:"
           ls -lh docs/
           echo ""
-          echo "ℹ️ Info file:"
+          echo "ℹ️ File info:"
           file docs/Finalplay.m3u
           file docs/Finalplay.m3u.gz
           file docs/index.html
@@ -131,7 +135,7 @@ jobs:
 
       - name: Show deployment info
         run: |
-          echo "🚀 Deployment berhasil!"
-          echo "Waktu: ${{ steps.deployment.outputs.time }}"
-          echo "URL Playlist: https://${{ github.repository_owner }}.github.io/${{ github.repository }}/Finalplay.m3u"
-          echo "URL Website: https://${{ github.repository_owner }}.github.io/${{ github.repository }}"
+          echo "🚀 Deployment successful!"
+          echo "Time: ${{ steps.deployment.outputs.time }}"
+          echo "Playlist URL: https://${{ github.repository_owner }}.github.io/${{ github.repository }}/Finalplay.m3u"
+          echo "Web URL: https://${{ github.repository_owner }}.github.io/${{ github.repository }}"
