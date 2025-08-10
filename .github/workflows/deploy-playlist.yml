@@ -2,8 +2,7 @@ name: Deploy Playlist to GitHub Pages
 
 on:
   push:
-    branches:
-      - tyo878787  # Ganti sesuai branch kamu
+    branches: [tyo878787]
 
 permissions:
   contents: read
@@ -12,18 +11,13 @@ permissions:
 
 jobs:
   deploy:
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y curl grep sed
+      - name: Setup tools
+        run: sudo apt-get update && sudo apt-get install -y curl grep
 
       - name: Create docs folder
         run: mkdir -p docs
@@ -31,25 +25,34 @@ jobs:
       - name: Download playlists
         run: |
           mkdir -p tmp
-          curl -s "https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/refs/heads/tyo878787/playlist1.m3u" -o tmp/1.m3u
-          curl -s "https://raw.githubusercontent.com/iptv-org/iptv/master/index.m3u" -o tmp/2.m3u
+          curl -s -f "https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/tyo878787/playlist1.m3u" -o tmp/1.m3u || { echo "❌ Error download playlist1"; exit 1; }
+          curl -s -f "https://raw.githubusercontent.com/iptv-org/iptv/master/index.m3u" -o tmp/2.m3u || { echo "❌ Error download playlist2"; exit 1; }
 
-      - name: Combine playlists (without filtering)
+      - name: Validate playlists
+        run: |
+          [ -s tmp/1.m3u ] || { echo "❌ File 1.m3u kosong"; exit 1; }
+          [ -s tmp/2.m3u ] || { echo "❌ File 2.m3u kosong"; exit 1; }
+
+      - name: Combine playlists
         run: |
           echo "#EXTM3U" > docs/Finalplay.m3u
           grep -v '^#EXTM3U' tmp/1.m3u >> docs/Finalplay.m3u
           grep -v '^#EXTM3U' tmp/2.m3u >> docs/Finalplay.m3u
-
-      - name: List docs folder contents
-        run: ls -la docs
+          echo "✅ Playlist digabung. Total lines: $(wc -l docs/Finalplay.m3u)"
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
-      - name: Upload Pages artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: docs
+          path: docs/
 
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v1
+
+      - name: Show Deployment URL
+        run: |
+          echo "✅ Berhasil dideploy!"
+          echo "URL: https://${{ github.repository_owner }}.github.io/${{ github.repository }}/Finalplay.m3u"
