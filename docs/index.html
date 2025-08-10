@@ -1,16 +1,230 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <title>Auto Refresh Playlist Redirect</title>
-  <script>
-    const baseUrl = "https://tyo878787.github.io/my-iptv-playlist/Finalplay.m3u";
-    const timestamp = Date.now();
-    const url = `${baseUrl}?cb=${timestamp}`;
-    window.location.href = url;
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playlist IPTV - Tyo878787</title>
+  <meta name="description" content="Auto redirect ke playlist IPTV terbaru">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a2980, #26d0ce);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .container {
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      padding: 30px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #4fc3f7;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .logo {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, #4fc3f7, #01579b);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.5rem;
+    }
+    
+    .status-box {
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 25px 0;
+      border-left: 4px solid #4fc3f7;
+    }
+    
+    .loader {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 255, 255, 0.2);
+      border-top: 5px solid #4fc3f7;
+      border-radius: 50%;
+      margin: 20px auto;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .countdown {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 15px 0;
+      color: #4fc3f7;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: linear-gradient(to right, #4fc3f7, #01579b);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(to right, #29b6f6, #0288d1);
+    }
+    
+    .info-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 25px;
+      font-size: 0.9rem;
+    }
+    
+    .url-display {
+      word-break: break-all;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      font-family: monospace;
+      font-size: 0.85rem;
+    }
+    
+    .last-updated {
+      margin-top: 20px;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 20px;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      .logo {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <p>Redirecting to updated playlist...</p>
+  <div class="container">
+    <div class="logo">📺</div>
+    <h1>Playlist IPTV Tyo878787</h1>
+    
+    <div class="status-box">
+      <p>Mengarahkan ke playlist terbaru...</p>
+      <div class="loader"></div>
+      <div class="countdown" id="countdown">3</div>
+      <p>Harap tunggu sebentar</p>
+    </div>
+    
+    <p>Jika tidak otomatis redirect:</p>
+    <a href="#" class="btn" id="manualBtn">Download Playlist Manual</a>
+    
+    <div class="info-box">
+      <p>URL playlist Anda:</p>
+      <div class="url-display" id="playlistUrl">https://tyo878787.github.io/my-iptv-playlist/Finalplay.m3u</div>
+      <p>Salin URL ini ke aplikasi IPTV player Anda</p>
+    </div>
+    
+    <div class="last-updated" id="lastUpdated"></div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Konfigurasi URL playlist
+      const repoOwner = 'tyo878787';
+      const repoName = 'my-iptv-playlist';
+      const playlistFile = 'Finalplay.m3u';
+      
+      const baseUrl = `https://${repoOwner}.github.io/${repoName}/${playlistFile}`;
+      const timestamp = Date.now();
+      const urlWithCacheBuster = `${baseUrl}?cb=${timestamp}`;
+      
+      // Update elemen UI
+      document.getElementById('playlistUrl').textContent = baseUrl;
+      document.getElementById('manualBtn').href = urlWithCacheBuster;
+      
+      // Fungsi redirect
+      function redirectToPlaylist() {
+        window.location.href = urlWithCacheBuster;
+      }
+      
+      // Setup countdown
+      let seconds = 3;
+      const countdownEl = document.getElementById('countdown');
+      const countdownInterval = setInterval(() => {
+        seconds--;
+        countdownEl.textContent = seconds;
+        
+        if(seconds <= 0) {
+          clearInterval(countdownInterval);
+          redirectToPlaylist();
+        }
+      }, 1000);
+      
+      // Update last modified time
+      fetch(baseUrl, {method: 'HEAD', cache: 'no-cache'})
+        .then(response => {
+          if(response.ok) {
+            const lastModified = response.headers.get('last-modified');
+            if(lastModified) {
+              document.getElementById('lastUpdated').textContent = 
+                `Update terakhir: ${new Date(lastModified).toLocaleString()}`;
+            }
+          }
+        })
+        .catch(() => {
+          document.getElementById('lastUpdated').textContent = 
+            `Update terakhir: ${new Date().toLocaleString()}`;
+        });
+      
+      // Manual redirect button
+      document.getElementById('manualBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        redirectToPlaylist();
+      });
+    });
+  </script>
 </body>
-</html>
+  </html>
