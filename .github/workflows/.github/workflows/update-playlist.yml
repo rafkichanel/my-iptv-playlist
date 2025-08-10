@@ -1,0 +1,44 @@
+name: Gabung & Filter Playlist
+
+on:
+  schedule:
+    - cron: "0 */3 * * *"  # setiap 3 jam
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: sudo apt-get install -y curl grep
+
+      - name: Ambil & Gabung Playlist
+        run: |
+          curl -s "https://iptv-org.github.io/iptv/index.m3u" -o temp1.m3u
+          curl -s "https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/refs/heads/tyo878787/RfK01.m3u" -o temp2.m3u
+          cat temp1.m3u temp2.m3u > merged.m3u
+
+      - name: Filter channel aktif
+        run: |
+          grep -E '^#EXTINF|^http' merged.m3u | while read line; do
+            if [[ "$line" =~ ^http ]]; then
+              code=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "$line")
+              if [[ "$code" == "200" ]]; then
+                echo "$line" >> final.m3u
+              fi
+            else
+              echo "$line" >> final.m3u
+            fi
+          done
+          mv final.m3u playlist.m3u
+
+      - name: Commit & Push hasil
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add playlist.m3u
+          git commit -m "Update playlist gabungan + filter aktif"
+          git push
