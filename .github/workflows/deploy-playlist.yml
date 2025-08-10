@@ -1,0 +1,40 @@
+name: Deploy Playlist to GitHub Pages
+
+on:
+  push:
+    branches:
+      - tyo878787  # ganti sesuai branch kamu
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y curl grep sed
+
+      - name: Download playlists
+        run: |
+          mkdir -p tmp
+          curl -s "https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/refs/heads/tyo878787/playlist1.m3u" -o tmp/1.m3u
+          curl -s "https://raw.githubusercontent.com/iptv-org/iptv/master/index.m3u" -o tmp/2.m3u
+
+      - name: Combine playlists (without filtering)
+        run: |
+          echo "#EXTM3U" > docs/Finalplay.m3u
+          grep -v '^#EXTM3U' tmp/1.m3u >> docs/Finalplay.m3u
+          grep -v '^#EXTM3U' tmp/2.m3u >> docs/Finalplay.m3u
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: docs
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
