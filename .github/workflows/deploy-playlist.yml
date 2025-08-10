@@ -3,6 +3,8 @@ name: Ultra-Fast Playlist Deploy
 on:
   push:
     branches: [tyo878787]
+  schedule:
+    - cron: '0 0 * * *'  # Auto-update setiap hari jam 00:00 UTC
 
 permissions:
   contents: read
@@ -12,42 +14,51 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 2  # Batasi waktu maksimal
+    timeout-minutes: 2
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4  # Versi terbaru
+        uses: actions/checkout@v4
 
-      # Download paralel dan proses sekaligus
-      - name: Download & Process Playlists
+      - name: Create folders
+        run: mkdir -p tmp docs
+
+      # Download playlist secara paralel
+      - name: Download Playlists
         run: |
-          mkdir -p docs
-          # Download paralel dengan background processes
           curl -s -f "https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/tyo878787/playlist1.m3u" -o /tmp/1.m3u &
           curl -s -f "https://cdn.jsdelivr.net/gh/iptv-org/iptv/index.m3u" -o /tmp/2.m3u &
           wait
-          
-          # Proses langsung tanpa file intermediate
+
+      # Proses penggabungan
+      - name: Combine Playlists
+        run: |
           echo "#EXTM3U" > docs/Finalplay.m3u
           sed '1d' /tmp/1.m3u >> docs/Finalplay.m3u
           sed '1d' /tmp/2.m3u >> docs/Finalplay.m3u
-          
-          # Kompresi langsung
-          gzip -9 docs/Finalplay.m3u
+          echo "✅ Playlist merged. Total lines: $(wc -l docs/Finalplay.m3u)"
+
+      # Kompresi playlist (opsional)
+      - name: Compress Playlist
+        run: gzip -k -9 docs/Finalplay.m3u  # Hasil: Finalplay.m3u.gz
+
+      # Salin file index.html ke folder docs
+      - name: Copy Index HTML
+        run: cp index.html docs/   # Pastikan file index.html ada di root repo
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
-      - name: Upload Artifact
-        uses: actions/upload-pages-artifact@v2  # Versi terbaru
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
           path: docs/
-          
+
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2  # Versi terbaru
+        uses: actions/deploy-pages@v2
         id: deployment
 
-      - name: Show URL
+      - name: Show Deployment URL
         run: |
           echo "✅ Deployed in ${{ steps.deployment.outputs.time }} seconds"
-          echo "URL: https://${{ github.repository_owner }}.github.io/${{ github.repository }}/Finalplay.m3u.gz"
+          echo "Access at: https://${{ github.repository_owner }}.github.io/${{ github.repository }}"
