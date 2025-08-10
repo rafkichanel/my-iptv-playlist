@@ -3,7 +3,7 @@ name: Deploy Playlist to GitHub Pages
 on:
   push:
     branches:
-      - tyo878787
+      - tyo878787  # Ganti sesuai branch kamu
 
 permissions:
   contents: read
