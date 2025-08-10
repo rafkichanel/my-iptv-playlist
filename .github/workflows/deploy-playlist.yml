@@ -3,7 +3,7 @@ name: Deploy Playlist to GitHub Pages
 on:
   push:
     branches:
-      - tyo878787  # ganti sesuai branch kamu
+      - tyo878787  # Ganti sesuai branch kamu
 
 jobs:
   deploy:
@@ -15,6 +15,9 @@ jobs:
 
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y curl grep sed
+
+      - name: Create docs folder
+        run: mkdir -p docs
 
       - name: Download playlists
         run: |
