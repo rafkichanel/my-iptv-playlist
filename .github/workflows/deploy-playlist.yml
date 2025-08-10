@@ -3,10 +3,19 @@ name: Deploy Playlist to GitHub Pages
 on:
   push:
     branches:
-      - tyo878787  # Ganti sesuai branch kamu
+      - tyo878787
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     runs-on: ubuntu-latest
 
     steps:
