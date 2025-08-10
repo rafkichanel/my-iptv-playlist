@@ -1,8 +1,8 @@
-name: Update Filtered Playlist
+name: Update Playlist Tanpa Filter
 
 on:
   schedule:
-    - cron: "0 */3 * * *"  # Tiap 3 jam
+    - cron: "0 */3 * * *"
   workflow_dispatch:
 
 jobs:
@@ -11,51 +11,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y curl grep sed
-
       - name: Download playlists
         run: |
-          mkdir -p tmp
-          curl -s "https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/refs/heads/tyo878787/playlist1.m3u" -o tmp/1.m3u
-          curl -s "https://raw.githubusercontent.com/iptv-org/iptv/master/index.m3u" -o tmp/2.m3u
+          curl -s "https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/refs/heads/tyo878787/playlist1.m3u" -o playlist1.m3u
+          curl -s "https://raw.githubusercontent.com/iptv-org/iptv/master/index.m3u" -o playlist2.m3u
 
-      - name: Filter active channels and create Finalplay.m3u
+      - name: Gabung playlist jadi Finalplay.m3u
         run: |
           echo "#EXTM3U" > Finalplay.m3u
+          grep -v '^#EXTM3U' playlist1.m3u >> Finalplay.m3u
+          grep -v '^#EXTM3U' playlist2.m3u >> Finalplay.m3u
 
-          filter_playlist() {
-            local file=$1
-            local total=$(grep -c '^#EXTINF' "$file")
-            local count=0
-
-            echo "Mulai filter playlist dari $file dengan total channel: $total"
-
-            while read -r line1 && read -r line2; do
-              if [[ -z "$line1" || -z "$line2" ]]; then
-                continue
-              fi
-              echo "Cek channel: $line2"
-              if curl -s --head --fail "$line2" | head -n 1 | grep -q "200"; then
-                echo "Aktif: $line2"
-                echo "$line1" >> Finalplay.m3u
-                echo "$line2" >> Finalplay.m3u
-                count=$((count + 1))
-              else
-                echo "Mati: $line2"
-              fi
-            done < <(grep -A1 '^#EXTINF' "$file" | sed '/^--$/d')
-
-            echo "Selesai filter $count channel aktif dari $total di $file"
-          }
-
-          filter_playlist tmp/1.m3u
-          filter_playlist tmp/2.m3u
-
-      - name: Commit & push changes
+      - name: Commit & push
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add Finalplay.m3u
-          git commit -m "Update filtered playlist"
+          git commit -m "Update playlist tanpa filter"
           git push
