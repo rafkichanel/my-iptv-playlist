@@ -2,8 +2,8 @@ name: Update Playlist Tanpa Filter
 
 on:
   schedule:
-    - cron: "0 */3 * * *"  # Tiap 3 jam
-  workflow_dispatch:       # Bisa jalan manual juga
+    - cron: "0 */3 * * *" # Tiap 3 jam
+  workflow_dispatch: # Bisa dijalankan manual
 
 jobs:
   update:
@@ -12,27 +12,36 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # Untuk memastikan histori tersedia
+          fetch-depth: 0
 
       - name: Download playlists
         run: |
-          # URL sudah diperbaiki ke format yang benar
+          # Ambil playlist 1 dari repo kamu
           curl -s "https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/tyo878787/playlist1.m3u" -o playlist1.m3u
+          # Ambil playlist 2 dari iptv-org
           curl -s "https://raw.githubusercontent.com/iptv-org/iptv/master/index.m3u" -o playlist2.m3u
 
-      - name: Gabung playlist jadi Finalplay.m3u
+      - name: Gabung playlist jadi index.m3u
         run: |
-          echo "#EXTM3U" > Finalplay.m3u
-          grep -v '^#EXTM3U' playlist1.m3u >> Finalplay.m3u
-          grep -v '^#EXTM3U' playlist2.m3u >> Finalplay.m3u
+          echo "#EXTM3U" > index.m3u
+          grep -v '^#EXTM3U' playlist1.m3u >> index.m3u
+          grep -v '^#EXTM3U' playlist2.m3u >> index.m3u
 
-      - name: Commit & push
+      - name: Deploy ke gh-pages
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # Tambahkan file ke staging
-          git add Finalplay.m3u
 
-          # Commit hanya jika ada perubahan pada file
-          git diff --staged --quiet || (git commit -m "Update playlist tanpa filter" && git push)
+          # Pindah ke branch gh-pages kosong
+          git checkout --orphan gh-pages
+          git reset
+
+          # Tambah file playlist
+          git add index.m3u
+
+          # Buat file CNAME untuk custom domain
+          echo "www.rafkichanel.my.id" > CNAME
+          git add CNAME
+
+          git commit -m "Update playlist tanpa filter"
+          git push origin gh-pages --force
