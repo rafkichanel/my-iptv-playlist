@@ -1,0 +1,39 @@
+name: Playlist Scheduler
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'  # tiap 3 jam
+  workflow_dispatch:       # bisa jalan manual juga
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        # Kalau ada requirements.txt, uncomment:
+        # pip install -r requirements.txt
+
+    - name: Run update script
+      run: python update_and_search.py
+
+    - name: Commit updated playlist
+      run: |
+        git config user.name "github-actions"
+        git config user.email "actions@github.com"
+        git add merged.m3u
+        git commit -m "Update playlist otomatis"
+        git push
+      env:
+        # Kalau pakai HTTPS, setup PAT token di secrets dan uncomment:
+        # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
