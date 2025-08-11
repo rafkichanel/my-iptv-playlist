@@ -1,12 +1,12 @@
-name: Update Playlist ke Domain
+name: Update Playlist ke GitHub Pages
 
 on:
   schedule:
     - cron: "0 */3 * * *" # Tiap 3 jam
-  workflow_dispatch: # Bisa dijalankan manual juga
+  workflow_dispatch: # Bisa jalan manual juga
 
 jobs:
-  update:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -16,34 +16,27 @@ jobs:
 
       - name: Download playlists
         run: |
-          # Playlist pertama dari repo kamu
           curl -s "https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/tyo878787/playlist1.m3u" -o playlist1.m3u
-          # Playlist kedua dari iptv-org
           curl -s "https://raw.githubusercontent.com/iptv-org/iptv/master/index.m3u" -o playlist2.m3u
 
-      - name: Gabungkan playlist jadi index.m3u
+      - name: Gabung playlist jadi index.m3u
         run: |
           echo "#EXTM3U" > index.m3u
           grep -v '^#EXTM3U' playlist1.m3u >> index.m3u
           grep -v '^#EXTM3U' playlist2.m3u >> index.m3u
 
-      - name: Deploy ke branch gh-pages
+      - name: Deploy ke gh-pages
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Pindah ke branch gh-pages kosong
-          git checkout --orphan gh-pages
-          git reset
+          git fetch origin
+          git checkout gh-pages || git checkout --orphan gh-pages
+          git reset --hard
 
-          # Tambahkan file playlist
           mv index.m3u index.m3u
-          git add index.m3u
-
-          # Tambahkan file CNAME untuk custom domain
           echo "www.rafkichanel.my.id" > CNAME
-          git add CNAME
 
-          # Commit & Push
+          git add index.m3u CNAME
           git commit -m "Update playlist otomatis"
           git push origin gh-pages --force
