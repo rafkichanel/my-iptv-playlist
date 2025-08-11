@@ -2,18 +2,22 @@ name: Update Playlist Tanpa Filter
 
 on:
   schedule:
-    - cron: "0 */3 * * *"
-  workflow_dispatch:
+    - cron: "0 */3 * * *"  # Tiap 3 jam
+  workflow_dispatch:       # Bisa jalan manual juga
 
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Untuk memastikan histori tersedia
 
       - name: Download playlists
         run: |
-          curl -s "https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/refs/heads/tyo878787/playlist1.m3u" -o playlist1.m3u
+          # URL sudah diperbaiki ke format yang benar
+          curl -s "https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/tyo878787/playlist1.m3u" -o playlist1.m3u
           curl -s "https://raw.githubusercontent.com/iptv-org/iptv/master/index.m3u" -o playlist2.m3u
 
       - name: Gabung playlist jadi Finalplay.m3u
@@ -26,6 +30,9 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Tambahkan file ke staging
           git add Finalplay.m3u
-          git commit -m "Update playlist tanpa filter"
-          git push
+
+          # Commit hanya jika ada perubahan pada file
+          git diff --staged --quiet || (git commit -m "Update playlist tanpa filter" && git push)
