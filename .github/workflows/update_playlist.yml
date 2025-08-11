@@ -2,7 +2,7 @@ name: Auto Update IPTV Playlist
 
 on:
   schedule:
-    - cron: "0 */3 * * *"  # otomatis tiap 3 jam
+    - cron: "0 */3 * * *"
   workflow_dispatch:
 
 jobs:
@@ -12,14 +12,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Run update script
+      - name: Jalankan script update
         run: |
-          python3 scripts/update.py || python3 scripts/your_script.py
+          python3 scripts/update.py
 
-      - name: Commit & push update
+      - name: Commit & push perubahan
         run: |
           git config --global user.name "rafkichanel"
-          git config --global user.email "EMAIL_KAMU"
+          git config --global user.email "andiprasetyooo923@gmail.com"
           git add Finalplay.m3u LAST_UPDATE.txt
           git commit -m "Auto-update playlist"
           git push
