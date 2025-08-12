@@ -24,8 +24,7 @@ jobs:
         pip install requests
 
     - name: Run playlist update script
-      run: |
-        python update_playlist.py
+      run: python update_playlist.py
 
     - name: Commit and push changes
       run: |
