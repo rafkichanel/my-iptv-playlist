@@ -1,27 +1,37 @@
-import requests
-from datetime import datetime
+name: Update IPTV Playlist
 
-# URL sumber playlist
-url = "https://iptv-org.github.io/iptv/index.m3u"
+on:
+  schedule:
+    - cron: '0 3 * * *'  # Jalankan setiap hari jam 03:00 UTC
+  workflow_dispatch:      # Bisa dijalankan manual lewat GitHub UI
 
-print("Mengambil playlist...")
-playlist = requests.get(url).text
+jobs:
+  update-playlist:
+    runs-on: ubuntu-latest
 
-lines = playlist.splitlines()
-new_lines = []
-current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-for line in lines:
-    if line.startswith("#EXTINF:"):
-        # Tambah baris timestamp sebelum channel
-        new_lines.append(f"#TIME: {current_time}")
-    new_lines.append(line)
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
 
-with open("Finalplay.m3u", "w", encoding="utf-8") as f:
-    f.write("\n".join(new_lines))
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
 
-# Catat waktu update terakhir
-with open("LAST_UPDATE.txt", "w", encoding="utf-8") as f:
-    f.write(current_time)
+    - name: Run playlist update script
+      run: |
+        python update_playlist.py
 
-print("Playlist berhasil diperbarui dengan timestamp channel dan waktu update dicatat.")
+    - name: Commit and push changes
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add Finalplay_updated.m3u
+        git commit -m "Update playlist otomatis via GitHub Actions"
+        git push
+      continue-on-error: true
