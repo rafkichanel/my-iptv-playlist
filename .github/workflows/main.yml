@@ -2,8 +2,8 @@ name: Update IPTV Playlist
 
 on:
   schedule:
-    - cron: '0 */3 * * *'  # Setiap 3 jam
-  workflow_dispatch:       # Bisa dijalankan manual
+    - cron: '0 */3 * * *'
+  workflow_dispatch:
 
 jobs:
   update-playlist:
