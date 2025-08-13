@@ -7739,7 +7739,6 @@ https://cdn7iv.diebutx.com/ownhls/2020/6199d678f6bb30bd52438d8d0022c4c8/1080p/in
 #EXTINF:-1 tvg-id="" tvg-name="Harry Potter and The Sorcerers Stone (2001)" tvg-logo="https://i0.wp.com/www.fabtheduo.com/wp-content/uploads/2019/06/dCtFvscYcXQKTNvyyaQr2g2UacJ.jpg" group-title="MOVIES VOD", Harry Potter and The Sorcerers Stone (2001)
 https://cdn7iv.diebutx.com/ownhls/2020/21126aca603617c69274e59fae374c06/1080p/index.m3u8
 
-
 #EXTM3U
 #EXTINF:-1 tvg-id="" tvg-logo="" group-title="Undefined",00s Replay
 http://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/62ba60f059624e000781c436/master.m3u8?appName=web&appVersion=unknown&clientTime=0&deviceDNT=0&deviceId=6c25e430-30d3-11ef-9cf5-e9ddff8ff496&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&serverSideAds=false&sid=1b7de8e4-d114-4438-b098-6f7aee77b4be
@@ -29685,7 +29684,6 @@ http://223.110.245.170/PLTV/3/224/3221227252/index.m3u8
 http://223.110.245.161/ott.js.chinamobile.com/PLTV/3/224/3221227492/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="" group-title="Undefined",黑龙江卫 (1080p)
 http://183.207.248.71/cntv/live1/HD-2500k-1080P-heilongjiangstv/HD-2500k-1080P-heilongjiangstv
-
 <!DOCTYPE html>
 <html dir='ltr' lang='id'>
 <head>
@@ -32284,8 +32282,6 @@ https://hotlivezz179602324.akainu.xyz/Ny3i-JTFfrxbKPbSl1ePyA/Fv2lucGIbhPi2caWYvF
 
     ---------------------
 
-#EXTINF:-1 tvg-id="LIVE" tvg-logo="https://i.postimg.cc/XNKPdJJf/images.jpg" group-title="🔴WHATSAPP",085333640016
-https://shls-live-enc.edgenextcdn.net/out/v1/f6d718e841f8442f8374de47f18c93a7/index.m3u8
 
 
 
