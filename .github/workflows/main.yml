@@ -1,17 +1,16 @@
-
 name: Update IPTV Playlist
 
 on:
   schedule:
-    - cron: '0 */3 * * *'  # Setiap 3 jam, tepat di menit ke-0
-  workflow_dispatch:       # Bisa dijalankan manual lewat GitHub UI
+    - cron: '0 */3 * * *'  # Setiap 3 jam
+  workflow_dispatch:       # Bisa dijalankan manual
 
 jobs:
   update-playlist:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v3
 
       - name: Setup Python
@@ -24,8 +23,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests python-dotenv
 
-      - name: Jalankan script update playlist
+      - name: Run update_playlist.py
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          python update_playlist.py
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+        run: python update_playlist.py
