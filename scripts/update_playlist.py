@@ -4,7 +4,7 @@ from datetime import datetime
 
 MAIN_FILE = "Finalplay.m3u"
 
-# Baca daftar sumber
+# Baca daftar sumber dari sources.txt
 with open("sources.txt", "r") as f:
     sources = [line.strip() for line in f if line.strip()]
 
