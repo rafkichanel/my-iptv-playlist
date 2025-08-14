@@ -2,20 +2,15 @@ name: Update IPTV Playlist
 
 on:
   schedule:
-    - cron: '0 3 * * *' # Setiap hari jam 03:00 UTC
+    - cron: '0 3 * * *'  # setiap hari jam 03:00 UTC
   workflow_dispatch:
-
-permissions:
-  contents: write
 
 jobs:
   update-playlist:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -25,5 +20,5 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Run script
-        run: python update_playlist.py
+      - name: Jalankan script update playlist
+        run: python main.py  # sesuaikan dengan nama file skrip kamu
