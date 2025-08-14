@@ -1,47 +1,42 @@
 import requests
 import os
 from datetime import datetime
-import re
 
 MAIN_FILE = "Finalplay.m3u"
 
 # Baca daftar sumber dari sources.txt
-if not os.path.exists("sources.txt"):
-    print("❌ File sources.txt tidak ditemukan!")
-    exit()
-
-with open("sources.txt", "r", encoding="utf-8") as f:
+with open("sources.txt", "r") as f:
     sources = [line.strip() for line in f if line.strip()]
 
-if not sources:
-    print("❌ Tidak ada URL sumber di sources.txt!")
-    exit()
-
-final_playlist = "#EXTM3U\n"
-
+# Download & gabungkan playlist
+final_content = ""
 for url in sources:
     try:
-        print(f"⬇️ Mengunduh dari {url}")
-        resp = requests.get(url, timeout=15)
-        resp.raise_for_status()
-        final_playlist += resp.text + "\n"
+        print(f"Download dari {url}...")
+        r = requests.get(url, timeout=15)
+        r.raise_for_status()
+        # Filter hapus WHATSAPP
+        lines = [line for line in r.text.splitlines() if "WHATSAPP" not in line.upper()]
+        final_content += "\n".join(lines) + "\n"
+        print(f"Sukses dari {url}")
     except Exception as e:
-        print(f"⚠️ Gagal ambil {url}: {e}")
+        print(f"Gagal download dari {url}: {e}")
 
-# Ganti SEDANG LIVE → LIVE EVENT
-final_playlist = final_playlist.replace("SEDANG LIVE", "LIVE EVENT")
-
-# Hapus simbol 🔴
-final_playlist = re.sub(r"🔴", "", final_playlist)
-
-# Simpan file utama
+# Simpan ke file lokal
 with open(MAIN_FILE, "w", encoding="utf-8") as f:
-    f.write(final_playlist)
+    f.write(final_content.strip())
+print(f"✅ Playlist tersimpan: {MAIN_FILE}")
 
-# Simpan backup dengan timestamp
-backup_file = f"backup_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.m3u"
-with open(backup_file, "w", encoding="utf-8") as f:
-    f.write(final_playlist)
+# Setup Git
+os.system('git config --global user.email "actions@github.com"')
+os.system('git config --global user.name "GitHub Actions"')
+os.system(f'git add {MAIN_FILE}')
 
-print(f"✅ Playlist berhasil disimpan ke {MAIN_FILE}")
-print(f"📦 Backup disimpan ke {backup_file}")
+# Commit dengan safe exit code
+commit_msg = f"Update Finalplay.m3u otomatis - {datetime.utcnow().isoformat()} UTC"
+ret = os.system(f'git commit -m "{commit_msg}" || echo "Tidak ada perubahan"')
+if ret == 0:
+    os.system('git push')
+    print("✅ Commit & push berhasil")
+else:
+    print("⚠️ Tidak ada perubahan baru, skip push")
