@@ -1,102 +1,108 @@
 import requests
 import os
+import random
 import re
 from datetime import datetime
 
 MAIN_FILE = "Finalplay.m3u"
 
 # Baca daftar sumber dari sources.txt
-with open("sources.txt", "r", encoding="utf-8") as f:
+with open("sources.txt", "r") as f:
     sources = [line.strip() for line in f if line.strip()]
 
-final_content = ""
-for url in sources:
+# Simpan terpisah konten per sumber
+final_content_list = ["", "", ""]
+channel_count = [0, 0, 0]  # jumlah channel per sumber
+sma_moved_count = 0
+
+for idx, url in enumerate(sources, start=1):
     try:
         print(f"Download dari {url}...")
         r = requests.get(url, timeout=15)
         r.raise_for_status()
-        lines = r.text.splitlines()
-
-        # Ganti SEDANG LIVE jadi LIVE EVENT
-        lines = [line.replace("SEDANG LIVE", "LIVE EVENT") for line in lines]
 
         # Filter hapus WHATSAPP
-        lines = [line for line in lines if "WHATSAPP" not in line.upper()]
+        lines = [line for line in r.text.splitlines() if "WHATSAPP" not in line.upper()]
 
-        final_content += "\n".join(lines) + "\n"
+        if idx == 3:
+            non_sma_lines = []
+            sma_blocks = []
+            current_block = []
+            block_is_sma = False
+
+            for line in lines:
+                if line.startswith("#EXTINF"):
+                    block_is_sma = "SMA" in line.upper()
+                    if block_is_sma:
+                        mod_line = re.sub(r"SMA", "SMX", line, flags=re.IGNORECASE)
+                        mod_line = re.sub(r"[•●★◆]", "", mod_line)
+                        mod_line = re.sub(r"(,.*\|)([123])(\|)",
+                                          lambda m: m.group(1) + str(random.randint(1, 3)) + m.group(3),
+                                          mod_line)
+                        mod_line = re.sub(r"(?i)sedang\s*live", "LIVE EVENT", mod_line)
+                        current_block = [mod_line]
+                    else:
+                        current_block = [re.sub(r"(?i)sedang\s*live", "LIVE EVENT", line)]
+
+                elif line.startswith("http"):
+                    current_block.append(line)
+                    if block_is_sma:
+                        sma_blocks.append("\n".join(current_block))
+                        sma_moved_count += 1
+                    else:
+                        non_sma_lines.extend(current_block)
+
+                else:
+                    non_sma_lines.append(re.sub(r"(?i)sedang\s*live", "LIVE EVENT", line))
+
+            random.shuffle(sma_blocks)
+            final_content_list[1] += "\n".join(sma_blocks) + "\n"
+            channel_count[1] += len(sma_blocks)
+
+            lines = non_sma_lines
+            print(f"📦 {len(sma_blocks)} channel kategori SMA dimodifikasi & dipindahkan ke sumber no 2")
+
+        lines = [re.sub(r"(?i)sedang\s*live", "LIVE EVENT", l) for l in lines]
+        channel_count[idx-1] += sum(1 for l in lines if l.startswith("http"))
+        final_content_list[idx-1] += "\n".join(lines) + "\n"
+
         print(f"Sukses dari {url}")
+
     except Exception as e:
         print(f"Gagal download dari {url}: {e}")
 
-# Pisahkan kategori LIVE EVENT dan lainnya
-live_event_block = []
-other_block = []
-lines = final_content.strip().splitlines()
+final_content = "".join(final_content_list)
+final_content = re.sub(r"(?i)sedang\s*live", "LIVE EVENT", final_content)
 
+# === Pindahkan semua LIVE EVENT ke paling atas ===
+lines = final_content.strip().split("\n")
+live_event_blocks = []
+other_blocks = []
 current_block = []
-is_live_event = False
 
 for line in lines:
-    if line.startswith("#EXTINF"):
-        if "LIVE EVENT" in line.upper():
-            is_live_event = True
+    current_block.append(line)
+    if line.startswith("http"):
+        block_text = "\n".join(current_block)
+        if re.search(r"(?i)LIVE\s*EVENT", block_text):
+            live_event_blocks.append(block_text)
         else:
-            is_live_event = False
-    if is_live_event:
-        live_event_block.append(line)
-    else:
-        other_block.append(line)
+            other_blocks.append(block_text)
+        current_block = []
 
-# Gabungkan pasangan EXTINF + URL untuk LIVE EVENT
-paired_events = []
-for i in range(0, len(live_event_block), 2):
-    try:
-        extinf = live_event_block[i]
-        url = live_event_block[i + 1]
-    except IndexError:
-        continue
-    paired_events.append((extinf, url))
+# Gabung ulang: LIVE EVENT di atas, lainnya di bawah
+final_content = "\n".join(live_event_blocks + other_blocks)
 
-# Fungsi untuk ekstrak waktu dari nama channel
-def extract_time(text):
-    # Format jam HH:MM
-    match_time = re.search(r"(\d{1,2}):(\d{2})", text)
-    if match_time:
-        try:
-            now = datetime.now()
-            hour, minute = int(match_time.group(1)), int(match_time.group(2))
-            return datetime(now.year, now.month, now.day, hour, minute)
-        except:
-            return None
-    # Format tanggal DD/MM/YYYY HH:MM
-    match_datetime = re.search(r"(\d{1,2})/(\d{1,2})/(\d{4})[^\d]+(\d{1,2}):(\d{2})", text)
-    if match_datetime:
-        try:
-            day, month, year, hour, minute = map(int, match_datetime.groups())
-            return datetime(year, month, day, hour, minute)
-        except:
-            return None
-    return None
-
-# Urutkan LIVE EVENT berdasarkan waktu
-paired_events.sort(key=lambda x: (extract_time(x[0]) or datetime.max))
-
-# Susun ulang
-sorted_live_event = []
-for extinf, url in paired_events:
-    sorted_live_event.append(extinf)
-    sorted_live_event.append(url)
-
-# Gabungkan final content (LIVE EVENT dulu, lalu lainnya)
-final_result = "\n".join(sorted_live_event) + "\n" + "\n".join(other_block)
-
-# Simpan ke file
 with open(MAIN_FILE, "w", encoding="utf-8") as f:
-    f.write(final_result.strip())
+    f.write(final_content.strip())
 
 print(f"✅ Playlist tersimpan: {MAIN_FILE}")
 
-# Setup Git
+print("\n📊 Statistik Channel:")
+for i, count in enumerate(channel_count, start=1):
+    print(f"  Sumber {i}: {count} channel")
+print(f"  ➡ Total SMA yang dipindahkan: {sma_moved_count} channel")
+
 os.system('git config --global user.email "actions@github.com"')
 os.system('git config --global user.name "GitHub Actions"')
 os.system(f'git add {MAIN_FILE}')
