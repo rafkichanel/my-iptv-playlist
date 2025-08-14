@@ -2,7 +2,7 @@ name: Update IPTV Playlist
 
 on:
   schedule:
-    - cron: '0 3 * * *'  # setiap hari jam 03:00 UTC
+    - cron: '0 3 * * *'
   workflow_dispatch:
 
 jobs:
@@ -21,4 +21,4 @@ jobs:
         run: pip install requests
 
       - name: Jalankan script update playlist
-        run: python main.py  # sesuaikan dengan nama file skrip kamu
+        run: python scripts/update_playlist.py
