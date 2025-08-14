@@ -14,6 +14,7 @@ with open("sources.txt", "r") as f:
 final_content_list = ["", "", ""]
 channel_count = [0, 0, 0]  # jumlah channel per sumber
 sma_moved_count = 0
+live_event_blocks = []  # simpan blok Live Event di sini
 
 for idx, url in enumerate(sources, start=1):
     try:
@@ -56,6 +57,7 @@ for idx, url in enumerate(sources, start=1):
                     current_block.append(line)
                     if block_is_sma:
                         sma_blocks.append("\n".join(current_block))
+                        live_event_blocks.append("\n".join(current_block))  # simpan untuk taruh paling atas
                         sma_moved_count += 1
                     else:
                         non_sma_lines.extend(current_block)
@@ -82,8 +84,8 @@ for idx, url in enumerate(sources, start=1):
     except Exception as e:
         print(f"Gagal download dari {url}: {e}")
 
-# Gabungkan semua sumber jadi satu file
-final_content = "".join(final_content_list)
+# Gabungkan semua sumber jadi satu file, Live Event paling atas
+final_content = "\n".join(live_event_blocks) + "\n" + "".join(final_content_list)
 
 # Simpan ke file lokal
 with open(MAIN_FILE, "w", encoding="utf-8") as f:
@@ -94,7 +96,7 @@ print(f"✅ Playlist tersimpan: {MAIN_FILE}")
 print("\n📊 Statistik Channel:")
 for i, count in enumerate(channel_count, start=1):
     print(f"  Sumber {i}: {count} channel")
-print(f"  ➡ Total SMA yang dipindahkan: {sma_moved_count} channel")
+print(f"  ➡ Total SMA (Live Event) yang dipindahkan: {sma_moved_count} channel")
 
 # Setup Git
 os.system('git config --global user.email "actions@github.com"')
