@@ -18,6 +18,9 @@ for idx, url in enumerate(sources, start=1):
         r.raise_for_status()
         lines = r.text.splitlines()
 
+        # Filter hapus WHATSAPP
+        lines = [line for line in lines if "WHATSAPP" not in line.upper()]
+
         # Hilangkan ikon 🔴 di kategori SMA (misal sumber ke-3)
         if idx == 3:
             lines = [line.replace("🔴", "") for line in lines]
