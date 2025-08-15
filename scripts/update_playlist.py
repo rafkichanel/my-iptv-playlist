@@ -1,147 +1,134 @@
-import requests
 import os
 import re
+import asyncio
+import aiohttp
 from datetime import datetime
-from concurrent.futures import ThreadPoolExecutor, as_completed
 
 MAIN_FILE = "Finalplay.m3u"
+DEAD_FILE = "DeadChannels.m3u"
 SOURCES_FILE = "sources.txt"
-ALT_SOURCES_FILE = "alt_sources.txt"
-MAX_WORKERS = 50  # jumlah thread paralel
 
-# Fungsi cek URL hybrid
-def check_url(url):
-    try:
-        r = requests.head(url, timeout=3)
-        if r.status_code < 400:
-            return True
-    except:
-        pass
-    try:
-        r = requests.head(url, timeout=10)
-        if r.status_code < 400:
-            return True
-    except:
-        pass
-    return False
+FAST_TIMEOUT = 3
+SLOW_TIMEOUT = 10
 
-# Ambil daftar sumber
-def load_sources(file_path):
-    if os.path.exists(file_path):
-        with open(file_path, "r", encoding="utf-8") as f:
-            return [line.strip() for line in f if line.strip()]
-    return []
-
-sources = load_sources(SOURCES_FILE)
-alt_sources = load_sources(ALT_SOURCES_FILE)
-
-merged_lines = []
-for idx, url in enumerate(sources, start=1):
+async def download_source(session, idx, url):
     try:
         print(f"📡 Mengunduh dari sumber {idx}: {url}")
-        r = requests.get(url, timeout=15)
-        r.raise_for_status()
-        lines = r.text.splitlines()
-
-        # Filter WHATSAPP
-        lines = [line for line in lines if "WHATSAPP" not in line.upper()]
-
-        # Hilangkan ikon 🔴 di sumber ke-3
-        if idx == 3:
-            lines = [line.replace("🔴", "") for line in lines]
-
-        merged_lines.extend(lines)
+        async with session.get(url, timeout=15) as resp:
+            text = await resp.text()
+            lines = text.splitlines()
+            lines = [line for line in lines if "WHATSAPP" not in line.upper()]
+            if idx == 3:
+                lines = [line.replace("🔴", "") for line in lines]
+            return lines
     except Exception as e:
         print(f"⚠️ Gagal ambil sumber {idx}: {e}")
-        if alt_sources:
-            print("🔄 Coba alternatif...")
-            for alt_url in alt_sources:
-                try:
-                    r = requests.get(alt_url, timeout=15)
-                    r.raise_for_status()
-                    merged_lines.extend(r.text.splitlines())
-                    break
-                except:
-                    continue
+        return []
 
-# Pisahkan URL stream untuk pengecekan
-print("🔍 Mengecek channel mati (parallel mode)...")
-url_map = {}  # url -> EXTINF
-cleaned_lines = []
-last_extinf = None
-
-for line in merged_lines:
-    if line.startswith("#EXTINF"):
-        last_extinf = line
-    elif line.startswith("http"):
-        url_map[line] = last_extinf
-        last_extinf = None
-    else:
-        cleaned_lines.append(line)
-
-# Cek URL paralel
-valid_urls = []
-with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-    future_map = {executor.submit(check_url, url): url for url in url_map}
-    for future in as_completed(future_map):
-        url = future_map[future]
+async def check_channel(session, url):
+    try:
+        async with session.get(url, timeout=FAST_TIMEOUT) as resp:
+            if resp.status == 200:
+                return True
+    except asyncio.TimeoutError:
         try:
-            if future.result():
-                if url_map[url]:
-                    valid_urls.append(url_map[url])
-                valid_urls.append(url)
+            async with session.get(url, timeout=SLOW_TIMEOUT) as resp:
+                if resp.status == 200:
+                    return True
         except:
-            pass
+            return False
+    except:
+        return False
+    return False
 
-# Gabungkan kembali playlist
-playlist = ["#EXTM3U"] + cleaned_lines + valid_urls
+async def filter_channels(lines):
+    alive_lines, dead_lines = [], []
+    tasks, urls, chunks = [], [], []
 
-# Ubah kategori "SEDANG LIVE" jadi "LIVE EVENT"
-playlist_str = "\n".join(playlist)
-playlist_str = re.sub(r'group-title="SEDANG LIVE"', 'group-title="LIVE EVENT"', playlist_str, flags=re.IGNORECASE)
+    async with aiohttp.ClientSession() as session:
+        for i in range(len(lines)):
+            if lines[i].startswith("#EXTINF"):
+                temp_chunk = [lines[i]]
+            elif lines[i].startswith("http"):
+                temp_chunk.append(lines[i])
+                chunks.append(temp_chunk.copy())
+                urls.append(lines[i])
+                tasks.append(check_channel(session, lines[i]))
 
-# Pisahkan LIVE EVENT di atas
-lines = playlist_str.splitlines()
-live_event = []
-other_channels = []
-current_group = None
+        total = len(tasks)
+        results = []
+        for i in range(0, total, 100):
+            batch_tasks = tasks[i:i+100]
+            batch_results = await asyncio.gather(*batch_tasks)
+            results.extend(batch_results)
+            print(f"⏳ Progress cek: {min(i+100, total)}/{total} channel selesai...")
 
-for line in lines:
-    if line.startswith("#EXTINF"):
-        match = re.search(r'group-title="([^"]+)"', line)
-        if match:
-            current_group = match.group(1)
-        if current_group and current_group.upper() == "LIVE EVENT":
-            live_event.append(line)
+        for idx, alive in enumerate(results):
+            if alive:
+                alive_lines.extend(chunks[idx])
+            else:
+                dead_lines.extend(chunks[idx])
+
+    return alive_lines, dead_lines
+
+async def main():
+    with open(SOURCES_FILE, "r", encoding="utf-8") as f:
+        sources = [line.strip() for line in f if line.strip()]
+
+    async with aiohttp.ClientSession() as session:
+        download_tasks = [download_source(session, idx+1, url) for idx, url in enumerate(sources)]
+        sources_data = await asyncio.gather(*download_tasks)
+
+    merged_lines = []
+    for lines in sources_data:
+        merged_lines.extend(lines)
+
+    playlist = "\n".join(merged_lines)
+    playlist = re.sub(r'group-title="SEDANG LIVE"', 'group-title="LIVE EVENT"', playlist, flags=re.IGNORECASE)
+    lines = playlist.splitlines()
+
+    print(f"🔍 Mengecek channel aktif dari total {len(lines)//2} channel approx...")
+    alive_lines, dead_lines = await filter_channels(lines)
+
+    print(f"✅ Channel aktif: {len(alive_lines)//2}")
+    print(f"💀 Channel mati: {len(dead_lines)//2}")
+
+    # Susun playlist aktif
+    live_event, other_channels = [], []
+    current_group = None
+    for line in alive_lines:
+        if line.startswith("#EXTINF"):
+            match = re.search(r'group-title="([^"]+)"', line)
+            if match:
+                current_group = match.group(1)
+            if current_group and current_group.upper() == "LIVE EVENT":
+                live_event.append(line)
+            else:
+                other_channels.append(line)
         else:
-            other_channels.append(line)
-    else:
-        if current_group and current_group.upper() == "LIVE EVENT":
-            live_event.append(line)
-        else:
-            other_channels.append(line)
+            if current_group and current_group.upper() == "LIVE EVENT":
+                live_event.append(line)
+            else:
+                other_channels.append(line)
 
-final_playlist = ["#EXTM3U"] + live_event + other_channels
+    final_playlist = ["#EXTM3U"] + live_event + other_channels
+    dead_playlist = ["#EXTM3U"] + dead_lines
 
-# Simpan
-with open(MAIN_FILE, "w", encoding="utf-8") as f:
-    f.write("\n".join(final_playlist))
+    with open(MAIN_FILE, "w", encoding="utf-8") as f:
+        f.write("\n".join(final_playlist))
+    with open(DEAD_FILE, "w", encoding="utf-8") as f:
+        f.write("\n".join(dead_playlist))
 
-print(f"✅ Playlist diperbarui dan disimpan ke {MAIN_FILE} - {datetime.utcnow().isoformat()} UTC")
+    print(f"📂 File aktif tersimpan: {MAIN_FILE}")
+    print(f"📂 File mati tersimpan: {DEAD_FILE}")
 
-# Git Commit & Push
-os.system('git config --global user.email "actions@github.com"')
-os.system('git config --global user.name "GitHub Actions"')
-os.system(f'git add {MAIN_FILE}')
-
-commit_msg = f"Update Finalplay.m3u otomatis - {datetime.utcnow().isoformat()} UTC"
-ret = os.system(f'git commit -m "{commit_msg}" || echo "Tidak ada perubahan"')
-if ret == 0:
+    # Git push
+    os.system('git config --global user.email "actions@github.com"')
+    os.system('git config --global user.name "GitHub Actions"')
+    os.system(f'git add {MAIN_FILE} {DEAD_FILE}')
+    commit_msg = f"Update Finalplay.m3u & DeadChannels.m3u - {datetime.utcnow().isoformat()} UTC"
+    os.system(f'git commit -m "{commit_msg}" || echo "Tidak ada perubahan"')
     os.system('git push')
-    print("✅ Commit & push berhasil")
-else:
-    print("⚠️ Tidak ada perubahan baru, skip push")
 
-repo = os.getenv("GITHUB_REPOSITORY", "rafkichanel/my-iptv-playlist")
-commit_hash = os.popen("git rev-parse HEAD").read().strip()
-print(f"🔗 Lihat commit terbaru: https://github.com/{repo}/commit/{commit_hash}")
+if __name__ == "__main__":
+    asyncio.run(main())
