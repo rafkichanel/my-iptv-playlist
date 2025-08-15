@@ -1,33 +1,33 @@
-name: Update Playlist
+name: Update M3U Playlist
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
   schedule:
-    - cron: "0 */6 * * *"  # Jalan tiap 6 jam
+    - cron: '0 */6 * * *' # Run every 6 hours
+  workflow_dispatch: # Allows manual trigger
 
 jobs:
-  update:
+  update-playlist:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
+    permissions:
+      contents: write # This is crucial for the script to be able to push changes
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: '3.10' # Use a recent stable Python version
 
       - name: Install dependencies
         run: |
-          pip install --upgrade pip
-          pip install aiohttp requests urllib3
+          python -m pip install --upgrade pip
+          pip install aiohttp
 
-      - name: Jalankan update playlist
-        run: python scripts/update_playlist.py
+      - name: Run Python script
+        run: python main.py
 
-      - name: Push perubahan
-        run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
-          git add Finalplay.m3u
-          git commit -m "Update Finalplay.m3u otomatis"
-          git push
