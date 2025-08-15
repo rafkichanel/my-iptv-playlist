@@ -18,6 +18,9 @@ for idx, url in enumerate(sources, start=1):
         r.raise_for_status()
         lines = r.text.splitlines()
 
+        # Tambahkan filter untuk menghapus baris yang mengandung 'WHATSAPP'
+        lines = [line for line in lines if "WHATSAPP" not in line.upper()]
+
         # Hilangkan ikon 🔴 di kategori SMA (misal sumber ke-3)
         if idx == 3:
             lines = [line.replace("🔴", "") for line in lines]
@@ -61,3 +64,22 @@ with open(MAIN_FILE, "w", encoding="utf-8") as f:
     f.write("\n".join(final_playlist))
 
 print(f"✅ Playlist diperbarui dan disimpan ke {MAIN_FILE} - {datetime.utcnow().isoformat()} UTC")
+
+# Setup Git
+os.system('git config --global user.email "actions@github.com"')
+os.system('git config --global user.name "GitHub Actions"')
+os.system(f'git add {MAIN_FILE}')
+
+# Commit dengan safe exit code
+commit_msg = f"Update Finalplay.m3u otomatis - {datetime.utcnow().isoformat()} UTC"
+ret = os.system(f'git commit -m "{commit_msg}" || echo "Tidak ada perubahan"')
+if ret == 0:
+    os.system('git push')
+    print("✅ Commit & push berhasil")
+else:
+    print("⚠️ Tidak ada perubahan baru, skip push")
+
+# Cetak link commit terbaru
+repo = os.getenv("GITHUB_REPOSITORY", "rafkichanel/my-iptv-playlist")
+commit_hash = os.popen("git rev-parse HEAD").read().strip()
+print(f"🔗 Lihat commit terbaru: https://github.com/{repo}/commit/{commit_hash}")
