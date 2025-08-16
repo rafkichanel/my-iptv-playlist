@@ -1,60 +1,37 @@
 import requests
 import os
 import re
-import asyncio
-import aiohttp
 from datetime import datetime
 
 MAIN_FILE = "Finalplay.m3u"
 SOURCES_FILE = "sources.txt"
+ALT_SOURCES_FILE = "alt_sources.txt"
 
-# Timeout hybrid
-FAST_TIMEOUT = 3
-SLOW_TIMEOUT = 10
-
-async def check_channel(session, url):
-    """Cek apakah channel hidup."""
+# Fungsi cek URL hybrid
+def check_url(url):
     try:
-        # Cek cepat 3 detik
-        async with session.get(url, timeout=FAST_TIMEOUT) as resp:
-            if resp.status == 200:
-                return True
-    except asyncio.TimeoutError:
-        # Kalau timeout cepat → coba 10 detik
-        try:
-            async with session.get(url, timeout=SLOW_TIMEOUT) as resp:
-                if resp.status == 200:
-                    return True
-        except:
-            return False
+        r = requests.head(url, timeout=3)
+        if r.status_code < 400:
+            return True
     except:
-        return False
+        pass
+    try:
+        r = requests.head(url, timeout=10)
+        if r.status_code < 400:
+            return True
+    except:
+        pass
     return False
 
-async def filter_dead_channels(lines):
-    """Hapus channel mati dari playlist."""
-    alive_lines = []
-    current_chunk = []
+# Ambil daftar sumber
+def load_sources(file_path):
+    if os.path.exists(file_path):
+        with open(file_path, "r", encoding="utf-8") as f:
+            return [line.strip() for line in f if line.strip()]
+    return []
 
-    async with aiohttp.ClientSession() as session:
-        tasks = []
-        for i in range(len(lines)):
-            if lines[i].startswith("#EXTINF"):
-                current_chunk = [lines[i]]
-            elif lines[i].startswith("http"):
-                current_chunk.append(lines[i])
-                tasks.append((current_chunk, check_channel(session, lines[i])))
-
-        results = await asyncio.gather(*[t[1] for t in tasks])
-        for idx, alive in enumerate(results):
-            if alive:
-                alive_lines.extend(tasks[idx][0])
-
-    return alive_lines
-
-# === Mulai proses unduh & filter ===
-with open(SOURCES_FILE, "r", encoding="utf-8") as f:
-    sources = [line.strip() for line in f if line.strip()]
+sources = load_sources(SOURCES_FILE)
+alt_sources = load_sources(ALT_SOURCES_FILE)
 
 merged_lines = []
 for idx, url in enumerate(sources, start=1):
@@ -64,31 +41,55 @@ for idx, url in enumerate(sources, start=1):
         r.raise_for_status()
         lines = r.text.splitlines()
 
-        # Filter tetap
+        # Filter WHATSAPP
         lines = [line for line in lines if "WHATSAPP" not in line.upper()]
+
+        # Hilangkan ikon 🔴 di sumber ke-3
         if idx == 3:
             lines = [line.replace("🔴", "") for line in lines]
 
         merged_lines.extend(lines)
     except Exception as e:
         print(f"⚠️ Gagal ambil sumber {idx}: {e}")
+        if alt_sources:
+            print("🔄 Coba alternatif...")
+            for alt_url in alt_sources:
+                try:
+                    r = requests.get(alt_url, timeout=15)
+                    r.raise_for_status()
+                    merged_lines.extend(r.text.splitlines())
+                    break
+                except:
+                    continue
 
-playlist = "\n".join(merged_lines)
+# Filter channel mati pakai hybrid check
+print("🔍 Mengecek channel mati...")
+filtered_lines = []
+last_extinf = None
+for line in merged_lines:
+    if line.startswith("#EXTINF"):
+        last_extinf = line
+    elif line.startswith("http"):
+        if check_url(line):
+            if last_extinf:
+                filtered_lines.append(last_extinf)
+            filtered_lines.append(line)
+        last_extinf = None
+    else:
+        filtered_lines.append(line)
+
+playlist = "\n".join(filtered_lines)
+
+# Ubah kategori "SEDANG LIVE" jadi "LIVE EVENT"
 playlist = re.sub(r'group-title="SEDANG LIVE"', 'group-title="LIVE EVENT"', playlist, flags=re.IGNORECASE)
 
+# Pisahkan LIVE EVENT di atas
 lines = playlist.splitlines()
-print(f"🔍 Mengecek channel aktif ({len(lines)//2} total approx)...")
-
-# Cek channel aktif
-alive_lines = asyncio.run(filter_dead_channels(lines))
-print(f"✅ Channel aktif: {len(alive_lines)//2}")
-
-# Pisahkan kategori LIVE EVENT
 live_event = []
 other_channels = []
 current_group = None
 
-for line in alive_lines:
+for line in lines:
     if line.startswith("#EXTINF"):
         match = re.search(r'group-title="([^"]+)"', line)
         if match:
@@ -108,12 +109,21 @@ final_playlist = ["#EXTM3U"] + live_event + other_channels
 with open(MAIN_FILE, "w", encoding="utf-8") as f:
     f.write("\n".join(final_playlist))
 
-print(f"✅ Playlist diperbarui ({len(alive_lines)//2} channel aktif) - {datetime.utcnow().isoformat()} UTC")
+print(f"✅ Playlist diperbarui dan disimpan ke {MAIN_FILE} - {datetime.utcnow().isoformat()} UTC")
 
-# Commit Git
+# Setup Git
 os.system('git config --global user.email "actions@github.com"')
 os.system('git config --global user.name "GitHub Actions"')
 os.system(f'git add {MAIN_FILE}')
+
 commit_msg = f"Update Finalplay.m3u otomatis - {datetime.utcnow().isoformat()} UTC"
-os.system(f'git commit -m "{commit_msg}" || echo "Tidak ada perubahan"')
-os.system('git push')
+ret = os.system(f'git commit -m "{commit_msg}" || echo "Tidak ada perubahan"')
+if ret == 0:
+    os.system('git push')
+    print("✅ Commit & push berhasil")
+else:
+    print("⚠️ Tidak ada perubahan baru, skip push")
+
+repo = os.getenv("GITHUB_REPOSITORY", "rafkichanel/my-iptv-playlist")
+commit_hash = os.popen("git rev-parse HEAD").read().strip()
+print(f"🔗 Lihat commit terbaru: https://github.com/{repo}/commit/{commit_hash}")
