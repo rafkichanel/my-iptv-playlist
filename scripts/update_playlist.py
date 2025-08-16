@@ -2,7 +2,7 @@ import aiohttp
 import asyncio
 import os
 import re
-from datetime import datetime
+from datetime import datetime, timezone # Import the timezone module
 
 MAIN_FILE = "Finalplay.m3u"
 SOURCES_FILE = "sources.txt"
@@ -83,15 +83,16 @@ async def main():
     with open(MAIN_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(final_playlist))
 
-    print(f"✅ Playlist diperbarui dan disimpan ke {MAIN_FILE} - {datetime.utcnow().isoformat()} UTC")
+    # Baris 86: Ubah datetime.utcnow()
+    print(f"✅ Playlist diperbarui dan disimpan ke {MAIN_FILE} - {datetime.now(timezone.utc).isoformat()} UTC")
 
     # Setup Git
     os.system('git config --global user.email "actions@github.com"')
     os.system('git config --global user.name "GitHub Actions"')
     os.system(f'git add {MAIN_FILE}')
 
-    # Commit dengan safe exit code
-    commit_msg = f"Update Finalplay.m3u otomatis - {datetime.utcnow().isoformat()} UTC"
+    # Baris 94: Ubah datetime.utcnow()
+    commit_msg = f"Update Finalplay.m3u otomatis - {datetime.now(timezone.utc).isoformat()} UTC"
     ret = os.system(f'git commit -m "{commit_msg}" || echo "Tidak ada perubahan"')
     if ret == 0:
         os.system('git push')
