@@ -1,1 +1,5 @@
 aiohttp
+<<<<<<< HEAD
+=======
+requests
+>>>>>>> d74b303 (Add requirements.txt)
