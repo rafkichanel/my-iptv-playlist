@@ -2,7 +2,7 @@ name: Update IPTV Playlist
 
 on:
   schedule:
-    - cron: '0 3 * * *'  # setiap hari jam 03:00 UTC
+    - cron: '0 */2 * * *'  # setiap 2 jam (120 menit)
   workflow_dispatch:      # bisa juga dijalankan manual lewat GitHub UI
 
 permissions:
@@ -42,4 +42,4 @@ jobs:
             git push
           fi
         continue-on-error: true
-
+        
