@@ -2,7 +2,7 @@ name: Update IPTV Playlist
 
 on:
   schedule:
-    - cron: '0 3 * * *'  # setiap hari jam 03:00 UTC
+    - cron: '0 * * * *'  # setiap 1 jam sekali
   workflow_dispatch:      # bisa juga dijalankan manual lewat GitHub UI
 
 permissions:
@@ -26,8 +26,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
-      - name: Run update_playlist.py
-        run: python update_playlist.py
+      - name: Run Update_playlist.py
+        run: python Update_playlist.py
         working-directory: scripts
 
       - name: Commit and push changes
