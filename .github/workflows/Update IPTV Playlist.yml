@@ -16,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Perlu untuk Git commit dan push
+          fetch-depth: 0 # Diperlukan untuk Git commit dan push
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -29,7 +29,8 @@ jobs:
           pip install requests
 
       - name: Run update script
-        run: python update_playlist.py
+        # Perubahan ada di sini: tambahkan folder 'scripts/'
+        run: python scripts/update_playlist.py
 
       - name: Commit and Push changes
         run: |
@@ -39,3 +40,4 @@ jobs:
           git diff-index --quiet HEAD || (git commit -m "Update Finalplay.m3u" && git push)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
