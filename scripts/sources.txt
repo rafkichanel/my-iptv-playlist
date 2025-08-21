@@ -1,5 +1,5 @@
 pengembarahitam://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master/RAFKI1.m3u
 https://iptv-org.github.io/iptv/index.m3u
 https://bit.ly/pengembarahitam
-https://raw.githubusercontent.com/luongz/Japan-IPTV/main/jp.m3u
+
 
