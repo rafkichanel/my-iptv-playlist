@@ -212,7 +212,7 @@ https://dutatv.siar.us/dutatv/live/playlist.m3u8
 #EXTINF:-1 group-title="INDONESIA",Dhoho TV
 https://dhohotv.siar.us/dhohotv/live/playlist.m3u8
 #EXTINF:-1 group-title="INDONESIA", DAAI TV
-https://atemecdnbalancer-voe.sysln.id/live/eds/DAAITV/mpd/DAAITV.mpd
+https://op-group2-swiftservesd-1.dens.tv/s/s12/S1/mnf.m3u8
 #EXTINF:-1 group-title="INDONESIA",IDX
 https://atemeshield1-voe.sysln.id/live/eds/IDXChannelHD/mpd/IDXChannelHD.mpd
 #EXTINF:-1 group-title="INDONESIA", GARUDA TV
