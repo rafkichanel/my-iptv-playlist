@@ -2945,8 +2945,6 @@ https://op-group1-swiftservehd-1.dens.tv/h/h223/02.m3u8
 https://d84q7nw4qf3j3.cloudfront.net/out/v1/6941abe8211d4ce8bd13d9b96bdd1630/index.mpd
 #EXTINF:-1 group-title="INDONESIA", NET TV/MDTV VIP
 https://wahyu1ptv.pages.dev/MDTV-HD.m3u8
-#EXTINF:-1 group-title="INDONESIA",Metro TV
-https://op-group1-swiftservehd-1.dens.tv/h/h12/01.m3u8
 #EXTINF:-1 group-title="INDONESIA", BTV
 https://btv.secureswiftcontent.com/han/btv/btv10005/srtoutput/manifest.m3u8
 #EXTINF:-1 group-title="INDONESIA", BTV
@@ -2963,8 +2961,6 @@ https://ott-balancer.tvri.go.id/live/eds/Nasional/hls/Nasional.m3u8
 https://ott-balancer.tvri.go.id/live/eds/TVRIWorld/hls/TVRIWorld.m3u8
 #EXTINF:-1 group-title="INDONESIA",Jawa Pos TV
 https://jawapostv.siar.us/jawapostv/live/playlist.m3u8
-#EXTINF:-1 group-title="INDONESIA",SURABAYA TV
-https://e.siar.us/live/surabayatv.m3u8
 #EXTINF:-1 group-title="INDONESIA",LINGKARTV 
 https://lingkartv.my.id/hls/lingkartv.m3u8
 #EXTINF:-1 group-title="INDONESIA",INSPIRA TV
@@ -3033,12 +3029,8 @@ http://live.cnnindonesia.com/livecnn/smil:cnntv.smil/chunklist_w2069650134_b2800
 https://ott-balancer.tvri.go.id/live/eds/Nasional/hls/Nasional.m3u8
 #EXTINF:-1 group-title="INDONESIA",TVRI World
 https://ott-balancer.tvri.go.id/live/eds/TVRIWorld/hls/TVRIWorld.m3u8
-#EXTINF:-1 group-title="INDONESIA", BN Channel
-http://op-group1-swiftservehd-1.dens.tv/h/h39/01.m3u8
 #EXTINF:-1 group-title="INDONESIA",Jawa Pos TV
 https://jawapostv.siar.us/jawapostv/live/playlist.m3u8
-#EXTINF:-1 group-title="INDONESIA",SURABAYA TV
-https://e.siar.us/live/surabayatv.m3u8
 #EXTINF:-1 group-title="INDONESIA",LINGKARTV 
 https://lingkartv.my.id/hls/lingkartv.m3u8
 #EXTINF:-1 group-title="INDONESIA",INSPIRA TV
