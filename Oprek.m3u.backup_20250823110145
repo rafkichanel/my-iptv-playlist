@@ -1833,6 +1833,8 @@ https://vthanh.utako.moe/NHK_E/index.m3u8
 https://vthanh.utako.moe/Nippon_TV/index.m3u8
 #EXTINF:-1 group-title="JAPAN",TBS 
 https://vthanh.utako.moe/TBS/index.m3u8
+#EXTINF:-1 group-title="JAPAN",Fuji TV
+https://vthanh.utako.moe/Fuji_TV/index.m3u8
 #EXTINF:-1 group-title="JAPAN",TV Asahi
 https://vthanh.utako.moe/TV_Asahi/index.m3u8
 #EXTINF:-1 group-title="JAPAN",TV Tokyo

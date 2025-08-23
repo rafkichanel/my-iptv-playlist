@@ -1833,6 +1833,8 @@ https://vthanh.utako.moe/NHK_E/index.m3u8
 https://vthanh.utako.moe/Nippon_TV/index.m3u8
 #EXTINF:-1 group-title="JAPAN",TBS 
 https://vthanh.utako.moe/TBS/index.m3u8
+#EXTINF:-1 group-title="JAPAN",Fuji TV
+https://vthanh.utako.moe/Fuji_TV/index.m3u8
 #EXTINF:-1 group-title="JAPAN",TV Asahi
 https://vthanh.utako.moe/TV_Asahi/index.m3u8
 #EXTINF:-1 group-title="JAPAN",TV Tokyo
@@ -1919,14 +1921,34 @@ https://vthanh.utako.moe/AT-X/index.m3u8
 https://vthanh.utako.moe/disneychan/index.m3u8
 #EXTINF:-1 group-title="JAPAN",Cartoon Network Japan
 https://vthanh.utako.moe/cartoon_network/index.m3u8
+#EXTINF:-1 group-title="JAPAN",Nittele G+
+https://vthanh.utako.moe/ntvgplus/index.m3u8
+#EXTINF:-1 group-title="JAPAN",Family Gekijyo
+https://vthanh.utako.moe/familygeki/index.m3u8
+#EXTINF:-1 group-title="JAPAN",Mondo TV
+https://vthanh.utako.moe/mondo/index.m3u8
+#EXTINF:-1 group-title="JAPAN",TBS Channel 1
+https://vthanh.utako.moe/tbsch1/index.m3u8
+#EXTINF:-1 group-title="JAPAN",TBS Channel 2
+https://vthanh.utako.moe/tbsch2/index.m3u8
+#EXTINF:-1 group-title="JAPAN",TV Asahi Channel 1
+https://vthanh.utako.moe/ex_ch1/index.m3u8
+#EXTINF:-1 group-title="JAPAN",TV Asahi Channel 2
+https://vthanh.utako.moe/ex_ch2/index.m3u8
+#EXTINF:-1 group-title="JAPAN",Fuji TV ONE
+https://vthanh.utako.moe/fuji_one/index.m3u8
 #EXTINF:-1 group-title="JAPAN",Fuji TV TWO
 https://vthanh.utako.moe/fuji_two/index.m3u8
 #EXTINF:-1 group-title="JAPAN",Fuji TV NEXT
 https://vthanh.utako.moe/fuji_next/index.m3u8
+#EXTINF:-1 group-title="JAPAN",Home Drama Channel
+https://vthanh.utako.moe/homedrama/index.m3u8
 #EXTINF:-1 group-title="JAPAN",prakos
 https://vthanh.utako.moe/gingach/index.m3u8
 #EXTINF:-1 group-title="JAPAN",CGNTV Japan
 https://d2p4mrcwl6ly4.cloudfront.net/out/v1/8d50f69fdbbf411a8d302743e4263716/CGNWebLiveJP_1.m3u8
+#EXTINF:-1 group-title="JAPAN",QAB
+(https://cdn-live1.qvc.jp/iPhone/1501/1501.m3u8)
 #EXTINF:-1 group-title="JAPAN",NHK World Premium
 https://cdn.skygo.mn/live/disk1/NHK_World_Premium/HLSv3-FTA/NHK_World_Premium.m3u8
 #EXTINF:-1 group-title="China",Jiangsu TV
