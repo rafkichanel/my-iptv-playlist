@@ -21,12 +21,8 @@ https://d2tjypxxy769fn.cloudfront.net/out/v1/0fd7b7d368bc44bc9b4dece20acc3e33/in
 https://d2xz2v5wuvgur6.cloudfront.net/out/v1/7a69cfc9e135493f87ac4efd63000429/index.mpd
 #EXTINF:-1 group-title="INDONESIA",INDOSIAR
 http://op-group1-swiftservehd-1.dens.tv/h/h235/02.m3u8
-#EXTINF:-1 group-title="INDONESIA",Indosiar HD  
-https://atemecdnbalancer-voe.sysln.id/live/eds/IndosiarHD/mpd/IndosiarHD.mpd
 #EXTINF:-1 group-title="INDONESIA", MOJI TV
 http://op-group1-swiftservehd-1.dens.tv/h/h207/02.m3u8
-#EXTINF:-1 group-title="INDONESIA",TV ONE
-https://op-group1-swiftservehd-1.dens.tv/h/h40/01.m3u8
 #EXTINF:-1 group-title="INDONESIA", NET TV/MDTV
 https://op-group1-swiftservehd-1.dens.tv/h/h223/02.m3u8
 #EXTINF:-1 group-title="INDONESIA", NET TV/MDTV V+
@@ -115,8 +111,6 @@ http://op-group1-swiftservehd-1.dens.tv/h/h235/02.m3u8
 https://atemecdnbalancer-voe.sysln.id/live/eds/IndosiarHD/mpd/IndosiarHD.mpd
 #EXTINF:-1 group-title="INDONESIA", MOJI TV
 http://op-group1-swiftservehd-1.dens.tv/h/h207/02.m3u8
-#EXTINF:-1 group-title="INDONESIA", MOJI TV HD
-https://atemeshield1-voe.sysln.id/live/eds/MOJIOChannel/mpd/MOJIOChannel.mpd
 #EXTINF:-1 group-title="INDONESIA",TV ONE
 https://op-group1-swiftservehd-1.dens.tv/h/h40/01.m3u8
 #EXTINF:-1 group-title="INDONESIA", NET TV/MDTV
@@ -125,18 +119,12 @@ https://op-group1-swiftservehd-1.dens.tv/h/h223/02.m3u8
 https://d84q7nw4qf3j3.cloudfront.net/out/v1/6941abe8211d4ce8bd13d9b96bdd1630/index.mpd
 #EXTINF:-1 group-title="INDONESIA", NET TV/MDTV VIP
 https://wahyu1ptv.pages.dev/MDTV-HD.m3u8
-#EXTINF:-1 group-title="INDONESIA",SINPO TV
-https://siasia-berjuang-hls.bintangstream513.workers.dev/stream.m3u8?id=19046&type=hls
 #EXTINF:-1 group-title="INDONESIA",Metro TV
 https://op-group1-swiftservehd-1.dens.tv/h/h12/01.m3u8
-#EXTINF:-1 group-title="INDONESIA",Metro TV
-https://atemecdnbalancer-voe.sysln.id/live/eds/MetroTVHD/mpd/MetroTVHD.mpd
 #EXTINF:-1 group-title="INDONESIA", BTV
 https://btv.secureswiftcontent.com/han/btv/btv10005/srtoutput/manifest.m3u8
 #EXTINF:-1 group-title="INDONESIA", BTV
 https://op-group1-swiftservehd-1.dens.tv/h/h210/02.m3u8
-#EXTINF:-1 group-title="INDONESIA",SindoNews ID
-https://cdn10jtedge.indihometv.com/atm/DASH/mncnews/manifest.mpd
 #EXTINF:-1 group-title="INDONESIA", CNBC
 https://live.cnbcindonesia.com/livecnbc/smil:cnbctv.smil/playlist.m3u8
 #EXTINF:-1 group-title="INDONESIA",ANTV V+
