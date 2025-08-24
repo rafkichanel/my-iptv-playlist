@@ -2,7 +2,7 @@ name: Combined IPTV Playlist Updater
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Menjalankan setiap hari pada pukul 00:00 UTC
+    - cron: '0 0 * * *' # Jalankan setiap hari pada pukul 00:00 UTC
   workflow_dispatch: # Mengizinkan eksekusi manual
 
 jobs:
@@ -24,6 +24,7 @@ jobs:
 
       - name: Run first script (download playlist)
         run: |
+          cd scripts
           python update_playlist.py
 
       - name: Run second script (process playlist)
@@ -35,6 +36,7 @@ jobs:
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          git add .
+          git add playlist.m3u
+          git add scripts/Finalplay.m3u
           git commit -m "Combined playlist update" || echo "No changes to commit"
           git push
