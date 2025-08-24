@@ -1,4 +1,4 @@
-name: Playlist Auto Update
+name: SMA Playlist Update
 
 on:
   workflow_dispatch:  # bisa dijalankan manual
