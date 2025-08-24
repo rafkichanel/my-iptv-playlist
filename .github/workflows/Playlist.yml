@@ -1,12 +1,11 @@
 name: Tes Playlist
 
-# Trigger workflow
 on:
   push:
     paths:
-      - 'playlist_url.txt'  # Trigger saat playlist_url.txt diubah
+      - 'playlist_url.txt'
   schedule:
-    - cron: '0 * * * *'    # Jalankan tiap jam (UTC)
+    - cron: '0 * * * *'
 
 jobs:
   download-playlist:
@@ -19,7 +18,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'  # Sesuaikan versi Python
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
@@ -27,4 +26,4 @@ jobs:
           pip install requests
 
       - name: Download Playlist
-        run: python scripts/download_playlist.py
+        run: python SMA/main.py
