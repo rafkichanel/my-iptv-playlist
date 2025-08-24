@@ -1,0 +1,37 @@
+name: Update IPTV Playlist
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # otomatis setiap 6 jam
+  workflow_dispatch:       # bisa dijalankan manual
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Jalankan skrip update playlist
+        run: python update_playlist.py
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+
+      - name: Commit & Push perubahan
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add Finalplay.m3u
+          git commit -m "Update Finalplay.m3u otomatis - $(date -u +"%Y-%m-%d %H:%M:%S UTC")" || echo "Tidak ada perubahan"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
