@@ -6,6 +6,19 @@ from datetime import datetime
 MAIN_FILE = "Finalplay.m3u"
 SOURCES_FILE = "sources.txt"
 
+# === DAFTAR LOGO ANDA DI SINI ===
+# Silakan isi daftar ini dengan nama channel dan URL logo yang sesuai.
+# URL harus bisa diakses publik (misalnya dari GitHub).
+channel_logos = {
+    "MNC TV (R+)": "https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master/IMG_20250807_103611.jpg",
+    "BeIN Sport": "https://example.com/logos/bein.png",
+    "HBO Grup": "https://example.com/logos/hbo.png",
+    "CHANNEL | INDONESIA": "https://example.com/logos/indonesia.png",
+    # Anda bisa tambahkan channel lain di sini:
+    # "Nama Channel Lain": "https://url_logo_channel_lain.jpg",
+}
+# === AKHIR DAFTAR LOGO ===
+
 # Baca daftar sumber
 with open(SOURCES_FILE, "r", encoding="utf-8") as f:
     sources = [line.strip() for line in f if line.strip()]
@@ -29,8 +42,30 @@ for idx, url in enumerate(sources, start=1):
     except Exception as e:
         print(f"⚠️ Gagal ambil sumber {idx}: {e}")
 
+# === Tambahan: Modifikasi Logo Semua Channel ===
+modified_lines = []
+for i in range(len(merged_lines)):
+    line = merged_lines[i]
+    if line.startswith("#EXTINF"):
+        # Dapatkan nama channel dari baris
+        match = re.search(r',(.+)', line)
+        if match:
+            channel_name = match.group(1).strip()
+            # Cek apakah nama channel ada di dalam daftar logo
+            if channel_name in channel_logos:
+                logo_url = channel_logos[channel_name]
+                # Pastikan baris belum memiliki tvg-logo
+                if 'tvg-logo="' not in line:
+                    line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-logo="{logo_url}"')
+                else:
+                    # Ganti URL logo yang sudah ada
+                    line = re.sub(r'tvg-logo="[^"]*"', f'tvg-logo="{logo_url}"', line)
+    
+    modified_lines.append(line)
+# === Akhir modifikasi logo ===
+
 # Gabung jadi satu string
-playlist = "\n".join(merged_lines)
+playlist = "\n".join(modified_lines)
 
 # Ubah kategori "SEDANG LIVE" jadi "LIVE EVENT"
 playlist = re.sub(r'group-title="SEDANG LIVE"', 'group-title="LIVE EVENT"', playlist, flags=re.IGNORECASE)
