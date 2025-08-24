@@ -1,7 +1,0 @@
-- name: Create folder myiptv
-  run: |
-    mkdir -p myiptv
-    # jika main.py belum ada, buat template sederhana
-    if [ ! -f myiptv/main.py ]; then
-      echo "print('Update playlist here')" > myiptv/main.py
-    fi
