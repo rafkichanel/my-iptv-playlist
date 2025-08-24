@@ -1,0 +1,35 @@
+name: Playlist Auto Update
+
+on:
+  workflow_dispatch:   # bisa dijalankan manual
+  schedule:
+    - cron: "0 0 * * *"   # jalan tiap hari jam 00:00 UTC
+
+jobs:
+  update-playlist:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install requests rich
+
+      - name: Run script & Commit
+        env:
+          GITHUB_USER: ${{ github.actor }}
+          GITHUB_EMAIL: "${{ github.actor }}@users.noreply.github.com"
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+          GITHUB_BRANCH: ${{ github.ref_name }}
+        run: |
+          python main.py
