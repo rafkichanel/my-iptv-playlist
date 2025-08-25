@@ -10,10 +10,9 @@ OUTPUT_FILE_1 = "Finalplay.m3u"
 SOURCE_FILE_2 = "sources2.txt"
 OUTPUT_FILE_2 = "Finalplay2.m3u"
 
-def process_playlist(source_file, output_file, apply_filter=False):
+def process_playlist(source_file, output_file):
     """
     Mengunduh, memproses, dan menyimpan playlist dari file sumber.
-    Parameter `apply_filter` menentukan apakah filter akan diterapkan.
     """
     try:
         with open(source_file, "r", encoding="utf-8") as f:
@@ -26,12 +25,29 @@ def process_playlist(source_file, output_file, apply_filter=False):
                 r = requests.get(url, timeout=15)
                 r.raise_for_status()
                 lines = r.text.splitlines()
-
-                if apply_filter:
-                    # Terapkan filter khusus
+                
+                # --- Logika Pemfilteran ---
+                if source_file == SOURCE_FILE_1:
+                    # Filter untuk Finalplay.m3u
                     lines = [line for line in lines if "WHATSAPP" not in line.upper()]
-                    if idx == 3: # Contoh: filter pada sumber ke-3
+                    if idx == 3:
                         lines = [line.replace("🔴", "") for line in lines]
+                elif source_file == SOURCE_FILE_2:
+                    # Filter khusus untuk Finalplay2.m3u
+                    filtered_lines = []
+                    skip_next_line = False
+                    for line in lines:
+                        if "group-title=\"00.LIVE EVENT\"" in line or \
+                           "group-title=\"01.CADANGAN LIVE EVENT\"" in line or \
+                           "group-title=\"Contact Admin\"" in line:
+                            skip_next_line = True
+                            continue
+                        if skip_next_line and line.startswith("http"):
+                            skip_next_line = False
+                            continue
+                        if not skip_next_line:
+                            filtered_lines.append(line)
+                    lines = filtered_lines
                 
                 merged_lines.extend(lines)
             except Exception as e:
@@ -79,9 +95,9 @@ def process_playlist(source_file, output_file, apply_filter=False):
         return False
 
 # --- Jalankan proses untuk kedua file ---
-process_playlist(SOURCE_FILE_1, OUTPUT_FILE_1, apply_filter=True)
+process_playlist(SOURCE_FILE_1, OUTPUT_FILE_1)
 print("-" * 50)
-process_playlist(SOURCE_FILE_2, OUTPUT_FILE_2, apply_filter=False)
+process_playlist(SOURCE_FILE_2, OUTPUT_FILE_2)
 print("-" * 50)
 
 # --- Setup Git ---
@@ -102,4 +118,3 @@ else:
 repo = os.getenv("GITHUB_REPOSITORY", "rafkichanel/my-iptv-playlist")
 commit_hash = os.popen("git rev-parse HEAD").read().strip()
 print(f"🔗 Lihat commit terbaru: https://github.com/{repo}/commit/{commit_hash}")
-                
