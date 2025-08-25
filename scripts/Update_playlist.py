@@ -25,39 +25,27 @@ def process_playlist(source_file, output_file):
                 r = requests.get(url, timeout=15)
                 r.raise_for_status()
                 lines = r.text.splitlines()
-                
+
                 # --- Logika Pemfilteran ---
                 if source_file == SOURCE_FILE_1:
-                    # Filter untuk Finalplay.m3u
                     lines = [line for line in lines if "WHATSAPP" not in line.upper()]
                     if idx == 3:
                         lines = [line.replace("🔴", "") for line in lines]
+                    lines = [line for line in lines if 'group-title="SMA"' not in line]
+
                 elif source_file == SOURCE_FILE_2:
-                    # Filter khusus untuk Finalplay2.m3u
-                    filtered_lines = []
-                    skip_next_line = False
-                    for line in lines:
-                        if "group-title=\"00.LIVE EVENT\"" in line or \
-                           "group-title=\"01.CADANGAN LIVE EVENT\"" in line or \
-                           "group-title=\"Contact Admin\"" in line:
-                            skip_next_line = True
-                            continue
-                        if skip_next_line and line.startswith("http"):
-                            skip_next_line = False
-                            continue
-                        if not skip_next_line:
-                            filtered_lines.append(line)
-                    lines = filtered_lines
-                
+                    # Filter khusus untuk Finalplay2.m3u dengan regex yang lebih kuat
+                    lines = [line for line in lines if not re.search(r'group-title="00\.LIVE EVENT"', line, re.IGNORECASE)]
+                    lines = [line for line in lines if not re.search(r'group-title="01\.CADANGAN LIVE EVENT"', line, re.IGNORECASE)]
+                    lines = [line for line in lines if not re.search(r'group-title="Contact Admin"', line, re.IGNORECASE)]
+
                 merged_lines.extend(lines)
             except Exception as e:
                 print(f"⚠️ Gagal ambil sumber {idx} dari {source_file}: {e}")
 
-        # Gabung jadi satu string
         playlist_content = "\n".join(merged_lines)
         playlist_content = re.sub(r'group-title="SEDANG LIVE"', 'group-title="LIVE EVENT"', playlist_content, flags=re.IGNORECASE)
 
-        # Pisahkan berdasarkan kategori untuk menempatkan 'LIVE EVENT' di atas
         lines = playlist_content.splitlines()
         live_event = []
         other_channels = []
@@ -78,9 +66,16 @@ def process_playlist(source_file, output_file):
                 else:
                     other_channels.append(line)
         
-        final_playlist = ["#EXTM3U"] + live_event + other_channels
+        final_playlist = ["#EXTM3U"]
+        if source_file == SOURCE_FILE_2:
+            WELCOME_MESSAGE = [
+                "#EXTINF:-1 tvg-logo=\"https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/refs/heads/tyo878787/IMG_20250807_103611.jpg\" group-title=\"00_Welcome RAFKI\", ðŸŽ‰ Selamat Datang di Playlist RAFKI ðŸŽ¶ | Nikmati hiburan terbaik & jangan lupa subscribe YouTube kami! ðŸ“º",
+                "https://youtu.be/Lt5ubg_h53c?si=aPHoxL6wkKYnhQqr"
+            ]
+            final_playlist += WELCOME_MESSAGE
+            
+        final_playlist += live_event + other_channels
 
-        # Simpan file
         with open(output_file, "w", encoding="utf-8") as f:
             f.write("\n".join(final_playlist))
         
@@ -118,3 +113,4 @@ else:
 repo = os.getenv("GITHUB_REPOSITORY", "rafkichanel/my-iptv-playlist")
 commit_hash = os.popen("git rev-parse HEAD").read().strip()
 print(f"🔗 Lihat commit terbaru: https://github.com/{repo}/commit/{commit_hash}")
+                    
