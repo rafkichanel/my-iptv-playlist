@@ -11,9 +11,12 @@ SOURCE_FILE_2 = "sources2.txt"
 OUTPUT_FILE_2 = "Finalplay2.m3u"
 
 def check_channel_status(url):
-    """Mengecek status channel dengan HTTP HEAD request."""
+    """
+    Mengecek status channel dengan HTTP HEAD request.
+    Timeout diatur 3 detik untuk keseimbangan antara akurasi dan kecepatan.
+    """
     try:
-        r = requests.head(url, timeout=5)
+        r = requests.head(url, timeout=3)
         return r.status_code == 200
     except requests.exceptions.RequestException:
         return False
@@ -33,7 +36,7 @@ def process_playlist(source_file, output_file):
                 r = requests.get(url, timeout=15)
                 r.raise_for_status()
                 lines = r.text.splitlines()
-                
+
                 # --- Logika Pemfilteran Kategori ---
                 if source_file == SOURCE_FILE_1:
                     lines = [line for line in lines if "WHATSAPP" not in line.upper()]
@@ -139,4 +142,3 @@ else:
 repo = os.getenv("GITHUB_REPOSITORY", "rafkichanel/my-iptv-playlist")
 commit_hash = os.popen("git rev-parse HEAD").read().strip()
 print(f"🔗 Lihat commit terbaru: https://github.com/{repo}/commit/{commit_hash}")
-                    
