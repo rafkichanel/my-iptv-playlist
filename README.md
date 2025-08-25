@@ -1,1 +1,6 @@
-update iptv auto playlist
+##RaFKi Chanel ##
+UPDATE AUTO PLAYLIST
+____schedule &
+            manual ______
+
+❤️❤️❤️❤️❤️            ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
