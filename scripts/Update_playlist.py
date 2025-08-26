@@ -22,6 +22,15 @@ def process_playlist(source_file, output_file):
         "bit.ly/45OH1zr": ["LIGA ARAB", "LIGA INGGRIS", "LIGA PRANCIS", "LIGA SPANYOL", "SERIE A ITALIA"],
         "s.id/andi7153": ["LIVE FORMULA 1", "LIVE | LALIGA", "LIVE | MotoGP", "LIVE | PROLIGA", "LIVE | TIMNAS", "LIVE | UCL", "LIVE VOLLY VNL"]
     }
+    
+    # Daftar kategori yang akan dihapus secara default untuk sources2.txt
+    # Kategori akan dicocokkan tanpa memperhatikan huruf besar/kecil.
+    source2_categories_to_remove = [
+        "00.LIVE EVENT",
+        "01.CADANGAN LIVE EVENT",
+        "Contact Admin",
+        "WELCOME RAFKI" # Tambahkan filter ini untuk memastikan tidak ada duplikasi
+    ]
 
     try:
         with open(source_file, "r", encoding="utf-8") as f:
@@ -49,12 +58,10 @@ def process_playlist(source_file, output_file):
                         print(f"✅ Filter aktif untuk URL ini. Kategori yang diizinkan: {allowed_categories}")
                         new_lines = []
                         next_line_is_channel = False
-                        # Ubah kategori yang diizinkan ke lowercase untuk perbandingan yang lebih fleksibel
                         allowed_categories_lower = [cat.lower() for cat in allowed_categories]
                         for line in lines:
                             if line.startswith("#EXTINF"):
                                 match = re.search(r'group-title="([^"]+)"', line, re.IGNORECASE)
-                                # Cek jika group-title cocok (tidak sensitif terhadap huruf besar/kecil)
                                 if match and match.group(1).strip().lower() in allowed_categories_lower:
                                     new_lines.append(line)
                                     next_line_is_channel = True
@@ -66,9 +73,24 @@ def process_playlist(source_file, output_file):
                         lines = new_lines
                     else:
                         print("❗ URL tidak terdaftar di filter. Menggunakan filter standar.")
-                        lines = [line for line in lines if not re.search(r'group-title="00\.LIVE EVENT"', line, re.IGNORECASE)]
-                        lines = [line for line in lines if not re.search(r'group-title="01\.CADANGAN LIVE EVENT"', line, re.IGNORECASE)]
-                        lines = [line for line in lines if not re.search(r'group-title="Contact Admin"', line, re.IGNORECASE)]
+                        
+                        # Buat regex untuk kategori yang akan dihapus
+                        remove_pattern = '|'.join([re.escape(cat) for cat in source2_categories_to_remove])
+                        
+                        new_lines = []
+                        next_line_is_channel = False
+                        for line in lines:
+                            if line.startswith("#EXTINF"):
+                                match = re.search(r'group-title="([^"]+)"', line, re.IGNORECASE)
+                                if match and re.search(remove_pattern, match.group(1), re.IGNORECASE):
+                                    next_line_is_channel = False
+                                else:
+                                    new_lines.append(line)
+                                    next_line_is_channel = True
+                            elif next_line_is_channel and line.startswith("http"):
+                                new_lines.append(line)
+                                next_line_is_channel = False
+                        lines = new_lines
 
                 merged_lines.extend(lines)
             except Exception as e:
@@ -145,3 +167,4 @@ repo = os.getenv("GITHUB_REPOSITORY", "rafkichanel/my-iptv-playlist")
 commit_hash = os.popen("git rev-parse HEAD").read().strip()
 print(f"🔗 Lihat commit terbaru: https://github.com/{repo}/commit/{commit_hash}")
 
+                    
