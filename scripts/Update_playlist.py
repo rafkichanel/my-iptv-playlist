@@ -10,6 +10,17 @@ OUTPUT_FILE_1 = "Finalplay.m3u"
 SOURCE_FILE_2 = "sources2.txt"
 OUTPUT_FILE_2 = "Finalplay2.m3u"
 
+def check_channel_status(url):
+    """
+    Mengecek status channel dengan HTTP HEAD request.
+    Timeout diatur 3 detik untuk keseimbangan antara akurasi dan kecepatan.
+    """
+    try:
+        r = requests.head(url, timeout=3)
+        return r.status_code == 200
+    except requests.exceptions.RequestException:
+        return False
+
 def process_playlist(source_file, output_file):
     """
     Mengunduh, memproses, dan menyimpan playlist dari file sumber.
@@ -34,11 +45,64 @@ def process_playlist(source_file, output_file):
                     lines = [line for line in lines if 'group-title="SMA"' not in line]
 
                 elif source_file == SOURCE_FILE_2:
-                    # Filter khusus untuk Finalplay2.m3u dengan regex yang lebih kuat
-                    lines = [line for line in lines if not re.search(r'group-title="00\.LIVE EVENT"', line, re.IGNORECASE)]
-                    lines = [line for line in lines if not re.search(r'group-title="01\.CADANGAN LIVE EVENT"', line, re.IGNORECASE)]
-                    lines = [line for line in lines if not re.search(r'group-title="Contact Admin"', line, re.IGNORECASE)]
+                    # Filter khusus untuk Finalplay2.m3u berdasarkan URL sumber
+                    if "bit.ly/MBois2025" in url:
+                        allowed_categories = ["Korean channels"]
+                        new_lines = []
+                        next_line_is_channel = False
+                        for line in lines:
+                            if line.startswith("#EXTINF"):
+                                match = re.search(r'group-title="([^"]+)"', line, re.IGNORECASE)
+                                if match and match.group(1) in allowed_categories:
+                                    new_lines.append(line)
+                                    next_line_is_channel = True
+                                else:
+                                    next_line_is_channel = False
+                            elif next_line_is_channel and line.startswith("http"):
+                                new_lines.append(line)
+                                next_line_is_channel = False
+                        lines = new_lines
+                    
+                    elif "bit.ly/45OH1zr" in url:
+                        allowed_categories = ["LIGA ARAB", "LIGA INGGRIS", "LIGA PRANCIS", "LIGA SPANYOL", "SERIE A ITALIA"]
+                        new_lines = []
+                        next_line_is_channel = False
+                        for line in lines:
+                            if line.startswith("#EXTINF"):
+                                match = re.search(r'group-title="([^"]+)"', line, re.IGNORECASE)
+                                if match and match.group(1) in allowed_categories:
+                                    new_lines.append(line)
+                                    next_line_is_channel = True
+                                else:
+                                    next_line_is_channel = False
+                            elif next_line_is_channel and line.startswith("http"):
+                                new_lines.append(line)
+                                next_line_is_channel = False
+                        lines = new_lines
 
+                    elif "s.id/andi7153" in url:
+                        allowed_categories = ["LIVE FORMULA 1", "LIVE | LALIGA", "LIVE | MotoGP", "LIVE | PROLIGA", "LIVE | TIMNAS", "LIVE | UCL", "LIVE VOLLY VNL"]
+                        new_lines = []
+                        next_line_is_channel = False
+                        for line in lines:
+                            if line.startswith("#EXTINF"):
+                                match = re.search(r'group-title="([^"]+)"', line, re.IGNORECASE)
+                                if match and match.group(1) in allowed_categories:
+                                    new_lines.append(line)
+                                    next_line_is_channel = True
+                                else:
+                                    next_line_is_channel = False
+                            elif next_line_is_channel and line.startswith("http"):
+                                new_lines.append(line)
+                                next_line_is_channel = False
+                        lines = new_lines
+
+                    else:
+                        # Jika ada URL lain di sources2.txt, filter kategori yang tidak diinginkan
+                        lines = [line for line in lines if not re.search(r'group-title="00\.LIVE EVENT"', line, re.IGNORECASE)]
+                        lines = [line for line in lines if not re.search(r'group-title="01\.CADANGAN LIVE EVENT"', line, re.IGNORECASE)]
+                        lines = [line for line in lines if not re.search(r'group-title="Contact Admin"', line, re.IGNORECASE)]
+                
                 merged_lines.extend(lines)
             except Exception as e:
                 print(f"⚠️ Gagal ambil sumber {idx} dari {source_file}: {e}")
@@ -48,7 +112,7 @@ def process_playlist(source_file, output_file):
 
         lines = playlist_content.splitlines()
         live_event = []
-        other_channels = []
+        other_channels_raw = []
         current_group = None
 
         for line in lines:
@@ -59,13 +123,32 @@ def process_playlist(source_file, output_file):
                 if current_group and current_group.upper() == "LIVE EVENT":
                     live_event.append(line)
                 else:
-                    other_channels.append(line)
+                    other_channels_raw.append(line)
             else:
                 if current_group and current_group.upper() == "LIVE EVENT":
                     live_event.append(line)
                 else:
-                    other_channels.append(line)
+                    other_channels_raw.append(line)
         
+        other_channels_filtered = []
+        # --- Hanya filter channel aktif untuk playlist kedua ---
+        if source_file == SOURCE_FILE_2:
+            print("Memeriksa status channel...")
+            for i in range(0, len(other_channels_raw), 2):
+                if i + 1 < len(other_channels_raw):
+                    extinf_line = other_channels_raw[i]
+                    url_line = other_channels_raw[i+1]
+                    if check_channel_status(url_line):
+                        other_channels_filtered.append(extinf_line)
+                        other_channels_filtered.append(url_line)
+        else:
+            other_channels_filtered = other_channels_raw
+
+        # --- Batasi jumlah channel hanya untuk playlist kedua ---
+        if source_file == SOURCE_FILE_2:
+            max_lines = 1553 * 2
+            other_channels_filtered = other_channels_filtered[:max_lines]
+
         final_playlist = ["#EXTM3U"]
         if source_file == SOURCE_FILE_2:
             WELCOME_MESSAGE = [
@@ -74,7 +157,7 @@ def process_playlist(source_file, output_file):
             ]
             final_playlist += WELCOME_MESSAGE
             
-        final_playlist += live_event + other_channels
+        final_playlist += live_event + other_channels_filtered
 
         with open(output_file, "w", encoding="utf-8") as f:
             f.write("\n".join(final_playlist))
@@ -113,4 +196,4 @@ else:
 repo = os.getenv("GITHUB_REPOSITORY", "rafkichanel/my-iptv-playlist")
 commit_hash = os.popen("git rev-parse HEAD").read().strip()
 print(f"🔗 Lihat commit terbaru: https://github.com/{repo}/commit/{commit_hash}")
-                    
+
