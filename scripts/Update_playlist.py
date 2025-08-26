@@ -66,6 +66,8 @@ def process_playlist(source_file, output_file):
                             if line.startswith("#EXTINF"):
                                 match = re.search(r'group-title="([^"]+)"', line, re.IGNORECASE)
                                 if match and match.group(1).strip().lower() in allowed_categories_lower:
+                                    # Mengganti logo "SMA" dan "MBOIS" dengan logo play hanya jika kategori cocok
+                                    line = re.sub(r'tvg-logo="[^"]*(sma|s.m.a|mbois)[^"]*"', f'tvg-logo="{PLAY_LOGO_SVG}"', line, flags=re.IGNORECASE)
                                     new_lines.append(line)
                                     next_line_is_channel = True
                                 else:
@@ -94,9 +96,6 @@ def process_playlist(source_file, output_file):
                                 new_lines.append(line)
                                 next_line_is_channel = False
                         lines = new_lines
-                    
-                    # Mengganti logo "SMA" dengan logo play hanya untuk sumber kedua
-                    lines = [re.sub(r'tvg-logo="[^"]*(sma|s.m.a)[^"]*"', f'tvg-logo="{PLAY_LOGO_SVG}"', line, flags=re.IGNORECASE) for line in lines]
 
                 merged_lines.extend(lines)
             except Exception as e:
