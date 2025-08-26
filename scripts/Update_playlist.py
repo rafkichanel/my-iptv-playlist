@@ -31,6 +31,9 @@ def process_playlist(source_file, output_file):
         "Contact Admin",
         "WELCOME RAFKI" # Tambahkan filter ini untuk memastikan tidak ada duplikasi
     ]
+    
+    # URL data SVG untuk logo play
+    PLAY_LOGO_SVG = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTggNXYxNGwxMS03eiIgZmlsbD0iI2ZmZmZmZiIvPjwvc3ZnPg=="
 
     try:
         with open(source_file, "r", encoding="utf-8") as f:
@@ -91,6 +94,9 @@ def process_playlist(source_file, output_file):
                                 new_lines.append(line)
                                 next_line_is_channel = False
                         lines = new_lines
+                    
+                    # Mengganti logo "SMA" dengan logo play hanya untuk sumber kedua
+                    lines = [re.sub(r'tvg-logo="[^"]*(sma|s.m.a)[^"]*"', f'tvg-logo="{PLAY_LOGO_SVG}"', line, flags=re.IGNORECASE) for line in lines]
 
                 merged_lines.extend(lines)
             except Exception as e:
