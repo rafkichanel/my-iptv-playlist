@@ -15,7 +15,8 @@ def process_playlist(source_file, output_file):
     Mengunduh, memproses, dan menyimpan playlist dari file sumber.
     """
     # Kamus (dictionary) untuk pemfilteran sources2.txt
-    # Gunakan kamus ini untuk memetakan URL ke kategori yang diizinkan
+    # Gunakan kamus ini untuk memetakan URL ke kategori yang diizinkan.
+    # Kategori akan dicocokkan tanpa memperhatikan huruf besar/kecil.
     source2_filters = {
         "bit.ly/MBois2025": ["Korean channels"],
         "bit.ly/45OH1zr": ["LIGA ARAB", "LIGA INGGRIS", "LIGA PRANCIS", "LIGA SPANYOL", "SERIE A ITALIA"],
@@ -48,10 +49,13 @@ def process_playlist(source_file, output_file):
                         print(f"✅ Filter aktif untuk URL ini. Kategori yang diizinkan: {allowed_categories}")
                         new_lines = []
                         next_line_is_channel = False
+                        # Ubah kategori yang diizinkan ke lowercase untuk perbandingan yang lebih fleksibel
+                        allowed_categories_lower = [cat.lower() for cat in allowed_categories]
                         for line in lines:
                             if line.startswith("#EXTINF"):
                                 match = re.search(r'group-title="([^"]+)"', line, re.IGNORECASE)
-                                if match and match.group(1).strip() in allowed_categories:
+                                # Cek jika group-title cocok (tidak sensitif terhadap huruf besar/kecil)
+                                if match and match.group(1).strip().lower() in allowed_categories_lower:
                                     new_lines.append(line)
                                     next_line_is_channel = True
                                 else:
