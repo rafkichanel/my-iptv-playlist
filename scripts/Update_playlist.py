@@ -5,14 +5,12 @@ from datetime import datetime
 
 # Definisi file sumber dan file output
 SOURCE_FILE_1 = "sources.txt"
-OUTPUT_FILE_1 = "Finalplay.m3u"
-
 SOURCE_FILE_2 = "sources2.txt"
-OUTPUT_FILE_2 = "Finalplay2.m3u"
+COMBINED_OUTPUT_FILE = "Finalplay.m3u"
 
-def process_playlist(source_file, output_file):
+def process_source_to_lines(source_file):
     """
-    Mengunduh, memproses, dan menyimpan playlist dari file sumber.
+    Mengunduh dan memproses playlist dari file sumber, mengembalikan daftar baris.
     """
     try:
         with open(source_file, "r", encoding="utf-8") as f:
@@ -34,71 +32,56 @@ def process_playlist(source_file, output_file):
                     lines = [line for line in lines if 'group-title="SMA"' not in line]
 
                 elif source_file == SOURCE_FILE_2:
-                    # Filter khusus untuk Finalplay2.m3u dengan regex yang lebih kuat
                     lines = [line for line in lines if not re.search(r'group-title="00\.LIVE EVENT"', line, re.IGNORECASE)]
                     lines = [line for line in lines if not re.search(r'group-title="01\.CADANGAN LIVE EVENT"', line, re.IGNORECASE)]
                     lines = [line for line in lines if not re.search(r'group-title="Contact Admin"', line, re.IGNORECASE)]
+                    lines = [line for line in lines if not re.search(r'\$\$\$\$\$\$ DONASI UPDATE \$\$\$\$\$\$', line, re.IGNORECASE)]
 
                 merged_lines.extend(lines)
             except Exception as e:
                 print(f"⚠️ Gagal ambil sumber {idx} dari {source_file}: {e}")
-
-        playlist_content = "\n".join(merged_lines)
-        playlist_content = re.sub(r'group-title="SEDANG LIVE"', 'group-title="LIVE EVENT"', playlist_content, flags=re.IGNORECASE)
-
-        lines = playlist_content.splitlines()
-        live_event = []
-        other_channels = []
-        current_group = None
-
-        for line in lines:
-            if line.startswith("#EXTINF"):
-                match = re.search(r'group-title="([^"]+)"', line)
-                if match:
-                    current_group = match.group(1)
-                if current_group and current_group.upper() == "LIVE EVENT":
-                    live_event.append(line)
-                else:
-                    other_channels.append(line)
-            else:
-                if current_group and current_group.upper() == "LIVE EVENT":
-                    live_event.append(line)
-                else:
-                    other_channels.append(line)
         
-        final_playlist = ["#EXTM3U"]
-        if source_file == SOURCE_FILE_2:
-            WELCOME_MESSAGE = [
-                "#EXTINF:-1 tvg-logo=\"https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/refs/heads/tyo878787/IMG_20250807_103611.jpg\" group-title=\"00_Welcome RAFKI\", ðŸŽ‰ Selamat Datang di Playlist RAFKI ðŸŽ¶ | Nikmati hiburan terbaik & jangan lupa subscribe YouTube kami! ðŸ“º",
-                "https://youtu.be/Lt5ubg_h53c?si=aPHoxL6wkKYnhQqr"
-            ]
-            final_playlist += WELCOME_MESSAGE
-            
-        final_playlist += live_event + other_channels
-
-        with open(output_file, "w", encoding="utf-8") as f:
-            f.write("\n".join(final_playlist))
-        
-        print(f"✅ Playlist diperbarui dan disimpan ke {output_file} - {datetime.utcnow().isoformat()} UTC")
-        return True
+        return merged_lines
     
     except FileNotFoundError:
         print(f"❗ File sumber tidak ditemukan: {source_file}")
-        return False
+        return []
     except Exception as e:
         print(f"❌ Terjadi kesalahan saat memproses {source_file}: {e}")
-        return False
+        return []
 
-# --- Jalankan proses untuk kedua file ---
-process_playlist(SOURCE_FILE_1, OUTPUT_FILE_1)
+# --- Jalankan proses untuk kedua file dan gabungkan ---
+print("🚀 Memulai proses penggabungan playlist...")
+lines_playlist1 = process_source_to_lines(SOURCE_FILE_1)
 print("-" * 50)
-process_playlist(SOURCE_FILE_2, OUTPUT_FILE_2)
-print("-" * 50)
+lines_playlist2 = process_source_to_lines(SOURCE_FILE_2)
+
+# Gabungkan konten
+final_playlist = ["#EXTM3U"]
+
+# Tambahkan konten dari playlist pertama
+final_playlist.append("") # Baris kosong untuk pemisah
+final_playlist.append("# Playlist Sumber Pertama")
+final_playlist.extend(lines_playlist1)
+
+# Tambahkan konten dari playlist kedua
+final_playlist.append("") # Baris kosong untuk pemisah
+# Pesan selamat datang
+final_playlist.append("#EXTINF:-1 tvg-logo=\"https://raw.githubusercontent.com/tyo878787/my-iptv-playlist/refs/heads/tyo878787/IMG_20250807_103611.jpg\" group-title=\"00_Welcome RAFKI\", ðŸŽ‰ Selamat Datang di Playlist RAFKI ðŸŽ¶ | Nikmati hiburan terbaik & jangan lupa subscribe YouTube kami! ðŸ“º")
+final_playlist.append("https://youtu.be/Lt5ubg_h53c?si=aPHoxL6wkKYnhQqr")
+final_playlist.append("# Playlist Sumber Kedua")
+final_playlist.extend(lines_playlist2)
+
+# Simpan ke satu file
+with open(COMBINED_OUTPUT_FILE, "w", encoding="utf-8") as f:
+    f.write("\n".join(final_playlist))
+    
+print(f"✅ Playlist gabungan berhasil dibuat dan disimpan ke {COMBINED_OUTPUT_FILE} - {datetime.utcnow().isoformat()} UTC")
 
 # --- Setup Git ---
 os.system('git config --global user.email "actions@github.com"')
 os.system('git config --global user.name "GitHub Actions"')
-os.system(f'git add {OUTPUT_FILE_1} {OUTPUT_FILE_2}')
+os.system(f'git add {COMBINED_OUTPUT_FILE}')
 
 # Commit dengan safe exit code
 commit_msg = f"Update playlists otomatis - {datetime.utcnow().isoformat()} UTC"
@@ -113,4 +96,3 @@ else:
 repo = os.getenv("GITHUB_REPOSITORY", "rafkichanel/my-iptv-playlist")
 commit_hash = os.popen("git rev-parse HEAD").read().strip()
 print(f"🔗 Lihat commit terbaru: https://github.com/{repo}/commit/{commit_hash}")
-                    
