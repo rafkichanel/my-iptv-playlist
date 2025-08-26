@@ -10,17 +10,6 @@ OUTPUT_FILE_1 = "Finalplay.m3u"
 SOURCE_FILE_2 = "sources2.txt"
 OUTPUT_FILE_2 = "Finalplay2.m3u"
 
-def check_channel_status(url):
-    """
-    Mengecek status channel dengan HTTP HEAD request.
-    Timeout diatur 3 detik untuk keseimbangan antara akurasi dan kecepatan.
-    """
-    try:
-        r = requests.head(url, timeout=3)
-        return r.status_code == 200
-    except requests.exceptions.RequestException:
-        return False
-
 def process_playlist(source_file, output_file):
     """
     Mengunduh, memproses, dan menyimpan playlist dari file sumber.
@@ -112,7 +101,7 @@ def process_playlist(source_file, output_file):
 
         lines = playlist_content.splitlines()
         live_event = []
-        other_channels_raw = []
+        other_channels = []
         current_group = None
 
         for line in lines:
@@ -123,31 +112,17 @@ def process_playlist(source_file, output_file):
                 if current_group and current_group.upper() == "LIVE EVENT":
                     live_event.append(line)
                 else:
-                    other_channels_raw.append(line)
+                    other_channels.append(line)
             else:
                 if current_group and current_group.upper() == "LIVE EVENT":
                     live_event.append(line)
                 else:
-                    other_channels_raw.append(line)
+                    other_channels.append(line)
         
-        other_channels_filtered = []
-        # --- Hanya filter channel aktif untuk playlist kedua ---
-        if source_file == SOURCE_FILE_2:
-            print("Memeriksa status channel...")
-            for i in range(0, len(other_channels_raw), 2):
-                if i + 1 < len(other_channels_raw):
-                    extinf_line = other_channels_raw[i]
-                    url_line = other_channels_raw[i+1]
-                    if check_channel_status(url_line):
-                        other_channels_filtered.append(extinf_line)
-                        other_channels_filtered.append(url_line)
-        else:
-            other_channels_filtered = other_channels_raw
-
         # --- Batasi jumlah channel hanya untuk playlist kedua ---
         if source_file == SOURCE_FILE_2:
             max_lines = 1553 * 2
-            other_channels_filtered = other_channels_filtered[:max_lines]
+            other_channels = other_channels[:max_lines]
 
         final_playlist = ["#EXTM3U"]
         if source_file == SOURCE_FILE_2:
@@ -157,7 +132,7 @@ def process_playlist(source_file, output_file):
             ]
             final_playlist += WELCOME_MESSAGE
             
-        final_playlist += live_event + other_channels_filtered
+        final_playlist += live_event + other_channels
 
         with open(output_file, "w", encoding="utf-8") as f:
             f.write("\n".join(final_playlist))
