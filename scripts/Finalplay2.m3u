@@ -47,6 +47,15 @@ https://spacetv.my.id/index.mpd?id=19412&type=dash
 #EXTVLCOPT:http-user-agent=VidioPlayer/6.41.11
 https://seprai.jasoncreak8.workers.dev/play.mpd?id=19331&type=dash
 
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://seprai.jasoncreak8.workers.dev/play?id=19406&type=drm
+#EXTVLCOPT:http-user-agent=VidioPlayer/6.41.11
+https://seprai.jasoncreak8.workers.dev/play.mpd?id=19406&type=dash
+
+#EXTVLCOPT:http-user-agent=VidioPlayer/6.31.6
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://spacetv.my.id/drm.kt?id=19406&type=drm
+https://spacetv.my.id/index.mpd?id=19406&type=dash
 
 
 
@@ -54,12 +63,12 @@ https://seprai.jasoncreak8.workers.dev/play.mpd?id=19331&type=dash
 #EXTVLCOPT:http-origin=https://demo.zplayer.xyz
 #EXTVLCOPT:http-referrer=https://demo.zplayer.xyz/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
-https://hotlivezz179026907.akainu.xyz/fzFT3271TLpg9f7XMugjyA/Fv2lucGIbhPi2caWYvF5Lg/1756126621799/live/may171/chunklist.m3u8
+https://hotlivezz179026907.akainu.xyz/Gs6QPmJd7LFNdvRxmEHO-g/Fv2lucGIbhPi2caWYvF5Lg/1756306554784/live/may21/chunklist.m3u8
 
 #EXTVLCOPT:http-origin=https://demo.zplayer.xyz
 #EXTVLCOPT:http-referrer=https://demo.zplayer.xyz/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
-https://hotlivezz179026907.akainu.xyz/MU8mBzWOOYbp59HyUMMb7g/Fv2lucGIbhPi2caWYvF5Lg/1756136321133/live/may61/chunklist.m3u8
+https://hotlivezz179026907.akainu.xyz/vXaBaBMuR_P_ViQDWqznkw/Fv2lucGIbhPi2caWYvF5Lg/1756306726917/live/may211/chunklist.m3u8
 
 #EXTVLCOPT:http-origin=https://demo.zplayer.xyz
 #EXTVLCOPT:http-referrer=https://demo.zplayer.xyz/
