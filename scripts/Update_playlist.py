@@ -40,8 +40,8 @@ def process_playlist(source_file, output_file):
                     lines = [line for line in lines if not re.search(r'group-title="01\.CADANGAN LIVE EVENT"', line, re.IGNORECASE)]
                     lines = [line for line in lines if not re.search(r'group-title="Contact Admin"', line, re.IGNORECASE)]
                     lines = [line for line in lines if not re.search(r'\$\$\$\$\$\$ DONASI UPDATE \$\$\$\$\$\$', line, re.IGNORECASE)]
-                    # GANTI "GANTI_DENGAN_URL_LOGO_DI_SINI" DENGAN URL LOGO YANG BENAR
-                    lines = [line for line in lines if "GANTI_DENGAN_URL_LOGO_DI_SINI" not in line]
+                    # Filter universal untuk menghapus semua logo di sumber kedua
+                    lines = [line for line in lines if 'tvg-logo=' not in line and 'group-logo=' not in line]
 
                 merged_lines.extend(lines)
             except Exception as e:
@@ -117,4 +117,4 @@ else:
 repo = os.getenv("GITHUB_REPOSITORY", "rafkichanel/my-iptv-playlist")
 commit_hash = os.popen("git rev-parse HEAD").read().strip()
 print(f"🔗 Lihat commit terbaru: https://github.com/{repo}/commit/{commit_hash}")
-            
+                
