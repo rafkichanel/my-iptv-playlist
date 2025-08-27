@@ -39,20 +39,19 @@ def process_playlist(source_file, output_file):
                     lines = [line for line in lines if not re.search(r'group-title="00\.LIVE EVENT"', line, re.IGNORECASE)]
                     lines = [line for line in lines if not re.search(r'group-title="01\.CADANGAN LIVE EVENT"', line, re.IGNORECASE)]
                     lines = [line for line in lines if not re.search(r'group-title="Contact Admin"', line, re.IGNORECASE)]
-                    
-                    # Logika baru untuk menghapus logo dan kategori spesifik dari baris Donasi Update
-                    cleaned_lines = []
-                    for line in lines:
-                        if '$$$$$$   DONASI UPDATE  $$$$$' in line:
-                            # Hapus atribut tvg-logo dan group-logo dari baris ini
-                            line = re.sub(r'tvg-logo="[^"]*"', '', line)
-                            line = re.sub(r'group-logo="[^"]*"', '', line)
-                            # Hapus teks "DONASI UPDATE"
-                            line = line.replace('$$$$$$   DONASI UPDATE  $$$$$', '')
-                            cleaned_lines.append(line)
-                        else:
-                            cleaned_lines.append(line)
-                    lines = cleaned_lines
+                    lines = [line for line in lines if not re.search(r'\$\$\$\$\$\$ DONASI UPDATE \$\$\$\$\$\$', line, re.IGNORECASE)]
+                
+                # --- Logika penghapusan logo UNIVERSAL ---
+                cleaned_lines = []
+                for line in lines:
+                    if line.startswith("#EXTINF"):
+                        # Menghapus atribut tvg-logo dan group-logo dari baris
+                        line = re.sub(r'tvg-logo="[^"]*"', '', line)
+                        line = re.sub(r'group-logo="[^"]*"', '', line)
+                        cleaned_lines.append(line)
+                    else:
+                        cleaned_lines.append(line)
+                lines = cleaned_lines
 
                 merged_lines.extend(lines)
             except Exception as e:
@@ -128,4 +127,4 @@ else:
 repo = os.getenv("GITHUB_REPOSITORY", "rafkichanel/my-iptv-playlist")
 commit_hash = os.popen("git rev-parse HEAD").read().strip()
 print(f"🔗 Lihat commit terbaru: https://github.com/{repo}/commit/{commit_hash}")
-                
+        
