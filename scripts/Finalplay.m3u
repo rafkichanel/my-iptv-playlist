@@ -8569,6 +8569,8 @@ https://live-hls-apps-aja-fa.getaj.net/AJA/index.m3u8
 https://live-hls-apps-ajb-v3-fa.getaj.net/AJB/index.m3u8
 #EXTINF:-1 tvg-id="AlJazeeraDocumentary.qa" tvg-logo="https://i.imgur.com/5dNJlLo.png" group-title="News",Al Jazeera Documentary (1080p) [Geo-blocked]
 https://live-hls-apps-ajd-fa.getaj.net/AJD/index.m3u8
+#EXTINF:-1 tvg-id="AlJazeeraDocumentary.qa@HD" tvg-logo="https://i.imgur.com/5dNJlLo.png" group-title="News",Al Jazeera Documentary (1080p)
+http://213.57.91.138:8000/play/a06h
 #EXTINF:-1 tvg-id="AlJazeera.qa@English" tvg-logo="https://i.imgur.com/7bRVpnu.png" group-title="News",Al Jazeera English (1080p)
 https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/al-jazeera-english/playlist.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="" group-title="Undefined",Al Jazeera Live (English) [Geo-blocked]
@@ -9121,10 +9123,10 @@ https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/a5
 https://streamtv2.elitecomunicacion.cloud:3628/live/arabitv2025live.m3u8
 #EXTINF:-1 tvg-id="ArabicaTV.lb" tvg-logo="https://i.imgur.com/sTOoDy1.png" group-title="Music",Arabica TV (720p)
 http://istream.binarywaves.com:8081/hls/arabica/playlist.m3u8
-#EXTINF:-1 tvg-id="AragonTV.es" tvg-logo="https://i.imgur.com/6YSi1zW.png" group-title="General;Public",Aragón TV (720p) [Not 24/7]
-https://cartv.streaming.aranova.es/hls/live/aragontv_canal1.m3u8
-#EXTINF:-1 tvg-id="AragonTVInternacional.es@SD" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/1/12/Arag%C3%B3n_Internacional.png/revision/latest/scale-to-width-down/512" group-title="General;Public",Aragon TV Internacional
+#EXTINF:-1 tvg-id="AragonTV.es@SD" tvg-logo="https://i.imgur.com/6YSi1zW.png" group-title="General;Public",Aragon TV (720p)
 https://viamotionhsi.netplus.ch/live/eds/aragontv/browser-HLS8/aragontv.m3u8
+#EXTINF:-1 tvg-id="AragonTVInternacional.es@SD" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/1/12/Arag%C3%B3n_Internacional.png/revision/latest/scale-to-width-down/512" group-title="General;Public",Aragon TV Internacional (720p) [Not 24/7]
+https://cartv.streaming.aranova.es/hls/live/aragontv_canal1.m3u8
 #EXTINF:-1 tvg-id="ArasTV.tr" tvg-logo="https://i.imgur.com/JsDCyWG.png" group-title="General",ARAS TV (576p) [Not 24/7]
 http://1.rtmp.org/tv217/yayin.stream/playlist.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="" group-title="Undefined",Arax TV
@@ -14057,6 +14059,8 @@ https://tvpass.org/live/FoxSports2/hd
 http://23.237.104.106:8080/USA_FS2/index.m3u8
 #EXTINF:-1 tvg-id="FoxDeportes.us" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/FOX_Deportes_logo.png/512px-FOX_Deportes_logo.png" group-title="Sports",Fox Sports en Espanol (720p)
 https://apollo.production-public.tubi.io/live/fox-sports-espanol.m3u8
+#EXTINF:-1 tvg-id="FoxSportsPremium.mx" tvg-logo="https://i.imgur.com/3lOZWeD.png" group-title="Sports",Fox Sports Premium (1080p)
+https://live20.bozztv.com/akamaissh101/ssh101/foxsports/playlist.m3u8
 #EXTINF:-1 tvg-id="FoxTV.in" tvg-logo="https://i.imgur.com/cvpDeYH.png" group-title="General",Fox TV (720p) [Not 24/7]
 http://stream-live.in:11037/hls/foxtv.m3u8
 #EXTINF:-1 tvg-id="FoxWeather.us" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Fox_Weather_logo.svg/512px-Fox_Weather_logo.svg.png" group-title="Weather",Fox Weather (720p)
@@ -17508,8 +17512,8 @@ https://mbc1-enc.edgenextcdn.net/out/v1/0965e4d7deae49179172426cbfb3bc5e/index.m
 https://tgn.bozztv.com/eshgtv-trn09/ga-mchannel1/index.m3u8
 #EXTINF:-1 tvg-id="MBC1USA.us" tvg-logo="https://i.imgur.com/CiA3plN.png" group-title="General",MBC 1 USA (1080p) [Geo-blocked]
 https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-1-usa/fdac3a4fc0473f1f56e07ec1d63a4b7b/index.m3u8
-#EXTINF:-1 tvg-id="MBC2.ae" tvg-logo="https://i.imgur.com/n9mSHuP.png" group-title="Movies",MBC 2 (480p)
-https://edge66.magictvbox.com/liveApple/MBC_2/index.m3u8
+#EXTINF:-1 tvg-id="MBC2.ae" tvg-logo="https://i.imgur.com/n9mSHuP.png" group-title="Movies",MBC 2 (576p)
+http://213.57.91.138:8000/play/a05k
 #EXTINF:-1 tvg-id="MBC2.mu@SD" tvg-logo="https://i.imgur.com/u0feOvX.png" group-title="Movies",MBC 2
 https://tgn.bozztv.com/eshgtv-trn09/ga-mchannel2/index.m3u8
 #EXTINF:-1 tvg-id="MBC3.mu@SD" tvg-logo="https://i.imgur.com/apouTRP.png" group-title="Culture",MBC 3
@@ -17524,6 +17528,8 @@ https://tgn.bozztv.com/eshgtv-trn09/ga-mchannel4/index.m3u8
 https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-5/ee6b000cee0629411b666ab26cb13e9b/index.m3u8
 #EXTINF:-1 tvg-id="MBC5.mu@SD" tvg-logo="https://i.imgur.com/WGjYmUv.png" group-title="Kids",MBC 5
 https://tgn.bozztv.com/eshgtv-trn09/ga-mchannel5/index.m3u8
+#EXTINF:-1 tvg-id="MBCAction.ae@SD" tvg-logo="https://i.imgur.com/OWZAghw.png" group-title="Entertainment",MBC Action (576p)
+http://213.57.91.138:8000/play/a05l
 #EXTINF:-1 tvg-id="HLAWDTV.kr" tvg-logo="https://i.imgur.com/nqRWpUu.png" group-title="General",MBC Andong (안동 MBC) (360p) [Not 24/7]
 http://andong.webcasting.co.kr/live/mbc/playlist.m3u8
 #EXTINF:-1 tvg-id="MBCBollywood.ae@SD" tvg-logo="https://i.imgur.com/TTAGFHG.png" group-title="Movies",MBC Bollywood (1080p) [Geo-blocked]
@@ -19646,6 +19652,8 @@ http://stream.nmih.hu:7980/live.m3u8
 https://vdo2.pro-fhi.net:3207/stream/play.m3u8
 #EXTINF:-1 tvg-id="P3tv.at" tvg-logo="https://i.imgur.com/qUOFiEe.png" group-title="General",P3tv (720p) [Not 24/7]
 http://p3-6.mov.at:1935/live/weekstream/master.m3u8
+#EXTINF:-1 tvg-id="P3TV.us" tvg-logo="https://www.vivalivetv.com/public/files/shows/0/1/3449-294x165-FFFFFF.jpg" group-title="General",P3TV [Not 24/7]
+https://5790d294af2dc.streamlock.net/8042/8042/playlist.m3u8
 #EXTINF:-1 tvg-id="Pac12Insider.us" tvg-logo="https://i.imgur.com/736QREy.png" group-title="Sports",Pac12 Insider (720p)
 https://pac12-sportstribal.amagi.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="PaciContemporaryChannel.it" tvg-logo="https://i.imgur.com/RtOvD2M.png" group-title="Culture",Paci Contemporary Channel (720p)
@@ -23791,6 +23799,8 @@ https://175036.global.ssl.fastly.net/6217e980d5bee0e090792fdf/live_75f5635097ba1
 https://yuppftalive.akamaized.net/080823/subhartitv/playlist.m3u8
 #EXTINF:-1 tvg-id="SubhavaarthaTV.in" tvg-logo="https://i.imgur.com/hfk5jKE.png" group-title="Undefined",Subhavaartha TV (720p)
 https://2mk9qae4rwyb-hls-live.wmncdn.net/shubhavartha/live.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="SucesoTV.py" tvg-logo="https://i.imgur.com/BwRNes1.png" group-title="News",Suceso TV [Not 24/7]
+https://live.enhdtv.com:8081/8060/index.m3u8
 #EXTINF:-1 tvg-id="SuchTV.pk@SD" tvg-logo="https://i.imgur.com/yYMh3JJ.png" group-title="News",Such TV
 https://video.primexsports.com/suchnews/live/playlist.m3u8
 #EXTINF:-1 tvg-id="SudanTV.sd" tvg-logo="https://i.imgur.com/XUPAYAA.png" group-title="Undefined",Sudan TV (360p)
@@ -34517,7 +34527,7 @@ Laporkan Penyalahgunaan
 
 <script type="text/javascript" src="https://www.blogger.com/static/v1/widgets/2112189061-widgets.js"></script>
 <script type='text/javascript'>
-window['__wavt'] = 'AOuZoY5EI370cnS8yttm09-0WMKsY1tJpA:1756224936525';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d6282512841804399350','//mahadewa666.blogspot.com/2025/04/playlist-iptv-by-zack.html','6282512841804399350');
+window['__wavt'] = 'AOuZoY4iEn8BM26HFLLS1C1beXBWRlssoA:1756224765704';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d6282512841804399350','//mahadewa666.blogspot.com/2025/04/playlist-iptv-by-zack.html','6282512841804399350');
 _WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '6282512841804399350', 'title': 'Playlist', 'url': 'https://mahadewa666.blogspot.com/2025/04/playlist-iptv-by-zack.html', 'canonicalUrl': 'https://mahadewa666.blogspot.com/2025/04/playlist-iptv-by-zack.html', 'homepageUrl': 'https://mahadewa666.blogspot.com/', 'searchUrl': 'https://mahadewa666.blogspot.com/search', 'canonicalHomepageUrl': 'https://mahadewa666.blogspot.com/', 'blogspotFaviconUrl': 'https://mahadewa666.blogspot.com/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': false, 'httpsEnabled': true, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': '', 'encoding': 'UTF-8', 'locale': 'id', 'localeUnderscoreDelimited': 'id', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'isDynamicViewsAvailable': true, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Playlist - Atom\x22 href\x3d\x22https://mahadewa666.blogspot.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22Playlist - RSS\x22 href\x3d\x22https://mahadewa666.blogspot.com/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Playlist - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/6282512841804399350/posts/default\x22 /\x3e\n\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Playlist - Atom\x22 href\x3d\x22https://mahadewa666.blogspot.com/feeds/5233860481377967847/comments/default\x22 /\x3e\n', 'meTag': '', 'adsenseHostId': 'ca-host-pub-1556223355139109', 'adsenseHasAds': false, 'adsenseAutoAds': false, 'boqCommentIframeForm': true, 'loginRedirectParam': '', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/6cded1c9d8fc52e6', 'plusOneApiSrc': 'https://apis.google.com/js/platform.js', 'disableGComments': true, 'interstitialAccepted': false, 'sharing': {'platforms': [{'name': 'Dapatkan link', 'key': 'link', 'shareMessage': 'Dapatkan link', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': 'Bagikan ke Facebook', 'target': 'facebook'}, {'name': 'BlogThis!', 'key': 'blogThis', 'shareMessage': 'BlogThis!', 'target': 'blog'}, {'name': 'X', 'key': 'twitter', 'shareMessage': 'Bagikan ke X', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': 'Bagikan ke Pinterest', 'target': 'pinterest'}, {'name': 'Email', 'key': 'email', 'shareMessage': 'Email', 'target': 'email'}], 'disableGooglePlus': true, 'googlePlusShareButtonWidth': 0, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27id\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': false, 'jumpLinkMessage': 'Baca selengkapnya', 'pageType': 'item', 'postId': '5233860481377967847', 'pageName': 'zacktv', 'pageTitle': 'Playlist: zacktv'}}, {'name': 'features', 'data': {}}, {'name': 'messages', 'data': {'edit': 'Edit', 'linkCopiedToClipboard': 'Tautan disalin ke papan klip!', 'ok': 'Oke', 'postLink': 'Tautan Pos'}}, {'name': 'template', 'data': {'name': 'Soho', 'localizedName': 'Soho', 'isResponsive': true, 'isAlternateRendering': false, 'isCustom': false, 'variant': 'fancy_neon', 'variantId': 'fancy_neon'}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'zacktv', 'description': '    \t   \x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d\x3d...', 'url': 'https://mahadewa666.blogspot.com/2025/04/playlist-iptv-by-zack.html', 'type': 'item', 'isSingleItem': true, 'isMultipleItems': false, 'isError': false, 'isPage': false, 'isPost': true, 'isHomepage': false, 'isArchive': false, 'isLabelSearch': false, 'postId': 5233860481377967847}}, {'name': 'widgets', 'data': [{'title': 'Cari Blog Ini', 'type': 'BlogSearch', 'sectionId': 'search_top', 'id': 'BlogSearch1'}, {'title': 'Playlist (Header)', 'type': 'Header', 'sectionId': 'header', 'id': 'Header1'}, {'title': '', 'type': 'FeaturedPost', 'sectionId': 'page_body', 'id': 'FeaturedPost1', 'postId': '5582262041001219221'}, {'title': 'Postingan Blog', 'type': 'Blog', 'sectionId': 'page_body', 'id': 'Blog1', 'posts': [{'id': '5233860481377967847', 'title': 'zacktv', 'showInlineAds': true}], 'headerByline': {'regionName': 'header1', 'items': [{'name': 'timestamp', 'label': ''}]}, 'footerBylines': [{'regionName': 'footer1', 'items': [{'name': 'share', 'label': ''}, {'name': 'comments', 'label': 'komentar'}, {'name': 'icons', 'label': ''}]}, {'regionName': 'footer2', 'items': [{'name': 'labels', 'label': 'Label:'}]}, {'regionName': 'footer3', 'items': [{'name': 'location', 'label': 'Lokasi:'}]}], 'allBylineItems': [{'name': 'timestamp', 'label': ''}, {'name': 'share', 'label': ''}, {'name': 'comments', 'label': 'komentar'}, {'name': 'icons', 'label': ''}, {'name': 'labels', 'label': 'Label:'}, {'name': 'location', 'label': 'Lokasi:'}]}, {'title': '', 'type': 'PopularPosts', 'sectionId': 'page_body', 'id': 'PopularPosts1', 'posts': [{'title': 'zacktv', 'id': 5233860481377967847}, {'title': '', 'id': 5582262041001219221}]}, {'type': 'Attribution', 'sectionId': 'footer', 'id': 'Attribution1'}, {'title': 'Mengenai Saya', 'type': 'Profile', 'sectionId': 'sidebar', 'id': 'Profile1'}, {'type': 'BlogArchive', 'sectionId': 'sidebar', 'id': 'BlogArchive1'}, {'title': '', 'type': 'ReportAbuse', 'sectionId': 'sidebar', 'id': 'ReportAbuse1'}]}]);
 _WidgetManager._RegisterWidget('_BlogSearchView', new _WidgetInfo('BlogSearch1', 'search_top', document.getElementById('BlogSearch1'), {}, 'displayModeFull'));
 _WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', document.getElementById('Header1'), {}, 'displayModeFull'));
