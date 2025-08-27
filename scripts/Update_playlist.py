@@ -28,27 +28,36 @@ def process_playlist(source_file, output_file):
 
                 # --- Logika Pemfilteran ---
                 if source_file == SOURCE_FILE_1:
-                    # Filter untuk sumber pertama - TETAP TIDAK DIUBAH
                     lines = [line for line in lines if "WHATSAPP" not in line.upper()]
                     if idx == 3:
                         lines = [line.replace("🔴", "") for line in lines]
                     lines = [line for line in lines if 'group-title="SMA"' not in line]
 
                 elif source_file == SOURCE_FILE_2:
-                    # Filter untuk sumber kedua - SEMUA FILTER BARU DITERAPKAN DI SINI
                     lines = [line for line in lines if not re.search(r'group-title="00\.LIVE EVENT"', line, re.IGNORECASE)]
                     lines = [line for line in lines if not re.search(r'group-title="01\.CADANGAN LIVE EVENT"', line, re.IGNORECASE)]
                     lines = [line for line in lines if not re.search(r'group-title="Contact Admin"', line, re.IGNORECASE)]
                     lines = [line for line in lines if not re.search(r'\$\$\$\$\$\$ DONASI UPDATE \$\$\$\$\$\$', line, re.IGNORECASE)]
                 
-                # --- Logika penghapusan logo UNIVERSAL ---
+                # --- Logika penghapusan logo UNIVERSAL yang diperkuat ---
                 cleaned_lines = []
                 for line in lines:
                     if line.startswith("#EXTINF"):
-                        # Menghapus atribut tvg-logo dan group-logo dari baris
-                        line = re.sub(r'tvg-logo="[^"]*"', '', line)
-                        line = re.sub(r'group-logo="[^"]*"', '', line)
-                        cleaned_lines.append(line)
+                        # Memecah baris menjadi atribut dan nama saluran
+                        match = re.search(r'#EXTINF:.*?,(.*)', line)
+                        if match:
+                            channel_name = match.group(1).strip()
+                            # Menghapus semua atribut logo
+                            line = re.sub(r'\bgroup-logo="[^"]*"', '', line)
+                            line = re.sub(r'\btvg-logo="[^"]*"', '', line)
+                            # Menghilangkan spasi ekstra setelah penghapusan
+                            line = re.sub(r'\s+', ' ', line).strip()
+                            
+                            # Membangun kembali baris tanpa logo
+                            new_line = f'#EXTINF:-1 {line}, {channel_name}'
+                            cleaned_lines.append(new_line)
+                        else:
+                            cleaned_lines.append(line)
                     else:
                         cleaned_lines.append(line)
                 lines = cleaned_lines
@@ -127,4 +136,4 @@ else:
 repo = os.getenv("GITHUB_REPOSITORY", "rafkichanel/my-iptv-playlist")
 commit_hash = os.popen("git rev-parse HEAD").read().strip()
 print(f"🔗 Lihat commit terbaru: https://github.com/{repo}/commit/{commit_hash}")
-        
+                    
