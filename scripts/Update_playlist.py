@@ -39,9 +39,20 @@ def process_playlist(source_file, output_file):
                     lines = [line for line in lines if not re.search(r'group-title="00\.LIVE EVENT"', line, re.IGNORECASE)]
                     lines = [line for line in lines if not re.search(r'group-title="01\.CADANGAN LIVE EVENT"', line, re.IGNORECASE)]
                     lines = [line for line in lines if not re.search(r'group-title="Contact Admin"', line, re.IGNORECASE)]
-                    lines = [line for line in lines if not re.search(r'\$\$\$\$\$\$ DONASI UPDATE \$\$\$\$\$\$', line, re.IGNORECASE)]
-                    # Filter universal untuk menghapus semua logo di sumber kedua
-                    lines = [line for line in lines if 'tvg-logo=' not in line and 'group-logo=' not in line]
+                    
+                    # Logika baru untuk menghapus logo dan kategori spesifik dari baris Donasi Update
+                    cleaned_lines = []
+                    for line in lines:
+                        if '$$$$$$   DONASI UPDATE  $$$$$' in line:
+                            # Hapus atribut tvg-logo dan group-logo dari baris ini
+                            line = re.sub(r'tvg-logo="[^"]*"', '', line)
+                            line = re.sub(r'group-logo="[^"]*"', '', line)
+                            # Hapus teks "DONASI UPDATE"
+                            line = line.replace('$$$$$$   DONASI UPDATE  $$$$$', '')
+                            cleaned_lines.append(line)
+                        else:
+                            cleaned_lines.append(line)
+                    lines = cleaned_lines
 
                 merged_lines.extend(lines)
             except Exception as e:
