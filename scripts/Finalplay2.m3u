@@ -7598,14 +7598,14 @@ https://hotlivezz179026907.akainu.xyz/iY_rHqF5aOBpfyTpG8sN6A/Fv2lucGIbhPi2caWYvF
 https://hotlivezz179026907.akainu.xyz/r1P5cj9WcwAazqNyFRg2Cw/Fv2lucGIbhPi2caWYvF5Lg/1753876001509/live/may281/chunklist.m3u8
 
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://seprai.jasoncreak8.workers.dev/play?id=19452&type=drm
+#KODIPROP:inputstream.adaptive.license_key=https://seprai.jasoncreak8.workers.dev/play?id=19413&type=drm
 #EXTVLCOPT:http-user-agent=VidioPlayer/6.41.11
-https://seprai.jasoncreak8.workers.dev/play.mpd?id=19452&type=dash
+https://seprai.jasoncreak8.workers.dev/play.mpd?id=19413&type=dash
 
 #EXTVLCOPT:http-user-agent=VidioPlayer/6.31.6
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://spacetv.my.id/drm.kt?id=19452&type=drm
-https://spacetv.my.id/index.mpd?id=19452&type=dash
+#KODIPROP:inputstream.adaptive.license_key=https://spacetv.my.id/drm.kt?id=19413&type=drm
+https://spacetv.my.id/index.mpd?id=19413&type=dash
 
 
 
