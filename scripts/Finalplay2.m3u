@@ -16287,7 +16287,183 @@ https://cdnjkt913.transvision.co.id:1000/live/master/3/4028c6856c3db2cc016d0552e
 #EXTINF:-1 tvg-id="Cinemax.id" tvg-name="Cinemax"  group-title="CHANNEL | HBO GRUP", Cinemax 
 https://cdnjkt913.transvision.co.id:1000/live/master/1/4028c6856c3db2cc016cdbfc4a1934bf/manifest.mpd
 
+#EXTINF:-1 tvg-id="Hbo"  group-title="CHANNEL | HBO GRUP",HBO FIRST
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=21ffca10810542af9734b82f4000c274:e3d2e4843ffadf510f6c91668a03e183
+#EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1 (Linux; Android 14) ExoPlayerLib/2.15.1
+https://atemeshield1-voe.sysln.id/live/eds/HBOHD/mpd/HBOHD.mpd
 
+
+#EXTINF:-1  group-title="CHANNEL | HBO GRUP",HBO HITS FIRST
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=47a7ef37081a4ab5937c94272d9988b6:e637e6be1231e14a670120b23dae1a0b
+#EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1 (Linux; Android 14) ExoPlayerLib/2.15.1
+https://atemecdnbalancer-voe.sysln.id/live/eds/HBOHitsHD/mpd/HBOHitsHD.mpd
+
+#EXTINF:-1 tvg-id="Hbo family"  group-title="CHANNEL | HBO GRUP",HBO FAMILY FIRST
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=c374098609974ff5a1db0f2300098092:1cf7e0ca54f6f8a84f99a0607c0dfcee
+#EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1 (Linux; Android 14) ExoPlayerLib/2.15.1
+https://atemecdnbalancer-voe.sysln.id/live/eds/HBOFamilyHD/mpd/HBOFamilyHD.mpd
+
+#EXTINF:-1  group-title="CHANNEL | HBO GRUP",HBO SIGNATURE FIRST
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=5263a24be1084f29b190d98a52e30384:044798ce23772d14859c306a8a6b33f3
+#EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1 (Linux; Android 14) ExoPlayerLib/2.15.1
+https://atemecdnbalancer-voe.sysln.id/live/eds/HBOSignatureHD/mpd/HBOSignatureHD.mpd
+
+#EXTINF:-1  group-title="CHANNEL | HBO GRUP", CINEMAX FIRST
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=b489136b34aa4166a9c9984f19155d30:2c6de796954779fd6f51584425ac834e
+#EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1 (Linux; Android 14) ExoPlayerLib/2.15.1
+https://atemeshield1-voe.sysln.id/live/eds/CinemaxHD/mpd/CinemaxHD.mpd
+
+
+#KODIPROP:inputstreamaddon=inputstream.adaptive 
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://cubmu-cindo.cenc16995.workers.dev/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
+#EXTINF:-1  group-title="CHANNEL | HBO GRUP",HBO (CUBMU)
+#https://cdnjkt913.transvision.co.id:1000/live/master/3/4028c6856b6088c3016b87d64b970b53/manifest.mpd
+
+#KODIPROP:inputstreamaddon=inputstream.adaptive 
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://cubmu-cindo.cenc16995.workers.dev/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="CHANNEL | HBO GRUP" tvg-id="hbohitsasia.sg" , HBO HITS (CubMu) 
+#https://cdnjkt913.transvision.co.id:1000/live/master/4/4028c6856c3db2cc016d054fbf67379f/manifest.m3u8
+
+#KODIPROP:inputstreamaddon=inputstream.adaptive 
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://cubmu-cindo.cenc16995.workers.dev/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="CHANNEL | HBO GRUP" tvg-id="hbofamilyasia.sg" ,HBO FAMILY (CubMu) 
+#https://cdnjkt913.transvision.co.id:1000/live/master/4/4028c6856c3db2cc016d055927fe37a4/manifest.m3u8
+
+
+#KODIPROP:inputstreamaddon=inputstream.adaptive 
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://cubmu-cindo.cenc16995.workers.dev/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="CHANNEL | HBO GRUP" tvg-id="hbosignatureasia.sg" ,HBO SIGNATURE (CubMu) 
+#https://cdnjkt913.transvision.co.id:1000/live/master/3/4028c6856c3db2cc016d0552e0ca37a2/manifest.m3u8
+
+
+#KODIPROP:inputstreamaddon=inputstream.adaptive 
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://cubmu-cindo.cenc16995.workers.dev/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="CHANNEL | HBO GRUP" tvg-id="cinemaxasia.sg" ,CINEMAX (CubMu) 
+#https://cdnjkt913.transvision.co.id:1000/live/master/1/4028c6856c3db2cc016cdbfc4a1934bf/manifest.m3u8
+
+
+
+#EXTVLCOPT:http-referrer=https://www.cubmu.com/
+#KODIPROP:inputstreamaddon=inputstream.adaptive 
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://cubmu-cindo.cenc16995.workers.dev/
+#EXTVLCOPT:http-user-agent=VLC/3.0.9 LibVLC/3.0.9 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+#EXTINF:-1 tvg-id="CINEMAX (HD).sg" tvg-url="https://www.bevy.be/bevyfiles/singaporepremium.xml.gz"  group-title="CHANNEL | HBO GRUP",Cinemax
+#https://cdnjkt913.transvision.co.id:1000/live/master/3/4028c6856c3db2cc016cdbfc4a1934bf/manifest.mpd
+
+#EXTVLCOPT:http-referrer=https://www.cubmu.com/
+#KODIPROP:inputstreamaddon=inputstream.adaptive 
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://cubmu-cindo.cenc16995.workers.dev/
+#EXTVLCOPT:http-user-agent=VLC/3.0.9 LibVLC/3.0.9 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+#EXTINF:-1 tvg-id="HBO HD.sg" tvg-url="https://www.bevy.be/bevyfiles/singaporepremium.xml.gz"  group-title="CHANNEL | HBO GRUP",HBO
+#https://cdnjkt913.transvision.co.id:1000/live/master/4/4028c6856b6088c3016b87d64b970b53/manifest.mpd
+
+#EXTVLCOPT:http-referrer=https://www.cubmu.com/
+#KODIPROP:inputstreamaddon=inputstream.adaptive 
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://cubmu-cindo.cenc16995.workers.dev/
+#EXTVLCOPT:http-user-agent=VLC/3.0.9 LibVLC/3.0.9 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+#EXTINF:-1 tvg-id="HBO Hits (HD).sg" tvg-url="https://www.bevy.be/bevyfiles/singaporepremium.xml.gz"  group-title="CHANNEL | HBO GRUP",HBO Hits
+#https://cdnjkt913.transvision.co.id:1000/live/master/3/4028c6856c3db2cc016d054fbf67379f/manifest.mpd
+
+
+#EXTVLCOPT:http-referrer=https://www.cubmu.com/
+#KODIPROP:inputstreamaddon=inputstream.adaptive 
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://cubmu-cindo.cenc16995.workers.dev/
+#EXTVLCOPT:http-user-agent=VLC/3.0.9 LibVLC/3.0.9 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+#EXTINF:-1 tvg-id="HBO Family (HD).sg" tvg-url="https://www.bevy.be/bevyfiles/singaporepremium.xml.gz"  group-title="CHANNEL | HBO GRUP",HBO Family
+#https://cdnjkt913.transvision.co.id:1000/live/master/3/4028c6856c3db2cc016d055927fe37a4/manifest.mpd
+
+
+#EXTVLCOPT:http-referrer=https://www.cubmu.com/
+#KODIPROP:inputstreamaddon=inputstream.adaptive 
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://cubmu-cindo.cenc16995.workers.dev/
+#EXTVLCOPT:http-user-agent=VLC/3.0.9 LibVLC/3.0.9 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+#EXTINF:-1 tvg-id="HBO Signature (HD).sg" tvg-url="https://www.bevy.be/bevyfiles/singaporepremium.xml.gz"  group-title="CHANNEL | HBO GRUP",HBO Signature
+#https://cdnjkt913.transvision.co.id:1000/live/master/3/4028c6856c3db2cc016d0552e0ca37a2/manifest.mpd
+
+#EXTINF:-1 tvg-id="HBO" tvg-url="https://bit.ly/AstroEpg"  group-title="CHANNEL | HBO GRUP",HBO CIGNAL
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=dash
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=d47ebabf7a21430b83a8c4b82d9ef6b1:54c213b2b5f885f1e0290ee4131d425b
+https://qp-pldt-live-grp-03-prod.akamaized.net/out/u/cg_hbohd.mpd
+
+#EXTINF:-1 tvg-id="HBOHits" tvg-url="https://bit.ly/AstroEpg"  group-title="CHANNEL | HBO GRUP",HBO Hits CIGNAL
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=dash
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=b04ae8017b5b4601a5a0c9060f6d5b7d:a8795f3bdb8a4778b7e888ee484cc7a1
+https://qp-pldt-live-grp-09-prod.akamaized.net/out/u/cg_hbohits.mpd
+
+#EXTINF:-1 tvg-id="HBOFamily" tvg-url="https://bit.ly/AstroEpg"  group-title="CHANNEL | HBO GRUP",HBO Family  CIGNAL
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=dash
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=872910c843294319800d85f9a0940607:f79fd895b79c590708cf5e8b5c6263be
+https://qp-pldt-live-grp-03-prod.akamaized.net/out/u/cg_hbofam.mpd
+
+#EXTINF:-1 tvg-id="HBO Signature (HD).sg" tvg-url="https://bit.ly/IndonesiaEpg"  group-title="CHANNEL | HBO GRUP",HBO Signature CIGNAL
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=dash
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=a06ca6c275744151895762e0346380f5:559da1b63eec77b5a942018f14d3f56f
+https://qp-pldt-live-grp-01-prod.akamaized.net/out/u/cg_hbosign.mpd
+
+#EXTINF:-1 tvg-id="Cinemax" tvg-url="https://bit.ly/AstroEpg"  group-title="CHANNEL | HBO GRUP",Cinemax CIGNAL
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=dash
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=b207c44332844523a3a3b0469e5652d7:fe71aea346db08f8c6fbf0592209f955
+https://qp-pldt-live-grp-01-prod.akamaized.net/out/u/cg_cinemax.mpd
+
+
+#EXTINF:-1 tvg-id="Hbo romania"  group-title="CHANNEL | HBO GRUP" , HBO ROM
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone14,6; U; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19E241 Safari/602.1
+#EXTVLCOPT:http-referrer=https://cool-tv.net/
+https://thor1.syndula.cfd/h1/usergendx172s9rnd.m3u8
+
+#EXTINF:-1 tvg-id="Hbo 2 romania"  group-title="CHANNEL | HBO GRUP" , HBO 2 ROM
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone14,6; U; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19E241 Safari/602.1
+#EXTVLCOPT:http-referrer=https://cool-tv.net/
+https://onyx1.mofta.cfd/h2/usergendxn430rnd.m3u8
+
+#EXTINF:-1 tvg-id="Hbo 3 romania"  group-title="CHANNEL | HBO GRUP" , HBO 3 ROM
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone14,6; U; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19E241 Safari/602.1
+#EXTVLCOPT:http-referrer=https://cool-tv.net/
+https://thor1.syndula.cfd/diva/usergenm48Qhxrnd.m3u8
+
+#EXTINF:-1 tvg-id="HBO Plus" tvg-url="https://bit.ly/AstroEpg"  group-title="CHANNEL | HBO GRUP",HBO PLUS
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=dash
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=861ab989089891d84ad0da296954437c:3bdf94f9fc1888529f8d27d070d38566
+https://zap-live1-ott.izzigo.tv/5/out/u/dash/HBO-PLUS-HD/default.mpd
+
+#EXTINF:-1 tvg-id="HBO Extream" tvg-url="https://bit.ly/AstroEpg"  group-title="CHANNEL | HBO GRUP",HBO XTREAME
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=dash
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=bc8d4369fcff86db765db82356b4797c:8a7e801dbc275e3f4e1f43cba648906a
+https://zap-live1-ott.izzigo.tv/5/out/u/dash/HBO-XTREME-HD/default.mpd
 
 
 
@@ -16693,73 +16869,6 @@ https://d6m3sfa7e58z5.cloudfront.net/out/v1/fe4d00f07e2f43b789102b84b4d243a9/ind
 
 
 
-
-
-##
-
-
-#EXTINF:0  group-title="CHANNEL | SPORTS" tvg-id="001" tvg-name="016-LABURATV", ASTRO ARENA HD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone14,6; U; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19E241 Safari/602.1
-http://front-main.eagle-4k.me:80/live/a5n1qj2z7h/z7san35uxz/1163654.ts
-
-#EXTINF:0  group-title="CHANNEL | SPORTS" tvg-id="001" tvg-name="",  ASTRO ARENA 2 HD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone14,6; U; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19E241 Safari/602.1
-http://front-main.eagle-4k.me:80/live/a5n1qj2z7h/z7san35uxz/1163655.ts
-
-#EXTINF:0  group-title="CHANNEL | SPORTS" tvg-id="001" tvg-name="",  ASTRO FOOTBALL
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone14,6; U; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19E241 Safari/602.1
-#EXTVLCOPT:http-referrer=https://tvcanale.live/
-https://bintangstreaming.my.id/daddytv/hls.php/.m3u8?id=premium124
-
-#EXTINF:0  group-title="CHANNEL | SPORTS" tvg-id="001" tvg-name="",  ASTRO GRANSTAND
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone14,6; U; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19E241 Safari/602.1
-#EXTVLCOPT:http-referrer=https://tvcanale.live/
-https://bintangstreaming.my.id/daddytv/hls.php/.m3u8?id=premium123
-
-#EXTINF:0  group-title="CHANNEL | SPORTS" tvg-id="001" tvg-name="016-LABURATV",ASTRO PREMIER LEAGUE 1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; Astro UHD 4K Build/1.0; wv)
-#EXTVLCOPT:http-referrer=https://astrogo.astro.com.my
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=f749ab71f227999bfb098f73359aac10:4f15413f7e4767b50c48e19b7f9a2fcc
-#https://icecream.jasoncreak8.workers.dev/http://linearjitp-playback.astro.com.my/dash-wv/linear/601/default_ott.mpd
-http://front-main.eagle-4k.me:80/a5n1qj2z7h/z7san35uxz/1163984
-
-#EXTINF:-1 tvg-id="Astropremierleague2.my" tvg-name="Astro SuperSport 2"  group-title="CHANNEL | SPORTS",ASTRO PREMIER LEAGUE 2
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; Astro UHD 4K Build/1.0; wv)
-http://front-main.eagle-4k.me:80/a5n1qj2z7h/z7san35uxz/1163986
-
-#EXTINF:-1 tvg-id="805.astro" group-title="CHANNEL | SPORTS" , ASSP UHD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; Astro UHD 4K Build/1.0; wv)
-#EXTVLCOPT:http-referrer=https://astrogo.astro.com.my
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=8ac8b2f7af05ad829805345a517bc110:ee1ae1cd086fa9bfc0505e6d5e9e27e9
-#https://icecream.jasoncreak8.workers.dev/http://linearjitp-playback.astro.com.my/dash-wv/linear/1600/default_ott.mpd
-
-#EXTINF:-1 tvg-id="817.astro"  group-title="CHANNEL | SPORTS", ASSP PLUS
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; Astro UHD 4K Build/1.0; wv)
-#EXTVLCOPT:http-referrer=https://astrogo.astro.com.my
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=81352bc47ec1177b321ee65ac1be7f10:c8b886142005d7e5067c8717777eaac4
-#https://icecream.jasoncreak8.workers.dev/http://linearjitp-playback.astro.com.my/dash-wv/linear/5171/default_ott.mpd
-
-#EXTINF:-1 tvg-id="814.astro"  group-title="CHANNEL | SPORTS", ASSP FOOTBALL
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; Astro UHD 4K Build/1.0; wv)
-#EXTVLCOPT:http-referrer=https://astrogo.astro.com.my
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=79f4028730acca9ab8b00f26158ddb10:91febe843c08c7cc523efd827292e40e
-#https://icecream.jasoncreak8.workers.dev/http://linearjitp-playback.astro.com.my/dash-wv/linear/2506/default_ott.mpd
-
-#EXTINF:-1 tvg-id="803.astro"  group-title="CHANNEL | SPORTS",Arena Bola
-https://wahyu1ptv.pages.dev/AstroArenaBola1-HD.m3u8
-
-#EXTINF:-1 tvg-id="804.astro"  group-title="CHANNEL | SPORTS",Arena Bola 2
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; Astro UHD 4K Build/1.0; wv)
-#EXTVLCOPT:http-referrer=https://astrogo.astro.com.my
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=62a7b7917aad5123cd4df65c561c7010:b1effa9e51cf38b3ae676bc264937efb
-#https://icecream.jasoncreak8.workers.dev/http://linearjitp-playback.astro.com.my/dash-wv/linear/5100/default_ott.mpd
-https://wahyu1ptv.pages.dev/AstroArenaBola2-HD.m3u8
-
 //========================================================================
 //MAYTOKO2 CHANNEL | SPORTS"SportStars Vision+
 //========================================================================
@@ -17050,56 +17159,76 @@ http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/62212
 //MAYTOKO2 CHANNEL | SPORTS"Astro Sports
 //========================================================================
 
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="AstroPremierLeague.my" tvg-name="MY | Astro Premier League 1 FHD"  group-title="CHANNEL | SPORTS",MY | Astro Premier League 1
+##https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/variant/VE1AO1NTbu8mbv12LxEWM21ycrNWYyR3L3cTOhNmZ4UWZ2E2YtcjZ0kTLzYzN00iY0QmYtY2MmRTM3QTY/master.m3u8
+http://royalibox.com:80/plcedarkaouishbissm/px6pzjgmf8/1163984
 
-#EXTINF:-1 tvg-id="" tvg-name="Astro SuperSport 1"  group-title="CHANNEL | SPORTS", Astro Premiere League
-https://smart.pendy.dpdns.org/Smart.php?id=go_assp1
-#EXTINF:-1 tvg-id="" tvg-name="Astro SuperSport 2"  group-title="CHANNEL | SPORTS",Astro Premiere League 2
-https://smart.pendy.dpdns.org/Smart.php?id=go_assp2
-#EXTINF:-1 tvg-id="" tvg-name="Astro SuperSport 3"  group-title="CHANNEL | SPORTS",Astro Grandstand
-https://smart.pendy.dpdns.org/Smart.php?id=go_assp3
-#EXTINF:-1 tvg-id="" tvg-name="Astro SuperSport 4"  group-title="CHANNEL | SPORTS",Astro Football
-https://smart.pendy.dpdns.org/Smart.php?id=go_assp4
-#EXTINF:-1 tvg-id="" tvg-name="Astro SuperSport 4"  group-title="CHANNEL | SPORTS",Astro WSports
-https://smart.pendy.dpdns.org/Smart.php?id=go_assp5
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="AstroPremierLeague2.my" tvg-name="MY | Astro Premier League 2 FHD"  group-title="CHANNEL | SPORTS",MY | Astro Premier League 2
+##http://zoneuk.club:80/1122334455/6677889900/709261
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/AstroSS2.m3u8
 
-#EXTINF:-1  group-title="CHANNEL | SPORTS",AstroArena1
-https://wahyu1ptv.pages.dev/AstroArena-HD.m3u8
-#EXTINF:-1  group-title="CHANNEL | SPORTS",AstroArena2
-https://wahyu1ptv.pages.dev/AstroArena2-HD.m3u8
-#EXTINF:-1  group-title="CHANNEL | SPORTS",AstroBadminton1
-https://smart.pendy.dpdns.org/Smart.php?id=go_badminton1
-#EXTINF:-1  group-title="CHANNEL | SPORTS",AstroBadminton2
-https://smart.pendy.dpdns.org/Smart.php?id=go_badminton2
-#EXTINF:-1  group-title="CHANNEL | SPORTS",AstroSportPlus1
-https://wahyu1ptv.pages.dev/AstroSportPlus1-HD.m3u8
-#EXTINF:-1  group-title="CHANNEL | SPORTS",AstroSportPlus2
-https://wahyu1ptv.pages.dev/AstroSportPlus2-HD.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="AstroPremierLeague3.my" tvg-name="MY | Astro Premier League 3 FHD"  group-title="CHANNEL | SPORTS",MY | Astro Premier League 3 FHD
+http://royalibox.com:80/plcedarkaouishbissm/px6pzjgmf8/1163682
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="AstroPremierLeague4.my" tvg-name="MY | Astro Premier League 4 FHD"  group-title="CHANNEL | SPORTS",MY | Astro Premier League 4 FHD
+http://royalibox.com:80/plcedarkaouishbissm/px6pzjgmf8/1163675
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="AstroPremierLeague5.my" tvg-name="MY | Astro Sport Plus"  group-title="CHANNEL | SPORTS",MY | Astro Sport Plus
+https://ott.udptv.xyz/stream/astro/astrosportsplus/master.m3u8?u=cocked&p=dd0abb52723d22acc0f97fe0336480feaa88a37ecda55a138a8d5e0ee14b0664
 
-#EXTINF:-1  group-title="CHANNEL | SPORTS",BeinSports 1
-https://wahyu1ptv.pages.dev/AstroBein1.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="AstroGrandstand.my" tvg-name="MY | Astro Grandstand FHD"  group-title="CHANNEL | SPORTS",MY | Astro Grandstand
+##https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/AstroSS1.m3u8
+#EXTVLCOPT:http-origin=https://webxzplay.cfd
+#EXTVLCOPT:http-referrer=https://webxzplay.cfd/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 17_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1
+https://zekonew.newkso.ru/zeko/premium123/mono.m3u8
 
-#EXTINF:-1  group-title="CHANNEL | SPORTS",BeinSports 2
-https://wahyu1ptv.pages.dev/AstroBein2.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="AstroFootball.my" tvg-name="MY | Astro Football FHD"  group-title="CHANNEL | SPORTS",MY | Astro Football
+https://ott.udptv.xyz/stream/astro/astrofootball/master.m3u8?u=cocked&p=dd0abb52723d22acc0f97fe0336480feaa88a37ecda55a138a8d5e0ee14b0664
 
-#EXTINF:-1  group-title="CHANNEL | SPORTS",BeinSports 3
-https://wahyu1ptv.pages.dev/AstroBein3.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="AstroCricket.my" tvg-name="MY | Astro Cricket FHD"  group-title="CHANNEL | SPORTS",MY | Astro Cricket
+http://zoneuk.club:80/1122334455/6677889900/709264
 
-#EXTINF:-1 tvg-id="" tvg-name="ASTRO CRICKET"  group-title="CHANNEL | SPORTS", ASTRO CRICKET
-https://smart.pendy.dpdns.org/Smart.php?id=Acricket
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="AstroBadminton.my" tvg-name="MY | Astro Badminton"  group-title="CHANNEL | SPORTS",MY | Astro Badminton
+##https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/AstroBadminton.m3u8
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/AstroBadmintonB.m3u8
 
-#EXTINF:-1 group-title="CHANNEL | SPORTS" tvg-id="" ,SukanRTM TV
-#EXTVLCOPT:http-referrer=https://rtmklik.rtm.gov.my/
-https://d25tgymtnqzu8s.cloudfront.net/smil:sukan/chunklist.m3u8?id=1
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="W-Sport.my" tvg-name="MY | W-Sport FHD"  group-title="CHANNEL | SPORTS",MY | W-Sport
+https://ott.udptv.xyz/stream/astro/wsport/master.m3u8?u=cocked&p=dd0abb52723d22acc0f97fe0336480feaa88a37ecda55a138a8d5e0ee14b0664
 
-##EXTINF:-1 group-title="CCHANNEL | SPORTS" tvg-id="" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbg6RNClVzA9EouEpYVdndfdshwLFGphqLWg&s",Sukan TV 2
-##https://d25tgymtnqzu8s.cloudfront.net/smil:sukan/manifest.mpd
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="beINSports.my" tvg-name="MY | beIN Sports 1 FHD"  group-title="CHANNEL | SPORTS",MY | beIN Sports 1
+http://zoneuk.club:80/1122334455/6677889900/837115
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="beINSports2.my" tvg-name="MY | beIN Sports 2 FHD"  group-title="CHANNEL | SPORTS",MY | beIN Sports 2
+http://zoneuk.club:80/1122334455/6677889900/837114
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="bEINSPORTS3.my" tvg-name="MY | beIN Sports 3 FHD"  group-title="CHANNEL | SPORTS",MY | beIN Sports 3
+http://zoneuk.club:80/1122334455/6677889900/837113
 
-#EXTINF: -1  group-title="CHANNEL | SPORTS",Unifi Sport
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 17_7 like Mac OS X;Windows NT 10.0; Win64; x64) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1 VLC/3.2.21 LibVLC/3.2.21 ExoPlayerDemo/2.15.1 (Linux; Android 13) YouTV/1.8.1-prod.release+d73ba1cb (Linux;Android 15.0.0;) ExoPlayerLib/2.19.1
-https://WahyuIPTV.short.gy/UnifiSport.mpd
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="WWENetwork.my" tvg-name="MY | WWE Network HD"  group-title="CHANNEL | SPORTS",MY | WWE Network
+https://ott.udptv.xyz/stream/astro/wwe/master.m3u8?u=cocked&p=dd0abb52723d22acc0f97fe0336480feaa88a37ecda55a138a8d5e0ee14b0664
 
-#EXTINF:-1  group-title="CHANNEL | SPORTS",WWE Network
-https://smart.pendy.dpdns.org/Smart.php?id=Wwe
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="GolfChannel.my" tvg-name="MY | SkyNet Golf FHD"  group-title="CHANNEL | SPORTS",MY | SkyNet Golf
+https://ott.udptv.xyz/stream/astro/golfchannel/master.m3u8?u=cocked&p=dd0abb52723d22acc0f97fe0336480feaa88a37ecda55a138a8d5e0ee14b0664
+
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NSW-SydneyFoxSportsUltra.au" tvg-name="MY | GNIX Sports HD"  group-title="CHANNEL | SPORTS",MY | GNIX Sports
+http://zoneuk.club:80/1122334455/6677889900/709255
+
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="AstroArena.my" tvg-name="MY | Astro Arena FHD"  group-title="CHANNEL | SPORTS",MY | Astro Arena
+https://ott.udptv.xyz/stream/astro/astroarena/master.m3u8?u=cocked&p=dd0abb52723d22acc0f97fe0336480feaa88a37ecda55a138a8d5e0ee14b0664
+
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="AstroArena2.my" tvg-name="MY | Astro Arena 2 FHD"  group-title="CHANNEL | SPORTS",MY | Astro Arena 2
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/AstroArena2.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="MUTV.hk" tvg-name="MY | MUTV HD"  group-title="CHANNEL | SPORTS",MY | MUTV
+http://zoneuk.club:80/1122334455/6677889900/709253
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="SPOTV.sg" tvg-name="MY | SPOTV FHD"  group-title="CHANNEL | SPORTS",MY | SPOTV 1
+https://ott.udptv.xyz/stream/astro/spotv/master.m3u8?u=cocked&p=dd0abb52723d22acc0f97fe0336480feaa88a37ecda55a138a8d5e0ee14b0664
+
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="SPOTV2.my" tvg-name="MY | SPOTV 2 FHD"  group-title="CHANNEL | SPORTS",MY | SPOTV 2
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=bf870ded4d73a5f259d5759a9fc0ba2e:09f0dcec68abe4fb441a05140557d2ff
+https://unifi-live10.secureswiftcontent.com/UnifiHD/live05.mpd
+
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
+#EXTINF:-1 tvg-id="701.unifi" tvg-name="unifi Sports 1"  group-title="CHANNEL | SPORTS", Unifi Sports
+https://unifi-live01.secureswiftcontent.com/UnifiHD/live11.mpd
+
 
 
 
@@ -17207,243 +17336,71 @@ http://tvm8.org:8080/jK8jAu7GFky8/sK8J1xkBuPU6/60470
 //MAYTOKO2 CHANNEL | SPORTS"Sporty Sports
 //========================================================================
 
-#EXTINF:-1 tvg-id="" tvg-name="SPORTS - HUB SPORTS 1 FHD"  group-title="CHANNEL | SPORTS",HUB SPORTS 1 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1090647
-#EXTINF:-1 tvg-id="" tvg-name="SPORTS - HUB SPORTS 2 FHD"  group-title="CHANNEL | SPORTS",HUB SPORTS 2 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1090648
-#EXTINF:-1 tvg-id="" tvg-name="SPORTS - HUB SPORTS 3 FHD"  group-title="CHANNEL | SPORTS",HUB SPORTS 3 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1090649
-#EXTINF:-1 tvg-id="" tvg-name="SPORTS - HUB SPORTS 4 FHD"  group-title="CHANNEL | SPORTS",HUB SPORTS 4 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1090650
-#EXTINF:-1 tvg-id="" tvg-name="SPORTS - HUB SPORTS 5 FHD"  group-title="CHANNEL | SPORTS",HUB SPORTS 5 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1090651
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NowSportsPremierLeague1.hk" tvg-name="HK | Now HK Premier Sports 1"  group-title="CHANNEL | SPORTS",HK | Now HK Premier Sports 1
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/NowsportPL1.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NowSportsPremierLeague2.hk" tvg-name="HK | Now HK Premier Sports 2"  group-title="CHANNEL | SPORTS",HK | Now HK Premier Sports 2
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/NowsportPL2.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NowSportsPremierLeague3.hk" tvg-name="HK | Now HK Premier Sports 3"  group-title="CHANNEL | SPORTS",HK | Now HK Premier Sports 3
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/NowsportPL3.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NowSportsPremierLeague4.hk" tvg-name="HK | Now HK Premier Sports 4"  group-title="CHANNEL | SPORTS",HK | Now HK Premier Sports 4
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/NowsportPL4.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NowSportsPremierLeague5.hk" tvg-name="HK | Now HK Premier Sports 5"  group-title="CHANNEL | SPORTS",HK | Now HK Premier Sports 5
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/NowsportPL5.m3u8
 
-#EXTINF:-1 tvg-id="" tvg-name="NOW HK NOW SPORTS 1  FHD"  group-title="CHANNEL | SPORTS",NOW HK NOW SPORTS 1  FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/438868
-#EXTINF:-1 tvg-id="" tvg-name="NOW HK NOW SPORTS 2 FHD"  group-title="CHANNEL | SPORTS",NOW HK NOW SPORTS 2 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/438869
-#EXTINF:-1 tvg-id="" tvg-name="NOW HK NOW SPORTS 3 FHD"  group-title="CHANNEL | SPORTS",NOW HK NOW SPORTS 3 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/438870
-#EXTINF:-1 tvg-id="" tvg-name="NOW HK NOW SPORTS 4 FHD"  group-title="CHANNEL | SPORTS",NOW HK NOW SPORTS 4 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/438871
-#EXTINF:-1 tvg-id="" tvg-name="NOW HK NOW SPORTS 5 FHD"  group-title="CHANNEL | SPORTS",NOW HK NOW SPORTS 5 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/438872
-#EXTINF:-1 tvg-id="" tvg-name="NOW HK NOW SPORTS 6 FHD"  group-title="CHANNEL | SPORTS",NOW HK NOW SPORTS 6 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/438873
-#EXTINF:-1 tvg-id="" tvg-name="NOW HK NOW SPORTS 7 FHD"  group-title="CHANNEL | SPORTS",NOW HK NOW SPORTS 7 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/438874
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NowSportsPremierLeague6.hk" tvg-name="HK | Now HK Premier Sports 6"  group-title="CHANNEL | SPORTS",HK | Now HK Premier Sports 6
+http://zoneuk.club:80/1122334455/6677889900/35910
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NowSportsPremierLeague7.hk" tvg-name="HK | Now HK Premier Sports 7"  group-title="CHANNEL | SPORTS",HK | Now HK Premier Sports 7
+http://zoneuk.club:80/1122334455/6677889900/35909
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="" tvg-name="HK | Now HK Premier Sports 8"  group-title="CHANNEL | SPORTS",HK | Now HK Premier Sports 8
+http://zoneuk.club:80/1122334455/6677889900/35908
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="PremierLeagueTV.peacocktv" tvg-name="HK | Now HK Premier League TV"  group-title="CHANNEL | SPORTS",HK | Now HK Premier League TV
+http://zoneuk.club:80/1122334455/6677889900/836295
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NowSportsPrime.hk" tvg-name="HK | Now HK Sports Prime"  group-title="CHANNEL | SPORTS",HK | Now HK Sports Prime
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/NowsportPrime.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NowSportsPlus.hk" tvg-name="HK | NowHK Sports Plus FHD"  group-title="CHANNEL | SPORTS",HK | NowHK Sports Plus FHD
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/NowsportPlus.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NowGolf2.hk" tvg-name="HK | NowHK Golf 2 FHD"  group-title="CHANNEL | SPORTS",HK | NowHK Golf 2 FHD
+http://zoneuk.club:80/1122334455/6677889900/842093
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NowGolf3.hk" tvg-name="HK | NowHK Golf 3 FHD"  group-title="CHANNEL | SPORTS",HK | NowHK Golf 3 FHD
+http://zoneuk.club:80/1122334455/6677889900/842092
 
-#EXTINF:-1 tvg-id="rmcsport1.fr" tvg-name="RMC SPORT 1 FHD"  group-title="CHANNEL | SPORTS",RMC SPORT 1 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/56671
-#EXTINF:-1 tvg-id="rmcsport2.fr" tvg-name="RMC SPORT 2 FHD"  group-title="CHANNEL | SPORTS",RMC SPORT 2 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/349337
-#EXTINF:-1 tvg-id="" tvg-name="RMC SPORT LIVE 3 FHD"  group-title="CHANNEL | SPORTS",RMC SPORT LIVE 3 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/215571
-#EXTINF:-1 tvg-id="" tvg-name="RMC SPORT LIVE 4 FHD"  group-title="CHANNEL | SPORTS",RMC SPORT LIVE 4 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/215574
-
-#EXTINF:-1 tvg-id="" tvg-name="DE - ZIGGO SPORT 8K"  group-title="CHANNEL | SPORTS",DE - ZIGGO SPORT 8K
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1139981
-#EXTINF:-1 tvg-id="" tvg-name="DE - ZIGGO SPORT 2 8K"  group-title="CHANNEL | SPORTS",DE - ZIGGO SPORT 2 8K
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1139982
-#EXTINF:-1 tvg-id="" tvg-name="DE - ZIGGO SPORT 3 8K"  group-title="CHANNEL | SPORTS",DE - ZIGGO SPORT 3 8K
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1139983
-#EXTINF:-1 tvg-id="" tvg-name="DE - ZIGGO SPORT 4 8K"  group-title="CHANNEL | SPORTS",DE - ZIGGO SPORT 4 8K
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1139984
-#EXTINF:-1 tvg-id="" tvg-name="DE - ZIGGO SPORT ULTRA 8K"  group-title="CHANNEL | SPORTS",DE - ZIGGO SPORT ULTRA 8K
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1139986
-
-#EXTINF:-1 tvg-id="fubosportsnetwork.us" tvg-name="FUBO SPORTS NETWORK"  group-title="CHANNEL | SPORTS",FUBO SPORTS NETWORK
-http://bestp55.xyz:80/A7FC77529786/519C32219872/200924
-#EXTINF:-1 tvg-id="" tvg-name="FUBO SPORTS 1"  group-title="CHANNEL | SPORTS",FUBO SPORTS 1
-http://bestp55.xyz:80/A7FC77529786/519C32219872/325613
-#EXTINF:-1 tvg-id="" tvg-name="FUBO SPORTS 2"  group-title="CHANNEL | SPORTS",FUBO SPORTS 2
-http://bestp55.xyz:80/A7FC77529786/519C32219872/325612
-#EXTINF:-1 tvg-id="" tvg-name="FUBO SPORTS 3"  group-title="CHANNEL | SPORTS",FUBO SPORTS 3
-http://bestp55.xyz:80/A7FC77529786/519C32219872/325611
-#EXTINF:-1 tvg-id="" tvg-name="FUBO SPORTS 4"  group-title="CHANNEL | SPORTS",FUBO SPORTS 4
-http://bestp55.xyz:80/A7FC77529786/519C32219872/325610
-#EXTINF:-1 tvg-id="" tvg-name="FUBO SPORTS 5"  group-title="CHANNEL | SPORTS",FUBO SPORTS 5
-http://bestp55.xyz:80/A7FC77529786/519C32219872/325609
-
-#EXTINF:-1 tvg-id="Digi.Sport.1.ro"  group-title="CHANNEL | SPORTS",Digi Sport 1
-https://nijineh-lalajo.hf.space/watch/aHR0cHM6Ly9uZnNuZXcubmV3a3NvLnJ1L25mcy9wcmVtaXVtNDAwL21vbm8ubTN1OA==.m3u8
-
-#EXTINF:-1 tvg-id="Digi.Sport.2.ro"  group-title="CHANNEL | SPORTS",Digi Sport 2
-https://nijineh-lalajo.hf.space/watch/aHR0cHM6Ly9uZnNuZXcubmV3a3NvLnJ1L25mcy9wcmVtaXVtNDAxL21vbm8ubTN1OA==.m3u8
-
-#EXTINF:-1 tvg-id="Digi.Sport.3.ro"  group-title="CHANNEL | SPORTS",Digi Sport 3
-https://nijineh-lalajo.hf.space/watch/aHR0cHM6Ly9uZnNuZXcubmV3a3NvLnJ1L25mcy9wcmVtaXVtNDAyL21vbm8ubTN1OA==.m3u8
-
-#EXTINF:-1 tvg-id="Digi.Sport.4.ro"  group-title="CHANNEL | SPORTS",Digi Sport 4
-https://nijineh-lalajo.hf.space/watch/aHR0cHM6Ly9uZnNuZXcubmV3a3NvLnJ1L25mcy9wcmVtaXVtNDAzL21vbm8ubTN1OA==.m3u8
-
-#EXTINF:-1 tvg-id="" tvg-name="RO: DIGI SPORT 1"  group-title="CHANNEL | SPORTS",RO: DIGI SPORT 1
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/3174
-#EXTINF:-1 tvg-id="" tvg-name="RO: DIGI SPORT 2"  group-title="CHANNEL | SPORTS",RO: DIGI SPORT 2
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/3175
-#EXTINF:-1 tvg-id="" tvg-name="RO: DIGI SPORT 3"  group-title="CHANNEL | SPORTS",RO: DIGI SPORT 3
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/3176
-#EXTINF:-1 tvg-id="" tvg-name="RO: DIGI SPORT 4"  group-title="CHANNEL | SPORTS",RO: DIGI SPORT 4
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/3177
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NowSports1.hk" tvg-name="HK | Now Sports 1"  group-title="CHANNEL | SPORTS",HK | Now Sports 1
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/Nowsport1.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NowSports2.hk" tvg-name="HK | Now Sports 2"  group-title="CHANNEL | SPORTS",HK | Now Sports 2
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/Nowsport2.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NowSports3.hk" tvg-name="HK | Now Sports 3"  group-title="CHANNEL | SPORTS",HK | Now Sports 3
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/Nowsport3.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NowSports4.hk" tvg-name="HK | Now Sports 4"  group-title="CHANNEL | SPORTS",HK | Now Sports 4
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/Nowsport4.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NowSports5.hk" tvg-name="HK | Now Sports 5"  group-title="CHANNEL | SPORTS",HK | Now Sports 5
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/Nowsport5.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NowSports6.hk" tvg-name="HK | Now Sports 6"  group-title="CHANNEL | SPORTS",HK | Now Sports 6
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/Nowsport6.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="NowSports7.hk" tvg-name="HK | Now Sports 7"  group-title="CHANNEL | SPORTS",HK | Now Sports 7
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/Nowsport7.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="SPOTV.hk" tvg-name="HK | NowHK SPOTV FHD"  group-title="CHANNEL | SPORTS",HK | NowHK SPOTV FHD
+http://zoneuk.club:80/1122334455/6677889900/842097
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="SPOTV2.hk" tvg-name="HK | NowHK SPOTV 2 FHD"  group-title="CHANNEL | SPORTS",HK | NowHK SPOTV 2 FHD
+http://zoneuk.club:80/1122334455/6677889900/842091
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="beINSPORTS1.hk" tvg-name="HK | NowHK Bein 1 FHD"  group-title="CHANNEL | SPORTS",HK | NowHK Bein 1 FHD
+http://zoneuk.club:80/1122334455/6677889900/842090
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="beINSPORTS2.hk" tvg-name="HK | NowHK beIN 2 FHD"  group-title="CHANNEL | SPORTS",HK | NowHK beIN 2 FHD
+http://zoneuk.club:80/1122334455/6677889900/842089
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="beINSPORTS3.hk" tvg-name="HK | NowHK Bein 3 FHD"  group-title="CHANNEL | SPORTS",HK | NowHK Bein 3 FHD
+http://zoneuk.club:80/1122334455/6677889900/842088
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="beINSPORTS4.hk" tvg-name="HK | NowHK beIN 4 FHD"  group-title="CHANNEL | SPORTS",HK | NowHK beIN 4 FHD
+http://zoneuk.club:80/1122334455/6677889900/842087
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="beINSPORTS5.hk" tvg-name="HK | NowHK Bein 5 FHD"  group-title="CHANNEL | SPORTS",HK | NowHK Bein 5 FHD
+http://zoneuk.club:80/1122334455/6677889900/842086
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="beINSPORTS6.hk" tvg-name="HK | NowHK beIN 6 FHD"  group-title="CHANNEL | SPORTS",HK | NowHK beIN 6 FHD
+http://zoneuk.club:80/1122334455/6677889900/842085
 
 
-#EXTINF:-1 tvg-id="NBA.TV.USA.us"  group-title="CHANNEL | SPORTS",NBA TV
-https://nijineh-lalajo.hf.space/watch/aHR0cHM6Ly96ZWtvbmV3Lm5ld2tzby5ydS96ZWtvL3ByZW1pdW00MDQvbW9uby5tM3U4.m3u8
-
-#EXTINF:-1 tvg-id="Sky.Sport.F1.it"  group-title="CHANNEL | SPORTS",Sky Sport F1 FHD
-https://nijineh-lalajo.hf.space/watch/aHR0cHM6Ly9uZnNuZXcubmV3a3NvLnJ1L25mcy9wcmVtaXVtNTc3L21vbm8ubTN1OA==.m3u8
-
-#EXTINF:-1  group-title="CHANNEL | SPORTS",SkySportF1 HD
-https://wahyu1ptv.pages.dev/SkySportF1-HD.m3u8
-
-#EXTINF:-1 tvg-id="Sky.Sport.Max.it"  group-title="CHANNEL | SPORTS",Sky Sport Max
-https://nijineh-lalajo.hf.space/watch/aHR0cHM6Ly9kb2trbzFuZXcubmV3a3NvLnJ1L2Rva2tvMS9wcmVtaXVtNDYwL21vbm8ubTN1OA==.m3u8
-
-#EXTINF:-1 tvg-id="Sky.Sport.MotoGP.it"  group-title="CHANNEL | SPORTS",Sky Sport MotoGP HD
-https://nijineh-lalajo.hf.space/watch/aHR0cHM6Ly9uZnNuZXcubmV3a3NvLnJ1L25mcy9wcmVtaXVtNTc1L21vbm8ubTN1OA==.m3u8
-
-#EXTINF:-1  group-title="CHANNEL | SPORTS",SkySportMotoGP FHD
-https://wahyu1ptv.pages.dev/SkySportMotoGP-HD.m3u8
-
-#EXTINF:-1 tvg-id="Sky.Sport.Tennis.it"  group-title="CHANNEL | SPORTS",Sky Sport Tennis
-https://nijineh-lalajo.hf.space/watch/aHR0cHM6Ly9kZHk2bmV3Lm5ld2tzby5ydS9kZHk2L3ByZW1pdW01NzYvbW9uby5tM3U4.m3u8
-
-#EXTINF:-1 tvg-id="SkySportsPremierLeague.uk"  group-title="CHANNEL | SPORTS",Sky Sports Premier League
-https://nijineh-lalajo.hf.space/watch/aHR0cHM6Ly9kb2trbzFuZXcubmV3a3NvLnJ1L2Rva2tvMS9wcmVtaXVtMTMwL21vbm8ubTN1OA==.m3u8
-
-#EXTINF:-1 tvg-id="Sky.Sport.Calcio.it"  group-title="CHANNEL | SPORTS",Sky Sport Calcio FHD
-https://nijineh-lalajo.hf.space/watch/aHR0cHM6Ly93aW5kbmV3Lm5ld2tzby5ydS93aW5kL3ByZW1pdW04NzAvbW9uby5tM3U4.m3u8
-
-#EXTINF:-1  group-title="CHANNEL | SPORTS",SkySportCalcio HD
-https://wahyu1ptv.pages.dev/SkySportCalcio-HD.m3u8
-
-#EXTINF:-1  group-title="CHANNEL | SPORTS",SkySportsFootball
-https://wahyu1ptv.pages.dev/SkySportFootball-HD.m3u8
-
-#EXTINF:-1  group-title="CHANNEL | SPORTS",SkySportBundesliga1
-https://wahyu1ptv.pages.dev/SkySportBundesliga1-HD.m3u8
-
-#EXTINF:-1  group-title="CHANNEL | SPORTS",SkySportBundesliga2
-https://wahyu1ptv.pages.dev/SkySportBundesliga2-HD.m3u8
-
-#EXTINF:-1  group-title="CHANNEL | SPORTS",SkySportsLaliga
-https://wahyu1ptv.pages.dev/SkySportLaliga-HD.m3u8
-
-#EXTINF: -1  group-title="CHANNEL | SPORTS",M+Laliga
-https://wahyu1ptv.pages.dev/MLaliga-HD.m3u8
-
-#EXTINF:-1  group-title="CHANNEL | SPORTS",DaznLaliga1
-https://wahyu1ptv.pages.dev/DaznLaliga1-HD.m3u8
-
-#EXTINF:-1  group-title="CHANNEL | SPORTS",DaznLaliga2
-https://wahyu1ptv.pages.dev/DaznLaliga2-HD.m3u8
-
-#EXTINF:-1  group-title="CHANNEL | SPORTS",CBSSportsNetwork
-https://wahyu1ptv.pages.dev/CBSSportsNetwork-HD.m3u8
-
-#EXTINF:-1  group-title="CHANNEL | SPORTS",SSC1
-https://wahyu1ptv.pages.dev/SSC1-HD.m3u8
-#EXTINF:-1  group-title="CHANNEL | SPORTS",SSC2
-https://wahyu1ptv.pages.dev/SSC2-HD.m3u8
-#EXTINF:-1  group-title="CHANNEL | SPORTS",SSC3
-https://wahyu1ptv.pages.dev/SSC3-HD.m3u8
-#EXTINF:-1  group-title="CHANNEL | SPORTS",SSC4
-https://wahyu1ptv.pages.dev/SSC4-HD.m3u8
-#EXTINF:-1  group-title="CHANNEL | SPORTS",SSC5
-https://wahyu1ptv.pages.dev/SSC5-HD.m3u8
-#EXTINF:-1  group-title="CHANNEL | SPORTS",SSCEXTRA1
-https://wahyu1ptv.pages.dev/SSCExtra1-HD.m3u8
-#EXTINF:-1  group-title="CHANNEL | SPORTS",SSCEXTRA2
-https://wahyu1ptv.pages.dev/SSCExtra2-HD.m3u8
-#EXTINF:-1  group-title="CHANNEL | SPORTS",SSCEXTRA3
-https://wahyu1ptv.pages.dev/SSCExtra3-HD.m3u8
-
-#EXTINF:-1  group-title="CHANNEL | SPORTS",ArenaPremium1
-https://wahyu1ptv.pages.dev/ArenaPremium1-HD.m3u8
-#EXTINF:-1  group-title="CHANNEL | SPORTS",ArenaPremium2
-https://wahyu1ptv.pages.dev/ArenaPremium2-HD.m3u8
-#EXTINF:-1  group-title="CHANNEL | SPORTS",ArenaPremium3
-https://wahyu1ptv.pages.dev/ArenaPremium3-HD.m3u8
 
 
-#EXTINF:-1 tvg-id="PrimaSport1.ro" tvg-name="Prima Sport 1"  group-title="CHANNEL | SPORTS" ,Prima Sport 1 
-#EXTVLCOPT:http-referrer=https://saruman1.tharen.cfd/000/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36
-https://saruman1.tharen.cfd/puk1/usergenrx0cir27aq.m3u8
-
-#EXTINF:-1 tvg-id="PrimaSport2.ro" tvg-name="Prima Sport 2"  group-title="CHANNEL | SPORTS" ,Prima Sport 2 
-#EXTVLCOPT:http-referrer=https://arwen1.panaka.cfd/000/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36
-https://arwen1.panaka.cfd/puk2/usergenrnd0clv03fyt.m3u8
-
-#EXTINF:-1 tvg-id="PrimaSport3.ro" tvg-name="Prima Sport 3"  group-title="CHANNEL | SPORTS" ,Prima Sport 3 
-#EXTVLCOPT:http-referrer=https://iron1.jarvisx.cfd/000/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36
-https://iron1.jarvisx.cfd/puk3/usergenrx4t0l8sybkr.m3u8
-
-#EXTINF:-1 tvg-id="PrimaSport4.ro" tvg-name="Prima Sport 4"  group-title="CHANNEL | SPORTS" ,Prima Sport 4 
-#EXTVLCOPT:http-referrer=https://galandriel1.thobias.cfd/000/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36
-https://galandriel1.thobias.cfd/puk4/usergendx42x9qrnd.m3u8
-
-#EXTINF:-1 group-title="CHANNEL | SPORTS" , SPORTS KLUB 1
-https://nijineh-lalajo.hf.space/proxy?url=https://ddy6new.newkso.ru/ddy6/premium101/mono.m3u8
-
-#EXTINF:-1 group-title="CHANNEL | SPORTS" , SPORTS KLUB 2
-https://nijineh-lalajo.hf.space/proxy?url=https://ddy6new.newkso.ru/ddy6/premium102/mono.m3u8
 
 
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Hub Premier 1 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112231
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Hub Premier 2 UHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112230
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Hub Premier 2 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112229
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Hub Premier 3 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112228
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Hub Premier 4 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112227
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Hub Premier 5 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112226
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Hub Premier 6 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112225
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Hub Premier 7 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112224
 
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Now HK Now Sports 4K FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112209
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Now HK Sports 4K 1 UHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112208
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Now Sports 1 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112207
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Now Sports 2 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112206
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Now Sports 3 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112205
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Now Sports 4 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112204
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Now Sports 5 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112203
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Now Sports 6 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112202
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Now Sports 7 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112201
-
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Now HK Premier Sports 1 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112200
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Now HK Premier Sports 2 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112194
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Now HK Premier Sports 3 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112199
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Now HK Premier Sports 4 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112198
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Now HK Premier Sports 5 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112197
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Now HK Premier Sports 6 FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112196
-#EXTINF:-1 group-title="CHANNEL | SPORTS" ,Now HK Sports Prime FHD 
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/112195
 
 //========================================================================
 //MAYTOKO2 CHANNEL | SPORTS"Bein Sports
@@ -17936,91 +17893,229 @@ https://wahyu1ptv.pages.dev/Combate-HD.m3u8
 https://3f4b9dde8740443b9b90459fc7b67cdd.mediatailor.us-east-1.amazonaws.com/v1/manifest/04fd913bb278d8775298c26fdca9d9841f37601f/Samsung-gb_StrongmanChampionsLeague/e21d95be-bbb1-442c-bd84-71813dc764ce/0.m3u8
 
 
+#EXTINF:-1 tvg-id="NowSportsPremierLeagueTV.hk" tvg-name="NowHK PL TV HD"  group-title="CHANNEL | SPORTS",NowHK PL TV HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376170
+#EXTINF:-1 tvg-id="NowSportsPremierLeague1.hk" tvg-name="NowHK PL 1 FHD"  group-title="CHANNEL | SPORTS",NowHK PL 1 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376169
+#EXTINF:-1 tvg-id="NowSportsPremierLeague2.hk" tvg-name="NowHK PL 2 FHD"  group-title="CHANNEL | SPORTS",NowHK PL 2 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376168
+#EXTINF:-1 tvg-id="NowSportsPremierLeague3.hk" tvg-name="NowHK PL 3 FHD"  group-title="CHANNEL | SPORTS",NowHK PL 3 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376167
+#EXTINF:-1 tvg-id="NowSportsPremierLeague4.hk" tvg-name="NowHK PL 4 FHD"  group-title="CHANNEL | SPORTS",NowHK PL 4 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376166
+#EXTINF:-1 tvg-id="NowSportsPremierLeague5.hk" tvg-name="NowHK PL 5 FHD"  group-title="CHANNEL | SPORTS",NowHK PL 5 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376165
+#EXTINF:-1 tvg-id="NowSportsPremierLeague6.hk" tvg-name="NowHK PL 6 FHD"  group-title="CHANNEL | SPORTS",NowHK PL 6 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376164
+#EXTINF:-1 tvg-id="" tvg-name="NowHK Sports Prime HD"  group-title="CHANNEL | SPORTS",NowHK Sports Prime HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376163
+#EXTINF:-1 tvg-id="NowSports1.hk" tvg-name="NowHK Sports 1 HD"  group-title="CHANNEL | SPORTS",NowHK Sports 1 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376162
+#EXTINF:-1 tvg-id="" tvg-name="NowHK Sports 2 HD"  group-title="CHANNEL | SPORTS",NowHK Sports 2 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376161
+#EXTINF:-1 tvg-id="NowSports3.hk" tvg-name="NowHK Sports 3 HD"  group-title="CHANNEL | SPORTS",NowHK Sports 3 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376160
+#EXTINF:-1 tvg-id="NowSports4.hk" tvg-name="NowHK Sports 4 HD"  group-title="CHANNEL | SPORTS",NowHK Sports 4 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376159
+#EXTINF:-1 tvg-id="NowSports5.hk" tvg-name="NowHK Sports 5 HD"  group-title="CHANNEL | SPORTS",NowHK Sports 5 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376158
+#EXTINF:-1 tvg-id="NowSports6.hk" tvg-name="NowHK Sports 6 HD"  group-title="CHANNEL | SPORTS",NowHK Sports 6 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376157
+#EXTINF:-1 tvg-id="NowSports7.hk" tvg-name="NowHK Sports 7 HD"  group-title="CHANNEL | SPORTS",NowHK Sports 7 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376156
+#EXTINF:-1 tvg-id="" tvg-name="NowHK beIN 1 FHD"  group-title="CHANNEL | SPORTS",NowHK beIN 1 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376155
+#EXTINF:-1 tvg-id="" tvg-name="NowHK beIN 2 FHD"  group-title="CHANNEL | SPORTS",NowHK beIN 2 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376154
+#EXTINF:-1 tvg-id="" tvg-name="NowHK beIN 3 FHD"  group-title="CHANNEL | SPORTS",NowHK beIN 3 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376153
+#EXTINF:-1 tvg-id="" tvg-name="NowHK beIN 4 FHD"  group-title="CHANNEL | SPORTS",NowHK beIN 4 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376152
+#EXTINF:-1 tvg-id="" tvg-name="NowHK beIN 5 FHD"  group-title="CHANNEL | SPORTS",NowHK beIN 5 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376151
+#EXTINF:-1 tvg-id="" tvg-name="NowHK beIN 6 FHD"  group-title="CHANNEL | SPORTS",NowHK beIN 6 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376150
+#EXTINF:-1 tvg-id="" tvg-name="NowHK Fight Sports HD"  group-title="CHANNEL | SPORTS",NowHK Fight Sports HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376149
+#EXTINF:-1 tvg-id="" tvg-name="NowHK SPOTV FHD"  group-title="CHANNEL | SPORTS",NowHK SPOTV FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376148
+#EXTINF:-1 tvg-id="" tvg-name="NowHK SPOTV 2 FHD"  group-title="CHANNEL | SPORTS",NowHK SPOTV 2 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376147
+#EXTINF:-1 tvg-id="" tvg-name="NowHK Astro Cricket HD"  group-title="CHANNEL | SPORTS",NowHK Astro Cricket HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376146
+#EXTINF:-1 tvg-id="" tvg-name="NowHK Sports Plus FHD"  group-title="CHANNEL | SPORTS",NowHK Sports Plus FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376145
+#EXTINF:-1 tvg-id="" tvg-name="NowHK Sports 681 FHD"  group-title="CHANNEL | SPORTS",NowHK Sports 681 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376144
+#EXTINF:-1 tvg-id="" tvg-name="NowHK Golf 2 HD"  group-title="CHANNEL | SPORTS",NowHK Golf 2 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376143
+#EXTINF:-1 tvg-id="" tvg-name="NowHK Golf 3 HD"  group-title="CHANNEL | SPORTS",NowHK Golf 3 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376142
+#EXTINF:-1 tvg-id="" tvg-name="NowHK MUTV HD"  group-title="CHANNEL | SPORTS",NowHK MUTV HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376141
+#EXTINF:-1 tvg-id="" tvg-name="NowHK Sports 618 FHD"  group-title="CHANNEL | SPORTS",NowHK Sports 618 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376140
+#EXTINF:-1 tvg-id="" tvg-name="NowHK Sports 619 FHD"  group-title="CHANNEL | SPORTS",NowHK Sports 619 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376139
+#EXTINF:-1 tvg-id="" tvg-name="NowHK Sports 688 FHD"  group-title="CHANNEL | SPORTS",NowHK Sports 688 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/376138
+
+
 //========================================================================
 //MAYTOKO2 CHANNEL | SPORTS"POLSAT SPORTS
 //========================================================================
 
 
-#EXTINF:-1 tvg-id="polsatsport.pl" tvg-name="PL - POLSAT SPORT HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT 1 HD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/67799
-#EXTINF:-1 tvg-id="polsatsport.pl" tvg-name="PL - POLSAT SPORT HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT 1 FHD
-http://aromatv.co:80/Enjy3637/4JFEBAs359/440342
-#EXTINF:-1 tvg-id="polsatsport.pl" tvg-name="PL - POLSAT SPORT HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT 1
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/10443
-#EXTINF:-1 tvg-id="polsatsport.pl" tvg-name="PL - POLSAT SPORT HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT 1 SD
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/34309
+#EXTINF:-1 tvg-id="Polsat Sport" tvg-name="PL: POLSAT SPORT 1"  group-title="CHANNEL | SPORTS",PL: POLSAT SPORT 1
+##http://vdns2.top:8080/12345678/87654321/34309
+https://raw.githubusercontent.com/B-inal-123/s-eropa/inal-22/Polsat1.m3u8
 
-#EXTINF:-1 tvg-id="polsatsportextra.pl" tvg-name="PL - POLSAT SPORT EXTRA HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT 2 HD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/67808
-#EXTINF:-1 tvg-id="polsatsportextra.pl" tvg-name="PL - POLSAT SPORT EXTRA HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT 2 FHD
-http://aromatv.co:80/Enjy3637/4JFEBAs359/440351
-#EXTINF:-1 tvg-id="polsatsportextra.pl" tvg-name="PL - POLSAT SPORT EXTRA HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT 2
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/6435
-#EXTINF:-1 tvg-id="polsatsportextra.pl" tvg-name="PL - POLSAT SPORT EXTRA HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT 2 SD
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/886
+#EXTINF:-1 tvg-id="Polsat Sport Extra" tvg-name="PL: POLSAT SPORT 2"  group-title="CHANNEL | SPORTS",PL: POLSAT SPORT 2
+##http://vdns2.top:8080/12345678/87654321/886
+https://raw.githubusercontent.com/B-inal-123/s-eropa/inal-22/Polsat2.m3u8
 
-#EXTINF:-1 tvg-id="polsatsportnews.pl" tvg-name="PL - POLSAT SPORT NEWS FHD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT 3 HD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/765627
-#EXTINF:-1 tvg-id="polsatsportnews.pl" tvg-name="PL - POLSAT SPORT NEWS FHD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT 3 FHD
-http://aromatv.co:80/Enjy3637/4JFEBAs359/440343
-#EXTINF:-1 tvg-id="polsatsportnews.pl" tvg-name="PL - POLSAT SPORT NEWS FHD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT 3 SD
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/887
+##EXTINF:-1 tvg-id="Polsat Sport News" tvg-name="PL: POLSAT SPORT 3" tvg-logo="https://docdog.top/logo/countries/poland/polsatsportnews.png" group-title="CHANNEL | SPORTS",PL: POLSAT SPORT 3
+##http://vdns2.top:8080/12345678/87654321/887
 
-#EXTINF:-1 tvg-id="polsatsportpremium1.pl" tvg-name="PL - POLSAT SPORT PREM. 1 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 1 HD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/67797
-#EXTINF:-1 tvg-id="polsatsportpremium1.pl" tvg-name="PL - POLSAT SPORT PREM. 1 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 1 FHD
-http://aromatv.co:80/Enjy3637/4JFEBAs359/440333
-#EXTINF:-1 tvg-id="polsatsportpremium1.pl" tvg-name="PL - POLSAT SPORT PREM. 1 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 1
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/16059
-#EXTINF:-1 tvg-id="polsatsportpremium1.pl" tvg-name="PL - POLSAT SPORT PREM. 1 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 1 SD
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/870
+#EXTINF:-1  group-title="CHANNEL | SPORTS", POLSAT SPORT PREMIUM 1
+https://raw.githubusercontent.com/B-inal-123/s-eropa/inal-22/PolsatPremium1.m3u8
+#EXTINF:-1  group-title="CHANNEL | SPORTS", POLSAT SPORT PREMIUM 2
+https://raw.githubusercontent.com/B-inal-123/s-eropa/inal-22/PolsatPremium2.m3u8
+#EXTINF:-1  group-title="CHANNEL | SPORTS", POLSAT SPORT PREMIUM 3
+https://raw.githubusercontent.com/B-inal-123/s-eropa/inal-22/PolsatPremium3.m3u8
+#EXTINF:-1  group-title="CHANNEL | SPORTS", POLSAT SPORT PREMIUM 4
+https://raw.githubusercontent.com/B-inal-123/s-eropa/inal-22/PolsatPremium4.m3u8
+#EXTINF:-1  group-title="CHANNEL | SPORTS", POLSAT SPORT PREMIUM 5
+https://raw.githubusercontent.com/B-inal-123/s-eropa/inal-22/PolsatPremium5.m3u8
 
-#EXTINF:-1 tvg-id="polsatsportpremium2.pl" tvg-name="PL - POLSAT SPORT PREM. 2 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 2 HD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/67796
-#EXTINF:-1 tvg-id="polsatsportpremium2.pl" tvg-name="PL - POLSAT SPORT PREM. 2 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 2 FHD
-http://aromatv.co:80/Enjy3637/4JFEBAs359/440334
-#EXTINF:-1 tvg-id="polsatsportpremium2.pl" tvg-name="PL - POLSAT SPORT PREM. 2 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 2
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/16060
-#EXTINF:-1 tvg-id="polsatsportpremium2.pl" tvg-name="PL - POLSAT SPORT PREM. 2 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 2 SD
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/871
+#EXTINF:-1  group-title="CHANNEL | SPORTS", DIGI SPORT 1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+http://sorinv2.hopto.org:8008/live/Cosmin_Craciun/ekT4Y49h2b/277313.m3u8
 
-#EXTINF:-1 tvg-id="polsatsportpremium3ppv.pl" tvg-name="PL - POLSAT SPORT PREM. 3 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 3 HD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/75831
-#EXTINF:-1 tvg-id="polsatsportpremium3ppv.pl" tvg-name="PL - POLSAT SPORT PREM. 3 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 3 FHD
-http://aromatv.co:80/Enjy3637/4JFEBAs359/440335
-#EXTINF:-1 tvg-id="polsatsportpremium3ppv.pl" tvg-name="PL - POLSAT SPORT PREM. 3 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 3 SD
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/872
+#EXTINF:-1  group-title="CHANNEL | SPORTS", DIGI SPORT 2
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+http://sorinv2.hopto.org:8008/live/Cosmin_Craciun/ekT4Y49h2b/277314.m3u8
 
-#EXTINF:-1 tvg-id="polsatsportpremium4ppv.pl" tvg-name="PL - POLSAT SPORT PREM. 4 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 4 HD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/75832
-#EXTINF:-1 tvg-id="polsatsportpremium4ppv.pl" tvg-name="PL - POLSAT SPORT PREM. 4 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 4 FHD
-http://aromatv.co:80/Enjy3637/4JFEBAs359/440347
-#EXTINF:-1 tvg-id="polsatsportpremium4ppv.pl" tvg-name="PL - POLSAT SPORT PREM. 4 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 4 SD
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/873
+#EXTINF:-1  group-title="CHANNEL | SPORTS", DIGI SPORT 3
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+http://sorinv2.hopto.org:8008/live/Cosmin_Craciun/ekT4Y49h2b/277315.m3u8
 
-#EXTINF:-1 tvg-id="polsatsportpremium5ppv.pl" tvg-name="PL - POLSAT SPORT PREM. 5 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 5 HD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/75833
-#EXTINF:-1 tvg-id="polsatsportpremium5ppv.pl" tvg-name="PL - POLSAT SPORT PREM. 5 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 5 FHD
-http://aromatv.co:80/Enjy3637/4JFEBAs359/440348
-http://bestp55.xyz:80/A7FC77529786/519C32219872/75833
-#EXTINF:-1 tvg-id="polsatsportpremium5ppv.pl" tvg-name="PL - POLSAT SPORT PREM. 5 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 5 SD
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/874
+#EXTINF:-1  group-title="CHANNEL | SPORTS", DIGI SPORT 4
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+http://sorinv2.hopto.org:8008/live/Cosmin_Craciun/ekT4Y49h2b/277316.m3u8
 
-#EXTINF:-1 tvg-id="polsatsportpremium6ppv.pl" tvg-name="PL - POLSAT SPORT PREM. 6 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 6 HD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/75834
-#EXTINF:-1 tvg-id="polsatsportpremium6ppv.pl" tvg-name="PL - POLSAT SPORT PREM. 6 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 6 FHD
-http://aromatv.co:80/Enjy3637/4JFEBAs359/440349
-#EXTINF:-1 tvg-id="polsatsportpremium6ppv.pl" tvg-name="PL - POLSAT SPORT PREM. 6 HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT PREM. 6 SD
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/875
+#EXTINF:-1  group-title="CHANNEL | SPORTS", ORANGE SPORT 1
+https://raw.githubusercontent.com/B-inal-123/s-eropa/inal-22/Orange1.m3u8
+#EXTINF:-1  group-title="CHANNEL | SPORTS", ORANGE SPORT 2
+https://raw.githubusercontent.com/B-inal-123/s-eropa/inal-22/Orange2.m3u8
+#EXTINF:-1  group-title="CHANNEL | SPORTS", ORANGE SPORT 3
+https://raw.githubusercontent.com/B-inal-123/s-eropa/inal-22/Orange3.m3u8
+#EXTINF:-1  group-title="CHANNEL | SPORTS", ORANGE SPORT 4
+https://raw.githubusercontent.com/B-inal-123/s-eropa/inal-22/Orange4.m3u8
 
-#EXTINF:-1 tvg-id="polsatsport.pl" tvg-name="PL - POLSAT SPORT FIGHT HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT FIGHT HD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/67807
-#EXTINF:-1 tvg-id="polsatsport.pl" tvg-name="PL - POLSAT SPORT FIGHT HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT FIGHT FHD
-http://aromatv.co:80/Enjy3637/4JFEBAs359/440350
-#EXTINF:-1 tvg-id="polsatsport.pl" tvg-name="PL - POLSAT SPORT FIGHT HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT FIGHT
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/6434
-#EXTINF:-1 tvg-id="polsatsport.pl" tvg-name="PL - POLSAT SPORT FIGHT HD"  group-title="CHANNEL | SPORTS",PL - POLSAT SPORT FIGHT SD
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/888
+#EXTINF:-1  group-title="CHANNEL | SPORTS", SPORT KLUB RS
+https://raw.githubusercontent.com/B-inal-123/s-eropa/inal-22/SportKlubRS.m3u8
+#EXTINF:-1  group-title="CHANNEL | SPORTS", SPORT KLUB HR 1
+https://raw.githubusercontent.com/B-inal-123/s-eropa/inal-22/SportKlubHR1.m3u8
+#EXTINF:-1  group-title="CHANNEL | SPORTS", SPORT KLUB HR 2
+https://raw.githubusercontent.com/B-inal-123/s-eropa/inal-22/SportKlubHR2.m3u8
+#EXTINF:-1  group-title="CHANNEL | SPORTS", SPORT KLUB HR 3
+https://raw.githubusercontent.com/B-inal-123/s-eropa/inal-22/SportKlubHR3.m3u8
+#EXTINF:-1  group-title="CHANNEL | SPORTS", SPORT KLUB HR 4
+https://raw.githubusercontent.com/B-inal-123/s-eropa/inal-22/SportKlubHR4.m3u8
+#EXTINF:-1  group-title="CHANNEL | SPORTS", SPORT KLUB HR 5
+https://raw.githubusercontent.com/B-inal-123/s-eropa/inal-22/SportKlubHR5.m3u8
+#EXTINF:-1  group-title="CHANNEL | SPORTS", SPORT KLUB HR 6
+https://raw.githubusercontent.com/B-inal-123/s-eropa/inal-22/SportKlubHR6.m3u8
+
+#EXTINF:-1   group-title="CHANNEL | SPORTS", FUBO SPORTS 1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=dc69b6159a0f9f0a4e03b3ff91cbacd5:d0dcbcd7723bc40df0bf34c9c092d51f
+https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/3b7qwiqzk3/out/v1/9f14895badca43e6a716db021dcd0c31/cenc.mpd
+
+#EXTINF:-1   group-title="CHANNEL | SPORTS", FUBO SPORTS 2
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=3dcfbec0e7146928baa55210bf2cb62f:bc85f74f815d9be5ae1dd6defaa05135
+https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/uiffe4jhf0/out/v1/3534efafca8c4815adbb4d2e9a1fe003/cenc.mpd
+
+
+#EXTINF:-1  group-title="CHANNEL | SPORTS", ArenaPremium1
+https://wahyu1ptv.pages.dev/ArenaPremium1-HD.m3u8
+
+#EXTINF:-1  group-title="CHANNEL | SPORTS", ArenaPremium2
+https://wahyu1ptv.pages.dev/ArenaPremium2-HD.m3u8
+
+#EXTINF:-1  group-title="CHANNEL | SPORTS", ArenaPremium3
+https://wahyu1ptv.pages.dev/ArenaPremium3-HD.m3u8
+
+#EXTINF:-1 tvg-id="TF1" tvg-name="RMC SPORT 1"  group-title="CHANNEL | SPORTS",RMC SPORT 1
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/388
+#EXTINF:-1 tvg-id="RMC SPORT 2" tvg-name="RMC SPORT 2"  group-title="CHANNEL | SPORTS",RMC SPORT 2
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/389
+#EXTINF:-1 tvg-id="RMC SPORT 3" tvg-name="RMC SPORT 3"  group-title="CHANNEL | SPORTS",RMC SPORT 3
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/390
+#EXTINF:-1 tvg-id="TF1" tvg-name="RMC SPORT 4"  group-title="CHANNEL | SPORTS",RMC SPORT 4
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/391
+
+#EXTINF:-1 tvg-id="" tvg-name="FR: DAZN 1"  group-title="CHANNEL | SPORTS",FR: DAZN 1
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/99475
+#EXTINF:-1 tvg-id="" tvg-name="FR: DAZN 2"  group-title="CHANNEL | SPORTS",FR: DAZN 2
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/99476
+#EXTINF:-1 tvg-id="" tvg-name="FR: DAZN 3"  group-title="CHANNEL | SPORTS",FR: DAZN 3
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/99477
+#EXTINF:-1 tvg-id="" tvg-name="FR: DAZN 4"  group-title="CHANNEL | SPORTS",FR: DAZN 4
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/99478
+#EXTINF:-1 tvg-id="" tvg-name="FR: DAZN 5"  group-title="CHANNEL | SPORTS",FR: DAZN 5
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/99479
+
+#EXTINF:-1 tvg-id="" tvg-name="AL: K SPORT 1"  group-title="CHANNEL | SPORTS",AL: K SPORT 1
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/129125
+#EXTINF:-1 tvg-id="" tvg-name="AL: K SPORT 2"  group-title="CHANNEL | SPORTS",AL: K SPORT 2
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/129127
+#EXTINF:-1 tvg-id="" tvg-name="AL: K SPORT 3"  group-title="CHANNEL | SPORTS",AL: K SPORT 3
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/129129
+#EXTINF:-1 tvg-id="" tvg-name="AL: K SPORT 4"  group-title="CHANNEL | SPORTS",AL: K SPORT 4
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/129131
+
+#EXTINF:-1 tvg-id="" tvg-name="AL: TRING SPORT 1"  group-title="CHANNEL | SPORTS",AL: TRING SPORT 1
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/129299
+#EXTINF:-1 tvg-id="" tvg-name="AL: TRING SPORT 2"  group-title="CHANNEL | SPORTS",AL: TRING SPORT 2
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/129302
+#EXTINF:-1 tvg-id="" tvg-name="AL: TRING SPORT 3"  group-title="CHANNEL | SPORTS",AL: TRING SPORT 3
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/129303
+
+#EXTINF:-1 tvg-id="" tvg-name="AL: SUPER SPORT 1"  group-title="CHANNEL | SPORTS",AL: SUPER SPORT 1
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/129242
+#EXTINF:-1 tvg-id="" tvg-name="AL: SUPER SPORT 2"  group-title="CHANNEL | SPORTS",AL: SUPER SPORT 2
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/129244
+#EXTINF:-1 tvg-id="" tvg-name="AL: SUPER SPORT 3"  group-title="CHANNEL | SPORTS",AL: SUPER SPORT 3
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/129246
+#EXTINF:-1 tvg-id="" tvg-name="AL: SUPER SPORT 4"  group-title="CHANNEL | SPORTS",AL: SUPER SPORT 4
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/129248
+#EXTINF:-1 tvg-id="" tvg-name="AL: SUPER SPORTS 5"  group-title="CHANNEL | SPORTS",AL: SUPER SPORTS 5
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/129250
+#EXTINF:-1 tvg-id="" tvg-name="AL: SUPER SPORT 6 [Live During Events Only]"  group-title="CHANNEL | SPORTS",AL: SUPER SPORT 6 [Live During Events Only]
+http://vipgerretger.top:8080/VIP0191169590311424/51695903114889/129252
+
+#EXTINF:-1 tvg-id="" tvg-name="Be: Play Sports 1 HD" tag-logo="" group-title="CHANNEL | SPORTS",Play Sports 1 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/292506
+#EXTINF:-1 tvg-id="" tvg-name="Be: Play Sports 2 HD"  group-title="CHANNEL | SPORTS",Play Sports 2 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/292505
+#EXTINF:-1 tvg-id="" tvg-name="Be: Play Sports 3 HD"  group-title="CHANNEL | SPORTS",Play Sports 3 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/292476
+
+#EXTINF:-1 tvg-id="sporttv1.pt" tvg-name="Pt: Sport TV 1 HD"  group-title="CHANNEL | SPORTS",Sport TV 1 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/157970
+#EXTINF:-1 tvg-id="sporttv2.pt" tvg-name="Pt: Sport TV 2 HD"  group-title="CHANNEL | SPORTS",Sport TV 2 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/157966
+#EXTINF:-1 tvg-id="sporttv3.pt" tvg-name="Pt: Sport TV 3 HD"  group-title="CHANNEL | SPORTS",Sport TV 3 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/157963
+#EXTINF:-1 tvg-id="sporttv4.pt" tvg-name="Pt: Sport TV 4 HD"  group-title="CHANNEL | SPORTS",Sport TV 4 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/157960
+#EXTINF:-1 tvg-id="sporttv5.pt" tvg-name="Pt: Sport TV 5 HD"  group-title="CHANNEL | SPORTS",Sport TV 5 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/157958
 
 //========================================================================
 //MAYTOKO2 CHANNEL | SPORTS"SPORTS KLUB
@@ -18076,96 +18171,79 @@ http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/2996
 //MAYTOKO2 CHANNEL | SPORTS"ALBANIA SPORTS
 //========================================================================
 
-#EXTINF:-1 tvg-id="supersport1.al" tvg-name="ALB - SUPER SPORT 1 FHD"  group-title="CHANNEL | SPORTS",ALB - SUPER SPORT 1 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/491819
-#EXTINF:-1 tvg-id="supersport1.al" tvg-name="ALB - SUPER SPORT 1 FHD"  group-title="CHANNEL | SPORTS",ALB - SUPER SPORT 1 HD
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/19446
+#EXTINF:-1 tvg-id="SuperSportAction.za" tvg-name="SuperSport Action FHD"  group-title="CHANNEL | SPORTS",SuperSport Action FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/931487
+#EXTINF:-1 tvg-id="SuperSportBlitz.za" tvg-name="SuperSport Blitz FHD"  group-title="CHANNEL | SPORTS",SuperSport Blitz FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/931489
+#EXTINF:-1 tvg-id="SuperSportCricket.za" tvg-name="SuperSport Cricket FHD"  group-title="CHANNEL | SPORTS",SuperSport Cricket FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/931490
+#EXTINF:-1 tvg-id="SuperSportFootball.za" tvg-name="SuperSport Football FHD"  group-title="CHANNEL | SPORTS",SuperSport Football FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/931491
+#EXTINF:-1 tvg-id="SuperSportGolf.za" tvg-name="SuperSport Golf FHD"  group-title="CHANNEL | SPORTS",SuperSport Golf FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/931493
+#EXTINF:-1 tvg-id="SuperSportGrandstand.za" tvg-name="SuperSport Grandstand FHD"  group-title="CHANNEL | SPORTS",SuperSport Grandstand FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/931494
+#EXTINF:-1 tvg-id="SuperSportLaLiga.za" tvg-name="SuperSport La Liga FHD"  group-title="CHANNEL | SPORTS",SuperSport La Liga FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/931495
+#EXTINF:-1 tvg-id="SuperSportMotorsport.za" tvg-name="SuperSport Motorsport FHD"  group-title="CHANNEL | SPORTS",SuperSport Motorsport FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/931496
+#EXTINF:-1 tvg-id="SuperSportPremierLeague.za" tvg-name="SuperSport Premier League FHD"  group-title="CHANNEL | SPORTS",SuperSport Premier League FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/931497
+#EXTINF:-1 tvg-id="SuperSportPSL.za" tvg-name="SuperSport PSL FHD"  group-title="CHANNEL | SPORTS",SuperSport PSL FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/931498
+#EXTINF:-1 tvg-id="SuperSportRugby.za" tvg-name="SuperSport Rugby FHD"  group-title="CHANNEL | SPORTS",SuperSport Rugby FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/931499
+#EXTINF:-1 tvg-id="SuperSportTennis.za" tvg-name="SuperSport Tennis FHD"  group-title="CHANNEL | SPORTS",SuperSport Tennis FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/931500
+#EXTINF:-1 tvg-id="SuperSportVariety1.za" tvg-name="SuperSport Variety 1 FHD"  group-title="CHANNEL | SPORTS",SuperSport Variety 1 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/931501
+#EXTINF:-1 tvg-id="SuperSportVariety2.za" tvg-name="SuperSport Variety 2 FHD"  group-title="CHANNEL | SPORTS",SuperSport Variety 2 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/931502
+#EXTINF:-1 tvg-id="SuperSportVariety3.za" tvg-name="SuperSport Variety 3 FHD"  group-title="CHANNEL | SPORTS",SuperSport Variety 3 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/931503
+#EXTINF:-1 tvg-id="SuperSportVariety4.za" tvg-name="SuperSport Variety 4 FHD"  group-title="CHANNEL | SPORTS",SuperSport Variety 4 FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/931504
+#EXTINF:-1 tvg-id="WWE.za" tvg-name="SuperSport WWE Network FHD"  group-title="CHANNEL | SPORTS",SuperSport WWE Network FHD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/931505
 
-#EXTINF:-1 tvg-id="supersport2.al" tvg-name="ALB - SUPER SPORT 2 FHD"  group-title="CHANNEL | SPORTS",ALB - SUPER SPORT 2 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/762534
-#EXTINF:-1 tvg-id="supersport2.al" tvg-name="ALB - SUPER SPORT 2 FHD"  group-title="CHANNEL | SPORTS",ALB - SUPER SPORT 2 HD
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/19445
 
-#EXTINF:-1 tvg-id="supersport3.al" tvg-name="ALB - SUPER SPORT 3 FHD"  group-title="CHANNEL | SPORTS",ALB - SUPER SPORT 3 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1112121
-#EXTINF:-1 tvg-id="supersport3.al" tvg-name="ALB - SUPER SPORT 3 FHD"  group-title="CHANNEL | SPORTS",ALB - SUPER SPORT 3 HD
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/19444
-
-#EXTINF:-1 tvg-id="supersport4.al" tvg-name="ALB - SUPER SPORT 4 FHD"  group-title="CHANNEL | SPORTS",ALB - SUPER SPORT 4 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/491810
-#EXTINF:-1 tvg-id="supersport4.al" tvg-name="ALB - SUPER SPORT 4 FHD"  group-title="CHANNEL | SPORTS",ALB - SUPER SPORT 4 HD
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/19443
-
-#EXTINF:-1 tvg-id="" tvg-name="ALB - SUPER SPORT 5 FHD"  group-title="CHANNEL | SPORTS",ALB - SUPER SPORT 5 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1208006
-#EXTINF:-1 tvg-id="" tvg-name="ALB - SUPER SPORT 5 FHD"  group-title="CHANNEL | SPORTS",ALB - SUPER SPORT 5 HD
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/19442
-
-#EXTINF:-1 tvg-id="supersport6.al" tvg-name="ALB - SUPER SPORT 6 FHD"  group-title="CHANNEL | SPORTS",ALB - SUPER SPORT 6 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/491809
-#EXTINF:-1 tvg-id="supersport6.al" tvg-name="ALB - SUPER SPORT 6 FHD"  group-title="CHANNEL | SPORTS",ALB - SUPER SPORT 6 FD
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/19441
-
-#EXTINF:-1 tvg-id="" tvg-name="ALB - SUPER SPORT 7 FHD"  group-title="CHANNEL | SPORTS",ALB - SUPER SPORT 7 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1208003
-
-#EXTINF:-1 tvg-id="ART Sport 1.al" tvg-name="ALB - ART SPORT 1 FHD ◉"  group-title="CHANNEL | SPORTS",ALB - ART SPORT 1 FHD ◉
-http://bestp55.xyz:80/A7FC77529786/519C32219872/473300
-#EXTINF:-1 tvg-id="ART Sport 1.al" tvg-name="ALB - ART SPORT 1 FHD ◉"  group-title="CHANNEL | SPORTS",ALB - ART SPORT 1 HD ◉
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/21101
-
-#EXTINF:-1 tvg-id="ART Sport 2.al" tvg-name="ALB - ART SPORT 2 FHD ◉"  group-title="CHANNEL | SPORTS",ALB - ART SPORT 2 FHD ◉
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1026466
-#EXTINF:-1 tvg-id="ART Sport 2.al" tvg-name="ALB - ART SPORT 2 FHD ◉"  group-title="CHANNEL | SPORTS",ALB - ART SPORT 2 HD ◉
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/104061
-
-#EXTINF:-1 tvg-id="ART Sport 3.al" tvg-name="ALB - ART SPORT 3 FHD ◉"  group-title="CHANNEL | SPORTS",ALB - ART SPORT 3 FHD ◉
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1026467
-#EXTINF:-1 tvg-id="ART Sport 3.al" tvg-name="ALB - ART SPORT 3 FHD ◉"  group-title="CHANNEL | SPORTS",ALB - ART SPORT 3 HD ◉
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/21099
-
-#EXTINF:-1 tvg-id="" tvg-name="ALB - ART SPORT 4 FHD ◉"  group-title="CHANNEL | SPORTS",ALB - ART SPORT 4 FHD ◉
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1016184
-#EXTINF:-1 tvg-id="" tvg-name="ALB - ART SPORT 4 FHD ◉"  group-title="CHANNEL | SPORTS",ALB - ART SPORT 4 HD ◉
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/104062
-
-#EXTINF:-1 tvg-id="ART Sport 5.al" tvg-name="ALB - ART SPORT 5 FHD ◉"  group-title="CHANNEL | SPORTS",ALB - ART SPORT 5 FHD ◉
-http://bestp55.xyz:80/A7FC77529786/519C32219872/326621
-#EXTINF:-1 tvg-id="ART Sport 5.al" tvg-name="ALB - ART SPORT 5 FHD ◉"  group-title="CHANNEL | SPORTS",ALB - ART SPORT 5 HD ◉
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/104063
-
-#EXTINF:-1 tvg-id="" tvg-name="ALB - ART SPORT 6 FHD ◉"  group-title="CHANNEL | SPORTS",ALB - ART SPORT 6 FHD ◉
-http://bestp55.xyz:80/A7FC77529786/519C32219872/762488
-#EXTINF:-1 tvg-id="" tvg-name="ALB - ART SPORT 6 FHD ◉"  group-title="CHANNEL | SPORTS",ALB - ART SPORT 6 HD ◉
-http://boski.streamtv.to:8080/Jeffrey2905/xy86trUDpl/104064
-
-#EXTINF:-1 tvg-id="foxsports.mx" tvg-name="MX - FOX SPORTS 1 FHD"  group-title="CHANNEL | SPORTS",MX - FOX SPORTS 1 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1028351
-#EXTINF:-1 tvg-id="foxsports2.mx" tvg-name="MX - FOX SPORTS 2 FHD"  group-title="CHANNEL | SPORTS",MX - FOX SPORTS 2 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1028353
-#EXTINF:-1 tvg-id="foxsports3.mx" tvg-name="MX - FOX SPORTS 3 FHD"  group-title="CHANNEL | SPORTS",MX - FOX SPORTS 3 FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1028355
-#EXTINF:-1 tvg-id="" tvg-name="MX - FOX SPORTS PREMIUM FHD"  group-title="CHANNEL | SPORTS",MX - FOX SPORTS PREMIUM FHD
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1028356
-#EXTINF:-1 tvg-id="" tvg-name="MX - FOX SPORTS PREMIUM HEVC"  group-title="CHANNEL | SPORTS",MX - FOX SPORTS PREMIUM HEVC
-http://bestp55.xyz:80/A7FC77529786/519C32219872/1126063
 
 //========================================================================
 //MAYTOKO2 CHANNEL | SPORTS"ZIGGO SPORTS
 //========================================================================
 
-#EXTINF:-1 tvg-id="" tvg-name="ZIGGO SPORT"  group-title="CHANNEL | SPORTS",ZIGGO SPORT 1
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/128986
-#EXTINF:-1 tvg-id="" tvg-name="ZIGGO SPORT 2"  group-title="CHANNEL | SPORTS",ZIGGO SPORT 2
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/128987
-#EXTINF:-1 tvg-id="" tvg-name="ZIGGO SPORT 3"  group-title="CHANNEL | SPORTS",ZIGGO SPORT 3
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/128988
-#EXTINF:-1 tvg-id="" tvg-name="ZIGGO SPORT 4"  group-title="CHANNEL | SPORTS",ZIGGO SPORT 4
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/128994
-#EXTINF:-1 tvg-id="" tvg-name="ZIGGO SPORT 5"  group-title="CHANNEL | SPORTS",ZIGGO SPORT 5
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/128995
-#EXTINF:-1 tvg-id="" tvg-name="ZIGGO SPORT 6"  group-title="CHANNEL | SPORTS",ZIGGO SPORT 6
-http://vipppygnn.top:8080/VIP010171084868258/77ab06530ab6/128996
+#EXTINF:-1 tvg-ID="ziggosport.nl" tvg-name="NL ▎ZIGGO SPORT HD ʀᴀᴡ"  group-title="CHANNEL | SPORTS",ZIGGO SPORT 1
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=ef34ae91b4f2415e8439b2ad105e7488:243248d8de1ff8c7c587ee2057317523
+https://mag03.tvx.prd.tv.odido.nl/wh7f454c46tw75168188_-627298088/PLTV/86/224/3221241590/3221241590.mpd?zoneoffset=0&devkbps=1-7000&servicetype=1&icpid=86&accounttype=1&limitflux=-1&limitdur=-1&tenantId=3103&accountinfo=%7E%7EV2.0%7EqbcsJh_jU5C9BcZc959e_wae44b4867b3417aa76b5db2da20fe46c%7EKZzTWjB8qD1zdgbJjRPVLJX-tV0qiN9RBHC_iseGrsmTSRjj06oGDtGlpSCRGOwF3626cf085c08d024c7e4aafc18c32440%7EExtInfo5Ro3VppWiUusj2ippqUPkQ%3D%3D4a2d2c8ce133f43026d0e31b822b8474%3A20240601012829%3AUTC%2C10001003329222%2C87.212.140.171%2C20240601012829%2C3103_SP1S%2C10001003329222%2C-1%2C0%2C1%2C%2C%2C2%2C3103_Sport1%2C%2C%2C2%2C10000044444303%2C0%2C10000025050255%2CNDEzODg2NTY3MzEwMzI2NzMwNjMwNTY%3D%2C%2C%2C5%2C1%2CEND&GuardEncType=2&RTS=1717205309&from=11&hms_devid=1008&online=1717205309&mag_hms=1008,311,305&_=1717205322621
+
+#EXTINF:-1 tvg-ID="ziggosportvoetbal.nl" tvg-name="NL ▎ZIGGO SPORT 2 HD ʀᴀᴡ"  group-title="CHANNEL | SPORTS",ZIGGO SPORT 2
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=3cfa8625f650406ebf6a4d1ea737f572:0534e747c70b364aa7210e1bf3191df0
+https://mag03.tvx.prd.tv.odido.nl/wh7f454c46tw266117884_-1972819316/PLTV/86/224/3221241560/3221241560.mpd?accountinfo=~~V2.0~OhA1DF4svOZppKxb-t-Ngw144cce44121c63284a33d5453493e5c8~1_Fmlu5PevHMYnEi9Z_HX2goKAd0VHSuxZMoIcAXcawYvG1meqGp2eQ2Ibhjvh7e59e7f6df3d57f23a32024ad67f0f19dc:UTC,
+
+#EXTINF:-1 tvg-ID="ziggosportgolf.nl" tvg-name="NL ▎ZIGGO SPORT 3 HD ʀᴀᴡ"  group-title="CHANNEL | SPORTS",ZIGGO SPORT 3
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=4dbea4b5713a4aa1ae3a2544cd522fc7:a8323ea99b2d6200a48e1bc27322d548
+https://mag02.tvx.prd.tv.odido.nl/wh7f454c46tw407556707_-381738111/PLTV/86/224/3221241511/3221241511.mpd?accountinfo=~~V2.0~yVi0dMX4icO5Ka9e92EQfg8812e1c1044f7d357066472e3ee99ef4~2dRB9E-vDtoAbYl169LbcJpxUgWVJtbeU_PlhGfNUflphvljOb5VaEhxruETYG9qcccaf5c5b655bf7504ed7ec5a1dd798f:UTC,
+
+#EXTINF:-1 tvg-ID="ziggosportracing.nl" tvg-name="NL ▎ZIGGO SPORT 4 HD ʀᴀᴡ"  group-title="CHANNEL | SPORTS",ZIGGO SPORT 4
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=dash
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=16bf72dc22743d929c4318e193408373:eae51a1e3904124963074cbf432c7c8e
+https://da-d436236420010b88000103030000000000000006.id.cdn.upcbroadband.com/wp4-anp-g05060506-hzn-nl.t1.prd.dyncdn.dmdsdp.com/live/disk1/NL_000097_019370/go-dash-fhd-avc/NL_000097_019370.mpd?p=web
+
+#EXTINF:-1 tvg-ID="ziggosportdocu.nl" tvg-name="NL ▎ZIGGO SPORT 5 HD ʀᴀᴡ"  group-title="CHANNEL | SPORTS",ZIGGO SPORT 5
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=3fb40d85724942f994d86943f48021db:a6da8742502c8a2153067f5f2a70fb02
+https://mag04.tvx.prd.tv.odido.nl/wh7f454c46tw865586829_-819821292/PLTV/86/224/3221241610/3221241610.mpd?accountinfo=~~V2.0~LNS2PBO5tyhp5z1Pe6ObBA6cd7a4ec35c4492167b9376e6dff2932~BZw2dESHw-I1PQCFh9gGxCMvrIIzgMdYAe900qj8l6aoXUX9ahyR6I9EUIu7nDR4f4887615c83ea7a8cee6dd33137c4ebe:UTC,
+
+#EXTINF:-1 tvg-ID="ziggosportextra2.nl" tvg-name="NL ▎ZIGGO SPORT 6 HD ʀᴀᴡ"  group-title="CHANNEL | SPORTS",ZIGGO SPORT 6
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=1a0ffa532aa2498490826e2f6a37f7c9:a8cec27bc7d47909c5b0d8f473b43e8d
+https://mag03.tvx.prd.tv.odido.nl/wh7f454c46tw1024019879_757686866/PLTV/86/224/3221241521/3221241521.mpd?accountinfo=~~V2.0~URnD_afuosWHfY5OEqRXOwfa01c8ac56cf4511de39c2c4a3cab278~iVxKjbtf2gx_dYFqI-vt5C4Cu3COYDjZaw6C_kO2T2wm30fwo1ctD1gr_e2PrgTh48867c3177f3c34842031623cb2e06c9:UTC,
+
 
 
 //========================================================================
@@ -18206,35 +18284,7 @@ https://otte.live.fly.ww.aiv-cdn.net/dub-nitro/live/clients/dash/enc/cqbcvgkb83/
 
 
 
-#EXTINF:-1 tvg-id="DAZN LALIGA"  group-title="CHANNEL | SPORTS" , DAZN LaLiga
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=43d1c3b25207ff38b22ccfe17d302367:7b1f85f6e81059473b114c16a25c829a
-https://otte.live.fly.ww.aiv-cdn.net/dub-nitro/live/clients/dash/enc/wjgklbtvhh/out/v1/659736a1e24c40e4865a80ffd75e7de7/cenc.mpd
 
-
-#EXTINF:-1 tvg-id="Dazn Combet"  group-title="CHANNEL | SPORTS" , DAZN COMBET
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone14,6; U; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19E241 Safari/602.1
-https://rakutenaa-dazn-combat-rakuten-kcybm.amagi.tv/playlist/rakutenAA-dazn-combat-rakuten/cb543d1f7a6c6c8e84cb3b67cef342a9f9591fde1d6988693eb5518975d1073edce2a59caa08ff16388f1ede7f0a66413a3e951fda77118fd87eb141453c5728cfffe729a2c05616b7db083429b56a062a866a68ac39437ed0e21f48a238b6720a5aa82a66443d80b846ac7554db80148b61299bce8c37683f03409a5e5afba358b1ebb70f4d8c68a8e24855977c11e79f43c8821ca689860a9c5e8623a3119f90f98b87418181f31d93758ae18a51581fb4b93bfbe45cbadb837a309d03472c7c74d5d3587ad35efc23624ff1feb1df2f9f418de1ade61157db60f82fe454aa12ca69c7812ee0919b952e602aadc5144a32a3eda984fc0ffedc0cf48fe6c77a7095f75b2d09992d9015223694f2dc07c4ed21d6e773cbe4325d0fc99f13cfc6f29bb9e4c40abd35dacbf1af3840656a104dd30ef5d43e8d69955380fa3e0d100d48a4915084a1dc5d3b6d06c6a356c61c16bc94dad089406b8430550aa853d85d047ec57b392fb263aacc4e19e34c3d8c3b39f44f26c013acca4bdb939bb45675e5a484289948e0ba0ddef378d94e344b0dbef76c12057b74deea691a233ba461e1c0c1f578190a8eae9be6a1b359d2b080f26afc986fb3cca650da25458f99e6bf575f/96/640x360_792000/index.m3u8
-
-#EXTINF:-1 tvg-id="Dazn Combet"  group-title="CHANNEL | SPORTS" , DAZN WOMENS
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone14,6; U; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19E241 Safari/602.1
-https://dazn-daznwomensfootball-rakuten.amagi.tv/hls/amagi_hls_data_rakutenAA-dazn-daznwomensfootball-rakuten/CDN/master.m3u8
-
-#EXTINF:-1 group-title="CHANNEL | SPORTS" , DAZN PT 1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone14,6; U; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19E241 Safari/602.1
-#EXTVLCOPT:http-referrer=https://topembed.pw/
-https://bintangstreaming.my.id/daddytv/hls.php/.m3u8?id=premium455
-
-#EXTINF:-1 group-title="CHANNEL | SPORTS" , DAZN PT 2
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone14,6; U; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19E241 Safari/602.1
-#EXTVLCOPT:http-referrer=https://topembed.pw/
-https://bintangstreaming.my.id/daddytv/hls.php/.m3u8?id=premium456
-
-#EXTINF:-1 tvg-id="DAZN LALIGA"  group-title="CHANNEL | SPORTS" , LaLiga TV
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=620e51b82596475517a27aa425c52280:2b9ba811e9c5aeafc8ae1b71cdca4d6a
-https://a166aivottlinear-a.akamaihd.net/OTTB/dub-nitro/live/clients/dash/enc/k0duzgfejg/out/v1/70a50b1bda944628b8e7e66ab4069419/cenc.mpd
 
 
 
@@ -18377,42 +18427,34 @@ https://fsly.stream.peacocktv.com/Content/CMAF_CTR-4s/Live/channel(vc1021n07j)/m
 #EXTINF:-1 group-title="LIVE | LIGA INGGRIS" ,Peacock 1
 https://fsly.stream.peacocktv.com/Content/CMAF_CTR-4s/Live/channel(vc1021n07j)/master.mpd
 
-#EXTINF:-1 , tvg-id="" group-title="LIVE | LIGA INGGRIS",Optus Sport 1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone14,6; U; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19E241 Safari/602.1
-#EXTVLCOPT:http-referrer=https://tvcanale.live/
-https://bintangstreaming.my.id/daddytv/hls.php/.m3u8?id=premium20
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="HubPremier1.sg" tvg-name="Hub Premier 1 FHD"  group-title="LIVE | LIGA INGGRIS",Hub Premier 1 FHD
+##http://vocotv.pro:80/tatum/tatum/288375
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/HubsportPL1.m3u8
 
-#EXTINF:-1 , tvg-id="" group-title="LIVE | LIGA INGGRIS",Optus Sport 2
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone14,6; U; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19E241 Safari/602.1
-#EXTVLCOPT:http-referrer=https://tvcanale.live/
-https://bintangstreaming.my.id/daddytv/hls.php/.m3u8?id=premium595
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="HubPremier2.sg" tvg-name="Hub Premier 2 FHD"  group-title="LIVE | LIGA INGGRIS",Hub Premier 2 FHD
+##http://vocotv.pro:80/tatum/tatum/288374
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/HubsportPL2.m3u8
 
-#EXTINF:-1 , tvg-id="" group-title="LIVE | LIGA INGGRIS",Optus Sport 3
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone14,6; U; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19E241 Safari/602.1
-#EXTVLCOPT:http-referrer=https://tvcanale.live/
-https://looooooool.footfast.net/event/595.m3u8
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="HubPremier3.sg" tvg-name="Hub Premier 3 FHD"  group-title="LIVE | LIGA INGGRIS",Hub Premier 3 FHD
+##http://vocotv.pro:80/tatum/tatum/288373
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/HubsportPL3.m3u8
 
-#EXTINF:-1 tvg-id="Champions TV 5"  group-title="LIVE | LIGA INGGRIS",Champions TV 5 
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1
-#EXTVLCOPT:http-user-agent=VidioPlayer/4.3.0-WITH_ADS
-#KODIPROP:mimetype=application/dash+xml
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.stream_headers=origin=https://www.vidio.com&referer=https://www.vidio.com/&user-agent=Vidio/6.43.9-8ec34856ef (Linux;Android 11) ExoPlayerLib/2.19.1
-#KODIPROP:inputstream.adaptive.manifest_type=dash
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha 
-#KODIPROP:inputstream.adaptive.license_key=https://red.openwindows038.workers.dev/play.mpd?id=9182&type=drm 
-https://red.openwindows038.workers.dev/play.mpd?id=9182&type=dash
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="HubPremier4.sg" tvg-name="Hub Premier 4 FHD"  group-title="LIVE | LIGA INGGRIS",Hub Premier 4 FHD
+##http://vocotv.pro:80/tatum/tatum/288372
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/HubsportPL4.m3u8
 
-#EXTINF:-1 tvg-id="Champions TV 6"  group-title="LIVE | LIGA INGGRIS",Champions TV 6 
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1
-#EXTVLCOPT:http-user-agent=VidioPlayer/4.3.0-WITH_ADS
-#KODIPROP:mimetype=application/dash+xml
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.stream_headers=origin=https://www.vidio.com&referer=https://www.vidio.com/&user-agent=Vidio/6.43.9-8ec34856ef (Linux;Android 11) ExoPlayerLib/2.19.1
-#KODIPROP:inputstream.adaptive.manifest_type=dash
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha 
-#KODIPROP:inputstream.adaptive.license_key=https://red.openwindows038.workers.dev/play.mpd?id=9183&type=drm 
-https://red.openwindows038.workers.dev/play.mpd?id=9183&type=dash
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="HubPremier5.sg" tvg-name="Hub Premier 5 FHD"  group-title="LIVE | LIGA INGGRIS",Hub Premier 5 FHD
+##http://vocotv.pro:80/tatum/tatum/288371
+https://raw.githubusercontent.com/B-inal-123/s-asia/inal-22/HubsportPL5.m3u8
+
+
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="HubPremier1.sg" tvg-name="Hub Premier 1 FHD"  group-title="LIVE | LIGA INGGRIS",Hub Premier 1 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/341740
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="HubPremier2.sg" tvg-name="Hub Premier 2 FHD"  group-title="LIVE | LIGA INGGRIS",Hub Premier 2 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/341739
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="HubPremier3.sg" tvg-name="Hub Premier 3 FHD"  group-title="LIVE | LIGA INGGRIS",Hub Premier 3 HD
+http://doubleclickstreams.xyz:80/Sammy38/Sammy38/341738
+#EXTINF:-1 xui-id="{XUI_ID}" tvg-id="HubPremier4.sg" tvg-name="Hub Premier 4 FHD"  group-title="LIVE | LIGA INGGRIS",Hub Premier 4 HD
 
 
 
