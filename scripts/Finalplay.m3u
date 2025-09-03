@@ -7647,7 +7647,7 @@ https://3abn.bozztv.com/3abn/3abn_uganda_live/index.m3u8
 #EXTINF:-1 tvg-id="3AW.au"  group-title="News",3AW Melbourne (1080p)
 https://3awlive.akamaized.net/hls/live/2032295/3AW/index.m3u8
 #EXTINF:-1 tvg-id="3HD.th"  group-title="General",3HD
-https://lb1-live-mv.v2h-cdn.com/hls/ffae/3hd/3hd.m3u8
+https://lb1-live-mv.v2h-cdn.com/hls/ffae/muulk/muulk.m3u8
 #EXTINF:-1 tvg-id="3sat.de"  group-title="General",3sat (720p) [Geo-blocked]
 https://zdf-hls-18.akamaized.net/hls/live/2016501/dach/high/master.m3u8
 #EXTINF:-1 tvg-id="3sat.de@HD"  group-title="General",3sat HD (1080p)
@@ -7905,6 +7905,8 @@ http://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/65
 http://88.212.15.27/live/test_rtvs_sport_hevc/playlist.m3u8
 #EXTINF:-1 tvg-id="OPA.cr@SD"  group-title="Entertainment",¡OPA! (1080i) [Geo-blocked]
 https://5fc584f3f19c9.streamlock.net/genteopa/videogenteopa/playlist.m3u8
+#EXTINF:-1 tvg-id="Andflix.in@SD"  group-title="Movies",&flix (360p)
+https://edge3-moblive.yuppcdn.net/drm/smil:nflixdrm.smil/chunklist_b996000.m3u8
 #EXTINF:-1 tvg-id="AndTV.in@SD"  group-title="Movies",&TV (1080p)
 https://amg01117-amg01117c1-amgplt0165.playout.now3.amagi.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="scifi.ru@SD"  group-title="Science",.sci-fi
@@ -7943,7 +7945,7 @@ http://185.234.111.229:8000/play/a01k
 http://185.234.111.229:8000/play/a01l
 #EXTINF:-1 tvg-id=""  group-title="Undefined",À prendre ou à laisser
 http://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/643531ba82a18e0008a4d57c/master.m3u8?appName=web&appVersion=unknown&clientTime=0&deviceDNT=0&deviceId=8e06ff24-1f2c-11ef-86d8-5d587df108c6&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&serverSideAds=false&sid=be2b3cea-a727-42ad-80f4-61b3f3174d3a
-#EXTINF:-1 tvg-id="APunt.es@SD"  group-title="General",A Punt
+#EXTINF:-1 tvg-id="APunt.es@SD"  group-title="General;Public",A Punt
 https://bcovlive-a.akamaihd.net/8499d938ef904e39b58a4adec2ddeada/eu-west-1/6057955885001/playlist_dvr.m3u8
 #EXTINF:-1 tvg-id="ASpor.tr"  group-title="Sports",A Spor (720p)
 https://tgn.bozztv.com/dvrfl05/gin-aspor/index.m3u8
@@ -8351,6 +8353,8 @@ https://linear-12.frequency.stream/dist/plex/12/hls/master/playlist.m3u8
 https://linear-46.frequency.stream/dist/plex/46/hls/master/playlist.m3u8
 #EXTINF:-1 tvg-id="AFVFamily.us"  group-title="Comedy",AFV Family
 https://futuretoday-afv-family-2-be.samsung.wurl.tv/playlist.m3u8
+#EXTINF:-1 tvg-id="Agenda56TV.do"  group-title="General",Agenda 56 TV [Not 24/7]
+https://cloudflare.streamgato.us:3148/live/agenda56tvlive.m3u8
 #EXTINF:-1 tvg-id="AghaniAghaniTV.lb"  group-title="Music",Aghani Aghani TV (1080p) [Not 24/7]
 https://streaming-a-1035.cdn.nextologies.com/6zj8y5nemi8a32vyjjbkv0oqx/77pcakd8reik3g8qdqnexlkmq/playlist.m3u8
 #EXTINF:-1 tvg-id="AghapyKids.us"  group-title="Kids",Aghapy Kids (1080p)
@@ -8781,7 +8785,7 @@ https://goccn.cloud/hls/amanitv/index.m3u8
 #EXTINF:-1 tvg-id="Amantesdelromance.us"  group-title="Entertainment",Amantes del romance
 http://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/5e84db2db3851800077c871e/master.m3u8?appName=web&appVersion=unknown&clientTime=0&deviceDNT=0&deviceId=6c268072-30d3-11ef-9cf5-e9ddff8ff496&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&serverSideAds=false&sid=68743968-8695-4725-b7a7-5a4926c380d1
 #EXTINF:-1 tvg-id="AmarinTV.th"  group-title="Entertainment",Amarin TV
-https://lb1-live-mv.v2h-cdn.com/hls/ffad/amarin/amarin.m3u8
+https://lb1-live-mv.v2h-cdn.com/hls/ffad/vibomi/vibomi.m3u8
 #EXTINF:-1 tvg-id=""  group-title="Undefined",Amasia (720p)
 https://splendid-film-amasia-1-eu.rakuten.wurl.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="AmazingDiscoveriesTV.ca"  group-title="Religious",Amazing Discoveries TV (720p)
@@ -9119,6 +9123,10 @@ https://agp-nimble.streamguys1.com/AGCC/AGCC/playlist.m3u8
 #EXTINF:-1 tvg-id="Arryadia.ma@SD"  group-title="Sports" http-referrer="https://snrt.player.easybroadcast.io/",Arryadia (480p)
 #EXTVLCOPT:http-referrer=https://snrt.player.easybroadcast.io/
 https://cdn.live.easybroadcast.io/abr_corp/73_arryadia_k2tgcj0/corp/73_arryadia_k2tgcj0_480p/chunks_dvr.m3u8
+#EXTINF:-1 tvg-id="Arryadia.ma@TNT"  group-title="Sports" http-referrer="https://snrtlive.ma/" http-user-agent="ExoPlayer",Arryadia TNT (480p)
+#EXTVLCOPT:http-referrer=https://snrtlive.ma/
+#EXTVLCOPT:http-user-agent=ExoPlayer
+https://cdn.live.easybroadcast.io/ts_corp/73_arryadia-tnt_zcmwjdc/playlist_dvr.m3u8
 #EXTINF:-1 tvg-id="ARTTV.gr"  group-title="General",ART TV
 https://rtmp.win:3696/live/arttvgrlive.m3u8
 #EXTINF:-1 tvg-id="arte.de"  group-title="Entertainment",ARTE (720p) [Geo-blocked]
@@ -10550,6 +10558,8 @@ https://nd106.republicaservers.com:4433/hls/c6611/index.m3u8
 http://69.64.57.208/canal2international/playlist.m3u8
 #EXTINF:-1 tvg-id="Canal2Misiones.ar"  group-title="Undefined",Canal 2 Misiones (1080p)
 https://nd106.republicaservers.com:4433/hls/canal2misioness/index.m3u8
+#EXTINF:-1 tvg-id="Canal2Movies.cm@SD"  group-title="Movies",Canal 2 Movies
+https://stream.ecable.tv/canal2m/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="Canal3.gt"  group-title="Undefined",Canal 3 (480p) [Not 24/7]
 https://dy434h3s52eoj.cloudfront.net/Canal3GT/01582b1c46c04a847aa7c4936d1eeba7.sdp/playlist.m3u8
 #EXTINF:-1 tvg-id="Canal3Benin.bj"  group-title="General",Canal 3 Bénin (720p)
@@ -11429,7 +11439,7 @@ https://npc.cdn.7livecloud.io/hls/live/SYD1/master.m3u8
 #EXTINF:-1 tvg-id="Channel7.mm"  group-title="General",Channel 7 (720p)
 https://pplive.comquas.com:5443/LiveApp/streams/CLcBFN71NkF61709008601656.m3u8
 #EXTINF:-1 tvg-id="Channel7.th"  group-title="General",Channel 7 (1080p)
-http://streaming-hwc.ch7.com/livech7hd/HD_1080p.m3u8
+https://lb1-live-mv.v2h-cdn.com/hls/ffac/gohg/gohg.m3u8
 #EXTINF:-1 tvg-id="Channel7Ukraine.ua"  group-title="General",Channel 7 Ukraine (720p)
 http://cdn10.live-tv.od.ua:8081/7tvod/7tvod-abr/7tvod/7tvod/playlist.m3u8
 #EXTINF:-1 tvg-id="Channel8.sg"  group-title="General",Channel 8 [Geo-blocked]
@@ -11964,6 +11974,8 @@ https://congresodirecto.akamaized.net/hls/live/2038277/canal4/master.m3u8
 https://congresodirecto.akamaized.net/hls/live/2038278/canal5/master.m3u8
 #EXTINF:-1 tvg-id="CongresoTV.pe@SD"  group-title="Legislative",Congreso TV
 https://ccstreaming.packet.mx/WebRTCAppEE/streams/45.1_kd5oiNTTWO0gEOFc431277834.m3u8
+#EXTINF:-1 tvg-id="ConstanzaTV.do"  group-title="General",ConstanzaTV [Not 24/7]
+https://live20.bozztv.com/akamaissh101/ssh101/ctv8hd/playlist.m3u8
 #EXTINF:-1 tvg-id="ConsulenzeIllegali.us@Italy"  group-title="Series",Consulenze Illegali Italy (720p)
 https://stitcher-ipv4.pluto.tv/v1/stitch/embed/hls/channel/60b9dc99521a1400079bdfba/master.m3u8?advertisingId={PSID}&appVersion=unknown&deviceDNT={TARGETOPT}&deviceId={PSID}&deviceLat=0&deviceLon=0&deviceMake=samsung&deviceModel=samsung&deviceType=samsung-tvplus&deviceVersion=unknown&embedPartner=samsung-tvplus&profileFloor=&profileLimit=&samsung_app_domain={APP_DOMAIN}&samsung_app_name={APP_NAME}&us_privacy=1YNY
 #EXTINF:-1 tvg-id="Contivision.cl"  group-title="News",Contivision (720p)
@@ -11994,6 +12006,8 @@ https://langleyproductions-cops-2-eu.rakuten.wurl.tv/playlist.m3u8
 https://rightsboosterltd-cops-1-es.rakuten.wurl.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="CopticTV.eg"  group-title="Religious",Coptic TV (720p) [Not 24/7]
 https://5aafcc5de91f1.streamlock.net/ctvchannel.tv/ctv.smil/playlist.m3u8
+#EXTINF:-1 tvg-id="Coral39.do"  group-title="Undefined",Coral 39 [Not 24/7]
+http://181.189.244.252:8000/play/a00y/index.m3u8
 #EXTINF:-1 tvg-id="CoralGablesTV.us"  group-title="Legislative",Coral Gables Television (Coral Gables FL) (720p)
 https://cdn3.wowza.com/5/R09KQXpaMWlrRjly/coralgables/G0937_004/playlist.m3u8
 #EXTINF:-1 tvg-id="CoralTV.bo"  group-title="General",Coral TV (480p)
@@ -12252,6 +12266,8 @@ https://router.xdevel.com/video0s975363-69/stream/playlist.m3u8
 https://eu1.servers10.com:8081/8128/index.m3u8
 #EXTINF:-1 tvg-id="CVATV.hn"  group-title="General",CVA TV (480p) [Not 24/7]
 http://190.124.161.21:8086/cvatv/live.m3u8
+#EXTINF:-1 tvg-id="CVMTV.jm@SD"  group-title="General",CVM TV
+https://fl5.moveonjoy.com/CVM_TV_CARIBBEAN/index.m3u8
 #EXTINF:-1 tvg-id="CVREnglish.in@SD"  group-title="News",CVR English (720p)
 https://cdn-2.pishow.tv/live/425/master.m3u8
 #EXTINF:-1 tvg-id="CWBTV.br"  group-title="Family;General",CWB TV (720p)
@@ -13288,6 +13304,8 @@ https://backend.energeek.cl/webtv/egfanweb/index.m3u8?token=ZZDemoIPTVGH
 https://backend.energeek.cl/webtv/egradioweb/index.m3u8?token=ZZDemoIPTVGH
 #EXTINF:-1 tvg-id="EnergiaTV.bq"  group-title="General",Energia TV (720p) [Not 24/7]
 https://sincerecloud.stream/loadbalancer/public/actMdyoE.m3u8
+#EXTINF:-1 tvg-id="Energy.ir"  group-title="Undefined",Energy
+https://ncdn.telewebion.com/baenergy/live/playlist.m3u8
 #EXTINF:-1 tvg-id=""  group-title="Undefined",English TV
 https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/a5e9aebd-1df4-4e56-be4f-33a891756f9b/manifest.m3u8
 #EXTINF:-1 tvg-id="Enlace.cr"  group-title="Religious",Enlace (720p)
@@ -13620,6 +13638,8 @@ https://reflect-fairfield-ca.cablecast.tv/live-8/live/live.m3u8
 https://shls-live-enc.edgenextcdn.net/out/v1/bba3ef00b71b470fa955d93a9ca8c277/index.m3u8
 #EXTINF:-1 tvg-id="FaithTV.za"  group-title="Religious",Faith TV (576p)
 https://cdn.freevisiontv.co.za/sttv/smil:faith.stream.smil/playlist.m3u8
+#EXTINF:-1 tvg-id="FaithWorldTV.uk@SD"  group-title="Religious",Faith World TV
+https://stream.ecable.tv/faithworld/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="FajarTV.id"  group-title="Religious",Fajar TV (240p) [Not 24/7]
 http://122.248.43.138:1935/ch27/myStream/playlist.m3u8
 #EXTINF:-1 tvg-id="FajerTV1.ps"  group-title="General",Fajer TV 1 (480p)
@@ -14110,8 +14130,6 @@ https://reflect-vod-cmac.cablecast.tv/live-11/live/stream-1/live.m3u8
 https://reflect-vod-cmac.cablecast.tv/live-11/live/stream-2/live.m3u8
 #EXTINF:-1 tvg-id="CMAC3.us"  group-title="Legislative",Fresno CMAC 3 Government Channel (720p)
 https://reflect-vod-cmac.cablecast.tv/live-11/live/stream-3/live.m3u8
-#EXTINF:-1 tvg-id="Friday.ru@SD"  group-title="Entertainment",Friday!
-https://vod.tuva.ru/friday/index.m3u8
 #EXTINF:-1 tvg-id="Frikanalen.no"  group-title="General",Frikanalen (720p)
 https://frikanalen.no/stream/index.m3u8
 #EXTINF:-1 tvg-id="FS1Salzburg.at"  group-title="General",FS1 Salzburg (720p) [Not 24/7]
@@ -14533,6 +14551,8 @@ http://78.130.250.2:8023/play/a02q/index.m3u8
 http://202.60.106.14:8080/1335/playlist.m3u8
 #EXTINF:-1 tvg-id=""  group-title="Undefined",GolfPass
 http://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/65493029ab052400089e9d2f/master.m3u8?appName=web&appVersion=unknown&clientTime=0&deviceDNT=0&deviceId=6c291881-30d3-11ef-9cf5-e9ddff8ff496&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&serverSideAds=false&sid=fc355a72-e401-4038-a2fd-7378aedc3a6f
+#EXTINF:-1 tvg-id="GolkhaneTv.ir"  group-title="Undefined",Golkhane TV
+https://ncdn.telewebion.com/golkhane/live/playlist.m3u8
 #EXTINF:-1 tvg-id="GolyaTV.hu"  group-title="Entertainment",Gólya TV (480p) [Geo-blocked]
 https://stream.streaming4u.hu/GolyaTV/index.m3u8
 #EXTINF:-1 tvg-id="GoncaTV.tr"  group-title="General",Gonca TV (720p)
@@ -14643,6 +14663,8 @@ https://amg00654-itv-amg00654c37-rakuten-de-7600.playouts.now.amagi.tv/playlist.
 https://stream.medialive.hu/gran/grantvlive/playlist.m3u8
 #EXTINF:-1 tvg-id="GrandCinema.tr"  group-title="Movies",Grand Cinema
 https://gcinemahls.wns.live/hls/stream.m3u8
+#EXTINF:-1 tvg-id="GrandeTV.ve"  group-title="General",Grande TV [Not 24/7]
+https://live20.bozztv.com/akamaissh101/ssh101/grandetv2240/playlist.m3u8
 #EXTINF:-1 tvg-id="Grandeish.us"  group-title="Kids",Grande-ish
 http://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/60fafef7c2440500071266e0/master.m3u8?appName=web&appVersion=unknown&clientTime=0&deviceDNT=0&deviceId=6c291883-30d3-11ef-9cf5-e9ddff8ff496&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&serverSideAds=false&sid=cee74994-231a-4a51-b141-e2e69c070aee
 #EXTINF:-1 tvg-id="GraphiteHD.us@West"  group-title="Animation",Graphite HD (720p) [Not 24/7]
@@ -15639,6 +15661,8 @@ https://iran613hls.wns.live/hls/stream.m3u8
 https://live.presstv.ir/hls/presstv_5_482/index.m3u8
 #EXTINF:-1 tvg-id="IraneFardaTV.uk"  group-title="News",IraneFarda TV (720p)
 https://hls.iranfarda.live/hls/stream.m3u8
+#EXTINF:-1 tvg-id="Iraneman.ir"  group-title="Undefined",Iraneman
+https://ncdn.telewebion.com/iraneman/live/playlist.m3u8
 #EXTINF:-1 tvg-id="IraqFuture.iq@SD"  group-title="General",Iraq Future
 https://viewmedia7219.bozztv.com/wmedia/viewmedia100/web_040/Stream/playlist.m3u8
 #EXTINF:-1 tvg-id="IRIB1.ir@SD"  group-title="General",IRIB 1
@@ -15882,7 +15906,9 @@ https://lsfb.avap.jilintv.cn/zqvk7vpj/channel/906341e6f19b4c4bacdc89941eb85d12/i
 https://lsfb.avap.jilintv.cn/zqvk7vpj/channel/3ffc4824dce54b92be185555923ce382/index.m3u8
 #EXTINF:-1 tvg-id="JimaniTV.do@SD"  group-title="General",Jimani TV (360p) [Geo-blocked]
 https://cloud2.streaminglivehd.com:1936/8246/8246/playlist.m3u8
-#EXTINF:-1 tvg-id="JimJam.ro"  group-title="Kids" http-user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/117.0",JimJam
+#EXTINF:-1 tvg-id="JimJam.ro"  group-title="Kids" http-referrer="https://canale-tv.com/" http-user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/117.0",JimJam (576p)
+#EXTVLCOPT:http-referrer=https://canale-tv.com/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/117.0
 https://saruman1.tharen.cfd/jimy/usergenq3n0lz7kr.m3u8
 #EXTINF:-1 tvg-id="JinTV.nl"  group-title="Culture",Jin TV
 https://live.jintv.org/medialive/jintv.m3u8
@@ -16097,7 +16123,7 @@ https://backend.energeek.cl/webtv/kanadebr/index.m3u8?token=deM0kanADeweB
 https://yuppftalive.akamaized.net/080823/kanaknews/playlist.m3u8
 #EXTINF:-1 tvg-id="Kanal0.bg"  group-title="General" http-referrer="rn-tv.com",Kanal 0
 #EXTVLCOPT:http-referrer=rn-tv.com
-https://old2.rn-tv.com/k0/stream.m3u8
+https://old.rn-tv.com/k0/stream.m3u8
 #EXTINF:-1 tvg-id="Kanal3.tr"  group-title="General",Kanal 3 (1080p)
 http://185.234.111.229:8000/play/a013
 #EXTINF:-1 tvg-id="Kanal5.mk"  group-title="General",Kanal 5 (360p)
@@ -16191,6 +16217,8 @@ https://cloudfront41.lexanetwork.com:1344/relay03/livestream003.sdp/playlist.m3u
 https://edge1.socialsmart.tv/kardelentv/bant1/playlist.m3u8
 #EXTINF:-1 tvg-id="Karibena.pe"  group-title="Music",Karibena
 https://live-evg1.tv360.bitel.com.pe/bitel/karibeñatv/playlist.m3u8
+#EXTINF:-1 tvg-id="KaroonTV.ir"  group-title="Undefined",Karoon TV
+https://ncdn.telewebion.com/karoon/live/playlist.m3u8
 #EXTINF:-1 tvg-id="KartoonChannel.us"  group-title="Kids",Kartoon Channel
 https://cdn-apse1-prod.tsv2.amagi.tv/linear/amg01076-lightningintern-kartoonchannel-samsungnz/playlist.m3u8
 #EXTINF:-1 tvg-id="KartuliTV.ge@SD"  group-title="Culture",Kartuli TV (480p)
@@ -16273,6 +16301,8 @@ https://cdn3.wowza.com/5/dk84U1p2UUdoMGxT/kern/G0169_003/playlist.m3u8
 https://s.emisoras.tv:8081/kerussotv/index.m3u8
 #EXTINF:-1 tvg-id="KessbenTV.gh@SD"  group-title="General",Kessben TV
 https://live20.bozztv.com/dvrfl06/astv/astv-kessben/index.m3u8
+#EXTINF:-1 tvg-id="Ketabnama.ir"  group-title="Undefined",Ketabnama
+http://ncdn.telewebion.com/ketabnama/live/playlist.m3u8
 #EXTINF:-1 tvg-id="KetchupTV.us"  group-title="Kids",Ketchup TV (720p)
 https://stream.ads.ottera.tv/playlist.m3u8?network_id=13171
 #EXTINF:-1 tvg-id="KFMBDT2.us"  group-title="Entertainment",KFMB-DT2 (720p)
@@ -16721,6 +16751,8 @@ https://ss2.tvrdomi.com:1936/lavozdeltropico/lavozdeltropico/playlist.m3u8
 https://cloudvideo.servers10.com:8081/8128/index.m3u8
 #EXTINF:-1 tvg-id="LaX.pr"  group-title="Music",La-X (720p)
 https://stream.eleden.com/livelax/ngrp:livelax_all/playlist.m3u8
+#EXTINF:-1 tvg-id="LabbaykTV.ir"  group-title="Undefined",Labbayk TV
+https://ncdn.telewebion.com/labbayk/live/playlist.m3u8
 #EXTINF:-1 tvg-id="labor14.de@HD"  group-title="Undefined",labor14 (720p)
 https://5acade5fc0c29.streamlock.net/OKGera/tmbz_live_high.stream/playlist.m3u8
 #EXTINF:-1 tvg-id="LaCNews24.it"  group-title="News",LaC News 24 (720p)
@@ -17065,7 +17097,7 @@ http://80tv.lincoln.ne.gov/live/live.m3u8
 #EXTINF:-1 tvg-id="LNKTVHealth.us"  group-title="Lifestyle",LNKTV Health (1080p)
 http://10tv.lincoln.ne.gov/live/live.m3u8
 #EXTINF:-1 tvg-id="LNTV.lr@SD"  group-title="General",LNTV
-https://live20.bozztv.com/dvrfl06/astv/astv-libnattv/index.m3u8
+https://stream.ecable.tv/lntv/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="Loading.br"  group-title="Entertainment",Loading (720p)
 https://stmv1.srvif.com/loadingtv/loadingtv/playlist.m3u8
 #EXTINF:-1 tvg-id="LoboTV.mx"  group-title="Music",Lobo TV (720p)
@@ -17643,8 +17675,8 @@ https://vdo.grupolimalive.com:3263/live/mcnlive.m3u8
 #EXTVLCOPT:http-referrer=https://mcn24.tv/hls/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0
 https://mcn24.tv/hidden_stream/mcntv.m3u8
-#EXTINF:-1 tvg-id="MCOTHD.th"  group-title="General",MCOT HD (720p)
-https://live-org-01-cdn.mcot.net/mcothd1080p_edge/smil:mcothd1080p.smil/master.m3u8
+#EXTINF:-1 tvg-id="MCOTHD.th@SD"  group-title="General",MCOT HD
+https://lb1-live-mv.v2h-cdn.com/hls/ffbb/gdhk/gdhk.m3u8
 #EXTINF:-1 tvg-id=""  group-title="Undefined",MCS (720p)
 https://l1-xl1.myanmarnet.com/relay2/mcs/ch1/stream.m3u8
 #EXTINF:-1 tvg-id="MDATelevision.ve"  group-title="Entertainment",MDA Televisión (720p)
@@ -18018,7 +18050,7 @@ https://cloud2.streaminglivehd.com:1936/monagasvision-2/monagasvision-2/playlist
 #EXTINF:-1 tvg-id="MonaraTV.lk"  group-title="Entertainment",Monara TV (720p) [Not 24/7]
 https://jk3lz8xklw79-hls-live.5centscdn.com/lpl/d0dbe915091d400bd8ee7f27f0791303.sdp/playlist.m3u8
 #EXTINF:-1 tvg-id="MONO29.th"  group-title="Entertainment",MONO 29 (1080p)
-https://lb1-live-mv.v2h-cdn.com/hls/ffbc/mono29/mono29.m3u8
+https://monomax-uiripn.cdn.byteark.com/plain/th/1080p/index.m3u8
 #EXTINF:-1 tvg-id="MonroeCountyTV.us"  group-title="Legislative",Monroe County Television MCTV (Monroe County FL) (1080p)
 https://castus-vod-dev.s3.amazonaws.com/vod_clients/monroe/live/ch1/video.m3u8
 #EXTINF:-1 tvg-id=""  group-title="Undefined",Monster Jam
@@ -18075,8 +18107,6 @@ https://agp-nimble.streamguys1.com/MBCh20/MBCh20/playlist.m3u8
 https://soportedvb.click:3257/live/morrotvlive.m3u8
 #EXTINF:-1 tvg-id="MosaiqueFM.tn"  group-title="Music",Mosaique FM (1080p)
 https://cdn.live.easybroadcast.io/abr_corp/63_mosaique-fm_rn56tgl/playlist_dvr.m3u8
-#EXTINF:-1 tvg-id="MoskvaDoveriye.ru@SD"  group-title="General",Moskva. Doveriye
-http://178.217.72.66:8080/Moskva_Doverie/index.m3u8
 #EXTINF:-1 tvg-id=""  group-title="Undefined",MotoAmerica TV (1080p)
 https://1422977263.rsc.cdn77.org/HLS/MOTOAMERICA.m3u8
 #EXTINF:-1 tvg-id="MotorTrend.us@SD"  group-title="Auto",Motor Trend
@@ -18505,6 +18535,8 @@ https://naftemporiki-live.cdn.vustreams.com/live/a4b4a88a-681c-4a2d-8e74-33daa5f
 https://streams2.sofast.tv/WiseM3U8_11/sofast/cleanhls/master.m3u8
 #EXTINF:-1 tvg-id="NamaTV.ir"  group-title="General",Nama TV
 https://ncdn.telewebion.com/nama/live/playlist.m3u8
+#EXTINF:-1 tvg-id="NamaquranTV.ir"  group-title="Undefined",Namaquran
+https://ncdn.telewebion.com/namaquran/live/playlist.m3u8
 #EXTINF:-1 tvg-id="NamayeshTV.ir"  group-title="Entertainment",Namayesh
 https://lenz.splus.ir/PLTV/88888888/224/3221226148/index.m3u8
 #EXTINF:-1 tvg-id="NambikkaiTV.in"  group-title="Family",Nambikkai TV (576p)
@@ -19021,7 +19053,7 @@ https://amg00654-itv-amg00654c27-rakuten-uk-5295.playouts.now.amagi.tv/playlist.
 https://ntv4.mov3.co/hls/ntv.m3u8
 #EXTINF:-1 tvg-id="NisvilleTV.rs"  group-title="Music",Nisville TV (1080p)
 https://tv.nisville.com/live/nisville/playlist.m3u8
-#EXTINF:-1 tvg-id="NitidaTV.do"  group-title="Entertainment",Nitida TV
+#EXTINF:-1 tvg-id="NitidaTV.do@SD"  group-title="Entertainment",Nitida TV (480p) [Not 24/7]
 https://ed18ov.live.opencaster.com/bznudxxdtppv/index.m3u8
 #EXTINF:-1 tvg-id="NitroCircus.us@SD"  group-title="Sports",Nitro Circus (1080p)
 https://amg13231-actve-amg13231c1-rakuten-us-5604.playouts.now.amagi.tv/playlist.m3u8
@@ -19709,6 +19741,8 @@ https://fl3.moveonjoy.com/OXYGEN/index.m3u8
 https://oxygenmusic.hu:2443/hls/oxygenmusic.m3u8
 #EXTINF:-1 tvg-id=""  group-title="Undefined",Oxygen True Crime Archives
 http://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/654930a8346f420008d3b0b8/master.m3u8?appName=web&appVersion=unknown&clientTime=0&deviceDNT=0&deviceId=6c2a7818-30d3-11ef-9cf5-e9ddff8ff496&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&serverSideAds=false&sid=fedc1ef5-3e5f-4815-b46c-fcf59a9d9b9b
+#EXTINF:-1 tvg-id="OyerepaTV.gh@SD"  group-title="General",Oyerepa TV
+https://stream.ecable.tv/oyerepa/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="OzdiVarosiTV.hu"  group-title="General",Ózdi Városi TV (720p) [Not 24/7]
 http://stream.nmih.hu:7980/live.m3u8
 #EXTINF:-1 tvg-id="P2MTV.fr"  group-title="Music",P2M TV (720p)
@@ -19857,8 +19891,6 @@ https://d219tvyafu2vka.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68
 http://185.63.52.103:8080/hls/passionelotto/1_2/index.m3u8
 #EXTINF:-1 tvg-id="PATLaPaz.bo"  group-title="General",PAT La Paz
 https://www.redpat.tv/proxylpz/index.m3u8
-#EXTINF:-1 tvg-id="Patriot.ru@SD"  group-title="Movies",Patriot (576i)
-http://catchup.videoline.ru/asvtv/index.m3u8
 #EXTINF:-1 tvg-id=""  group-title="Undefined",Paw Patrol
 http://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/62ea3ec626dc1900078e9f26/master.m3u8?appName=web&appVersion=unknown&clientTime=0&deviceDNT=0&deviceId=2c7b6615-35fc-11ef-a031-2b5d494037a2&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&serverSideAds=false&sid=036f3618-f9a5-4a4b-ba27-2cb712a7f255
 #EXTINF:-1 tvg-id="PayamJavanTV.us"  group-title="Education",Payam Javan TV (720p) [Not 24/7]
@@ -19962,8 +19994,6 @@ https://iptv-trans.ecntv.net/live/penttv.m3u8
 https://jukin-peopleareawesome-2-ca.samsung.wurl.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="PeopleAreAwesome.us@Poland"  group-title="Entertainment",People Are Awesome
 https://3ab76e42.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWV1X1Blb3BsZUFyZUF3ZXNvbWVfSExT/playlist.m3u8
-#EXTINF:-1 tvg-id="PeopleTV.th@SD"  group-title="Undefined",People TV
-rtsp://103.113.47.82:554/peopletvsd.sdp
 #EXTINF:-1 tvg-id="PeppersTV.in@SD"  group-title="Music",Peppers TV (576p)
 https://yuppftalive.akamaized.net/080823/pepperstv/playlist.m3u8
 #EXTINF:-1 tvg-id="Pequeradio.es"  group-title="Music",Pequeradio (720p) [Not 24/7]
@@ -20900,8 +20930,8 @@ https://stream.polar.cz/polar/polarlive-1/playlist.m3u8
 https://cdn-th-vip.livestreaming.in.th/policetv/policetv/playlist.m3u8
 #EXTINF:-1 tvg-id="PoliciaTV.do"  group-title="Legislative;News",Policía TV (480p) [Not 24/7]
 https://cdn2.streamgato.us/policiard/policiard/playlist.m3u8
-#EXTINF:-1 tvg-id="PolimerNews.in"  group-title="News",Polimer News (720p) [Geo-blocked]
-https://versewsa.pc.cdn.bitgravity.com/versewsa/live/polimernews.smil/chunklist_b1800000.m3u8
+#EXTINF:-1 tvg-id="PolimerNews.in@SD"  group-title="News",Polimer News (576p)
+https://segment.yuppcdn.net/110322/polimernews/playlist.m3u8
 #EXTINF:-1 tvg-id="PolimerTV.in@SD"  group-title="Entertainment",Polimer TV (720p)
 https://cdn-2.pishow.tv/live/1241/master.m3u8
 #EXTINF:-1 tvg-id="Polsat.pl"  group-title="General",Polsat (1080p) [Geo-blocked]
@@ -21835,6 +21865,8 @@ http://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/63
 http://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/638f2983dcd9100008c2374d/master.m3u8?appName=web&appVersion=unknown&clientTime=0&deviceDNT=0&deviceId=84af15b4-4b92-11ef-aece-533610f1ea34&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&serverSideAds=false&sid=1ad98b92-b141-4c24-8811-e6b2de3021dc
 #EXTINF:-1 tvg-id="Raya1.ps"  group-title="Undefined",Raya 1 (1080p)
 https://htvmada.mada.ps:4443/raya/index.m3u8
+#EXTINF:-1 tvg-id="RazaviTV.ir"  group-title="Undefined",Razavi TV
+https://ncdn.telewebion.com/razavi/live/playlist.m3u8
 #EXTINF:-1 tvg-id="RBATV.br"  group-title="General",RBATV (720p)
 https://cdn.live.br1.jmvstream.com/w/LVW-15748/LVW15748_Yed7yzLuRC/playlist.m3u8
 #EXTINF:-1 tvg-id="rbbFernsehen.de@Berlin"  group-title="Undefined",RBB Berlin (1080p) [Geo-blocked]
@@ -22307,6 +22339,8 @@ https://playlist.fasttvcdn.com/pl/ptllxjd03j6g9oxxjdfapg/roya-kids/playlist.m3u8
 https://playlist.fasttvcdn.com/pl/ptllxjd03j6g9oxxjdfapg/roya-kids-originals/playlist.m3u8
 #EXTINF:-1 tvg-id="RoyaKitchen.jo"  group-title="Cooking",Roya Kitchen (1080p)
 https://playlist.fasttvcdn.com/pl/toa2uuhhygheuly7xtuqrg/roya-kitchen/playlist.m3u8
+#EXTINF:-1 tvg-id="RoyaTV.ir"  group-title="Undefined",Roya TV
+https://ncdn.telewebion.com/iribu/live/playlist.m3u8
 #EXTINF:-1 tvg-id="RoyaTV.jo"  group-title="General",Roya TV (1080p) [Not 24/7]
 https://royatv-live.daioncdn.net/royatv/royatv.m3u8
 #EXTINF:-1 tvg-id="RoyalTimeTelevision.us"  group-title="Entertainment",Royal Time Television (1080p)
@@ -22755,7 +22789,7 @@ https://live20.bozztv.com/dvrfl05/gin-iribsalamat/index.m3u8
 https://amg00732-salemnewsfast-amg00732c2-xumo-us-1316.playouts.now.amagi.tv/snc-xm/playlist.m3u8
 #EXTINF:-1 tvg-id=""  group-title="Undefined",Salem News Channel (720p) [Geo-blocked]
 https://amg00732-salemmediagroup-salemnews-klowdtv-79zyj.amagi.tv/playlist/amg00732-salemmediagroup-salemnews-klowdtv/playlist.m3u8
-#EXTINF:-1 tvg-id="SalsaGordaTelevision.co"  group-title="Music",Salsa Gorda Television (480p) [Not 24/7]
+#EXTINF:-1 tvg-id="SalsaGordaTelevision.co"  group-title="Music",Salsa Gorda Television (1080p) [Not 24/7]
 https://www.televinterserver.com:19360/salsagordatv/salsagordatv.m3u8
 #EXTINF:-1 tvg-id="SaltTV.ug"  group-title="Religious",Salt TV (1080p) [Not 24/7]
 https://live.salttelevision.com/app/stream/abr.m3u8
@@ -22857,6 +22891,8 @@ https://vdo1.streamgato.us:3677/live/telemileniolive.m3u8
 https://live20.bozztv.com/dvrfl06/astv/astv-saraouna/index.m3u8
 #EXTINF:-1 tvg-id="SarapiquiTV.cr"  group-title="General",Sarapiqui TV (720p) [Not 24/7]
 http://tiquiciatv.com:1935/stv/web/playlist.m3u8
+#EXTINF:-1 tvg-id="SarbedaranTV.ir"  group-title="Undefined",Sarbedaran
+https://ncdn.telewebion.com/sarbedaran/live/playlist.m3u8
 #EXTINF:-1 tvg-id="SardariTV.ca"  group-title="Undefined",Sardari TV (1080p) [Not 24/7]
 http://158.69.124.9:1935/sardaritv/sardaritv/playlist.m3u8
 #EXTINF:-1 tvg-id="SardegnaUno.it"  group-title="Undefined",Sardegna Uno
@@ -23389,8 +23425,8 @@ https://5ff3d9babae13.streamlock.net/8000/8000/playlist.m3u8
 https://stream.solmediaeg.com/soltv/soltv.m3u8
 #EXTINF:-1 tvg-id="SoltvadkertiTelevizio.hu"  group-title="General",Soltvadkerti Televízió (720p)
 http://79.120.178.90:1935/soltvadkerttv/soltvlive/playlist.m3u8
-#EXTINF:-1 tvg-id=""  group-title="Undefined",Solucion TV (720p)
-https://ss5.domint.net:3044/sotv_str/soluciontv/playlist.m3u8
+#EXTINF:-1 tvg-id="SolucionTV.do@SD"  group-title="General",Solucion TV (720p) [Not 24/7]
+https://ss2.tvrdomi.com:1936/soluciontv/soluciontv/playlist.m3u8
 #EXTINF:-1 tvg-id="SomaliNationalTV.so"  group-title="General",Somali National TV (576p)
 https://ap02.iqplay.tv:8082/iqb8002/s4ne/playlist.m3u8
 #EXTINF:-1 tvg-id="SomosCulturaTV.pa"  group-title="Culture",Somos Cultura TV (720p)
@@ -23728,8 +23764,8 @@ https://amg01720-amg01720c3-klowdtv-us-4665.playouts.now.amagi.tv/playlist/amg01
 https://amg01720-amg01720c2-klowdtv-us-4689.playouts.now.amagi.tv/playlist/amg01720-filmhub-stashtvtheclassics-klowdtvus/playlist.m3u8
 #EXTINF:-1 tvg-id="STB.kr"  group-title="Undefined",STB (720p)
 https://606d65214d80f.streamlock.net/live-stb/_definst_/113988c056b574662480f93ea08de94888b475fb32f740d2449552e043298002/playlist.m3u8
-#EXTINF:-1 tvg-id="SteelbirdMusic.in"  group-title="Music",Steelbird Music (720p) [Not 24/7]
-http://cdn25.live247stream.com/steelbirdmusic/tv/playlist.m3u8
+#EXTINF:-1 tvg-id="SteelbirdMusic.in@SD"  group-title="Music",Steelbird Music (720p) [Not 24/7]
+https://cdn2.in/SteelbirdMusicTVhls/live.m3u8
 #EXTINF:-1 tvg-id="SteiermarkTV.at"  group-title="General",Steiermark TV (1080p)
 https://h056.video-stream-hosting.de/easycast8-live/_definst_/mp4:livestreamhd4/playlist.m3u8?ref=
 #EXTINF:-1 tvg-id=""  group-title="Undefined",Stellar TV (1080p)
@@ -23852,8 +23888,6 @@ https://cloudvideo.servers10.com:8081/stztelebista/index.m3u8
 https://cdn.jmvstream.com/w/AVJ-12952/playlist/playlist.m3u8
 #EXTINF:-1 tvg-id="SuMundoTV.do"  group-title="Undefined",Su Mundo TV (1080p)
 https://175036.global.ssl.fastly.net/6217e980d5bee0e090792fdf/live_75f5635097ba11ecb9f1255c8fe65a34/index.m3u8
-#EXTINF:-1 tvg-id="Subbota.ru@SD"  group-title="Undefined",Subbota!
-http://hls2.hd-tv.club/2_super/index.m3u8
 #EXTINF:-1 tvg-id="SubhartiTV.in@SD"  group-title="Undefined",Subharti TV (576p)
 https://yuppftalive.akamaized.net/080823/subhartitv/playlist.m3u8
 #EXTINF:-1 tvg-id="SubhavaarthaTV.in"  group-title="Undefined",Subhavaartha TV (720p)
@@ -24280,6 +24314,10 @@ https://live20.bozztv.com/dvrfl05/gin-iribnasim/index.m3u8
 https://cdn-4.pishow.tv/live/239/master.m3u8
 #EXTINF:-1 tvg-id="TekRumeliTV.tr"  group-title="Undefined",Tek Rumeli TV (576p)
 https://edge1.socialsmart.tv/tekrumelitv/bant1/playlist.m3u8
+#EXTINF:-1 tvg-id="Tekyemadahi.ir"  group-title="Undefined",Tekyemadahi
+https://ncdn.telewebion.com/tekyemadahi/live/playlist.m3u8
+#EXTINF:-1 tvg-id="TekyesokhanraniTV.ir"  group-title="Undefined",Tekyesokhanrani
+https://ncdn.telewebion.com/tekyesokhanrani/live/playlist.m3u8
 #EXTINF:-1 tvg-id="Telavision.hn"  group-title="General",Telavisión (720p)
 https://stream.oursnetworktv.com/latin/telaVision/playlist.m3u8
 #EXTINF:-1 tvg-id="Tele1.ch"  group-title="Undefined",Tele 1 (1080p)
@@ -24367,7 +24405,7 @@ https://5ca3e84a76d30.streamlock.net/teleyucatan/videoteleyucatan/playlist.m3u8
 https://bcovlive-a.akamaihd.net/4b1c462c86094bae93b65adc84e43afc/us-west-2/6101674910001/playlist.m3u8
 #EXTINF:-1 tvg-id="Teleacras.it"  group-title="General",Teleacras (576p)
 https://5cbd3bc28341f.streamlock.net:444/teleacras/live/playlist.m3u8
-#EXTINF:-1 tvg-id="Telealtura.do@SD"  group-title="General",Telealtura (720p)
+#EXTINF:-1 tvg-id="Telealtura.do@SD"  group-title="General",Telealtura (1080p) [Not 24/7]
 https://live20.bozztv.com/akamaissh101/ssh101/codificador7/playlist.m3u8
 #EXTINF:-1 tvg-id="Teleamazonas.ec"  group-title="Undefined",Teleamazonas (1080p)
 https://teleamazonas-live.cdn.vustreams.com/live/fd4ab346-b4e3-4628-abf0-b5a1bc192428/live.isml/playlist.m3u8
@@ -24668,7 +24706,7 @@ https://cdnesmain.telesur.ultrabase.net/mbliveMain/hd/playlist.m3u8
 https://ss3.domint.net:3124/tls_str/telesur/playlist.m3u8
 #EXTINF:-1 tvg-id="TeleSURCostaRica.cr"  group-title="Undefined",TeleSUR Costa Rica (720p) [Not 24/7]
 https://s1.tvdatta.com:3582/live/telesurlive.m3u8
-#EXTINF:-1 tvg-id="TelesurEnglish.ve"  group-title="News",TeleSUR English (1080p) [Not 24/7]
+#EXTINF:-1 tvg-id="Telesur.ve@English"  group-title="News",Telesur English (1080p) [Not 24/7]
 https://github.com/BellezaEmporium/IPTV_Exception/raw/master/channels/ve/telesur_eng.m3u8
 #EXTINF:-1 tvg-id="TeleTerni.it"  group-title="Undefined",TeleTerni (720p)
 https://diretta.teleterni.it:8080/show/show.m3u8
@@ -25027,6 +25065,8 @@ https://clouditize.piksel.tech/hls/live/2043070/ClouditizeStream1/playlist.m3u8
 https://amg01220-amg01220c1-firetv-us-5111.playouts.now.amagi.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="ThemaTelevision.cl"  group-title="Undefined",Thema Televisión (La Serena) (720p) [Not 24/7]
 https://unlimited1-us.dps.live/thema/thema.smil/playlist.m3u8
+#EXTINF:-1 tvg-id="ThendralTV.in@SD"  group-title="Undefined",Thendral TV (576p)
+https://live.thendralcloud.in/thendraltv/d0dbe915091d400bd8ee7f27f0791303.sdp/chunks.m3u8
 #EXTINF:-1 tvg-id="ThessaliaTV.gr"  group-title="General",Thessalia TV (720p) [Not 24/7]
 https://raw.githubusercontent.com/azgaresncf/strm2hls/main/streams/thessaliatv.m3u8
 #EXTINF:-1 tvg-id="ThisisBulgariaHD.bg"  group-title="Entertainment",This is Bulgaria HD (1080p)
@@ -25221,8 +25261,6 @@ https://content.uplynk.com/channel/33c48f602cfd4474b957eb4ad999caf8.m3u8
 http://82.165.71.58:8081/TopTV/live/playlist.m3u8
 #EXTINF:-1 tvg-id="TopEstradaTV.mk"  group-title="Music",TopEstrada TV (720p)
 http://live.topestrada.com/live/topestrada/playlist.m3u8
-#EXTINF:-1 tvg-id="ToplineTV.th@SD"  group-title="Undefined",Topline TV
-rtsp://103.113.47.82:554/toplinesd.sdp
 #EXTINF:-1 tvg-id="ToprakTV.tr"  group-title="Undefined",Toprak TV (720p) [Not 24/7]
 https://59cba4d34b678.streamlock.net/canlitv/topraktv/playlist.m3u8
 #EXTINF:-1 tvg-id=""  group-title="Undefined",Torba TV (720p) [Not 24/7]
@@ -25966,7 +26004,7 @@ https://video01.kshost.com.br:4443/moises3834/moises3834/playlist.m3u8
 https://stream.oursnetworktv.com/latin/tvguanajuato/playlist.m3u8
 #EXTINF:-1 tvg-id="TVGuara.br"  group-title="Undefined",TV Guará (720p) [Not 24/7]
 https://video02.logicahost.com.br/tvguara23/tvguara23/playlist.m3u8
-#EXTINF:-1 tvg-id="TVHigueyDigital.do"  group-title="Undefined",TV Higuey Digital (720p)
+#EXTINF:-1 tvg-id="TVHigueyDigital.do@SD"  group-title="Undefined",TV Higuey Digital (720p) [Not 24/7]
 https://vdo1.streamgato.us:3046/live/tvhigueycanal12live.m3u8
 #EXTINF:-1 tvg-id="TVHispanic.us"  group-title="General",TV Hispanic [Not 24/7]
 https://livetv.305streamhd.com:3504/live/tvhispaniclive.m3u8
@@ -26114,6 +26152,8 @@ https://n11.stv.livebox.sk/stv-tv/stv4.stream/playlist.m3u8
 https://s5.mexside.net:1936/canal28/canal28/playlist.m3u8
 #EXTINF:-1 tvg-id="TVOberfranken.de"  group-title="General",TV Oberfranken (TVO) (1080p) [Not 24/7]
 https://tvoberfranken.iptv-playoutcenter.de/tvoberfranken/tvoberfranken.stream_1/playlist.m3u8
+#EXTINF:-1 tvg-id="TVOFF.bo"  group-title="Travel",TV OFF
+https://seo.tv.bo/tv/TV-OFF.m3u8
 #EXTINF:-1 tvg-id="TVOkazje.pl"  group-title="Undefined",TV Okazje (1080p) [Geo-blocked]
 https://lb2-e3-20.pluscdn.pl/ch/1523532/366/dash/2cf383bb/live.mpd
 #EXTINF:-1 tvg-id="TVOmindare.br"  group-title="Culture",TV Omindaré (360p)
@@ -26408,7 +26448,7 @@ https://live.mana2.my/TvIkim/index.m3u8?auth_key=1745177920-648b7df03f404bc4ac20
 #EXTINF:-1 tvg-id="TVitape.br"  group-title="General",TVitapé (720p)
 https://stream01.msolutionbrasil.com.br/hls/tvitape/live.m3u8
 #EXTINF:-1 tvg-id="TVJ.jm"  group-title="Entertainment",TVJ (720p)
-https://rjr-tvj-geo.akamaized.net/hls/live/2041530/TVJ_GEO/1/streamPlaylist.m3u8
+https://fl5.moveonjoy.com/TVJ_CARIBBEAN/index.m3u8
 #EXTINF:-1 tvg-id="TVK.kh"  group-title="General",TVK (720p)
 https://live.kh.malimarcdn.com/live/tvk.stream/playlist.m3u8
 #EXTINF:-1 tvg-id="TVK2.kh"  group-title="Education",TVK 2 (720p)
@@ -27096,6 +27136,8 @@ https://tvlocales-live.freecaster.com/vedia/95d2f480-b0b0-4027-9f4a-057183312305
 https://cloud6.livescast.com:3797/live/vegatevelive.m3u8
 #EXTINF:-1 tvg-id="VegavisionCanal18.do"  group-title="General",Vegavisión Canal 18 (720p)
 https://rdn.essastream.com:3400/live/canal18hdlive.m3u8
+#EXTINF:-1 tvg-id="VelayatTV.ir"  group-title="Undefined",Velayat TV
+https://ncdn.telewebion.com/velayat/live/playlist.m3u8
 #EXTINF:-1 tvg-id="VelayatTVNetwork.us"  group-title="Religious",Velayat TV (480p)
 https://nl.livekadeh.com/hls2/velayattv.m3u8
 #EXTINF:-1 tvg-id="Velicham.in"  group-title="Entertainment",Velicham (360p) [Not 24/7]
@@ -27856,7 +27898,7 @@ https://apollo.production-public.tubi.io/live/ac-womens-sports-network-canada.m3
 #EXTINF:-1 tvg-id="Wonder.uk"  group-title="Undefined",Wonder (720p)
 https://lds-wonder-samsungau.amagi.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="WorkpointTV.th"  group-title="Undefined",Workpoint TV
-https://lb1-live-mv.v2h-cdn.com/hls/ffcb/workpoint/workpoint.m3u8
+https://lb1-live-mv.v2h-cdn.com/hls/ffcb/gbinrvp/gbinrvp.m3u8
 #EXTINF:-1 tvg-id="WorldBilliards.pl"  group-title="Undefined",World Billiards TV
 https://9a81dd4ee3884d0dbcacafaf0d81327a.mediatailor.us-east-1.amazonaws.com/v1/master/04fd913bb278d8775298c26fdca9d9841f37601f/RakutenTV-eu_BilliardsTV/playlist.m3u8
 #EXTINF:-1 tvg-id="WorldChannel.us"  group-title="Education",World Channel (1080p)
@@ -28536,6 +28578,8 @@ http://hls.mirtv.cdnvideo.ru/mirtv-parampublish/mirtv7_2500/playlist.m3u8
 http://mirbelogorya.ru:8080/mirbelogorya/index.m3u8
 #EXTINF:-1 tvg-id="Moskva24.ru"  group-title="General",Москва 24
 https://player.smotrim.ru/iframe/stream/live_id/efab3cbe-a29c-45f0-9596-5cb4f1ce7fbe
+#EXTINF:-1 tvg-id="MoskvaDoveriye.ru@SD"  group-title="General",Москва. Доверие
+http://178.217.72.66:8080/Moskva_Doverie/index.m3u8
 #EXTINF:-1 tvg-id="MosObrTV.ru"  group-title="Education",МосОбрТВ (720p)
 http://retc.educom.ru/mosobrtv/tv1/index.m3u8
 #EXTINF:-1 tvg-id="MosfilmGoldCollection.ru"  group-title="Movies",Мосфильм Золотая Коллекция
@@ -28648,6 +28692,8 @@ http://178.217.72.66:8080/OTR/index.m3u8
 http://gohoski.fvds.ru:3000/mediabay/697/playlist.m3u8
 #EXTINF:-1 tvg-id="UlziiTV.mn"  group-title="General",Өлзий ТВ (720p)
 https://cdn4.skygo.mn/live/disk1/UlziiTV/HLSv3-FTA/UlziiTV.m3u8
+#EXTINF:-1 tvg-id="Patriot.ru@SD"  group-title="Movies",Патриот (576i)
+http://catchup.videoline.ru/asvtv/index.m3u8
 #EXTINF:-1 tvg-id="PervyygorodskoyOdessa.ua"  group-title="General",Первый городской (Одесса) (1080p) [Not 24/7]
 http://91.194.79.46:8081/stream1/channel1/playlist.m3u8
 #EXTINF:-1 tvg-id="PerviyInformationniy.by"  group-title="News",Первый информационный (1080p)
@@ -28683,6 +28729,8 @@ https://prodvizhenie.bonus-tv.ru/cdn/prodvizhenie/playlist.m3u8
 https://cdn-01.bonus-tv.ru/prosveschenie_edge/playlist.m3u8
 #EXTINF:-1 tvg-id="FridayInternational.ru"  group-title="Entertainment",Пятница International
 https://fdvr02.vnet.am/Pyatnica/mono.m3u8
+#EXTINF:-1 tvg-id="Friday.ru@SD"  group-title="Entertainment",Пятница!
+https://vod.tuva.ru/friday/index.m3u8
 #EXTINF:-1 tvg-id="GovoritMoskva.ru"  group-title="News",Радио Говорит Москва (404p) [Not 24/7]
 http://video.govoritmoskva.ru:8080/live/rufmbk-1/index.m3u8
 #EXTINF:-1 tvg-id="RadioHit.ru"  group-title="Music",Радио Хит (Орск) (720p)
@@ -28816,6 +28864,8 @@ https://cdn4.skygo.mn/live/disk1/STS/HLSv3-FTA/STS.m3u8
 https://fdvr02.vnet.am/DisneyChannel/mono.m3u8
 #EXTINF:-1 tvg-id="StudiyaFakt.ru@SD"  group-title="Undefined",Студия Факт
 https://042auhsnh0x.a.trbcdn.net/livemaster/rmhtb_live-7td9v6w34o6.smil/playlist.m3u8
+#EXTINF:-1 tvg-id="Subbota.ru@SD"  group-title="Undefined",Суббота!
+http://hls2.hd-tv.club/2_super/index.m3u8
 #EXTINF:-1 tvg-id="SuperGeroi.ru"  group-title="Kids",СуперГерои
 http://178.124.179.122:8088/Malish/index.m3u8
 #EXTINF:-1 tvg-id="Surgut24.ru"  group-title="Undefined",Сургут 24 (720p) [Not 24/7]
