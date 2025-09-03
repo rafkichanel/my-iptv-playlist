@@ -22,6 +22,13 @@ https://drive.google.com/uc?export=download&id=1gHID3FZ0rL_MwJJFVEwdJX13jfQ1sHa2
 #EXTVLCOPT:http-origin=https://ppdd02.dtfjinikdinbiframe.shop
 
 
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://ppdd02.dtfjinikdinbiframe.shop/
+#EXTVLCOPT:network-caching=1000
+#EXTVLCOPT--http-reconnect=true
+#EXTVLCOPT:http-origin=https://ppdd02.dtfjinikdinbiframe.shop
+https://twnx1-cf.boblcfwudz421.com/auth%3D3c9a2cf6ce0765a27dcc2f5e6e8c5c75053a499a85562b4cfc49593f9c5117b9b63643e4c0ce4a490be3d0b93d38a62fce437ceea9dc0aed3c751852ea430c5bfc9ddebe977b6115ec8f6991c265f118e233d3880dda05d502701e37656038f33a11fdae6fc68e3b307826ab892e90cb06cb428f2aa750c8953421c6f6e869e0f24a45b39c367d62fa676880167b20f73bb77c4fad27fbedb729e476d9161d94216581d67dc52b5e6703c4e893e6e684af01f1ccef4444711ce45bf16a950cd4%26cid%3DYvoz9_UXqTEZam7X2zhhz250903%26_v%3D2%26_r%3DKJq5ED%26_vis%3D4ba7a9100ef6badbb6ff565389d5d9bbf0877688c756e2a3888263e29f64f4bc%26_vvs%3Df7f40cd87fa82aa7176eb903e167b327eeb6b7b97e552e05a8017c8b4f0a07ee/transcode/c368491_480p.m3u8
+
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://seprai.jasoncreak8.workers.dev/play?id=19486&type=drm
 #EXTVLCOPT:http-user-agent=VidioPlayer/6.41.11
@@ -14498,6 +14505,9 @@ https://tglmp04.akamaized.net/out/v1/400fc0702dee453bb33ebcc29466e58a/manifest.m
 #EXTVLCOPT:http-referrer=https://kami.drawntightlymuxulx.sbs/
 https://bintangstreaming.my.id/connect/index.m3u8?channel=u17&type=m3u8
 
+
+#EXTINF:-1  group-title="LIVE | TIMNAS🇮🇩", Indosiar Superleague
+https://raw.githubusercontent.com/hnnyo/anyar/refs/heads/main/indos3.m3u8
 
 
 
