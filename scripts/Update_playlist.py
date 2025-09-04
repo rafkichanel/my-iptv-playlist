@@ -41,7 +41,7 @@ def process_playlist(source_file, output_file):
                     lines = [line for line in lines if not re.search(r'group-title="Contact Admin"', line, re.IGNORECASE)]
                     lines = [line for line in lines if 'DONASI UPDATE' not in line]
                 
-                # --- Logika penghapusan logo UNIVERSAL (sesuai permintaan) ---
+                # --- Logika penghapusan logo UNIVERSAL ---
                 cleaned_lines = []
                 for line in lines:
                     if line.startswith("#EXTINF"):
@@ -52,7 +52,7 @@ def process_playlist(source_file, output_file):
                         cleaned_lines.append(line)
                 lines = cleaned_lines
                 
-                # --- Logika penambahan logo baru (fokus kita) ---
+                # --- Logika penambahan logo baru ---
                 final_processed_lines = []
                 for line in lines:
                     if line.startswith("#EXTINF"):
