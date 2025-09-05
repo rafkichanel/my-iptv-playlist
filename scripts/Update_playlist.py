@@ -27,7 +27,6 @@ def process_playlist(source_file, output_file):
                 lines = r.text.splitlines()
 
                 # --- Gabungkan semua filter dalam satu baris untuk efisiensi ---
-                # Kata "SAM" telah dihapus dari daftar filter
                 lines = [line for line in lines if not any(word in line.upper() for word in ["DONASI", "UPDATE", "CADANGAN", "WHATSAPP"])]
 
                 if idx == 3:
