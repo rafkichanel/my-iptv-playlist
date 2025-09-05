@@ -27,7 +27,7 @@ def process_playlist(source_file, output_file):
                 lines = r.text.splitlines()
 
                 # Daftar kata kunci yang tidak diinginkan
-                disallowed_words = ["DONASI", "UPDATE", "CADANGAN", "WHATSAPP"]
+                disallowed_words = ["DONASI", "UPDATE", "CADANGAN", "WHATSAPP", "CONTACT", "ADMIN"]
                 
                 # Memproses baris-baris playlist dan menghapus yang tidak diinginkan
                 processed_lines = []
