@@ -95,33 +95,32 @@ def process_playlist(source_file, output_file):
         with open(output_file, "w", encoding="utf-8") as f:
             f.write("\n".join(final_playlist))
 
-        print(f"✅ Playlist disimpan ke {output_file} - {datetime.utcnow().isoformat()} UTC")
+        print(f"✅ Playlist berhasil disimpan ke {output_file} - {datetime.utcnow().isoformat()} UTC")
         return True
 
     except FileNotFoundError:
-        print(f"❗ File sumber tidak ditemukan: {source_file}")
+        print(f"❌ File sumber tidak ditemukan: {source_file}")
         return False
     except Exception as e:
         print(f"❌ Terjadi kesalahan saat memproses {source_file}: {e}")
         return False
 
 # --- Jalankan proses ---
-process_playlist(SOURCE_FILE, OUTPUT_FILE)
+if process_playlist(SOURCE_FILE, OUTPUT_FILE):
+    # --- Setup Git & Commit ---
+    os.system('git config --global user.email "actions@github.com"')
+    os.system('git config --global user.name "GitHub Actions"')
+    os.system(f'git add {OUTPUT_FILE}')
 
-# --- Setup Git & Commit ---
-os.system('git config --global user.email "actions@github.com"')
-os.system('git config --global user.name "GitHub Actions"')
-os.system(f'git add {OUTPUT_FILE}')
+    commit_msg = f"Update Finalplay04.m3u otomatis - {datetime.utcnow().isoformat()} UTC"
+    ret = os.system(f'git commit -m "{commit_msg}" || echo "Tidak ada perubahan"')
+    if ret == 0:
+        os.system('git push')
+        print("✅ Commit & push berhasil")
+    else:
+        print("⚠️ Tidak ada perubahan baru, skip push")
 
-commit_msg = f"Update Finalplay04.m3u otomatis - {datetime.utcnow().isoformat()} UTC"
-ret = os.system(f'git commit -m "{commit_msg}" || echo "Tidak ada perubahan"')
-if ret == 0:
-    os.system('git push')
-    print("✅ Commit & push berhasil")
-else:
-    print("⚠️ Tidak ada perubahan baru, skip push")
-
-# Link commit terbaru
-repo = os.getenv("GITHUB_REPOSITORY", "rafkichanel/my-iptv-playlist")
-commit_hash = os.popen("git rev-parse HEAD").read().strip()
-print(f"🔗 Lihat commit terbaru: https://github.com/{repo}/commit/{commit_hash}")
+    # Link commit terbaru
+    repo = os.getenv("GITHUB_REPOSITORY", "rafkichanel/my-iptv-playlist")
+    commit_hash = os.popen("git rev-parse HEAD").read().strip()
+    print(f"🔗 Lihat commit terbaru: https://github.com/{repo}/commit/{commit_hash}")
