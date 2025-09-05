@@ -34,8 +34,8 @@ def process_playlist(source_file, output_file):
                 for line in lines:
                     line_upper = line.upper()
                     
-                    # Cek apakah baris #EXTINF mengandung kata kunci yang tidak diinginkan
-                    if line.startswith("#EXTINF") and any(word in line_upper for word in disallowed_words):
+                    # Hapus baris apa pun yang mengandung kata kunci yang tidak diinginkan
+                    if any(word in line_upper for word in disallowed_words):
                         continue
                     
                     # Cek apakah baris #EXTINF termasuk dalam kategori "00.LIVE EVENT"
