@@ -2,8 +2,8 @@ name: Update IPTV Playlist
 
 on:
   schedule:
-    - cron: '0 * * * *'  # setiap 1 jam sekali
-  workflow_dispatch:      # bisa juga dijalankan manual lewat GitHub UI
+    - cron: "0 */3 * * *"   # setiap 3 jam sekali
+  workflow_dispatch:        # bisa juga dijalankan manual lewat GitHub UI
 
 permissions:
   contents: write
@@ -15,11 +15,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0   # biar bisa push commit baru
 
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
       - name: Install dependencies
         run: |
@@ -34,11 +36,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add Finalplay.m3u
+          git add scripts/Finalplay04.m3u
           if git diff --cached --quiet; then
             echo "No changes detected, skip commit"
           else
-            git commit -m "Update playlist otomatis via GitHub Actions"
+            git commit -m "Update Finalplay04.m3u otomatis via GitHub Actions"
             git push
           fi
-        continue-on-error: true
