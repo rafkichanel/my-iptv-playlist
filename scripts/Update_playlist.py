@@ -26,12 +26,10 @@ def process_playlist(source_file, output_file):
                 r.raise_for_status()
                 lines = r.text.splitlines()
 
-                # --- Tambahkan filter baru untuk menghilangkan "DONASI" dan "UPDATE" ---
-                # Baris ini akan menghapus semua baris yang berisi kata "DONASI" atau "UPDATE" (tidak case-sensitive)
-                lines = [line for line in lines if "DONASI" not in line.upper() and "UPDATE" not in line.upper()]
-                
-                # --- Filter sesuai logika lama ---
-                lines = [line for line in lines if "WHATSAPP" not in line.upper()]
+                # --- Gabungkan semua filter dalam satu baris untuk efisiensi ---
+                # Kata "SAM" telah dihapus dari daftar filter
+                lines = [line for line in lines if not any(word in line.upper() for word in ["DONASI", "UPDATE", "CADANGAN", "WHATSAPP"])]
+
                 if idx == 3:
                     lines = [line.replace("🔴", "") for line in lines]
                 lines = [line for line in lines if 'group-title="SMA"' not in line]
