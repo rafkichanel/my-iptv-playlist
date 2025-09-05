@@ -26,26 +26,34 @@ def process_playlist(source_file, output_file):
                 r.raise_for_status()
                 lines = r.text.splitlines()
 
-                # --- Gabungkan semua filter dalam satu baris untuk efisiensi ---
-                lines = [line for line in lines if not any(word in line.upper() for word in ["DONASI", "UPDATE", "CADANGAN", "WHATSAPP"])]
-
-                if idx == 3:
-                    lines = [line.replace("🔴", "") for line in lines]
-                lines = [line for line in lines if 'group-title="SMA"' not in line]
-
-                # --- Hapus logo lama ---
-                cleaned_lines = []
+                # Daftar kata kunci yang tidak diinginkan
+                disallowed_words = ["DONASI", "UPDATE", "CADANGAN", "WHATSAPP"]
+                
+                # Memproses baris-baris playlist dan menghapus yang tidak diinginkan
+                processed_lines = []
                 for line in lines:
+                    line_upper = line.upper()
+                    
+                    # Cek apakah baris #EXTINF mengandung kata kunci yang tidak diinginkan
+                    if line.startswith("#EXTINF") and any(word in line_upper for word in disallowed_words):
+                        continue
+                    
+                    # Cek apakah baris #EXTINF termasuk dalam kategori "00.LIVE EVENT"
+                    if line.startswith("#EXTINF") and 'group-title="00.LIVE EVENT"' in line:
+                        continue
+
+                    # Filter untuk menghilangkan group-title="SMA"
+                    if 'group-title="SMA"' in line:
+                        continue
+                    
+                    processed_lines.append(line)
+
+                # Menghapus logo lama dan menambahkan logo baru
+                final_processed_lines = []
+                for line in processed_lines:
                     if line.startswith("#EXTINF"):
                         line = re.sub(r'tvg-logo="[^"]*"', '', line)
                         line = re.sub(r'group-logo="[^"]*"', '', line)
-                    cleaned_lines.append(line)
-                lines = cleaned_lines
-
-                # --- Tambah logo baru ---
-                final_processed_lines = []
-                for line in lines:
-                    if line.startswith("#EXTINF"):
                         new_line_logo_tags = f' group-logo="{NEW_LOGO_URL}" tvg-logo="{NEW_LOGO_URL}"'
                         line_parts = line.split(',', 1)
                         if len(line_parts) > 1:
@@ -60,6 +68,7 @@ def process_playlist(source_file, output_file):
                             final_processed_lines.append(line)
                     else:
                         final_processed_lines.append(line)
+                
                 merged_lines.extend(final_processed_lines)
             except Exception as e:
                 print(f"⚠️ Gagal ambil sumber {idx} dari {source_file}: {e}")
