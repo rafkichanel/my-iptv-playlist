@@ -1,7 +1,7 @@
 #EXTM3U
-#EXTINF:-1 group-title="Indonesia Sedang Live" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/AFC_U-23_Asian_Cup_logo.svg/1200px-AFC_U-23_Asian_Cup_logo.svg.png", Indonesia vs Makau (Source 1)
+#EXTINF:-1 group-title="LIVE TIMNAS 2" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/AFC_U-23_Asian_Cup_logo.svg/1200px-AFC_U-23_Asian_Cup_logo.svg.png", Indonesia vs Makau (Source 1)
 https://live1.pro2cdnlive.com/live/channel30.m3u8?wsSecret=ea40c25d48e8e70b54314457f6e2f832&wsABSTime=1756917411
 
-#EXTINF:-1 group-title="Indonesia Sedang Live" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/AFC_U-23_Asian_Cup_logo.svg/1200px-AFC_U-23_Asian_Cup_logo.svg.png", Indonesia vs Makau (Source 2 - Vidio UA)
+#EXTINF:-1 group-title="LIVE TIMNAS 2" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/AFC_U-23_Asian_Cup_logo.svg/1200px-AFC_U-23_Asian_Cup_logo.svg.png", Indonesia vs Makau (Source 2 - Vidio UA)
 #EXTVLCOPT:http-user-agent=VidioPlayer/6.31.6
 https://live1.pro2cdnlive.com/live/channel30.m3u8?wsSecret=ea40c25d48e8e70b54314457f6e2f832&wsABSTime=1756917411
