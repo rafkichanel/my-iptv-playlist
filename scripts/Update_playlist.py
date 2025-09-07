@@ -48,26 +48,28 @@ def process_playlist(source_file, output_file):
                     
                     processed_lines.append(line)
 
-                # Menambahkan logo baru hanya untuk group-logo
+                # Menghapus logo lama dan hanya menambahkan logo kategori baru
                 final_processed_lines = []
                 for line in processed_lines:
                     if line.startswith("#EXTINF"):
-                        line_parts = line.split(',', 1)
+                        # Hapus semua atribut logo yang ada
+                        line_without_old_logos = re.sub(r'(tvg-logo|group-logo)="[^"]*"', '', line)
+                        
+                        # Hanya tambahkan logo baru ke group-logo
+                        new_line_logo_tags = f' group-logo="{NEW_LOGO_URL}"'
+                        line_parts = line_without_old_logos.split(',', 1)
+                        
                         if len(line_parts) > 1:
+                            # Masukkan atribut logo baru di bagian yang benar
                             match = re.search(r'#EXTINF:(-1.*)', line_parts[0])
                             if match:
                                 attributes = match.group(1).strip()
-                                
-                                # Hapus group-logo yang sudah ada jika ada
-                                attributes_without_old_group_logo = re.sub(r'group-logo="[^"]*"', '', attributes).strip()
-                                
-                                # Tambahkan group-logo baru
-                                new_line = f'#EXTINF:-1 {attributes_without_old_group_logo} group-logo="{NEW_LOGO_URL}",{line_parts[1].strip()}'
+                                new_line = f'#EXTINF:-1 {attributes}{new_line_logo_tags},{line_parts[1].strip()}'
                                 final_processed_lines.append(new_line)
                             else:
-                                final_processed_lines.append(line)
+                                final_processed_lines.append(line_without_old_logos)
                         else:
-                            final_processed_lines.append(line)
+                            final_processed_lines.append(line_without_old_logos)
                     else:
                         final_processed_lines.append(line)
                 
@@ -119,4 +121,4 @@ def process_playlist(source_file, output_file):
 
 # --- Jalankan proses ---
 process_playlist(SOURCE_FILE, OUTPUT_FILE)
-                                
+                                                    
