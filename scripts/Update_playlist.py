@@ -10,7 +10,7 @@ OUTPUT_FILE = "Finalplay04.m3u"      # disimpan langsung di folder scripts
 # URL logo baru
 NEW_LOGO_URL = "https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master/IMG_20250807_103611.jpg"
 
-# URL khusus yang logo tvg-nya tidak akan diganti
+# URL khusus yang semua logonya akan diganti
 SPECIAL_LOGO_URL_SOURCE = "https://s.id/andi7153"
 
 def process_playlist(source_file, output_file):
@@ -54,22 +54,14 @@ def process_playlist(source_file, output_file):
                 final_processed_lines = []
                 for line in processed_lines:
                     if line.startswith("#EXTINF"):
-                        
-                        # Hapus semua atribut logo yang ada
+                        # Hapus semua atribut logo yang ada (tvg-logo dan group-logo)
                         line_without_old_logos = re.sub(r'(tvg-logo|group-logo)="[^"]*"', '', line)
                         
-                        # Tambahkan tag logo berdasarkan URL sumber
+                        # Tentukan tag logo yang akan ditambahkan berdasarkan URL sumber
                         new_line_logo_tags = ""
                         if url == SPECIAL_LOGO_URL_SOURCE:
-                            # Untuk sumber khusus, hanya ganti group-logo dan biarkan tvg-logo asli
-                            
-                            # Cari dan ambil logo tvg yang asli
-                            tvg_logo_match = re.search(r'tvg-logo="([^"]*)"', line)
-                            original_tvg_logo_tag = f' tvg-logo="{tvg_logo_match.group(1)}"' if tvg_logo_match else ''
-                            
-                            # Tambahkan group-logo baru dan tvg-logo asli
-                            new_line_logo_tags = f'{original_tvg_logo_tag} group-logo="{NEW_LOGO_URL}"'
-
+                            # Untuk sumber khusus, ganti semua logo
+                            new_line_logo_tags = f' group-logo="{NEW_LOGO_URL}" tvg-logo="{NEW_LOGO_URL}"'
                         else:
                             # Untuk sumber lainnya, hanya ganti group-logo
                             new_line_logo_tags = f' group-logo="{NEW_LOGO_URL}"'
@@ -138,4 +130,3 @@ def process_playlist(source_file, output_file):
 
 # --- Jalankan proses ---
 process_playlist(SOURCE_FILE, OUTPUT_FILE)
-                
