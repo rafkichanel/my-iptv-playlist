@@ -2,3 +2,4 @@ https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master
 https://bit.ly/BrFiD07
 https://s.id/andi7153
 https://iptv-org.github.io/iptv/index.m3u
+https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master/scripts/live.m3u
