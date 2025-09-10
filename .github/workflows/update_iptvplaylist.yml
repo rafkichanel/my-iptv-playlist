@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0   # biar bisa git pull kalau perlu
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -34,10 +36,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add scripts/Finalplay04.m3u || true
+          git add scripts/Playlist4.m3u || true
           if git diff --cached --quiet; then
             echo "✅ Tidak ada perubahan, skip commit"
           else
-            git commit -m "Update Finalplay04.m3u otomatis via GitHub Actions"
+            git commit -m "Update Playlist4.m3u otomatis via GitHub Actions"
+            git pull --rebase origin main   # sinkron dulu biar ga konflik
             git push
           fi
