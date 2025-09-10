@@ -41,6 +41,6 @@ jobs:
             echo "✅ Tidak ada perubahan, skip commit"
           else
             git commit -m "Update Playlist4.m3u otomatis via GitHub Actions"
-            git pull --rebase origin main   # sinkron dulu biar ga konflik
-            git push
+            git pull --rebase origin master   # sinkron dulu biar ga konflik
+            git push origin master
           fi
