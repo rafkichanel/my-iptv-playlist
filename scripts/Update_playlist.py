@@ -10,6 +10,9 @@ OUTPUT_FILE = "Playlist4.m3u"        # disimpan langsung di folder scripts
 # URL logo baru
 NEW_LOGO_URL = "https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master/IMG_20250807_103611.jpg"
 
+# Daftar kategori yang diperbolehkan
+ALLOWED_CATEGORIES = ["INDONESIA", "SPORT", "KIDS"]
+
 def process_playlist(source_file, output_file):
     """
     Mengunduh, memproses, dan menyimpan playlist dari file sumber.
@@ -44,8 +47,8 @@ def process_playlist(source_file, output_file):
                         match = re.search(r'group-title="([^"]+)"', line, flags=re.IGNORECASE)
                         if match:
                             current_group = match.group(1)
-                            # ✅ hanya ambil yang ada kata "INDONESIA"
-                            if "INDONESIA" in current_group.upper():
+                            # ✅ hanya ambil yang ada di daftar kategori
+                            if any(cat in current_group.upper() for cat in ALLOWED_CATEGORIES):
                                 keep_channel = True
                             else:
                                 keep_channel = False
@@ -85,7 +88,7 @@ def process_playlist(source_file, output_file):
         with open(output_file, "w", encoding="utf-8") as f:
             f.write("\n".join(final_playlist))
 
-        print(f"✅ Playlist INDONESIA disimpan ke {output_file} - {datetime.utcnow().isoformat()} UTC")
+        print(f"✅ Playlist (INDONESIA + SPORT + KIDS) disimpan ke {output_file} - {datetime.utcnow().isoformat()} UTC")
         return True
 
     except FileNotFoundError:
