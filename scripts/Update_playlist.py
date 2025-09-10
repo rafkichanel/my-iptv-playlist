@@ -1,22 +1,21 @@
 import requests
-import os
 import re
 from datetime import datetime
 
 # Definisi file sumber dan file output
 SOURCE_FILE = "sources.txt"          # daftar sumber m3u
-OUTPUT_FILE = "Playlist4.m3u"        # disimpan langsung di folder scripts
+OUTPUT_FILE = "Playlist4.m3u"        # hasil akhir
 
 # URL logo baru
 NEW_LOGO_URL = "https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master/IMG_20250807_103611.jpg"
 
-# Daftar kategori yang diperbolehkan
-ALLOWED_CATEGORIES = ["INDONESIA", "SPORT", "KIDS"]
+# Kategori yang diperbolehkan
+ALLOWED_CATEGORIES = ["SPORT", "INDONESIA"]
+
+# Channel spesial yang selalu masuk
+ALWAYS_INCLUDE = ["INDOSIAR"]
 
 def process_playlist(source_file, output_file):
-    """
-    Mengunduh, memproses, dan menyimpan playlist dari file sumber.
-    """
     try:
         with open(source_file, "r", encoding="utf-8") as f:
             sources = [line.strip() for line in f if line.strip()]
@@ -29,29 +28,34 @@ def process_playlist(source_file, output_file):
                 r.raise_for_status()
                 lines = r.text.splitlines()
 
-                # Daftar kata kunci yang tidak diinginkan
                 disallowed_words = ["DONASI", "UPDATE", "CADANGAN", "WHATSAPP", "CONTACT", "ADMIN"]
 
                 processed_lines = []
                 current_group = None
                 keep_channel = False
+                current_channel_name = ""
 
                 for line in lines:
                     line_upper = line.upper()
 
-                    # Hapus baris yang mengandung kata terlarang
                     if any(word in line_upper for word in disallowed_words):
                         continue
 
                     if line.startswith("#EXTINF"):
                         match = re.search(r'group-title="([^"]+)"', line, flags=re.IGNORECASE)
-                        if match:
-                            current_group = match.group(1)
-                            # ✅ hanya ambil yang ada di daftar kategori
-                            if any(cat in current_group.upper() for cat in ALLOWED_CATEGORIES):
-                                keep_channel = True
-                            else:
-                                keep_channel = False
+                        current_group = match.group(1) if match else ""
+
+                        current_channel_name = ""
+                        if "," in line:
+                            current_channel_name = line.split(",", 1)[1].strip().upper()
+
+                        # ✅ aturan filter:
+                        # 1. Masuk kalau kategori SPORT atau INDONESIA
+                        # 2. Masuk kalau nama channel ada di ALWAYS_INCLUDE
+                        if (any(cat in current_group.upper() for cat in ALLOWED_CATEGORIES)) or any(
+                            inc in current_channel_name for inc in ALWAYS_INCLUDE
+                        ):
+                            keep_channel = True
                         else:
                             keep_channel = False
 
@@ -88,7 +92,7 @@ def process_playlist(source_file, output_file):
         with open(output_file, "w", encoding="utf-8") as f:
             f.write("\n".join(final_playlist))
 
-        print(f"✅ Playlist (INDONESIA + SPORT + KIDS) disimpan ke {output_file} - {datetime.utcnow().isoformat()} UTC")
+        print(f"✅ Playlist (INDONESIA + SPORT + Indosiar) disimpan ke {output_file} - {datetime.utcnow().isoformat()} UTC")
         return True
 
     except FileNotFoundError:
