@@ -10,9 +10,6 @@ CATEGORY_FILE = "categories.txt"     # daftar kategori yang diperbolehkan
 # URL logo baru
 NEW_LOGO_URL = "https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master/IMG_20250807_103611.jpg"
 
-# Channel spesial yang selalu masuk
-ALWAYS_INCLUDE = ["INDOSIAR"]
-
 # --- Baca kategori dari file ---
 try:
     with open(CATEGORY_FILE, "r", encoding="utf-8") as f:
@@ -58,12 +55,17 @@ def process_playlist(source_file, output_file):
                         if "," in line:
                             current_channel_name = line.split(",", 1)[1].strip().upper()
 
-                        # === Filter ketat ===
-                        if any(cat == current_group for cat in ALLOWED_CATEGORIES) or \
-                           any(inc.upper() == current_channel_name for inc in ALWAYS_INCLUDE):
+                        # === Filter fleksibel ===
+                        keep_channel = False
+
+                        # 1. Masuk kalau kategori cocok
+                        if any(cat in current_group for cat in ALLOWED_CATEGORIES):
                             keep_channel = True
-                        else:
-                            keep_channel = False
+
+                        # 2. Masuk kalau nama channel mengandung kategori
+                        for cat in ALLOWED_CATEGORIES:
+                            if cat in current_channel_name:
+                                keep_channel = True
 
                         if keep_channel:
                             # Hapus logo lama
