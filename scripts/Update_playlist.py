@@ -2,33 +2,20 @@ import requests
 import re
 from datetime import datetime
 
-SOURCE_FILE = "sources.txt"          # daftar sumber m3u
-OUTPUT_FILE = "Playlist4.m3u"        # hasil akhir
-CATEGORY_FILE = "categories.txt"     # daftar kategori/regex
+SOURCE_FILE = "sources.txt"      # daftar link m3u
+OUTPUT_FILE = "Playlist_final.m3u" # hasil akhir
+CATEGORIES_FILE = "categories.txt" # daftar kategori
 
 NEW_LOGO_URL = "https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master/IMG_20250807_103611.jpg"
 
-# --- Baca kategori/regex dari file ---
-try:
-    with open(CATEGORY_FILE, "r", encoding="utf-8") as f:
-        CATEGORY_PATTERNS = [line.strip() for line in f if line.strip()]
-except FileNotFoundError:
-    print(f"[ERROR] File kategori tidak ditemukan: {CATEGORY_FILE}")
-    CATEGORY_PATTERNS = []
+def load_categories(file_path):
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            return [line.strip().upper() for line in f if line.strip()]
+    except FileNotFoundError:
+        return []
 
-def matches_category(text, patterns):
-    """Cek apakah text cocok dengan salah satu pola di categories.txt (regex / string)."""
-    for pattern in patterns:
-        try:
-            if re.search(pattern, text, flags=re.IGNORECASE):
-                return True
-        except re.error:
-            # Kalau regex error, fallback ke pencarian biasa
-            if pattern.upper() in text.upper():
-                return True
-    return False
-
-def process_playlist(source_file, output_file):
+def process_playlist(source_file, output_file, categories):
     try:
         with open(source_file, "r", encoding="utf-8") as f:
             sources = [line.strip() for line in f if line.strip()]
@@ -53,30 +40,39 @@ def process_playlist(source_file, output_file):
                 for line in lines:
                     line_upper = line.upper()
 
-                    # Skip kata terlarang
+                    # buang spam
                     if any(word in line_upper for word in disallowed_words):
                         continue
 
                     if line.startswith("#EXTINF"):
-                        match = re.search(r'group-title="([^"]+)"', line, flags=re.IGNORECASE)
-                        current_group = match.group(1) if match else ""
-                        
+                        keep_channel = False
+                        current_group = ""
                         current_channel_name = ""
-                        if "," in line:
-                            current_channel_name = line.split(",", 1)[1].strip()
 
-                        # === Filter fleksibel pakai regex ===
-                        keep_channel = (
-                            matches_category(current_group, CATEGORY_PATTERNS) or
-                            matches_category(current_channel_name, CATEGORY_PATTERNS)
-                        )
+                        # ambil group-title
+                        match = re.search(r'group-title="([^"]+)"', line, flags=re.IGNORECASE)
+                        if match:
+                            current_group = match.group(1).upper()
+
+                        # ambil nama channel
+                        if "," in line:
+                            current_channel_name = line.split(",", 1)[1].strip().upper()
+
+                        # --- LOGIKA FILTER ---
+                        if not categories:  # kalau categories.txt kosong → semua channel masuk
+                            keep_channel = True
+                        else:
+                            for cat in categories:
+                                if cat in current_group or cat in current_channel_name:
+                                    keep_channel = True
+                                    break
 
                         if keep_channel:
-                            # Hapus logo lama
+                            # hapus logo lama
                             line = re.sub(r'tvg-logo="[^"]*"', '', line)
                             line = re.sub(r'group-logo="[^"]*"', '', line)
 
-                            # Tambahkan logo baru
+                            # tambah logo baru
                             line = re.sub(r'(#EXTINF:[^,]+)',
                                           rf'\1 group-logo="{NEW_LOGO_URL}" tvg-logo="{NEW_LOGO_URL}"',
                                           line)
@@ -91,7 +87,6 @@ def process_playlist(source_file, output_file):
             except Exception as e:
                 print(f"[WARN] Gagal ambil sumber {idx}: {e}")
 
-        # Buat playlist akhir
         final_playlist = ["#EXTM3U"] + merged_lines
         final_playlist = [line for line in final_playlist if line.strip()]
 
@@ -108,5 +103,6 @@ def process_playlist(source_file, output_file):
         print(f"[ERROR] Terjadi kesalahan saat memproses {source_file}: {e}")
         return False
 
-# --- Jalankan proses ---
-process_playlist(SOURCE_FILE, OUTPUT_FILE)
+# --- Jalankan ---
+categories = load_categories(CATEGORIES_FILE)
+process_playlist(SOURCE_FILE, OUTPUT_FILE, categories)
