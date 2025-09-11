@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      # 4️⃣ Jalankan generate_xtream.py
+      # 4️⃣ Jalankan generate_xtream.py dari root repo
       - name: Generate Xtream API
         run: python generate_xtream.py
 
