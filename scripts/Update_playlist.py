@@ -2,21 +2,31 @@ import requests
 import re
 from datetime import datetime
 
-# Definisi file sumber dan file output
 SOURCE_FILE = "sources.txt"          # daftar sumber m3u
 OUTPUT_FILE = "Playlist4.m3u"        # hasil akhir
-CATEGORY_FILE = "categories.txt"     # daftar kategori yang diperbolehkan
+CATEGORY_FILE = "categories.txt"     # daftar kategori/regex
 
-# URL logo baru
 NEW_LOGO_URL = "https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master/IMG_20250807_103611.jpg"
 
-# --- Baca kategori dari file ---
+# --- Baca kategori/regex dari file ---
 try:
     with open(CATEGORY_FILE, "r", encoding="utf-8") as f:
-        ALLOWED_CATEGORIES = [line.strip().upper() for line in f if line.strip()]
+        CATEGORY_PATTERNS = [line.strip() for line in f if line.strip()]
 except FileNotFoundError:
     print(f"[ERROR] File kategori tidak ditemukan: {CATEGORY_FILE}")
-    ALLOWED_CATEGORIES = []
+    CATEGORY_PATTERNS = []
+
+def matches_category(text, patterns):
+    """Cek apakah text cocok dengan salah satu pola di categories.txt (regex / string)."""
+    for pattern in patterns:
+        try:
+            if re.search(pattern, text, flags=re.IGNORECASE):
+                return True
+        except re.error:
+            # Kalau regex error, fallback ke pencarian biasa
+            if pattern.upper() in text.upper():
+                return True
+    return False
 
 def process_playlist(source_file, output_file):
     try:
@@ -49,23 +59,17 @@ def process_playlist(source_file, output_file):
 
                     if line.startswith("#EXTINF"):
                         match = re.search(r'group-title="([^"]+)"', line, flags=re.IGNORECASE)
-                        current_group = match.group(1).upper() if match else ""
+                        current_group = match.group(1) if match else ""
                         
                         current_channel_name = ""
                         if "," in line:
-                            current_channel_name = line.split(",", 1)[1].strip().upper()
+                            current_channel_name = line.split(",", 1)[1].strip()
 
-                        # === Filter fleksibel ===
-                        keep_channel = False
-
-                        # 1. Masuk kalau kategori cocok
-                        if any(cat in current_group for cat in ALLOWED_CATEGORIES):
-                            keep_channel = True
-
-                        # 2. Masuk kalau nama channel mengandung kategori
-                        for cat in ALLOWED_CATEGORIES:
-                            if cat in current_channel_name:
-                                keep_channel = True
+                        # === Filter fleksibel pakai regex ===
+                        keep_channel = (
+                            matches_category(current_group, CATEGORY_PATTERNS) or
+                            matches_category(current_channel_name, CATEGORY_PATTERNS)
+                        )
 
                         if keep_channel:
                             # Hapus logo lama
