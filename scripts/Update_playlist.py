@@ -19,7 +19,7 @@ try:
         ALLOWED_CATEGORIES = [line.strip().upper() for line in f if line.strip()]
 except FileNotFoundError:
     print(f"[ERROR] File kategori tidak ditemukan: {CATEGORY_FILE}")
-    ALLOWED_CATEGORIES = []  # biar skrip tetap jalan tapi tidak ada filter
+    ALLOWED_CATEGORIES = []
 
 def process_playlist(source_file, output_file):
     try:
@@ -58,9 +58,9 @@ def process_playlist(source_file, output_file):
                         if "," in line:
                             current_channel_name = line.split(",", 1)[1].strip().upper()
 
-                        # Filter channel berdasarkan kategori dari file
-                        if any(cat in current_group for cat in ALLOWED_CATEGORIES) or \
-                           any(inc.upper() in current_channel_name for inc in ALWAYS_INCLUDE):
+                        # === Filter ketat ===
+                        if any(cat == current_group for cat in ALLOWED_CATEGORIES) or \
+                           any(inc.upper() == current_channel_name for inc in ALWAYS_INCLUDE):
                             keep_channel = True
                         else:
                             keep_channel = False
