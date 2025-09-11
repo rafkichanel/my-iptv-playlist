@@ -2,8 +2,8 @@ name: Update IPTV Playlist
 
 on:
   schedule:
-    - cron: '0 */3 * * *'   # setiap 3 jam sekali
-  workflow_dispatch:        # bisa dijalankan manual lewat GitHub UI
+    - cron: '0 * * * *'     # setiap 1 jam sekali
+  workflow_dispatch:         # bisa dijalankan manual lewat GitHub UI
 
 permissions:
   contents: write
@@ -15,8 +15,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0   # biar bisa git pull kalau perlu
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -41,6 +39,5 @@ jobs:
             echo "✅ Tidak ada perubahan, skip commit"
           else
             git commit -m "Update Playlist4.m3u otomatis via GitHub Actions"
-            git pull --rebase origin master   # sinkron dulu biar ga konflik
-            git push origin master
+            git push
           fi
