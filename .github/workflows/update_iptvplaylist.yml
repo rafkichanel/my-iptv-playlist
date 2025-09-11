@@ -1,41 +1,43 @@
-name: Generate Xtream API
+name: Update IPTV Playlist
 
 on:
   schedule:
-    - cron: '0 */3 * * *'   # jalan tiap 3 jam
-  workflow_dispatch:        # bisa run manual lewat UI
+    - cron: '0 * * * *'     # setiap 1 jam sekali
+  workflow_dispatch:         # bisa dijalankan manual lewat GitHub UI
 
 permissions:
   contents: write
 
 jobs:
-  generate-xtream:
+  update-playlist:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout repo
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2️⃣ Setup Python
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
-      # 3️⃣ Install dependencies
       - name: Install dependencies
-        run: pip install requests
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
 
-      # 4️⃣ Jalankan generate_xtream.py dari root repo
-      - name: Generate Xtream API
-        run: python generate_xtream.py
+      - name: Jalankan Update_playlist.py
+        run: python Update_playlist.py
+        working-directory: scripts
 
-      # 5️⃣ Commit & push hanya jika ada perubahan
-      - name: Commit and Push changes
+      - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git diff-index --quiet HEAD || git commit -m "Auto update Xtream API"
-          git push
+          git add scripts/Playlist4.m3u || true
+          if git diff --cached --quiet; then
+            echo "✅ Tidak ada perubahan, skip commit"
+          else
+            git commit -m "Update Playlist4.m3u otomatis via GitHub Actions"
+            git push
+          fi
