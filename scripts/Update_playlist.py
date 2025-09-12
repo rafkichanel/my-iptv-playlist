@@ -16,7 +16,7 @@ def process_playlist(source_file, output_file):
 
         for idx, url in enumerate(sources, start=1):
             try:
-                print(f"🔄 Mengunduh dari sumber {idx}: {url}")
+                print(f"ðŸ”„ Mengunduh dari sumber {idx}: {url}")
                 r = requests.get(url, timeout=15)
                 r.raise_for_status()
                 lines = r.text.splitlines()
@@ -50,22 +50,23 @@ def process_playlist(source_file, output_file):
                 merged_lines.extend(final_lines)
 
             except Exception as e:
-                print(f"⚠️ Gagal ambil sumber {idx}: {e}")
+                print(f"âš ï¸ Gagal ambil sumber {idx}: {e}")
 
         final_playlist = ["#EXTM3U"] + [line for line in merged_lines if line.strip()]
 
         with open(output_file, "w", encoding="utf-8") as f:
             f.write("\n".join(final_playlist))
 
-        print(f"✅ Playlist berhasil disimpan di {output_file} - {datetime.utcnow().isoformat()} UTC")
+        print(f"âœ… Playlist berhasil disimpan di {output_file} - {datetime.utcnow().isoformat()} UTC")
         return True
 
     except FileNotFoundError:
-        print(f"⚠️ File sumber tidak ditemukan: {source_file}")
+        print(f"âš ï¸ File sumber tidak ditemukan: {source_file}")
         return False
     except Exception as e:
-        print(f"⚠️ Terjadi kesalahan: {e}")
+        print(f"âš ï¸ Terjadi kesalahan: {e}")
         return False
 
 # --- Jalankan proses ---
 process_playlist(SOURCE_FILE, OUTPUT_FILE)
+        
