@@ -5,7 +5,10 @@ from datetime import datetime
 # File sumber dan output
 SOURCE_FILE = "sources.txt"
 OUTPUT_FILE = "playlist4.m3u"
-GROUP_LOGO_URL = "https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master/IMG_20250807_103611.jpg"
+LIVE_EVENT_LOGO = "https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master/IMG_20250807_103611.jpg"
+
+# Channel di LIVE EVENT yang ingin dihapus
+REMOVE_CHANNELS_LIVE_EVENT = ["Reload Playlist", "Event 11"]
 
 def process_playlist(source_file, output_file):
     try:
@@ -25,33 +28,38 @@ def process_playlist(source_file, output_file):
                 disallowed_words = ["DONASI", "UPDATE", "CADANGAN", "WHATSAPP", "CONTACT", "ADMIN"]
 
                 processed_lines = []
+                current_group = None
+
                 for line in lines:
                     line_upper = line.upper()
+
+                    # Hapus kata kunci
                     if any(word in line_upper for word in disallowed_words):
                         continue
-                    if 'group-title="SMA"' in line:
-                        continue
-                    if 'group-title="LIVE EVENT"' in line:
-                        continue
+
+                    # Deteksi kategori
+                    if line.startswith("#EXTINF"):
+                        match_group = re.search(r'group-title="([^"]+)"', line)
+                        current_group = match_group.group(1) if match_group else None
+
+                        # Hapus channel tertentu di LIVE EVENT
+                        if current_group and current_group.upper() == "LIVE EVENT":
+                            # Cek nama channel
+                            match_name = re.search(r'#EXTINF:.*?,(.*)', line)
+                            channel_name = match_name.group(1).strip() if match_name else ""
+                            if channel_name in REMOVE_CHANNELS_LIVE_EVENT:
+                                continue
+                            # Ganti logo lama dengan Rafki
+                            line = re.sub(r'tvg-logo="[^"]*"', f'tvg-logo="{LIVE_EVENT_LOGO}"', line)
+                            line = re.sub(r'group-logo="[^"]*"', f'group-logo="{LIVE_EVENT_LOGO}"', line)
                     processed_lines.append(line)
 
-                final_lines = []
-                for line in processed_lines:
-                    if line.startswith("#EXTINF"):
-                        # Tambahkan group-logo Rafki tanpa menghapus logo channel
-                        if 'group-logo="' not in line:
-                            # Tambahkan group-logo sebelum tanda koma terakhir
-                            parts = line.split(',', 1)
-                            if len(parts) > 1:
-                                new_line = parts[0] + f' group-logo="{GROUP_LOGO_URL}",' + parts[1]
-                                line = new_line
-                    final_lines.append(line)
-
-                merged_lines.extend(final_lines)
+                merged_lines.extend(processed_lines)
 
             except Exception as e:
                 print(f"⚠️ Gagal ambil sumber {idx}: {e}")
 
+        # Simpan playlist
         final_playlist = ["#EXTM3U"] + [line for line in merged_lines if line.strip()]
 
         with open(output_file, "w", encoding="utf-8") as f:
@@ -67,5 +75,5 @@ def process_playlist(source_file, output_file):
         print(f"⚠️ Terjadi kesalahan: {e}")
         return False
 
-# --- Jalankan proses ---
+# Jalankan proses
 process_playlist(SOURCE_FILE, OUTPUT_FILE)
