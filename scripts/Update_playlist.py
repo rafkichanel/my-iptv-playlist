@@ -31,7 +31,7 @@ def process_playlist(source_file, output_file):
                 lines = r.text.splitlines()
 
                 # Daftar kata kunci yang tidak diinginkan
-                disallowed_words = ["DONASI", "UPDATE", "CADANGAN", "WHATSAPP", "CONTACT", "JAPAN", "ADMIN"]
+                disallowed_words = ["DONASI", "UPDATE", "CADANGAN", "WHATSAPP", "CONTACT", "CHANNEL |JAPAN", "ADMIN"]
                 
                 processed_lines = []
                 for line in lines:
