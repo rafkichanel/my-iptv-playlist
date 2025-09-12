@@ -29,9 +29,10 @@ def process_playlist(source_file, output_file):
                     line_upper = line.upper()
                     if any(word in line_upper for word in disallowed_words):
                         continue
-                    if 'group-title="SMA"' in line:
+                    if 'group-title="SMA"' in line_upper:
                         continue
-                    if 'group-title="LIVE EVENT"' in line:
+                    # Kode yang diperbaiki untuk mendeteksi "LIVE EVENT"
+                    if 'group-title="LIVE EVENT"' in line_upper:
                         continue
                     processed_lines.append(line)
 
