@@ -29,6 +29,7 @@ def process_playlist(source_file, output_file):
                     line_upper = line.upper()
                     if any(word in line_upper for word in disallowed_words):
                         continue
+                    # Kode yang diperbaiki untuk mendeteksi "SMA"
                     if 'group-title="SMA"' in line_upper:
                         continue
                     # Kode yang diperbaiki untuk mendeteksi "LIVE EVENT"
@@ -70,4 +71,3 @@ def process_playlist(source_file, output_file):
 
 # --- Jalankan proses ---
 process_playlist(SOURCE_FILE, OUTPUT_FILE)
-        
