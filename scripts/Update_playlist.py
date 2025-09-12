@@ -1,4 +1,4 @@
-import requests
+Import requests
 import os
 import re
 from datetime import datetime
@@ -31,57 +31,46 @@ def process_playlist(source_file, output_file):
                 lines = r.text.splitlines()
 
                 # Daftar kata kunci yang tidak diinginkan
-                disallowed_words = ["DONASI", "UPDATE", "CADANGAN", "WHATSAPP", "CONTACT", "ADMIN"]
+                disallowed_words = ["DONASI", "UPDATE", "CADANGAN", "WHATSAPP", "CONTACT", "ADMIN", "CHANNEL | JAPAN",]
                 
                 processed_lines = []
-                current_group = None
                 for line in lines:
                     line_upper = line.upper()
                     
                     # Menghapus baris yang mengandung kata kunci yang tidak diinginkan
                     if any(word in line_upper for word in disallowed_words):
                         continue
-
-                    # Menemukan kategori saat ini untuk keperluan penghapusan
-                    if line.startswith("#EXTINF"):
-                        match = re.search(r'group-title="([^"]+)"', line)
-                        if match:
-                            current_group = match.group(1)
                     
-                    # Daftar kategori yang akan dihapus
-                    categories_to_delete = ["LIVE EVENT", "SMA", "CHANNEL | JAPAN"]
-                    if current_group and current_group.upper() in [cat.upper() for cat in categories_to_delete]:
-                        continue # Lewati seluruh saluran dari kategori ini
-
+                    # Menghapus kategori LIVE EVENT dan SMA
+                    if line.startswith("#EXTINF") and ('group-title="00.LIVE EVENT"' in line or 'group-title="SMA"' in line):
+                        continue
+                    
                     processed_lines.append(line)
 
                 # Menghapus logo lama dan menambahkan logo baru
                 final_processed_lines = []
-                current_group = None
                 for line in processed_lines:
                     if line.startswith("#EXTINF"):
-                        match = re.search(r'group-title="([^"]+)"', line)
-                        if match:
-                            current_group = match.group(1).strip()
+                        # Cari logo asli konten (tvg-logo)
+                        tvg_logo_match = re.search(r'tvg-logo="([^"]*)"', line)
+                        original_tvg_logo = tvg_logo_match.group(1) if tvg_logo_match else ""
+
+                        # Hapus semua tag logo yang ada di baris
+                        line = re.sub(r'\s+tvg-logo="[^"]*"', '', line)
+                        line = re.sub(r'\s+group-logo="[^"]*"', '', line)
+
+                        # Tambahkan logo Rafki untuk group dan logo asli untuk tvg
+                        new_logo_tags = f' tvg-logo="{original_tvg_logo}" group-logo="{NEW_LOGO_URL}"'
                         
-                        # Cek jika kategori adalah "LIVE | TIMNAS🇮🇩"
-                        if current_group and current_group.upper() == "LIVE | TIMNAS🇮🇩":
-                            # Hapus semua tag logo yang ada
-                            line = re.sub(r'\s+tvg-logo="[^"]*"', '', line)
-                            line = re.sub(r'\s+group-logo="[^"]*"', '', line)
+                        line_parts = line.split(',', 1)
+                        if len(line_parts) > 1:
+                            attributes_and_title = line_parts[0].strip()
+                            channel_name = line_parts[1].strip()
                             
-                            # Tambahkan logo Rafki untuk tvg-logo dan group-logo
-                            new_logo_tags = f' tvg-logo="{NEW_LOGO_URL}" group-logo="{NEW_LOGO_URL}"'
-                            line_parts = line.split(',', 1)
-                            if len(line_parts) > 1:
-                                attributes_and_title = line_parts[0].strip()
-                                channel_name = line_parts[1].strip()
-                                new_line = f'{attributes_and_title}{new_logo_tags},{channel_name}'
-                                final_processed_lines.append(new_line)
-                            else:
-                                final_processed_lines.append(line)
+                            # Rekonstruksi baris dengan logo baru
+                            new_line = f'{attributes_and_title}{new_logo_tags},{channel_name}'
+                            final_processed_lines.append(new_line)
                         else:
-                            # Jika bukan kategori yang ditargetkan, jangan ubah logo
                             final_processed_lines.append(line)
                     else:
                         final_processed_lines.append(line)
@@ -131,4 +120,5 @@ def process_playlist(source_file, output_file):
 
 # --- Jalankan proses ---
 process_playlist(SOURCE_FILE, OUTPUT_FILE)
-                
+
+
