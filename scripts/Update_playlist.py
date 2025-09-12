@@ -1,11 +1,12 @@
 import requests
 import os
 import re
+import subprocess
 from datetime import datetime
 
 # Definisi file sumber dan file output
 SOURCE_FILE = "sources.txt"          # daftar sumber m3u
-OUTPUT_FILE = "playlist4.m3u"      # disimpan langsung di folder scripts
+OUTPUT_FILE = "playlist4.m3u"        # disimpan langsung di folder scripts
 
 # URL logo baru
 NEW_LOGO_URL = "https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master/IMG_20250807_103611.jpg"
@@ -21,7 +22,7 @@ def process_playlist(source_file, output_file):
         merged_lines = []
         for idx, url in enumerate(sources, start=1):
             try:
-                print(f"Ã°Å¸â€œÂ¡ Mengunduh dari sumber {idx} ({source_file}): {url}")
+                print(f"📡 Mengunduh dari sumber {idx} ({source_file}): {url}")
                 r = requests.get(url, timeout=15)
                 r.raise_for_status()
                 lines = r.text.splitlines()
@@ -38,11 +39,9 @@ def process_playlist(source_file, output_file):
                     if any(word in line_upper for word in disallowed_words):
                         continue
                     
-                    # Cek apakah baris #EXTINF termasuk dalam kategori "00.LIVE EVENT"
+                    # Hapus kategori tertentu
                     if line.startswith("#EXTINF") and 'group-title="00.LIVE EVENT"' in line:
                         continue
-
-                    # Filter untuk menghilangkan group-title="SMA"
                     if 'group-title="SMA"' in line:
                         continue
                     
@@ -71,7 +70,7 @@ def process_playlist(source_file, output_file):
                 
                 merged_lines.extend(final_processed_lines)
             except Exception as e:
-                print(f"Ã¢Å¡ Ã¯Â¸Â Gagal ambil sumber {idx} dari {source_file}: {e}")
+                print(f"⚠️ Gagal ambil sumber {idx} dari {source_file}: {e}")
 
         # Perbaikan nama grup
         playlist_content = "\n".join(merged_lines)
@@ -105,16 +104,40 @@ def process_playlist(source_file, output_file):
         with open(output_file, "w", encoding="utf-8") as f:
             f.write("\n".join(final_playlist))
 
-        print(f"Ã¢Å“â€¦ Playlist disimpan ke {output_file} - {datetime.utcnow().isoformat()} UTC")
+        print(f"✅ Playlist disimpan ke {output_file} - {datetime.utcnow().isoformat()} UTC")
         return True
 
     except FileNotFoundError:
-        print(f"Ã¢Ââ€” File sumber tidak ditemukan: {source_file}")
+        print(f"❌ File sumber tidak ditemukan: {source_file}")
         return False
     except Exception as e:
-        print(f"Ã¢ÂÅ’ Terjadi kesalahan saat memproses {source_file}: {e}")
+        print(f"🚨 Terjadi kesalahan saat memproses {source_file}: {e}")
         return False
 
+
+def git_commit_and_push(file_path):
+    """
+    Commit & push file ke repo
+    """
+    try:
+        subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=True)
+        subprocess.run(["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"], check=True)
+        subprocess.run(["git", "add", file_path], check=True)
+
+        # cek kalau ada perubahan
+        diff = subprocess.run(["git", "diff", "--cached", "--quiet"])
+        if diff.returncode == 0:
+            print("✅ Tidak ada perubahan, skip commit & push")
+            return
+
+        msg = f"Update {file_path} otomatis {datetime.utcnow().isoformat()} UTC"
+        subprocess.run(["git", "commit", "-m", msg], check=True)
+        subprocess.run(["git", "push"], check=True)
+        print("🚀 Perubahan berhasil dipush ke repo")
+    except Exception as e:
+        print(f"⚠️ Gagal push ke repo: {e}")
+
+
 # --- Jalankan proses ---
-process_playlist(SOURCE_FILE, OUTPUT_FILE)
-                       
+if process_playlist(SOURCE_FILE, OUTPUT_FILE):
+    git_commit_and_push(OUTPUT_FILE)
