@@ -5,7 +5,7 @@ from datetime import datetime
 
 # Definisi file sumber dan file output
 SOURCE_FILE = "sources.txt"
-OUTPUT_FILE = "playlist4.m3u"  # Nama file sudah diperbarui
+OUTPUT_FILE = "playlist4.m3u"
 
 # URL logo baru
 NEW_LOGO_URL = "https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master/IMG_20250807_103611.jpg"
@@ -51,14 +51,14 @@ def process_playlist(source_file, output_file):
                 final_processed_lines = []
                 for line in processed_lines:
                     if line.startswith("#EXTINF"):
-                        # Hapus logo tvg-logo dan group-logo yang sudah ada
-                        line = re.sub(r'tvg-logo="[^"]*"', '', line)
+                        # Hapus hanya group-logo yang sudah ada
                         line = re.sub(r'group-logo="[^"]*"', '', line)
                         
-                        # Tambahkan tag logo yang baru
-                        new_line_logo_tags = f' group-logo="{NEW_LOGO_URL}" tvg-logo="{NEW_LOGO_URL}"'
+                        # Tambahkan tag group-logo yang baru
+                        new_line_logo_tags = f' group-logo="{NEW_LOGO_URL}"'
                         line_parts = line.split(',', 1)
                         if len(line_parts) > 1:
+                            # Masukkan logo baru sebelum atribut lain (seperti tvg-logo)
                             match = re.search(r'#EXTINF:(-1.*)', line_parts[0])
                             if match:
                                 attributes = match.group(1).strip()
@@ -116,4 +116,4 @@ def process_playlist(source_file, output_file):
 
 # --- Jalankan proses ---
 process_playlist(SOURCE_FILE, OUTPUT_FILE)
-                           
+        
