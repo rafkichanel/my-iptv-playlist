@@ -4,15 +4,16 @@ from datetime import datetime
 
 SOURCE_FILE = "sources.txt"
 OUTPUT_FILE = "Playlist4.m3u"
+
 CATEGORY_LOGO = "https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master/IMG_20250807_103611.jpg"
-LOGO_BASE_URL = "https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/master/logos/"
+CHANNEL_LOGO_BASE = "https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/master/logos/"
 
 def sanitize_channel_name(name):
-    # Hapus karakter khusus untuk membuat URL
+    # Ubah nama channel jadi format aman untuk URL
     return re.sub(r'[^a-zA-Z0-9_-]', '_', name.strip())
 
 def logo_exists(url):
-    # Cek apakah file logo ada (status_code 200)
+    # Cek apakah logo channel ada di server
     try:
         r = requests.head(url, timeout=5)
         return r.status_code == 200
@@ -34,9 +35,7 @@ def process_playlist(source_file, output_file):
                 lines = r.text.splitlines()
 
                 disallowed_words = ["DONASI", "UPDATE", "CADANGAN", "WHATSAPP", "CONTACT", "ADMIN"]
-
                 processed_lines = []
-                current_group = None
 
                 for line in lines:
                     line_upper = line.upper()
@@ -46,38 +45,36 @@ def process_playlist(source_file, output_file):
                         continue
                     if 'group-title="SMA"' in line:
                         continue
+                    processed_lines.append(line)
 
+                final_lines = []
+                for line in processed_lines:
                     if line.startswith("#EXTINF"):
-                        # Deteksi group-title
+                        # Hapus logo lama
+                        line = re.sub(r'tvg-logo="[^"]*"', '', line)
+                        line = re.sub(r'group-logo="[^"]*"', '', line)
+
+                        # Tambahkan logo kategori jika ada group-title
                         match_group = re.search(r'group-title="([^"]+)"', line)
                         if match_group:
-                            current_group = match_group.group(1)
-                            # Tambahkan logo kategori
-                            line = re.sub(r'group-logo="[^"]*"', '', line)
-                            line = re.sub(r'tvg-logo="[^"]*"', '', line)
-                            group_logo_tags = f' group-logo="{CATEGORY_LOGO}"'
+                            group_name = match_group.group(1)
                             line_parts = line.split(',', 1)
                             if len(line_parts) > 1:
                                 attributes = re.search(r'#EXTINF:(-1.*)', line_parts[0]).group(1).strip()
-                                line = f'#EXTINF:{attributes}{group_logo_tags},{line_parts[1].strip()}'
+                                line = f'#EXTINF:{attributes} group-logo="{CATEGORY_LOGO}",{line_parts[1].strip()}'
 
-                        # Tambahkan logo channel jika ada
+                        # Tambahkan logo channel berdasarkan nama channel
                         line_parts = line.split(',', 1)
                         if len(line_parts) > 1:
                             channel_name = line_parts[1].strip()
                             sanitized_name = sanitize_channel_name(channel_name)
-                            channel_logo_url = f"{LOGO_BASE_URL}{sanitized_name}.jpg"
+                            channel_logo_url = f"{CHANNEL_LOGO_BASE}{sanitized_name}.jpg"
                             if logo_exists(channel_logo_url):
-                                # Hapus tvg-logo lama
-                                line = re.sub(r'tvg-logo="[^"]*"', '', line)
                                 line = line.replace(',', f' tvg-logo="{channel_logo_url}",', 1)
-                            else:
-                                # Hapus jika tidak ada logo
-                                line = re.sub(r'tvg-logo="[^"]*"', '', line)
 
-                    processed_lines.append(line)
+                    final_lines.append(line)
 
-                merged_lines.extend(processed_lines)
+                merged_lines.extend(final_lines)
 
             except Exception as e:
                 print(f"⚠ Gagal ambil sumber {idx}: {e}")
@@ -88,7 +85,7 @@ def process_playlist(source_file, output_file):
             r'group-title="SEDANG LIVE"', 'group-title="LIVE EVENT"', playlist_content, flags=re.IGNORECASE
         )
 
-        # Pisahkan LIVE EVENT biar di atas
+        # Pisahkan LIVE EVENT di atas
         lines = playlist_content.splitlines()
         live_event, other_channels, current_group = [], [], None
 
@@ -123,4 +120,5 @@ def process_playlist(source_file, output_file):
         print(f"❌ Terjadi kesalahan: {e}")
         return False
 
+# Jalankan
 process_playlist(SOURCE_FILE, OUTPUT_FILE)
