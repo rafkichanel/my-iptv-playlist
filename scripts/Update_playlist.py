@@ -40,7 +40,7 @@ def process_playlist(source_file, output_file):
                     line_upper = line.upper()
 
                     # Cek apakah baris ini adalah awal dari blok yang ingin dihapus
-                    if 'group-title="SMA"' in line_upper or 'group-title="LIVE EVENT"' in line_upper or 'group-title="CHANNEL | JAPAN"' in line_upper:
+                    if 'group-title="SMA"' in line_upper or 'group-title="0.0 LIVE EVENT"' in line_upper or 'group-title="CHANNEL|JAPAN"' in line_upper:
                         skip_block = True
                         continue  # Langsung lewati baris ini
 
