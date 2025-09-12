@@ -51,21 +51,25 @@ def process_playlist(source_file, output_file):
                 final_processed_lines = []
                 for line in processed_lines:
                     if line.startswith("#EXTINF"):
-                        # Hapus hanya group-logo yang sudah ada
-                        line = re.sub(r'group-logo="[^"]*"', '', line)
+                        # Cari logo asli konten (tvg-logo)
+                        tvg_logo_match = re.search(r'tvg-logo="([^"]*)"', line)
+                        original_tvg_logo = tvg_logo_match.group(1) if tvg_logo_match else ""
+
+                        # Hapus semua tag logo yang ada di baris
+                        line = re.sub(r'\s+tvg-logo="[^"]*"', '', line)
+                        line = re.sub(r'\s+group-logo="[^"]*"', '', line)
+
+                        # Tambahkan logo Rafki untuk group dan logo asli untuk tvg
+                        new_logo_tags = f' tvg-logo="{original_tvg_logo}" group-logo="{NEW_LOGO_URL}"'
                         
-                        # Tambahkan tag group-logo yang baru
-                        new_line_logo_tags = f' group-logo="{NEW_LOGO_URL}"'
                         line_parts = line.split(',', 1)
                         if len(line_parts) > 1:
-                            # Masukkan logo baru sebelum atribut lain (seperti tvg-logo)
-                            match = re.search(r'#EXTINF:(-1.*)', line_parts[0])
-                            if match:
-                                attributes = match.group(1).strip()
-                                new_line = f'#EXTINF:{attributes}{new_line_logo_tags},{line_parts[1].strip()}'
-                                final_processed_lines.append(new_line)
-                            else:
-                                final_processed_lines.append(line)
+                            attributes_and_title = line_parts[0].strip()
+                            channel_name = line_parts[1].strip()
+                            
+                            # Rekonstruksi baris dengan logo baru
+                            new_line = f'{attributes_and_title}{new_logo_tags},{channel_name}'
+                            final_processed_lines.append(new_line)
                         else:
                             final_processed_lines.append(line)
                     else:
@@ -116,4 +120,4 @@ def process_playlist(source_file, output_file):
 
 # --- Jalankan proses ---
 process_playlist(SOURCE_FILE, OUTPUT_FILE)
-        
+            
