@@ -5,7 +5,7 @@ from datetime import datetime
 
 # Definisi file sumber dan file output
 SOURCE_FILE = "sources.txt"          # daftar sumber m3u
-OUTPUT_FILE = "Playlist4.m3u"      # disimpan langsung di folder scripts
+OUTPUT_FILE = "playlist4.m3u"      # disimpan langsung di folder scripts
 
 # URL logo baru
 NEW_LOGO_URL = "https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master/IMG_20250807_103611.jpg"
