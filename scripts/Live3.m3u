@@ -1,18 +1,51 @@
 #EXTM3U
-#EXTINF:-1 group-title="VOLLEYBALL LIVE" tvg-logo="https://storage.allsportdb.com/orig/event/e03b5bd0-7d5e-44aa-8941-3507588b510e", 15:30 dan 19:30 WIB Volleyball World Women's Championship 2025
-#EXTVLCOPT:http-origin=https://demo.crunchyrolll.xyz
-#EXTVLCOPT:http-referrer=https://demo.crunchyrolll.xyz/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
-https://hotlivezz179026907.akainu.xyz/dlGXTdB3LaB3CGVuKLWryg/Fv2lucGIbhPi2caWYvF5Lg/1757255542765/live/may211/chunklist.m3u8
 
-#EXTINF:-1 group-title="VOLLEYBALL LIVE" tvg-logo="https://storage.allsportdb.com/orig/event/e03b5bd0-7d5e-44aa-8941-3507588b510e", 15:30 dan 19:30 WIB Volleyball World Women's Championship 2025
-#EXTVLCOPT:http-origin=https://demo.crunchyrolll.xyz
-#EXTVLCOPT:http-referrer=https://demo.crunchyrolll.xyz/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
-https://hotlivezz179602324.akainu.xyz/Go4kZPUzQxYV6K-ZDSl4ng/Fv2lucGIbhPi2caWYvF5Lg/1757168189877/live/kienSD/chunklist.m3u8
+# ==== 🏆 SEDANG LIVE – OLAHRAGA ====
 
-#EXTINF:-1 group-title="VOLLEYBALL LIVE" tvg-logo="https://storage.allsportdb.com/orig/event/e03b5bd0-7d5e-44aa-8941-3507588b510e", 15:30 dan 19:30 WIB Volleyball World Women's Championship 2025
-#EXTVLCOPT:http-origin=https://demo.crunchyrolll.xyz
-#EXTVLCOPT:http-referrer=https://demo.crunchyrolll.xyz/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
-https://hotlivezz179602324.akainu.xyz/MK0FwGItjaioghotZCqz5g/Fv2lucGIbhPi2caWYvF5Lg/1757168189877/live/cunSD/chunklist.m3u8
+# Sepak Bola
+#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", Al-Ettifaq vs Al-Ahli SFC
+https://linearjitp02-playback.astro.com.my/CH5/master.m3u8|Referer=https://xl365.cfd/
+
+#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", Sevilla vs Elche
+https://ottorigin-prod.mediaset.es/dash/...
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=...
+
+# Liga 1 Indonesia
+#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", Liga 1 - 1
+https://liga1-stream01.dash/...
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=...
+
+# Badminton
+#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", LI-NING Hong Kong Open 2025 (Server 1)
+https://dai3fd1oh325y.cloudfront.net/hkopen1/index.m3u8|Referer=https://crunchyroll.com/
+
+#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", LI-NING Hong Kong Open 2025 (Server 2)
+https://dai3fd1oh325y.cloudfront.net/hkopen2/index.m3u8|Referer=https://crunchyroll.com/
+
+# Balapan / F1
+#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", Formula 1
+https://cdnlb.mvod.gcsis.nl/f1dash/index.mpd
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=...
+
+# Balapan / MotoGP
+#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", MotoGP GP Qatar
+https://spotv2hd.motogp1/dash/index.mpd
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=...
+
+#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", MotoGP GP Argentina
+https://amazon.motogp2/dash/index.mpd
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=...
+
+#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", MotoGP GP Amerika
+https://wahyu1ptv.pages.dev/motogp3/index.m3u8
+
+#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", MotoGP GP Italia
+https://wahyu1ptv.pages.dev/motogp5/index.m3u8
+
+#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", MotoGP GP Spanyol
+https://wahyu1ptv.pages.dev/motogp4/index.m3u8
