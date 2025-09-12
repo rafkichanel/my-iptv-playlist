@@ -1,4 +1,4 @@
-Import requests
+import requests
 import os
 import re
 from datetime import datetime
@@ -31,94 +31,71 @@ def process_playlist(source_file, output_file):
                 lines = r.text.splitlines()
 
                 # Daftar kata kunci yang tidak diinginkan
-                disallowed_words = ["DONASI", "UPDATE", "CADANGAN", "WHATSAPP", "CONTACT", "ADMIN", "CHANNEL | JAPAN",]
+                disallowed_words = ["DONASI", "UPDATE", "CADANGAN", "WHATSAPP", "CONTACT", "ADMIN"]
                 
                 processed_lines = []
+                # Gunakan flag untuk menandai blok yang harus dihilangkan
+                skip_block = False
                 for line in lines:
                     line_upper = line.upper()
-                    
-                    # Menghapus baris yang mengandung kata kunci yang tidak diinginkan
+
+                    # Cek apakah baris ini adalah awal dari blok yang ingin dihapus
+                    if 'group-title="SMA"' in line_upper or 'group-title="LIVE EVENT"' in line_upper or 'group-title="CHANNEL | JAPAN"' in line_upper:
+                        skip_block = True
+                        continue  # Langsung lewati baris ini
+
+                    # Jika sedang dalam mode "skip", cek apakah blok sudah berakhir
+                    if skip_block:
+                        if line.startswith("#EXTINF"):
+                            skip_block = False
+                        else:
+                            continue  # Jika belum, lewati baris ini
+
+                    # Jika tidak sedang dalam mode "skip", proses baris seperti biasa
                     if any(word in line_upper for word in disallowed_words):
                         continue
                     
-                    # Menghapus kategori LIVE EVENT dan SMA
-                    if line.startswith("#EXTINF") and ('group-title="00.LIVE EVENT"' in line or 'group-title="SMA"' in line):
-                        continue
-                    
-                    processed_lines.append(line)
-
-                # Menghapus logo lama dan menambahkan logo baru
-                final_processed_lines = []
-                for line in processed_lines:
-                    if line.startswith("#EXTINF"):
+                    final_line_to_add = line
+                    if final_line_to_add.startswith("#EXTINF"):
                         # Cari logo asli konten (tvg-logo)
-                        tvg_logo_match = re.search(r'tvg-logo="([^"]*)"', line)
+                        tvg_logo_match = re.search(r'tvg-logo="([^"]*)"', final_line_to_add)
                         original_tvg_logo = tvg_logo_match.group(1) if tvg_logo_match else ""
 
                         # Hapus semua tag logo yang ada di baris
-                        line = re.sub(r'\s+tvg-logo="[^"]*"', '', line)
-                        line = re.sub(r'\s+group-logo="[^"]*"', '', line)
+                        final_line_to_add = re.sub(r'\s+tvg-logo="[^"]*"', '', final_line_to_add)
+                        final_line_to_add = re.sub(r'\s+group-logo="[^"]*"', '', final_line_to_add)
 
                         # Tambahkan logo Rafki untuk group dan logo asli untuk tvg
                         new_logo_tags = f' tvg-logo="{original_tvg_logo}" group-logo="{NEW_LOGO_URL}"'
                         
-                        line_parts = line.split(',', 1)
+                        line_parts = final_line_to_add.split(',', 1)
                         if len(line_parts) > 1:
                             attributes_and_title = line_parts[0].strip()
                             channel_name = line_parts[1].strip()
-                            
-                            # Rekonstruksi baris dengan logo baru
-                            new_line = f'{attributes_and_title}{new_logo_tags},{channel_name}'
-                            final_processed_lines.append(new_line)
-                        else:
-                            final_processed_lines.append(line)
-                    else:
-                        final_processed_lines.append(line)
-                
-                merged_lines.extend(final_processed_lines)
+                            final_line_to_add = f'{attributes_and_title}{new_logo_tags},{channel_name}'
+                                
+                    processed_lines.append(final_line_to_add)
+
+                merged_lines.extend(processed_lines)
+
             except Exception as e:
                 print(f"ðŸš« Gagal ambil sumber {idx}: {e}")
 
-        # Perbaikan nama grup (misal: "SEDANG LIVE" menjadi "LIVE EVENT")
-        playlist_content = "\n".join(merged_lines)
-        playlist_content = re.sub(
-            r'group-title="SEDANG LIVE"', 'group-title="LIVE EVENT"', playlist_content, flags=re.IGNORECASE
-        )
+        final_playlist = ["#EXTM3U"] + [line for line in merged_lines if line.strip()]
 
-        # Pisahkan LIVE EVENT agar tampil duluan
-        lines = playlist_content.splitlines()
-        live_event, other_channels, current_group = [], [], None
-
-        for line in lines:
-            if line.startswith("#EXTINF"):
-                match = re.search(r'group-title="([^"]+)"', line)
-                if match:
-                    current_group = match.group(1)
-                if current_group and current_group.upper() == "LIVE EVENT":
-                    live_event.append(line)
-                else:
-                    other_channels.append(line)
-            else:
-                if current_group and current_group.upper() == "LIVE EVENT":
-                    live_event.append(line)
-                else:
-                    other_channels.append(line)
-
-        final_playlist = ["#EXTM3U"] + live_event + other_channels
-        final_playlist = [line for line in final_playlist if line.strip()]
-
-        # Simpan file
         with open(output_file, "w", encoding="utf-8") as f:
             f.write("\n".join(final_playlist))
 
         print(f"ðŸ¤© Playlist berhasil disimpan di {output_file} - {datetime.utcnow().isoformat()} UTC")
         return True
 
+    except FileNotFoundError:
+        print(f"ðŸš« File sumber tidak ditemukan: {source_file}")
+        return False
     except Exception as e:
         print(f"ðŸš« Terjadi kesalahan: {e}")
         return False
 
 # --- Jalankan proses ---
 process_playlist(SOURCE_FILE, OUTPUT_FILE)
-
-
+            
