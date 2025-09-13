@@ -1,10 +1,5 @@
 #EXTM3U
 
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/c2/BRI_Super_League_Indonesia.png", 15:30 dan 19:00 WIB BRI Super League
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-#EXTVLCOPT:http-referrer=https://ppdd02.playerktidfintkd.shop/
-https://drive.google.com/uc?export=download&id=1gHID3FZ0rL_MwJJFVEwdJX13jfQ1sHa2&usp
-
 #EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/c2/BRI_Super_League_Indonesia.png", 15:30 WIB Arema vs Dewa United
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTVLCOPT:http-referrer=https://hlsplayer.net/
