@@ -1,57 +1,61 @@
 #EXTM3U
 
-# ==== 🏆 SEDANG LIVE – OLAHRAGA ====
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://iili.io/FtSr5Mb.jpg", Premier League 1
+https://moblive.yuppcdn.net/drm1/smil:starsportsselect1drm.smil/manifest.mpd
 
-# Sepak Bola
-#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", Al-Ettifaq vs Al-Ahli SFC
-https://linearjitp02-playback.astro.com.my/CH5/master.m3u8|Referer=https://xl365.cfd/
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://iili.io/FDOiPI4.jpg", LIGA 1 2
+https://hotlivezz179602324.akainu.xyz/KtL4tjK5xqun1OzWYk66lQ/Fv2lucGIbhPi2caWYvF5Lg/1754764738399/live/nuiSD/chunklist.m3u8
 
-#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", Sevilla vs Elche
-https://ottorigin-prod.mediaset.es/dash/...
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=...
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/53/Livestream_logo-rgb_standard.png", RELOAD PLAYLIST DULU SETIAP BUKA LIVE EVENT
+https://drive.google.com/uc?export=download&id=1gHID3FZ0rL_MwJJFVEwdJX13jfQ1sHa2&usp
 
-# Liga 1 Indonesia
-#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", Liga 1 - 1
-https://liga1-stream01.dash/...
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/76/MLS_crest_logo_RGB_gradient.svg/250px-MLS_crest_logo_RGB_gradient.svg.png", Major League Soccer 5
+https://hotlivezz179602324.akainu.xyz/isBERxJOf24lozzDVFB-bQ/Fv2lucGIbhPi2caWYvF5Lg/1755970800886/live/cuonSD/chunklist.m3u8
 
-# Badminton
-#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", LI-NING Hong Kong Open 2025 (Server 1)
-https://dai3fd1oh325y.cloudfront.net/hkopen1/index.m3u8|Referer=https://crunchyroll.com/
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://asset-2.tribunnews.com/kalteng/foto/bank/originals/Hong-Kong-Open-2025.jpg", LI-NING Hong Kong Open 2025 1
+https://0713546501eefc1afcb0b54d64dcb5b8.v.smtcdns.net/play.cbalive.weibisai.com/live/4007186557870061_AiHD.m3u8?txSecret=b427531cb96a658ce47c72980eddd7d3&txTime=68C63DC0
 
-#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", LI-NING Hong Kong Open 2025 (Server 2)
-https://dai3fd1oh325y.cloudfront.net/hkopen2/index.m3u8|Referer=https://crunchyroll.com/
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://iili.io/FtSMHX9.jpg", LALIGA 1
+https://d6m3sfa7e58z5.cloudfront.net/out/v1/3b0660e05eed4d769521eb0275aab3ab/index.mpd
 
-# Basket
-#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", NBA Playoffs 2025 – Game 1
-https://nba-stream01.m3u8
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/c2/BRI_Super_League_Indonesia.png", 15:30 WIB Arema vs Dewa United
+https://stream.titanlivescore.com/live/LXSCORE-4879785.m3u8
 
-# Tenis
-#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", US Open 2025 – Court Central
-https://usopen2025.stream/match1.m3u8
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://iili.io/FtSr5Mb.jpg", Premier League 3
+https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/3b7qwiqzk3/out/v1/9f14895badca43e6a716db021dcd0c31/cenc.mpd
 
-# Balapan / F1
-#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", Formula 1 GP Monako
-https://cdnlb.mvod.gcsis.nl/f1dash/index.mpd
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=...
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/76/MLS_crest_logo_RGB_gradient.svg/250px-MLS_crest_logo_RGB_gradient.svg.png", Major League Soccer 1
+https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/director/VE1N2M3NDM4YWNiYTc4LTJmMzktNDcwNC1hNDExLWQyMzAzNTY0/master.m3u8
 
-# Balapan / MotoGP
-#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", MotoGP GP Qatar
-https://spotv2hd.motogp1/dash/index.mpd
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=...
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/en/8/8e/2025_FIVB_Men%27s_Volleyball_World_Championship_logo.png", Vollyball World Championship 1
+https://hotlivezz179026907.akainu.xyz/W7gFaWSJ7vw77y_0XZVbjA/Fv2lucGIbhPi2caWYvF5Lg/1757777806656/live/may21/chunklist.m3u8
 
-#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", MotoGP GP Argentina
-https://amazon.motogp2/dash/index.mpd
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=...
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/53/Livestream_logo-rgb_standard.png", EVENT 13 dan 14 SEPTEMBER 2025
+https://drive.google.com/uc?export=download&id=1gHID3FZ0rL_MwJJFVEwdJX13jfQ1sHa2&usp
 
-#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", MotoGP GP Amerika
-https://wahyu1ptv.pages.dev/motogp3/index.m3u8
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://iili.io/FtSr5Mb.jpg", Premier League 2
+https://otte.live.fly.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/wf8usag51e/out/v1/bd3b0c314fff4bb1ab4693358f3cd2d3/cenc.mpd
 
-#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", MotoGP GP Italia
-https://wahyu1ptv.pages.dev/motogp5/index.m3u8
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://iili.io/FDOiPI4.jpg", LIGA 1 3
+https://hotlivezz179602324.akainu.xyz/6fB05b9007Khv7PF789OKg/Fv2lucGIbhPi2caWYvF5Lg/1756233048147/live/daoSD/chunklist.m3u8
 
-#EXTINF:-1 group-title="Sedang Live" tvg-logo="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-vector-red-broadcast-icon-png-image_5207410.png", MotoGP GP Spanyol
-https://wahyu1ptv.pages.dev/motogp4/index.m3u8
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://iili.io/FtSMHX9.jpg", LALIGA 2
+https://d6m3sfa7e58z5.cloudfront.net/out/v1/a265695db5cb461095cbfefc02ad793b/index.mpd
+
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://iili.io/FtSr5Mb.jpg", Premier League 4
+https://otte.live.fly.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/uiffe4jhf0/out/v1/3534efafca8c4815adbb4d2e9a1fe003/cenc.mpd
+
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://iili.io/FtSr5Mb.jpg", Premier League 5
+https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/u142pfptsm/out/v1/1caa3b2dfa9e448d8f61209bdfc1acdc/cenc.mpd
+
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/en/8/8e/2025_FIVB_Men%27s_Volleyball_World_Championship_logo.png", Vollyball World Championship 3
+https://hotlivezz179026907.akainu.xyz/kGdujlxSej037a5ln_JMNA/Fv2lucGIbhPi2caWYvF5Lg/1757764569950/live/may11/chunklist.m3u8
+
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/a/a0/Moto_Gp_logo.svg/486px-Moto_Gp_logo.svg.png", Moto GP
+https://atemecdnbalancer-voe.sysln.id/live/eds/SPOTV2HD/mpd/SPOTV2HD.mpd
+
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/a/a0/Moto_Gp_logo.svg/486px-Moto_Gp_logo.svg.png", Moto GP 2
+https://otte.live.fly.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/f0qvkrra8j/out/v1/f8fa17f087564f51aa4d5c700be43ec4/cenc.mpd
+
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/76/MLS_crest_logo_RGB_gradient.svg/250px-MLS_crest_logo_RGB_gradient.svg.png", Major League Soccer 2
+https://live-atv-cdn.izzigo.tv/1/out/u/dash/TUDN-HD/manifest.mpd
