@@ -1,39 +1,39 @@
 #EXTM3U
 
-#EXTINF:-1 group-title="LIVE TIMNAS 2" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/AFC_U-23_Asian_Cup_logo.svg/1200px-AFC_U-23_Asian_Cup_logo.svg.png", Kickoff Timnas vs Korea
+#EXTINF:-1 group-title="LIVE ON 2" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/AFC_U-23_Asian_Cup_logo.svg/1200px-AFC_U-23_Asian_Cup_logo.svg.png", Kickoff Timnas vs Korea
 #EXTVLCOPT:http-origin=https://demo.crunchyrolll.xyz
 #EXTVLCOPT:http-referrer=https://demo.crunchyrolll.xyz/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
 https://hotlivezz179602324.akainu.xyz/XnjqL4J3ZzzsRYkhF6w8mQ/Fv2lucGIbhPi2caWYvF5Lg/1755706691863/live/satSD/chunklist.m3u8
 
-#EXTINF:-1 group-title="LIVE TIMNAS 2" tvg-logo="", Timnas Server 1
+#EXTINF:-1 group-title="LIVE ON 2" tvg-logo="", Timnas Server 1
 https://raw.githubusercontent.com/hnnyo/anyar/refs/heads/main/indos.m3u8
 
-#EXTINF:-1 group-title="LIVE TIMNAS 2" tvg-logo="", Timnas Server 2
+#EXTINF:-1 group-title="LIVE ON 2" tvg-logo="", Timnas Server 2
 https://raw.githubusercontent.com/hnnyo/anyar/refs/heads/main/indos3.m3u8
 
-#EXTINF:-1 group-title="LIVE TIMNAS 2" tvg-logo="", Timnas Server 3
+#EXTINF:-1 group-title="LIVE ON 2" tvg-logo="", Timnas Server 3
 https://hotlivezz179026907.akainu.xyz/r1P5cj9WcwAazqNyFRg2Cw/Fv2lucGIbhPi2caWYvF5Lg/1753876001509/live/may281/chunklist.m3u8
 
-#EXTINF:-1 group-title="LIVE TIMNAS 2" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/53/Livestream_logo-rgb_standard.png", Server 4
+#EXTINF:-1 group-title="LIVE ON 2" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/53/Livestream_logo-rgb_standard.png", Server 4
 #EXTVLCOPT:http-origin=https://demo.zplayer.xyz
 #EXTVLCOPT:http-referrer=https://demo.zplayer.xyz/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
 https://hotlivezz179026907.akainu.xyz/iY_rHqF5aOBpfyTpG8sN6A/Fv2lucGIbhPi2caWYvF5Lg/1753776277092/live/may271/chunklist.m3u8
 
-#EXTINF:-1 group-title="LIVE TIMNAS 2" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/53/Livestream_logo-rgb_standard.png", Server 5
+#EXTINF:-1 group-title="LIVE ON 2" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/53/Livestream_logo-rgb_standard.png", Server 5
 #EXTVLCOPT:http-origin=https://demo.zplayer.xyz
 #EXTVLCOPT:http-referrer=https://demo.zplayer.xyz/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
 https://hotlivezz179026907.akainu.xyz/r1P5cj9WcwAazqNyFRg2Cw/Fv2lucGIbhPi2caWYvF5Lg/1753876001509/live/may281/chunklist.m3u8
 
-#EXTINF:-1 group-title="LIVE TIMNAS 2" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/53/Livestream_logo-rgb_standard.png", Server 6
+#EXTINF:-1 group-title="LIVE ON 2" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/53/Livestream_logo-rgb_standard.png", Server 6
 #EXTVLCOPT:http-origin=https://demo.zplayer.xyz
 #EXTVLCOPT:http-referrer=https://demo.zplayer.xyz/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
 https://hotlivezz179026907.akainu.xyz/iY_rHqF5aOBpfyTpG8sN6A/Fv2lucGIbhPi2caWYvF5Lg/1753776277092/live/may271/chunklist.m3u8
 
-#EXTINF:-1 group-title="LIVE TIMNAS 2" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/53/Livestream_logo-rgb_standard.png", Server 7
+#EXTINF:-1 group-title="LIVE ON 2" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/53/Livestream_logo-rgb_standard.png", Server 7
 #EXTVLCOPT:http-origin=https://demo.zplayer.xyz
 #EXTVLCOPT:http-referrer=https://demo.zplayer.xyz/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
