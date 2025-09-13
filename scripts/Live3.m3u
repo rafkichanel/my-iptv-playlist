@@ -1,67 +1,27 @@
 #EXTM3U
 
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://iili.io/FtSMHX9.jpg", LALIGA 1
-https://d6m3sfa7e58z5.cloudfront.net/out/v1/3b0660e05eed4d769521eb0275aab3ab/index.mpd
-
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://iili.io/FDOiPI4.jpg", LIGA 1 2
-https://hotlivezz179602324.akainu.xyz/KtL4tjK5xqun1OzWYk66lQ/Fv2lucGIbhPi2caWYvF5Lg/1754764738399/live/nuiSD/chunklist.m3u8
-
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/en/8/8e/2025_FIVB_Men%27s_Volleyball_World_Championship_logo.png", Vollyball World Championship 2
-https://hotlivezz179026907.akainu.xyz/sSYHCvPN64vQdfpHlVW92g/Fv2lucGIbhPi2caWYvF5Lg/1757761882923/live/may201/chunklist.m3u8
-
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/76/MLS_crest_logo_RGB_gradient.svg/250px-MLS_crest_logo_RGB_gradient.svg.png", Major League Soccer 4
-https://d2tjypxxy769fn.cloudfront.net/out/v1/46d9cf39b9a84183b8d5022ac8f4bc41/index.mpd
-
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://iili.io/FtSr5Mb.jpg", Premier League 1
-https://moblive.yuppcdn.net/drm1/smil:starsportsselect1drm.smil/manifest.mpd
-
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/a/a0/Moto_Gp_logo.svg/486px-Moto_Gp_logo.svg.png", Moto GP
-https://atemecdnbalancer-voe.sysln.id/live/eds/SPOTV2HD/mpd/SPOTV2HD.mpd
-
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/76/MLS_crest_logo_RGB_gradient.svg/250px-MLS_crest_logo_RGB_gradient.svg.png", Major League Soccer 1
-https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/director/VE1N2M3NDM4YWNiYTc4LTJmMzktNDcwNC1hNDExLWQyMzAzNTY0/master.m3u8
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/c2/BRI_Super_League_Indonesia.png", 15:30 dan 19:00 WIB BRI Super League
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://ppdd02.playerktidfintkd.shop/
+https://drive.google.com/uc?export=download&id=1gHID3FZ0rL_MwJJFVEwdJX13jfQ1sHa2&usp
 
 #EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/c2/BRI_Super_League_Indonesia.png", 15:30 WIB Arema vs Dewa United
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://hlsplayer.net/
 https://stream.titanlivescore.com/live/LXSCORE-4879785.m3u8
 
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/76/MLS_crest_logo_RGB_gradient.svg/250px-MLS_crest_logo_RGB_gradient.svg.png", Major League Soccer 3
-https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/u142pfptsm/out/v1/1caa3b2dfa9e448d8f61209bdfc1acdc/cenc.mpd
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/c2/BRI_Super_League_Indonesia.png", 15:30 WIB Arema vs Dewa United
+#EXTVLCOPT:http-origin=https://demo.crunchyrolll.xyz
+#EXTVLCOPT:http-referrer=https://demo.crunchyrolll.xyz/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+https://apisportzz179528093.nsnd.live/Hzr9yXqCi7ZCmvgcXEogFw/Fv2lucGIbhPi2caWYvF5Lg/1757774204015/live/sd-6MuTNFj76aLdUhHxYj/chunklist.m3u8
 
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://iili.io/FtSr5Mb.jpg", Premier League 3
-https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/3b7qwiqzk3/out/v1/9f14895badca43e6a716db021dcd0c31/cenc.mpd
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/c2/BRI_Super_League_Indonesia.png", 15:30 WIB Arema vs Dewa United
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://ppdd02.playerktidfintkd.shop/
+https://twnx1-cf.boblcfwudz421.com/auth%3Dea952ffd7625a1117c422bc164ba272852184a748fba8417f30b4602651d3e461ef92c3594f4ce5723930af341cfb068e4bcc659133e157838591c83d77fee406ef14fded0a305c712d10b69f22b96b949a0fa3059fbeb3b8b92ae34e81d4621512a3776cb668adb80206ab7051e8fe36ed0ca71d922de8f6bb1c4387b4aa099da65a6e5a537bf7e966338dcf41cb1a1e219b377a5358e80a1c8c714600652f0%26cid%3Dlx3BndubspSsbh4I0XB_9250912%26_v%3D2%26_r%3DzC9SM0%26_vis%3Da0e38408dde9123193e05ca262f2e2bfa924aa696d867bd821951543ba6bffc6%26_vvs%3D890104eca10cecff6578b77566c333c81e6d7fd127f9c8ef243822d8ceb6724a/transcode/c370180_480p.m3u8
 
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://asset-2.tribunnews.com/kalteng/foto/bank/originals/Hong-Kong-Open-2025.jpg", LI-NING Hong Kong Open 2025 1
-https://0713546501eefc1afcb0b54d64dcb5b8.v.smtcdns.net/play.cbalive.weibisai.com/live/4007186557870061_AiHD.m3u8?txSecret=b427531cb96a658ce47c72980eddd7d3&txTime=68C63DC0
-
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://iili.io/FtSr5Mb.jpg", Premier League 4
-https://otte.live.fly.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/uiffe4jhf0/out/v1/3534efafca8c4815adbb4d2e9a1fe003/cenc.mpd
-
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://iili.io/FDOiPI4.jpg", LIGA 1 1
-https://dash2.antik.sk/stream/nvidia_nova_sport2/playlist_cenc.mpd
-
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/a/a0/Moto_Gp_logo.svg/486px-Moto_Gp_logo.svg.png", Moto GP HD
-https://wahyu1ptv.pages.dev/SPOTV2-HD.m3u8
-
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/en/8/8e/2025_FIVB_Men%27s_Volleyball_World_Championship_logo.png", Vollyball World Championship 1
-https://hotlivezz179026907.akainu.xyz/W7gFaWSJ7vw77y_0XZVbjA/Fv2lucGIbhPi2caWYvF5Lg/1757777806656/live/may21/chunklist.m3u8
-
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://iili.io/FtSMHX9.jpg", LALIGA 2
-https://d6m3sfa7e58z5.cloudfront.net/out/v1/a265695db5cb461095cbfefc02ad793b/index.mpd
-
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/c2/BRI_Super_League_Indonesia.png", 15:30 dan 19:00 WIB BRI Super League
-https://drive.google.com/uc?export=download&id=1gHID3FZ0rL_MwJJFVEwdJX13jfQ1sHa2&usp
-
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/53/Livestream_logo-rgb_standard.png", EVENT 13 dan 14 SEPTEMBER 2025
-https://drive.google.com/uc?export=download&id=1gHID3FZ0rL_MwJJFVEwdJX13jfQ1sHa2&usp
-
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://iili.io/FtSr5Mb.jpg", Premier League 2
-https://otte.live.fly.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/wf8usag51e/out/v1/bd3b0c314fff4bb1ab4693358f3cd2d3/cenc.mpd
-
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://iili.io/FDOiPI4.jpg", LIGA 1 3
-https://hotlivezz179602324.akainu.xyz/6fB05b9007Khv7PF789OKg/Fv2lucGIbhPi2caWYvF5Lg/1756233048147/live/daoSD/chunklist.m3u8
-
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/76/MLS_crest_logo_RGB_gradient.svg/250px-MLS_crest_logo_RGB_gradient.svg.png", Major League Soccer 2
-https://live-atv-cdn.izzigo.tv/1/out/u/dash/TUDN-HD/manifest.mpd
-
-#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/a/a0/Moto_Gp_logo.svg/486px-Moto_Gp_logo.svg.png", Moto GP 1
-https://otte.live.fly.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/f0qvkrra8j/out/v1/f8fa17f087564f51aa4d5c700be43ec4/cenc.mpd
+#EXTINF:-1 group-title="Chanel Live on" tvg-logo="https://upload.wikimedia.org/wikipedia/id/9/99/Logo_Terbaru_Liga_2_Indonesia.png", 15:30 WIB Persipal FC vs Persipura Jayapura
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://ppdd02.playerktidfintkd.shop/
+https://twnx3-cf.boblcfwudz421.com/auth%3Dfa62c2ffbc24ee216561b377a54d6ccdfad328f3e975e55c24f26f1c2fad30126cb2f8357a980dae6e92561969e2cc3ca80106af491af4013d2153b709187747d9c50955809f7f2113ce800339542ea184480f36aaefafc261e1dac107c1d44a03060043e27dc7ff27dca32f834f
