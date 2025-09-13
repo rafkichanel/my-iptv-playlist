@@ -1,5 +1,6 @@
 https://bit.ly/BrFiD07
 https://s.id/andi7153
 https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master/scripts/Live3.m3u
+https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master/scripts/Live3.m3u
 https://raw.githubusercontent.com/rafkichanel/my-iptv-playlist/refs/heads/master/Selen.m3u
 
